@@ -3,9 +3,6 @@
  */
 package problemas;
 
-/**
- * 
- */
 import java.util.Enumeration;
 
 /**
@@ -22,6 +19,7 @@ public class Granjero extends Problema{
 
 	/**
 	 * 
+	 * @return 	 
 	 */
 	public float h() {
 		
@@ -30,6 +28,7 @@ public class Granjero extends Problema{
 
 	/**
 	 * 
+	 * @return 	 
 	 */
 	public boolean isGoal() {
 		
@@ -38,6 +37,7 @@ public class Granjero extends Problema{
 
 	/**
 	 * 
+	 * @return 	 
 	 */
 	protected boolean isValid() {
 		
@@ -46,6 +46,7 @@ public class Granjero extends Problema{
 
 	/**
 	 * 
+	 * @return 	 
 	 */
 	public Enumeration successors() {
 		
