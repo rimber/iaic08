@@ -1,5 +1,6 @@
 /**
- * 
+ * Contiene el conjunto de los problemas implementados según el paradigma
+ * del espacio de estados.
  */
 package problemas;
 
@@ -8,7 +9,8 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 /**
- *
+ * Clase que implementa el problema del Granjero, el lobo, la cabra y la col según
+ * el paradigma del espacio de estados.
  */
 public class Granjero extends Problema{
 
@@ -117,8 +119,8 @@ public class Granjero extends Problema{
 	}
 
 	/**
-	 * 
-	 * @return 	 
+	 * Genera todos los posibles estados sucesores del estado actual.
+	 * @return Conjunto de estados sucesores.	 
 	 */
 	public Enumeration successors() {
 		
