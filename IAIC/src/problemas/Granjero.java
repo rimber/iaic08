@@ -3,7 +3,9 @@
  */
 package problemas;
 
+import aima.search.*;
 import java.util.Enumeration;
+import java.util.Vector;
 
 /**
  *
@@ -71,12 +73,14 @@ public class Granjero extends Problema{
 	}
 
 	/**
-	 * 
-	 * @return 	 
+	 * Genera el valor heurístico del estado.
+	 * @return Valor de la heúristica. 
 	 */
 	public float h() {
-		
-		return 0;
+		// Heurística: Mejor cuanto menor sea h, es decir, cuanto menos componentes
+		// estén en el lado izquierdo.
+		int h = posGranjero + posLobo + posCabra + posCol;
+		return (float)h;
 	}
 
 	/**
@@ -118,7 +122,94 @@ public class Granjero extends Problema{
 	 */
 	public Enumeration successors() {
 		
-		return null;
+		// Tenemos 4 operadores:
+		// Operador 0: Cruza el lobo (con el granjero).
+		// Operador 1: Cruza la cabra (con el granjero).
+		// Operador 2: Cruza la col (con el granjero).
+		// Operador 3: Cruza el granjero solo.
+		
+	 	// Operador usado.
+	 	int numOperador;
+	 	String nombreOperador = "";
+	 	
+	 	// Nuevas posiciones.
+	 	int nposLobo = 1;
+	 	int nposCabra = 1;
+	 	int nposCol = 0;
+	 	int nposGranjero  = 0;
+	 	Vector successor = new Vector();
+	 	 
+	 	for (numOperador = 0; numOperador <4; numOperador++){
+	 		// Operador 0: Cruza el lobo (con el granjero).
+	 		if (numOperador == 0){
+	 			// El lobo y el granjero deben estar en la misma orilla
+	 			// para poder cruzar.
+	 			if (posGranjero == posLobo){
+	 				// Nombre del operador.
+		 	 		nombreOperador = "cruzaLobo";
+	 				// Cruza el granjero.
+		 	 		nposGranjero = 1 - posGranjero;
+		 	 		// Cruza el lobo.
+		 	 		nposLobo = 1 - posLobo;
+		 	 		// Los demás se quedan donde están.
+		 	 		nposCabra = posCabra;
+		 	 		nposCol = posCol;
+	 			}
+	 	 	}
+	 		
+	 		// Operador 1: Cruza la cabra (con el granjero).
+	 	 	if (numOperador == 1){
+	 	 		if (posGranjero == posCabra){
+	 	 			// Nombre del operador.
+	 	 			nombreOperador = "cruzaCabra";
+	 				// Cruza el granjero.
+		 	 		nposGranjero = 1 - posGranjero;
+		 	 		// Cruza la cabra.
+		 	 		nposCabra = 1 - posCabra;
+		 	 		// Los demás se quedan donde están.
+		 	 		nposLobo = posLobo;
+		 	 		nposCol = posCol;
+	 	 		}
+	 	 	}
+	 	 	
+	 	    // Operador 2: Cruza la col (con el granjero).
+	 	 	if (numOperador == 2){
+	 	 		if (posGranjero == posCol){
+	 	 			// Nombre del operador.
+	 	 			nombreOperador = "cruzaCol";
+	 				// Cruza el granjero.
+		 	 		nposGranjero = 1 - posGranjero;
+		 	 		// Cruza la cabra.
+		 	 		nposCol = 1 - posCol;
+		 	 		// Los demás se quedan donde están.
+		 	 		nposLobo = posLobo;
+		 	 		nposCabra = posCabra;
+	 	 		}
+	 	 	}
+	 	 	
+	 	 	// Operador 3: Cruza el granjero solo.
+	 	 	if(numOperador == 3){
+ 	 			// Nombre del operador.
+ 	 			nombreOperador = "cruzaGranjero";
+ 				// Cruza el granjero.
+	 	 		nposGranjero = 1 - posGranjero;
+	 	 		// Los demás se quedan donde están.
+	 	 		nposCol = posCol;
+	 	 		nposLobo = posLobo;
+	 	 		nposCabra = posCabra;
+	 	 	}
+	 	 	
+	 	 	// Creamos el nuevo estado
+	 	 	Granjero nuevoEstado = new Granjero(nposGranjero,nposLobo,nposCabra,nposCol);
+	 	 		
+	 	 	// Comprobamos si el nuevo estado es válido.
+	 	 	if(nuevoEstado.isValid()){
+	 	 		// Añadimos el estado como sucesor.
+	 	 		successor.addElement(new Successor(nuevoEstado,nombreOperador,1)); 
+	 	 	}
+	 	 }
+	 	 
+	 	 return successor.elements();
 	}
 
 }
