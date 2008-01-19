@@ -1,5 +1,6 @@
 /**
- * 
+ * Contiene el conjunto de los problemas implementados según el paradigma
+ * del espacio de estados.
  */
 package problemas;
 
