@@ -75,6 +75,14 @@ public class Granjero extends Problema{
 	}
 
 	/**
+	 * Método accesor para el atributo enunciado.
+	 * @return Valor del atributo enunciado.
+	 */
+	public String getEnunciado(){
+		return enunciado;
+	}
+	
+	/**
 	 * Genera el valor heurístico del estado.
 	 * @return Valor de la heúristica. 
 	 */
