@@ -53,7 +53,7 @@ public class Canibales extends Problema{
 	 * @param nMisioneros Número de misioneros en el margen izquierdo.
 	 * @param nCanibales Número de caníbales en el margen izquierdo.
 	 */
-	public Canibales(int pBarca, int nMisioneros, int nCanibales){
+	public Canibales(int nMisioneros, int nCanibales, int pBarca){
 		enunciado = "Tres misioneros y tres caníbales están a la orilla de un río" +
 			" que quieren cruzar. Para ello disponen de un bote que tiene como" +
 			" capacidad máxima 2 personas. El objetivo consiste en conseguir " +
@@ -130,8 +130,36 @@ public class Canibales extends Problema{
 	 * @return Conjunto de estados sucesores.	 
 	 */
 	public Enumeration successors() {
-		// TODO Auto-generated method stub
-		return null;
+	    
+	 	// Nuevas posiciones.
+		int nnumMisioneros;
+	    int nnumCanibales;
+	    int nposBarco;
+	    Vector successorVec = new Vector();
+	    
+	    for (nposBarco= 0; nposBarco<2; nposBarco++){
+	    	for (nnumMisioneros=0; nnumMisioneros<3; nnumMisioneros++){
+	    		for (nnumCanibales=0; nnumCanibales+nnumMisioneros<3; nnumCanibales++) {
+	    	  		
+	    			if ((nnumMisioneros+nnumCanibales)>0){
+	    	  			// Creamos el nuevo estado.
+	    	  			Canibales nuevoEstado = 
+	    	  				new Canibales(numMisionerosIzq+nposBarco*nnumMisioneros,
+	    	  							numCanibalesIzq+nposBarco*nnumCanibales,
+	    	  							posBarca+nposBarco);
+	                    
+	    	  			// Comprobamos si el nuevo estado es válido.
+	    	  			if (nuevoEstado.isValid()) {
+	    	  				// Añadimos el estado como sucesor.
+	    	  			   successorVec.addElement(
+	    	  					   new Successor(nuevoEstado,"(" + nnumMisioneros + "," + nnumCanibales + ","+ nposBarco + ")", 1)); 
+	    	  			}
+	    	  		}  
+	    	  	}
+	      	}
+	    }
+
+	    return successorVec.elements();
 	}
 
 }

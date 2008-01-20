@@ -209,7 +209,7 @@ public class Granjero extends Problema{
 	 	 		nposCabra = posCabra;
 	 	 	}
 	 	 	
-	 	 	// Creamos el nuevo estado
+	 	 	// Creamos el nuevo estado.
 	 	 	Granjero nuevoEstado = new Granjero(nposGranjero,nposLobo,nposCabra,nposCol);
 	 	 		
 	 	 	// Comprobamos si el nuevo estado es válido.
