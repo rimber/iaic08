@@ -8,36 +8,36 @@ import aima.search.*;
 import java.util.*;
 
 /**
- * 
+ * Clase que implementa un problema según el paradigma del espacio de estados.
  */
 public abstract class Problema implements State,Heuristic{
 
 	/**
-	 * 
+	 * Enunciado del problema.
 	 */
 	public String enunciado;
 	
 	/**
-	 * 
-	 * @return 	 
+	 * Indica si estamos ante un estado solución.
+	 * @return Valor indicando si el estado es solución o no.
 	 */
 	public abstract boolean isGoal();
 	
 	/**
-	 * 
-	 * @return 	 
+	 * Comprueba si el estado del problema es válido.
+	 * @return Valor indicando la validez del estado.
 	 */
 	protected abstract boolean isValid();
 
 	/**
-	 * 
-	 * @return 	 
+	 * Genera todos los posibles estados sucesores del estado actual.
+	 * @return Conjunto de estados sucesores.	 
 	 */
 	public abstract Enumeration successors();
 
 	/**
-	 * 
-	 * @return 	 
+	 * Genera el valor heurístico del estado.
+	 * @return Valor de la heúristica. 
 	 */
 	public abstract float h();
 	
