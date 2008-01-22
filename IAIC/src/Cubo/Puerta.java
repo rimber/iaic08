@@ -1,84 +1,124 @@
-/*
- * Puerta.java
- *
- * Created on 10 de enero de 2008, 15:05
- *
- * To change this template, choose Tools | Template Manager
- * and open the template in the editor.
+/**
+ * 
  */
-
 package Cubo;
-import java.util.Random;
 
+import java.util.Random;
 import problemas.*;
+
 /**
  *
- * @author usuario_local
  */
 public class Puerta {
     
-	private static int numProb=3;
+	/**
+	 * OJO! Constante para el número de problemas.
+	 */
+	private static int numProb = 3;
+	
+	/**
+	 * 
+	 */
 	private Problema prob;
-    private int estado;//0 estado cerrada, 1 estado abierta 2 estado bloqueada
-    /** Creates a new instance of Puerta */
+	
+	/**
+	 * 0. Cerrada. 
+	 * 1. Abierta. 
+	 * 2. Bloqueada.
+	 */
+    private int estado;
     
+    /**
+     * 
+     */
     public Puerta() {
-        estado=0;
+        estado = 0;
     }
     
-    public Puerta(int e){//habra que pasarle un problema tambien
-        estado=e;
+    /**
+     * 
+     * @param e
+     * @param p
+     */
+    public Puerta(int e, Problema p){
+    	estado = e;
+    	prob = p;    	
+    }
+    
+    /**
+     * 
+     * @param e
+     */
+    public Puerta(int e){
+        estado = e;
         if (e==0){
+        	
+        	// Incluimos un problema aleatoriamente.
             Random rnd = new Random(4578);
-            int opc=rnd.nextInt()%numProb;
-            if (opc<0) opc=-opc;
+            int opc = rnd.nextInt(numProb);
             
             switch (opc){      
-            	case 0:prob=new Canibales();break;
-            	case 1:prob=new Jarras();break;
-            	case 2:prob=new Granjero();break;  		    	  
+            	case 0:
+            		prob = new Canibales();
+            		break;
+            		
+            	case 1:
+            		prob = new Jarras();
+            		break;
+            		
+            	case 2:
+            		prob = new Granjero();
+            		break;  		    	  
             }
         }
     }
     
-    public Puerta(int e, Problema p){
-    	
-    	estado=e;
-    	prob=p;    	
-    }
-    
+    /**
+     * 
+     * @return
+     */
     public int dameEstado(){
         return estado;
     }
     
+    /**
+     * 
+     * @param e
+     */
     public void setEstado(int e){
-        estado=e;    
+        estado = e;    
     }
     
+    /**
+     * 
+     * @param est
+     * @return
+     */
     public boolean abre(int est){
     
-    if (estado==2){
-        return false;
-    }/*si está bloqueada no se puede abrir, 
-      esto cubre los laterales si el edificio esta bien creado
-     */
-    
-    if (estado==1){
-        return true;
-    }
-        //
-    if (estado==0){
-    	
-    	if (prob.resolver(est)){	
-    		estado=1;
-    		return true;
-    	}
-    	else{
-    		estado =2;
-    		return false;
-    	}
-    }    	    
-    //resolver el problema asociado a la puerta, se actualiza el estado
-    return true;//para que no grite con lo de que le falta un return, abra que quitarlol
-    }
+	    if (estado==2){
+	    	// Si está bloqueada no se puede abrir.
+	        return false;
+	    }
+	    
+	    if (estado==1){
+	    	// Sin está abierta.
+	        return true;
+	    }
+	       
+	    if (estado==0){
+	    	// Si está cerrada, trata de resolver.
+	    	if (prob.resolver(est)){	
+	    		// Abre la puerta.
+	    		estado = 1;
+	    		return true;
+	    	}
+	    	else{
+	    		// Bloquea la puerta.
+	    		estado = 2;
+	    		return false;
+	    	}
+	    }    	    
+	    return true;
+	}
 }

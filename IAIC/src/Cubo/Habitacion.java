@@ -1,46 +1,54 @@
-/*
- * Habitacion.java
- *
- * Created on 10 de enero de 2008, 15:05
- *
- * To change this template, choose Tools | Template Manager
- * and open the template in the editor.
+/**
+ * 
  */
-
 package Cubo;
-
-
 
 /**
  *
- * @author usuario_local
  */
 public class Habitacion {
     
-
+	/**
+	 * 
+	 */
     private Puerta puertas[]; 
+    
+    /**
+     * 
+     */
     private int ultimaPuerta;
-    /** Creates a new instance of Habitacion */
+    
+    /**
+     * 
+     */
     public Habitacion() {
-        puertas=new Puerta[6];  
-        ultimaPuerta=0;
+        puertas = new Puerta[6];  
+        ultimaPuerta = 0;
     }
     
+    /**
+     * 
+     * @param direccion
+     * @param estrategia
+     * @return
+     */
     public boolean abrePuerta(int direccion, int estrategia){
-    ultimaPuerta++;
-     if ((direccion>=0) && (direccion<6)){        
-        return puertas[direccion].abre(estrategia);//quiza abria que pasarle el método
-                                         //con el que vas a resolver 
-     }
-     return false;
-    
+    	ultimaPuerta++;
+    	if ((direccion>=0) && (direccion<6)){        
+    		return puertas[direccion].abre(estrategia);                              
+    	}
+    	return false;
     }
     
+    /**
+     * 
+     * @return
+     */
     public int dameUltimaPuertaProbada(){
         return ultimaPuerta;
     }
+    
     /*          2    
-                |
                 |
                 |
            _____+____________ 
@@ -57,6 +65,9 @@ public class Habitacion {
                 0    
      */
   
+    /**
+     * 
+     */
     public Puerta damePuerta(int dir){
         if ((dir>=0) && (dir<6)){      
             return puertas[dir];    
@@ -64,6 +75,12 @@ public class Habitacion {
         return null;
     }
     
+    /**
+     * 
+     * @param p
+     * @param pos
+     * @return
+     */
     public boolean setPuerta(Puerta p,int pos){
         
         if ((pos<0) || (pos >5)){
@@ -74,5 +91,4 @@ public class Habitacion {
             return true;
         }   
     }
-    
 }
