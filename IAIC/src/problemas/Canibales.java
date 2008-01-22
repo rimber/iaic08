@@ -162,4 +162,34 @@ public class Canibales extends Problema{
 	    return successorVec.elements();
 	}
 
+	protected boolean resolverA() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	protected boolean resolverCosteUni() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	protected boolean resolverEscalada() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	protected boolean resolverPrimAnchura() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	protected boolean resolverProfIt() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	protected boolean resolverProfundidad() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

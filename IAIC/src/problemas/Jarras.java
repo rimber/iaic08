@@ -1,9 +1,6 @@
 package problemas;
 
 import java.util.Enumeration;
-import java.util.Vector;
-
-import aima.search.Successor;
 
 /** 
  * Clase que implementa el problema de las jarras.
@@ -38,11 +35,6 @@ public class Jarras extends Problema {
 	 * a las dos jarras vacías.
 	 */
 	public Jarras(){
-		enunciado = "Se tienen dos garrafas vacías con capacidades de 3 y 4 litros "
-					+"respectivamente pero sin ninguna marca de medida parcial."
-					+"Las garrafas pueden vaciarse o llenarse de agua, así como " 
-					+"verter el contenido de una a otra. El objetivo consiste en "
-					+"tener exactamente 2 litros de	agua en la garrafa de 4 litros.";
 		jarra4 = 0;
 		jarra3 = 0;
 	}
@@ -54,11 +46,6 @@ public class Jarras extends Problema {
 	 * @param j litros en la jarra de 3 litros.
 	 */	
 	public Jarras(int i,int j){
-		enunciado = "Se tienen dos garrafas vacías con capacidades de 3 y 4 litros "
-					+"respectivamente pero sin ninguna marca de medida parcial."
-					+"Las garrafas pueden vaciarse o llenarse de agua, así como " 
-					+"verter el contenido de una a otra. El objetivo consiste en "
-					+"tener exactamente 2 litros de	agua en la garrafa de 4 litros.";
 		if((i<0)||(i>4)){
 			String mensaje = new String();
 			mensaje = "No se puede crear el estado "+ String.valueOf(i)+" litros\n";
@@ -120,80 +107,9 @@ public class Jarras extends Problema {
 	 * @return Conjunto de estados nuevos alcanzables.
 	 */
 	public Enumeration successors(){
-		
-		// Tenemos 6 operadores:
-		// Operador 0: Llenar jarra de 4 litros.
-		// Operador 1: Llenar jarra de 3 litros.
-		// Operador 2: Vaciar jarra de 4 litros.
-		// Operador 3: Vaciar jarra de 3 litros.
-		// Operador 4: Verter jarra de 4 litros en la de 3.
-		// Operador 5: Verter jarra de 3 litros en la de 4.
-		
-	 	// Operador usado.
-		int numOperador;
-		String operador = "";
-		
-		// Nuevas posiciones.
-	 	int nuevaJarra3 = 0;
-	 	int nuevaJarra4 = 0;	
-	 	
-	 	Vector successorVec = new Vector();
-	 	nodosExpandidos++;
-
-	 	for(numOperador = 0; numOperador <=5; numOperador++){
-	 		//llenar garrafa de 4L
-	 		if((numOperador == 0) && (jarra4<4) ){
-	 			nuevaJarra4 = 4;
-	 			nuevaJarra3 = jarra3;
-	 			operador ="LLenar jarra de 4 L";
-	 		}
-	 		//llenar garrafa de 3L
-	 		if((numOperador == 1) && (jarra3<0) ){
-	 			nuevaJarra3 = 3;
-	 			nuevaJarra4 = jarra4;
-	 			operador ="LLenar jarra de 3 L";
-	 		}
-	 		//vaciar garrafa de 4L
-	 		if((numOperador == 2) && (jarra4>0) ){
-	 			nuevaJarra4 = 0;
-	 			nuevaJarra3 = jarra3;
-	 			operador ="Vaciar jarra de 4 L";
-	 		}
-	 		//vaciar garrafa de 3L
-	 		if((numOperador == 3) && (jarra3<3) ){
-	 			nuevaJarra3 = 0;
-	 			nuevaJarra4 = jarra4;
-	 			operador ="Vaciar jarra de 3 L";
-	 		}
-	 		//verter garrafa de 4L sobre garrafa de 3L
-	 		if((numOperador == 4) && (jarra4>0) && (jarra3<3) ){
-	 			if(jarra3+jarra4 <= 3){
-	 				nuevaJarra3=jarra3+jarra4;
-	 			}
-	 			else{
-	 				nuevaJarra3 = 3;
-	 			}
-	 			nuevaJarra4 =jarra4-(nuevaJarra3-jarra3);
-	 			operador ="Verter jarra de 4 L sobre la de 3 L";
-	 		}
-	 		//verter garrafa de 3L sobre garrafa de 4L
-	 		if((numOperador == 5) && (jarra3>0) && (jarra4<4) ){
-	 			if(jarra3+jarra4 <= 4){
-	 				nuevaJarra4=jarra3+jarra4;
-	 			}
-	 			else{
-	 				nuevaJarra4 = 4;
-	 			}
-	 			nuevaJarra3 = jarra3 -(nuevaJarra4-jarra4);
-	 			operador ="Verter jarra de 3 L sobre la de 4 L";
-	 		}
-	 		Jarras nuevoEstado = new Jarras(nuevaJarra4,nuevaJarra3);
-	 		if(nuevoEstado.isValid()){
-	 			successorVec.addElement(new Successor(nuevoEstado, operador, 1 ));
-	 		}
-	 	}
-	 return successorVec.elements();		
-}
+		// TODO Auto-generated method stub		
+		return null;
+	}
 
 	/**
 	 * @return los nodos expandidos.
@@ -207,6 +123,36 @@ public class Jarras extends Problema {
 	 */
 	public static void setNodosExpandidos(int n) {
 		nodosExpandidos = n;
+	}
+
+	protected boolean resolverA() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	protected boolean resolverCosteUni() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	protected boolean resolverEscalada() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	protected boolean resolverPrimAnchura() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	protected boolean resolverProfIt() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	protected boolean resolverProfundidad() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
