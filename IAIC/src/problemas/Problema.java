@@ -42,44 +42,93 @@ public abstract class Problema implements State,Heuristic{
 	 */
 	public abstract float h();
 	
-	
+	/**
+	 * Método que intenta resolver un problema según el número de estrategia
+	 * de búsqueda indicada por parámetro:
+	 *  0. Primero en profundidad.
+	 *  1. Primero en anchura.
+	 *  2. Coste uniforme.
+	 *  3. Profundidad iterativa.
+	 *  4. Escalada.
+	 *  5. A*.
+	 * @param estrategia Número de estrategia de búsqueda.
+	 * @return Si se ha resuelto o no el problema con esa estrategia.
+	 */
 	public boolean resolver(int estrategia){
 		
-		boolean resuelto=false;
+		boolean resuelto = false;
 		switch (estrategia){
-			//0= Primero en profundidad
-			case 0:resuelto=resolverProfundidad();break;
-			//1= Primero en anchura
-			case 1:resuelto=resolverPrimAnchura();break;
-
-			//2= Coste uniforme
-			case 2:resuelto=resolverCosteUni();break;
+			//0. Primero en profundidad.
+			case 0:
+				resuelto=resolverProfundidad();
+				break;
+			//1. Primero en anchura.
+			case 1:
+				resuelto=resolverPrimAnchura();
+				break;
+			//2. Coste uniforme.
+			case 2:
+				resuelto=resolverCosteUni();
+				break;
+			//3. Profundidad Iterativa.
+			case 3:
+				resuelto=resolverProfIt();
+				break;
+			//4. Escalada.
+			case 4:
+				resuelto=resolverEscalada();
+				break;
+			//5. A*
+			case 5:
+				resuelto=resolverA();	
+				break;
 			
-			//3=Profundidad Iterativa
-			case 3:resuelto=resolverProfIt();break;
-			
-			//4=Escalada 
-			case 4:resuelto=resolverEscalada();break;
-			
-			//5=A*
-			case 5:resuelto=resolverA();	break;
-			
-			default: return false;	
+			default: 
+				return false;	
 		}				
 		return resuelto;
 	}
-	
+
+	/**
+ 	 * Método que intenta resolver un problema según la estrategia de búsqueda 
+ 	 * primero en profundidad.
+ 	 * @return Si se ha resuelto o no el problema.
+ 	 */
 	protected abstract boolean resolverProfundidad();
 	
+	/**
+ 	 * Método que intenta resolver un problema según la estrategia de búsqueda
+ 	 * primero en anchura.
+ 	 * @return Si se ha resuelto o no el problema.
+ 	 */
 	protected abstract boolean resolverPrimAnchura();
 	
+	/**
+ 	 * Método que intenta resolver un problema según la estrategia de búsqueda
+ 	 * en profundidad iterativa.
+ 	 * @return Si se ha resuelto o no el problema.
+ 	 */
 	protected abstract boolean resolverProfIt();
 	
+	/**
+ 	 * Método que intenta resolver un problema según la estrategia 
+ 	 * de búsqueda escalada. 
+ 	 * @return Si se ha resuelto o no el problema.
+ 	 */
 	protected abstract boolean resolverEscalada();
 	
+	/**
+ 	 * Método que intenta resolver un problema según la estrategia 
+ 	 * de búsqueda A*. 
+ 	 * @return Si se ha resuelto o no el problema.
+ 	 */
 	protected abstract boolean resolverA();
 	
+	/**
+ 	 * Método que intenta resolver un problema según la estrategia 
+ 	 * de búsqueda de coste uniforme. 
+ 	 * @return Si se ha resuelto o no el problema.
+ 	 */
 	protected abstract boolean resolverCosteUni();
-	
 	
 }
