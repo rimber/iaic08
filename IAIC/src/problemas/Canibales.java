@@ -7,6 +7,7 @@ package problemas;
 import aima.search.*;
 import java.util.Enumeration;
 import java.util.Vector;
+import java.util.*;
 
 /**
  * Clase que implementa el problema de los misioneros y los caníbales según
@@ -163,33 +164,32 @@ public class Canibales extends Problema{
 	}
 
 	protected boolean resolverA() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean resuelto = listPath((new AStarSearch(this)).search());
+		return resuelto;
 	}
 
 	protected boolean resolverCosteUni() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean resuelto = listPath((new UniformCostSearch(this)).search());
+		return resuelto;
 	}
 
 	protected boolean resolverEscalada() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean resuelto = listPath((new GreedySearch(this)).search());
+		return resuelto;
 	}
 
 	protected boolean resolverPrimAnchura() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean resuelto = listPath( ( new BreadthFirstSearch(this)).search());
+		return resuelto;
 	}
 
 	protected boolean resolverProfIt() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean resuelto=listPath((new IteratedDeepeningSearch(this)).search());
+		return resuelto;
 	}
 
 	protected boolean resolverProfundidad() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean resuelto=listPath((new DepthBoundedSearch(this,7)).search());
+		return resuelto;
 	}
-
 }

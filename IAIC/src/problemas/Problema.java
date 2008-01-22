@@ -131,4 +131,32 @@ public abstract class Problema implements State,Heuristic{
  	 */
 	protected abstract boolean resolverCosteUni();
 	
+	/**
+	 * 
+	 * @param node
+	 * @return
+	 */
+    public boolean listPath(SearchNode node) {
+       ArrayList camino = new ArrayList();
+	   if (node == null) {
+		   return false;
+	   }
+	   String linea = "";
+	   while (node.getParent()!=null) {
+		   linea =  "Estado: " + node.getState() +
+           				   " Profundidad: " + node.getDepth() +
+           				   " Coste: " + node.getPathCost() +
+           				   " Operador: " + node.getAppliedOp();
+		   camino.add("\n"+linea);
+		   node = node.getParent();
+	   }
+	  
+	   linea = ( "\nESTADO INICIAL: " + node.getState());  
+	   camino.add(linea);
+	   for(int j=camino.size()-1; j>=0;j--){
+		   System.out.println((String)camino.get(j));
+	   }
+	   return true;
+	}
+	
 }
