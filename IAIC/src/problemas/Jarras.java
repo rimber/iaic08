@@ -1,6 +1,15 @@
 package problemas;
 
 import java.util.Enumeration;
+import java.util.Vector;
+
+import aima.search.AStarSearch;
+import aima.search.BreadthFirstSearch;
+import aima.search.DepthBoundedSearch;
+import aima.search.GreedySearch;
+import aima.search.IteratedDeepeningSearch;
+import aima.search.Successor;
+import aima.search.UniformCostSearch;
 
 /** 
  * Clase que implementa el problema de las jarras.
@@ -35,6 +44,11 @@ public class Jarras extends Problema {
 	 * a las dos jarras vacías.
 	 */
 	public Jarras(){
+		enunciado = "Se tienen dos garrafas vacías con capacidades de 3 y 4 litros " +
+					"respectivamente pero sin ninguna marca de medida parcial. Las " +
+					"garrafas pueden vaciarse o llenarse de agua, así como verter " +
+					"el contenido de una a otra. El objetivo consiste en tener " +
+					"exactamente 2 litros de agua en la garrafa de 4 litros.";
 		jarra4 = 0;
 		jarra3 = 0;
 	}
@@ -46,6 +60,11 @@ public class Jarras extends Problema {
 	 * @param j litros en la jarra de 3 litros.
 	 */	
 	public Jarras(int i,int j){
+		enunciado = "Se tienen dos garrafas vacías con capacidades de 3 y 4 litros " +
+		"respectivamente pero sin ninguna marca de medida parcial. Las " +
+		"garrafas pueden vaciarse o llenarse de agua, así como verter " +
+		"el contenido de una a otra. El objetivo consiste en tener " +
+		"exactamente 2 litros de agua en la garrafa de 4 litros.";
 		if((i<0)||(i>4)){
 			String mensaje = new String();
 			mensaje = "No se puede crear el estado "+ String.valueOf(i)+" litros\n";
@@ -73,6 +92,7 @@ public class Jarras extends Problema {
 	 * @return el valor de la heurística.
 	 */
 	public float h(){
+		//Heuristica: Mejor cuanto más próximo a tener 2 litros en la jarra de 4 Litros.
 		float heuristica = 0;
 		heuristica = (2 - jarra4);
 		if(heuristica>0){
@@ -107,8 +127,79 @@ public class Jarras extends Problema {
 	 * @return Conjunto de estados nuevos alcanzables.
 	 */
 	public Enumeration successors(){
-		// TODO Auto-generated method stub		
-		return null;
+		
+		// Tenemos 6 operadores:
+		// Operador 0: Llenar jarra de 4 Litros.
+		// Operador 1: Llenar jarra de 3 Litros.
+		// Operador 2: Vaciar jarra de 4 Litros.
+		// Operador 3: Llenar jarra de 3 Litros.
+		// Operador 4: Verter jarra de 4 en la de 3 Litros.
+		// Operador 5: Verter jarra de 3 en la de 4 Litros.
+		
+	 	// Operador usado.
+	 	int numOperador;
+	 	String nombreOperador = "";
+	 	
+		Vector successorVec = new Vector();
+
+	 	int nuevaJarra3 = 0;
+	 	int nuevaJarra4 = 0;
+	 	nodosExpandidos++;
+
+	 	for(numOperador = 0; numOperador <=5; numOperador++){
+	 		//Llenar garrafa de 4L
+	 		if(numOperador == 0 && jarra4<4 ){
+	 			nuevaJarra4 = 4;
+	 			nuevaJarra3 = jarra3;
+	 			nombreOperador ="LLenar jarra de 4 L";
+	 		}
+	 		//Llenar garrafa de 3L
+	 		if(numOperador == 1 && jarra3<3 ){
+	 			nuevaJarra3 = 3;
+	 			nuevaJarra4 = jarra4;
+	 			nombreOperador ="LLenar jarra de 3 L";
+	 		}
+	 		//Vaciar garrafa de 4L
+	 		if(numOperador == 2 && jarra4>0 ){
+	 			nuevaJarra4 = 0;
+	 			nuevaJarra3 = jarra3;
+	 			nombreOperador ="Vaciar jarra de 4 L";
+	 		}
+	 		//Vaciar garrafa de 3L
+	 		if(numOperador == 3 && jarra3>0 ){
+	 			nuevaJarra4 = jarra4;
+	 			nuevaJarra3 = 0;
+	 			nombreOperador ="Vaciar jarra de 3 L";
+	 		}
+	 		//Verter garrafa de 4L sobre garrafa de 3L
+	 		if(numOperador == 4 && jarra4>0 && jarra3<3 ){
+	 			if(jarra3+jarra4 <= 3){
+	 				nuevaJarra3=jarra3+jarra4;
+	 			}
+	 			else{
+	 				nuevaJarra3 = 3;
+	 			}
+	 			nuevaJarra4 = jarra4-(nuevaJarra3-jarra3);
+	 			nombreOperador ="Verter jarra de 4 L sobre la de 3 L";
+	 		}
+	 		//Verter garrafa de 3L sobre garrafa de 4L
+	 		if(numOperador == 5 && jarra3>0 && jarra4<4 ){
+	 			if(jarra3+jarra4 <= 4){
+	 				nuevaJarra4=jarra3+jarra4;
+	 			}
+	 			else{
+	 				nuevaJarra4 = 4;
+	 			}
+	 			nuevaJarra3 = jarra3 -(nuevaJarra4-jarra4);
+	 			nombreOperador ="Verter jarra de 3 L sobre la de 4 L";
+	 		}
+	 		
+	 		Jarras nuevoEstado = new Jarras(nuevaJarra4,nuevaJarra3);
+	 		if(nuevoEstado.isValid()){
+	 			successorVec.addElement(new Successor(nuevoEstado, nombreOperador, 1 ));
+	 		}
+	 	}
+	 	return successorVec.elements();
 	}
 
 	/**
@@ -126,33 +217,32 @@ public class Jarras extends Problema {
 	}
 
 	protected boolean resolverA() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean resuelto = listPath((new AStarSearch(this)).search());
+		return resuelto;
 	}
 
 	protected boolean resolverCosteUni() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean resuelto = listPath((new UniformCostSearch(this)).search());
+		return resuelto;
 	}
 
 	protected boolean resolverEscalada() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean resuelto = listPath((new GreedySearch(this)).search());
+		return resuelto;
 	}
 
 	protected boolean resolverPrimAnchura() {
-		// TODO Auto-generated method stub
-		return true;
+		boolean resuelto = listPath( ( new BreadthFirstSearch(this)).search());
+		return resuelto;
 	}
 
 	protected boolean resolverProfIt() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean resuelto=listPath((new IteratedDeepeningSearch(this)).search());
+		return resuelto;
 	}
 
 	protected boolean resolverProfundidad() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean resuelto=listPath((new DepthBoundedSearch(this,7)).search());
+		return resuelto;
 	}
-
 }

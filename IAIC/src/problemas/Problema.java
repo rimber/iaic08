@@ -149,8 +149,7 @@ public abstract class Problema implements State,Heuristic{
            				   " Operador: " + node.getAppliedOp();
 		   camino.add("\n"+linea);
 		   node = node.getParent();
-	   }
-	  
+	   }	  
 	   linea = ( "\nESTADO INICIAL: " + node.getState());  
 	   camino.add(linea);
 	   for(int j=camino.size()-1; j>=0;j--){
