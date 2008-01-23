@@ -7,7 +7,6 @@ package problemas;
 import aima.search.*;
 import java.util.Enumeration;
 import java.util.Vector;
-import java.util.*;
 
 /**
  * Clase que implementa el problema de los misioneros y los caníbales según
