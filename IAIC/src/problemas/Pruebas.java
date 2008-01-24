@@ -12,7 +12,7 @@ public class Pruebas {
 			System.out.println("Estrategia: "+ i);
 			boolean resuelto = juego.resolver(i);
 		}*/
-		boolean resuelto = juego.resolver(5);
+		boolean resuelto = juego1.resolver(5);
 		
 	}
 
