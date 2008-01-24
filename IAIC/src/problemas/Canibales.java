@@ -191,4 +191,8 @@ public class Canibales extends Problema{
 		boolean resuelto=listPath((new DepthBoundedSearch(this,7)).search());
 		return resuelto;
 	}
+
+    public String toString(){
+    	return repEstado;
+    }
 }

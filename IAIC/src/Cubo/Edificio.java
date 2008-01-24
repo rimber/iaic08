@@ -60,7 +60,7 @@ public class Edificio {
     public Coord3d inicia (){
         
     	// Genera una coordenada aleatoria para colocar al personaje.
-    	Random rnd = new Random(4578);
+    	Random rnd = new Random();
     	
         int x = rnd.nextInt(dimension);
         int y = rnd.nextInt(dimension);

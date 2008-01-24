@@ -51,6 +51,8 @@ public class Jarras extends Problema {
 					"exactamente 2 litros de agua en la garrafa de 4 litros.";
 		jarra4 = 0;
 		jarra3 = 0;
+		repEstado = "("+jarra4+","+jarra3+")";
+		nombreOperador = "";
 	}
 	
 	/**
@@ -85,6 +87,8 @@ public class Jarras extends Problema {
 		else{
 			jarra3 = j;
 		}
+		repEstado = "("+jarra4+","+jarra3+")";
+		nombreOperador = "";
 	}
 
 	/**
@@ -138,7 +142,6 @@ public class Jarras extends Problema {
 		
 	 	// Operador usado.
 	 	int numOperador;
-	 	String nombreOperador = "";
 	 	
 		Vector successorVec = new Vector();
 
@@ -151,25 +154,25 @@ public class Jarras extends Problema {
 	 		if(numOperador == 0 && jarra4<4 ){
 	 			nuevaJarra4 = 4;
 	 			nuevaJarra3 = jarra3;
-	 			nombreOperador ="LLenar jarra de 4 L";
+	 			nombreOperador ="LLenar jarra de 4 L.";
 	 		}
 	 		//Llenar garrafa de 3L
 	 		if(numOperador == 1 && jarra3<3 ){
 	 			nuevaJarra3 = 3;
 	 			nuevaJarra4 = jarra4;
-	 			nombreOperador ="LLenar jarra de 3 L";
+	 			nombreOperador ="LLenar jarra de 3 L.";
 	 		}
 	 		//Vaciar garrafa de 4L
 	 		if(numOperador == 2 && jarra4>0 ){
 	 			nuevaJarra4 = 0;
 	 			nuevaJarra3 = jarra3;
-	 			nombreOperador ="Vaciar jarra de 4 L";
+	 			nombreOperador ="Vaciar jarra de 4 L.";
 	 		}
 	 		//Vaciar garrafa de 3L
 	 		if(numOperador == 3 && jarra3>0 ){
 	 			nuevaJarra4 = jarra4;
 	 			nuevaJarra3 = 0;
-	 			nombreOperador ="Vaciar jarra de 3 L";
+	 			nombreOperador ="Vaciar jarra de 3 L.";
 	 		}
 	 		//Verter garrafa de 4L sobre garrafa de 3L
 	 		if(numOperador == 4 && jarra4>0 && jarra3<3 ){
@@ -180,7 +183,7 @@ public class Jarras extends Problema {
 	 				nuevaJarra3 = 3;
 	 			}
 	 			nuevaJarra4 = jarra4-(nuevaJarra3-jarra3);
-	 			nombreOperador ="Verter jarra de 4 L sobre la de 3 L";
+	 			nombreOperador ="Verter jarra de 4 L sobre la de 3 L.";
 	 		}
 	 		//Verter garrafa de 3L sobre garrafa de 4L
 	 		if(numOperador == 5 && jarra3>0 && jarra4<4 ){
@@ -191,12 +194,12 @@ public class Jarras extends Problema {
 	 				nuevaJarra4 = 4;
 	 			}
 	 			nuevaJarra3 = jarra3 -(nuevaJarra4-jarra4);
-	 			nombreOperador ="Verter jarra de 3 L sobre la de 4 L";
+	 			nombreOperador ="Verter jarra de 3 L sobre la de 4 L.";
 	 		}
 	 		
 	 		Jarras nuevoEstado = new Jarras(nuevaJarra4,nuevaJarra3);
 	 		if(nuevoEstado.isValid()){
-	 			successorVec.addElement(new Successor(nuevoEstado, nombreOperador, 1 ));
+	 			successorVec.addElement(new Successor(nuevoEstado,nombreOperador, 1 ));
 	 		}
 	 	}
 	 	return successorVec.elements();
@@ -245,4 +248,9 @@ public class Jarras extends Problema {
 		boolean resuelto=listPath((new DepthBoundedSearch(this,7)).search());
 		return resuelto;
 	}
+	
+	public String toString(){
+    	return repEstado;
+    }
+	
 }

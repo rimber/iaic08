@@ -10,12 +10,7 @@ import problemas.*;
  *
  */
 public class Puerta {
-    
-	/**
-	 * OJO! Constante para el número de problemas.
-	 */
-	private static int numProb = 3;
-	
+    	
 	/**
 	 * 
 	 */
@@ -54,8 +49,8 @@ public class Puerta {
         if (e==0){
         	
         	// Incluimos un problema aleatoriamente.
-            Random rnd = new Random(4578);
-            int opc = rnd.nextInt(numProb);
+            Random rnd = new Random();
+            int opc = rnd.nextInt(Problema.numProblemas);
             
             switch (opc){      
             	case 0:

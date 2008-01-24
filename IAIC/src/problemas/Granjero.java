@@ -51,6 +51,8 @@ public class Granjero extends Problema{
 		posLobo = 1;
 		posCabra = 1;
 		posCol = 1;
+		repEstado = "("+posGranjero+","+posLobo+","+posCabra+","+posCol+")";
+		nombreOperador = "";
 	}
 	
 	/**
@@ -73,14 +75,8 @@ public class Granjero extends Problema{
 		posLobo = pLobo;
 		posCabra = pCabra;
 		posCol = pCol;
-	}
-
-	/**
-	 * Método accesor para el atributo enunciado.
-	 * @return Valor del atributo enunciado.
-	 */
-	public String getEnunciado(){
-		return enunciado;
+		repEstado = "("+posGranjero+","+posLobo+","+posCabra+","+posCol+")";
+		nombreOperador = "";
 	}
 	
 	/**
@@ -99,12 +95,8 @@ public class Granjero extends Problema{
 	 * @return Valor indicando si el estado es solución o no.
 	 */
 	public boolean isGoal() {
-		boolean solucion = false;
 		// Solución si todos los componentes están a la derecha.
-		if ((posGranjero == 0)&&(posLobo == 0)&&(posCabra == 0)&&(posCol == 0)){
-			solucion = true;
-		}
-		return solucion;
+		return ((posGranjero == 0)&&(posLobo == 0)&&(posCabra == 0)&&(posCol == 0));
 	}
 
 	/**
@@ -141,7 +133,6 @@ public class Granjero extends Problema{
 		
 	 	// Operador usado.
 	 	int numOperador;
-	 	String nombreOperador = "";
 	 	
 	 	// Nuevas posiciones.
 	 	int nposLobo = 1;
@@ -156,8 +147,7 @@ public class Granjero extends Problema{
 	 			// El lobo y el granjero deben estar en la misma orilla
 	 			// para poder cruzar.
 	 			if (posGranjero == posLobo){
-	 				// Nombre del operador.
-		 	 		nombreOperador = "cruzaLobo";
+	 				nombreOperador = "Cruza lobo.";
 	 				// Cruza el granjero.
 		 	 		nposGranjero = 1 - posGranjero;
 		 	 		// Cruza el lobo.
@@ -171,8 +161,7 @@ public class Granjero extends Problema{
 	 		// Operador 1: Cruza la cabra (con el granjero).
 	 	 	if (numOperador == 1){
 	 	 		if (posGranjero == posCabra){
-	 	 			// Nombre del operador.
-	 	 			nombreOperador = "cruzaCabra";
+	 				nombreOperador = "Cruza cabra.";
 	 				// Cruza el granjero.
 		 	 		nposGranjero = 1 - posGranjero;
 		 	 		// Cruza la cabra.
@@ -186,8 +175,7 @@ public class Granjero extends Problema{
 	 	    // Operador 2: Cruza la col (con el granjero).
 	 	 	if (numOperador == 2){
 	 	 		if (posGranjero == posCol){
-	 	 			// Nombre del operador.
-	 	 			nombreOperador = "cruzaCol";
+	 				nombreOperador = "Cruza col.";
 	 				// Cruza el granjero.
 		 	 		nposGranjero = 1 - posGranjero;
 		 	 		// Cruza la cabra.
@@ -200,8 +188,7 @@ public class Granjero extends Problema{
 	 	 	
 	 	 	// Operador 3: Cruza el granjero solo.
 	 	 	if(numOperador == 3){
- 	 			// Nombre del operador.
- 	 			nombreOperador = "cruzaGranjero";
+ 				nombreOperador = "Cruza granjero.";
  				// Cruza el granjero.
 	 	 		nposGranjero = 1 - posGranjero;
 	 	 		// Los demás se quedan donde están.
@@ -214,7 +201,7 @@ public class Granjero extends Problema{
 	 	 	Granjero nuevoEstado = new Granjero(nposGranjero,nposLobo,nposCabra,nposCol);
 	 	 		
 	 	 	// Comprobamos si el nuevo estado es válido.
-	 	 	if(nuevoEstado.isValid()){
+	 	 	if(nuevoEstado.isValid()){	 	 		
 	 	 		// Añadimos el estado como sucesor.
 	 	 		successor.addElement(new Successor(nuevoEstado,nombreOperador,1)); 
 	 	 	}
@@ -252,4 +239,9 @@ public class Granjero extends Problema{
 		boolean resuelto=listPath((new DepthBoundedSearch(this,7)).search());
 		return resuelto;
 	}
+	
+    public String toString(){
+    	return repEstado;
+    }
+   
 }

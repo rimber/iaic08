@@ -15,7 +15,34 @@ public abstract class Problema implements State,Heuristic{
 	/**
 	 * Enunciado del problema.
 	 */
-	public String enunciado;
+	protected String enunciado;
+	
+	/**
+	 * 
+	 */
+	protected String repEstado;
+	
+	/**
+	 * 
+	 */
+	protected String nombreOperador;
+	
+	/**
+	 * Constante que indica el máximo número de
+	 * nodos que se pueden expandir.
+	 */	
+	protected static final int maxNodos = 1000;
+	
+	/**
+	 * Contador de nodos expandidos.
+	 */
+	protected static int nodosExpandidos = 0;
+	
+	/**
+	 *Numero de problemas distintos que tenemos
+	 */	
+	public static final int numProblemas = 3;
+	
 	
 	/**
 	 * Indica si estamos ante un estado solución.
@@ -41,6 +68,14 @@ public abstract class Problema implements State,Heuristic{
 	 * @return Valor de la heúristica. 
 	 */
 	public abstract float h();
+	
+	/**
+	 * Método accesor para el atributo enunciado.
+	 * @return Valor del atributo enunciado.
+	 */
+	public String getEnunciado(){
+		return enunciado;
+	}
 	
 	/**
 	 * Método que intenta resolver un problema según el número de estrategia
@@ -143,19 +178,21 @@ public abstract class Problema implements State,Heuristic{
 	   }
 	   String linea = "";
 	   while (node.getParent()!=null) {
-		   linea =  "Estado: " + node.getState() +
-           				   " Profundidad: " + node.getDepth() +
-           				   " Coste: " + node.getPathCost() +
-           				   " Operador: " + node.getAppliedOp();
+		   linea =  " Operador: " + node.getAppliedOp()+ 
+           			" Profundidad: " + node.getDepth() +
+           			" Coste: " + node.getPathCost() +
+           			" Estado: " + node.getState() ;
 		   camino.add("\n"+linea);
 		   node = node.getParent();
 	   }	  
-	   linea = ( "\nESTADO INICIAL: " + node.getState());  
+	   linea = ( "\n Estado inicial: " + node.getState());  
 	   camino.add(linea);
 	   for(int j=camino.size()-1; j>=0;j--){
 		   System.out.println((String)camino.get(j));
 	   }
 	   return true;
 	}
+    
+    public abstract String toString();
 	
 }
