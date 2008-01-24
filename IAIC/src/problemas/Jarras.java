@@ -143,13 +143,13 @@ public class Jarras extends Problema {
 	 	// Operador usado.
 	 	int numOperador;
 	 	
-		Vector successorVec = new Vector();
+		Vector successor = new Vector();
 
 	 	int nuevaJarra3 = 0;
 	 	int nuevaJarra4 = 0;
 	 	nodosExpandidos++;
 
-	 	for(numOperador = 0; numOperador <=5; numOperador++){
+	 	for(numOperador = 0; numOperador <6; numOperador++){
 	 		//Llenar garrafa de 4L
 	 		if(numOperador == 0 && jarra4<4 ){
 	 			nuevaJarra4 = 4;
@@ -197,12 +197,16 @@ public class Jarras extends Problema {
 	 			nombreOperador ="Verter jarra de 3 L sobre la de 4 L.";
 	 		}
 	 		
+	 		// Creamos el nuevo estado.
 	 		Jarras nuevoEstado = new Jarras(nuevaJarra4,nuevaJarra3);
+	 		
+	 		// Comprobamos si el nuevo estado es válido.
 	 		if(nuevoEstado.isValid()){
-	 			successorVec.addElement(new Successor(nuevoEstado,nombreOperador, 1 ));
+	 		// Añadimos el estado como sucesor.
+	 			successor.addElement(new Successor(nuevoEstado,nombreOperador, 1 ));
 	 		}
 	 	}
-	 	return successorVec.elements();
+	 	return successor.elements();
 	}
 
 	/**
