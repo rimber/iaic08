@@ -125,6 +125,9 @@ public class Puente extends Problema {
 	 */
 	protected boolean isValid() {
 		//Es válido si lo que nos cuesta cruzar el puente no supera el tiempo que nos queda.
+		if (nodosExpandidos > maxNodos){
+			return false;
+		}
 		return (coste<=tiempo);
 	}
 

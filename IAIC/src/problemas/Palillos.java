@@ -99,7 +99,7 @@ public class Palillos extends Problema {
 	 * @return true si es valido false en caso contrario
 	 */
 	protected boolean isValid(){
-		return true;
+		return (nodosExpandidos < maxNodos);
 	}
 	/**
 	 * Genera todos los posibles estados sucesores del estado actual.
