@@ -5,7 +5,6 @@
 package problemas;
 
 import aima.search.*;
-
 import java.util.Enumeration;
 import java.util.Vector;
 
