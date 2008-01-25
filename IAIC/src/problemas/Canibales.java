@@ -47,7 +47,6 @@ public class Canibales extends Problema{
 		numCanibalesIzq = 3;
 		repEstado = "("+numMisionerosIzq+","+numCanibalesIzq+","+posBarca+")";
 		nombreOperador = "";
-		nodosExpandidos = 0;
 	}
 	
 	/**
@@ -70,7 +69,6 @@ public class Canibales extends Problema{
 		numCanibalesIzq = nCanibales;
 		nombreOperador = "";
 		repEstado = "("+numMisionerosIzq+","+numCanibalesIzq+","+posBarca+")";
-		nodosExpandidos = 0;
 	}
 	
 	/**
@@ -102,6 +100,10 @@ public class Canibales extends Problema{
 	 * @return Valor indicando la validez del estado.
 	 */
 	protected boolean isValid() {
+		
+		if (nodosExpandidos > maxNodos){
+			return false;
+		}
 		
         // Si el número de caníbales supera al de misioneros en la izquierda 
         // (siempre que halla alguno).

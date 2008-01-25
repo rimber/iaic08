@@ -52,7 +52,6 @@ public class Granjero extends Problema{
 		posCol = 1;
 		repEstado = "("+posGranjero+","+posLobo+","+posCabra+","+posCol+")";
 		nombreOperador = "";
-		nodosExpandidos = 0;
 	}
 	
 	/**
@@ -77,7 +76,6 @@ public class Granjero extends Problema{
 		posCol = pCol;
 		repEstado = "("+posGranjero+","+posLobo+","+posCabra+","+posCol+")";
 		nombreOperador = "";
-		nodosExpandidos = 0;
 	}
 	
 	/**
