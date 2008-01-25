@@ -13,6 +13,10 @@ import aima.search.Successor;
  * Clase que implementa el problema de los amigos
  * que quieren cruzar el puente con una linterna
  * según el paradigma del espacio de estados.
+ * @author  Pablo Fernández Poblaciones 
+ * 		    Luis González de Paula		   
+ * 		    Antonio Murillo Melero
+ * 			IAIC 4ºA
  */
 public class Puente extends Problema {
 	
@@ -42,11 +46,6 @@ public class Puente extends Problema {
 	private int posDavid;	
 	
 	/**
-	 * Lo que se tarda cruzar el puente.
-	 */
-	private float coste;
-	
-	/**
 	 * Tiempo que queda disponible para cruzar el puente.
 	 */
 	private float tiempo;
@@ -68,7 +67,6 @@ public class Puente extends Problema {
 		posDavid = 1;
 		repEstado = "("+posLinterna+","+posAna+","+posBenito+","+posCarlos+","+posDavid+")";
 		nombreOperador = "";
-		coste = 0;
 		tiempo = 15;
 	}
 	
@@ -79,11 +77,10 @@ public class Puente extends Problema {
 	 * @param b Posición de Benito.
 	 * @param c Posición de Carlos.
 	 * @param d Posición de David.
-	 * @param costeEmpleado cuanto cuesta llegar a este estado.
 	 * @param tiempoDisponible cuanto tiempo queda.
 	 */
 	
-	public Puente(int l,int a,int b,int c,int d,int costeEmpleado,int tiempoDisponible){
+	public Puente(int l,int a,int b,int c,int d,int tiempoDisponible){
 		enunciado = "Cuatro amigos deben cruzar un frágil puente de madera.\n"+
 					"Es de noche y es indispensable usar una linterna para\n"+
 					"cruzarlo. El puente sólo puede aguantar el peso de dos\n"+
@@ -97,7 +94,6 @@ public class Puente extends Problema {
 		posDavid = d;
 		repEstado = "("+posLinterna+","+posAna+","+posBenito+","+posCarlos+","+posDavid+")";
 		nombreOperador = "";
-		coste = costeEmpleado;
 		tiempo = tiempoDisponible;
 	}
 	
@@ -355,7 +351,7 @@ public class Puente extends Problema {
 	 			}
 	 		}
 	 		// Creamos el nuevo estado.
-	 	 	Puente nuevoEstado = new Puente(nposLinterna,nposAna,nposBenito,nposCarlos,nposDavid,nCoste,nTiempo);
+	 	 	Puente nuevoEstado = new Puente(nposLinterna,nposAna,nposBenito,nposCarlos,nposDavid,nTiempo);
 	 	 		
 	 	 	// Comprobamos si el nuevo estado es válido.
 	 	 	if(nuevoEstado.isValid()){	 	 		
