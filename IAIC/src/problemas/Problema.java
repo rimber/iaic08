@@ -5,6 +5,7 @@
 package problemas;
 
 import aima.search.*;
+
 import java.util.*;
 
 /**
@@ -125,52 +126,71 @@ public abstract class Problema implements State,Heuristic{
 	}
 
 	/**
- 	 * Método que intenta resolver un problema según la estrategia de búsqueda 
- 	 * primero en profundidad.
- 	 * @return Si se ha resuelto o no el problema.
- 	 */
-	protected abstract boolean resolverProfundidad();
-	
-	/**
- 	 * Método que intenta resolver un problema según la estrategia de búsqueda
- 	 * primero en anchura.
- 	 * @return Si se ha resuelto o no el problema.
- 	 */
-	protected abstract boolean resolverPrimAnchura();
-	
-	/**
- 	 * Método que intenta resolver un problema según la estrategia de búsqueda
- 	 * en profundidad iterativa.
- 	 * @return Si se ha resuelto o no el problema.
- 	 */
-	protected abstract boolean resolverProfIt();
-	
-	/**
- 	 * Método que intenta resolver un problema según la estrategia 
- 	 * de búsqueda escalada. 
- 	 * @return Si se ha resuelto o no el problema.
- 	 */
-	protected abstract boolean resolverEscalada();
-	
-	/**
  	 * Método que intenta resolver un problema según la estrategia 
  	 * de búsqueda A*. 
  	 * @return Si se ha resuelto o no el problema.
  	 */
-	protected abstract boolean resolverA();
+	protected boolean resolverA() {
+		boolean resuelto = listPath((new AStarSearch(this)).search());
+		return resuelto;
+	}
 	
 	/**
  	 * Método que intenta resolver un problema según la estrategia 
  	 * de búsqueda de coste uniforme. 
  	 * @return Si se ha resuelto o no el problema.
  	 */
-	protected abstract boolean resolverCosteUni();
+	protected boolean resolverCosteUni() {
+		boolean resuelto = listPath((new UniformCostSearch(this)).search());
+		return resuelto;
+	}
+	
+	/**
+ 	 * Método que intenta resolver un problema según la estrategia 
+ 	 * de búsqueda escalada. 
+ 	 * @return Si se ha resuelto o no el problema.
+ 	 */
+	protected boolean resolverEscalada() {
+		boolean resuelto = listPath((new GreedySearch(this)).search());
+		return resuelto;
+	}
+	
+	/**
+ 	 * Método que intenta resolver un problema según la estrategia de búsqueda
+ 	 * primero en anchura.
+ 	 * @return Si se ha resuelto o no el problema.
+ 	 */
+	protected boolean resolverPrimAnchura() {
+		boolean resuelto = listPath( ( new BreadthFirstSearch(this)).search());
+		return resuelto;
+	}
+	
+	/**
+ 	 * Método que intenta resolver un problema según la estrategia de búsqueda
+ 	 * en profundidad iterativa.
+ 	 * @return Si se ha resuelto o no el problema.
+ 	 */
+	protected boolean resolverProfIt() {
+		boolean resuelto=listPath((new IteratedDeepeningSearch(this)).search());
+		return resuelto;
+	}
+	
+	/**
+ 	 * Método que intenta resolver un problema según la estrategia de búsqueda 
+ 	 * primero en profundidad.
+ 	 * @return Si se ha resuelto o no el problema.
+ 	 */
+	protected boolean resolverProfundidad() {
+		boolean resuelto=listPath((new DepthBoundedSearch(this,7)).search());
+		return resuelto;
+	}
 	
 	/**
 	 * 
 	 * @param node
 	 * @return
 	 */
+	
     public boolean listPath(SearchNode node) {
        ArrayList camino = new ArrayList();
 	   if (node == null) {
@@ -193,7 +213,26 @@ public abstract class Problema implements State,Heuristic{
 	   System.out.println();
 	   return true;
 	}
+    /**
+     * @return Un String con la representación del estado.
+     */
     
-    public abstract String toString();
+    public String toString(){
+    	return repEstado;
+    }
+    
+    /**
+	 * @return los nodos expandidos.
+	 */
+	public static int getNodosExpandidos() {
+		return nodosExpandidos;
+	}
+
+	/**
+	 * @param n que es el número de nodos expandidos.
+	 */
+	public static void setNodosExpandidos(int n) {
+		nodosExpandidos = n;
+	}
 	
 }

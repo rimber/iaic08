@@ -1,3 +1,7 @@
+/**
+ * Contiene el conjunto de los problemas implementados según el paradigma
+ * del espacio de estados.
+ */
 package problemas;
 
 import java.util.Enumeration;
@@ -12,15 +16,11 @@ import aima.search.Successor;
 import aima.search.UniformCostSearch;
 
 /** 
- * Clase que implementa el problema de las jarras.
+ * Clase que implementa el problema de las jarras según
+ * el paradigma del espacio de estados.
  */
 
 public class Jarras extends Problema {
-	
-	/**
-	 * Contador de nodos expandidos.
-	 */
-	private static int nodosExpandidos = 0;
 	
 	/**
 	 * Representa la jarra de 4 litros.
@@ -202,53 +202,5 @@ public class Jarras extends Problema {
 	 	}
 	 	return successor.elements();
 	}
-
-	/**
-	 * @return los nodos expandidos.
-	 */
-	public static int getNodosExpandidos() {
-		return nodosExpandidos;
-	}
-
-	/**
-	 * @param n que es el número de nodos expandidos.
-	 */
-	public static void setNodosExpandidos(int n) {
-		nodosExpandidos = n;
-	}
-
-	protected boolean resolverA() {
-		boolean resuelto = listPath((new AStarSearch(this)).search());
-		return resuelto;
-	}
-
-	protected boolean resolverCosteUni() {
-		boolean resuelto = listPath((new UniformCostSearch(this)).search());
-		return resuelto;
-	}
-
-	protected boolean resolverEscalada() {
-		boolean resuelto = listPath((new GreedySearch(this)).search());
-		return resuelto;
-	}
-
-	protected boolean resolverPrimAnchura() {
-		boolean resuelto = listPath( ( new BreadthFirstSearch(this)).search());
-		return resuelto;
-	}
-
-	protected boolean resolverProfIt() {
-		boolean resuelto=listPath((new IteratedDeepeningSearch(this)).search());
-		return resuelto;
-	}
-
-	protected boolean resolverProfundidad() {
-		boolean resuelto=listPath((new DepthBoundedSearch(this,7)).search());
-		return resuelto;
-	}
-	
-	public String toString(){
-    	return repEstado;
-    }
 	
 }
