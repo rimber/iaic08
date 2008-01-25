@@ -51,6 +51,7 @@ public class Puzzle8 extends Problema{
 		
 		// Inicializamos el nombre del operador.
 		nombreOperador = "";
+		nodosExpandidos = 0;
 		
 		setRepEstado();
 	}
@@ -75,6 +76,7 @@ public class Puzzle8 extends Problema{
 		
 		// Inicializamos el nombre del operador.
 		nombreOperador = "";
+		nodosExpandidos = 0;
 		
 		setRepEstado();
 	}
@@ -158,7 +160,8 @@ public class Puzzle8 extends Problema{
 	 	int nCoorX = coorX;
 	 	int nCoorY = coorY;
 	 	Vector successorVec = new Vector<Puzzle8>();
-
+	 	nodosExpandidos++;
+	 	
 	 	for (numOperador=0; numOperador<4; numOperador++){
 	 		
 	 		Puzzle8 nuevoEstado = new Puzzle8(coorX,coorY,tablero);
