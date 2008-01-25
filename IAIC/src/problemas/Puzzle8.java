@@ -60,6 +60,7 @@ public class Puzzle8 extends Problema{
 
 		// Inicializamos el nombre del operador.
 		nombreOperador = "";
+		enunciado = "";
 		
 		setRepEstado();
 	}
@@ -84,6 +85,7 @@ public class Puzzle8 extends Problema{
 		
 		// Inicializamos el nombre del operador.
 		nombreOperador = "";
+		enunciado = "";
 		
 		setRepEstado();
 	}
