@@ -6,8 +6,8 @@ public class Pruebas {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Puzzle8 juego = new Puzzle8();
-		for (int i = 4; i<5; i++){
+		Jarras juego = new Jarras();
+		for (int i = 0; i<=1; i++){
 			System.out.println("Estrategia: "+ i);
 			boolean resuelto = juego.resolver(i);
 		}

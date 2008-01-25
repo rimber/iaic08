@@ -18,12 +18,6 @@ import aima.search.UniformCostSearch;
 public class Jarras extends Problema {
 	
 	/**
-	 * Constante que indica el máximo número de
-	 * nodos que se pueden expandir.
-	 */	
-	private static final int maxNodos = 1000;
-	
-	/**
 	 * Contador de nodos expandidos.
 	 */
 	private static int nodosExpandidos = 0;
@@ -122,7 +116,7 @@ public class Jarras extends Problema {
 	 */	
 	protected boolean isValid(){
 		return ((jarra4>=0)&&(jarra4<=4)&&(jarra3>=0)&&(jarra3<=3)
-				&& (nodosExpandidos <= maxNodos)) ;
+				&& (nodosExpandidos < maxNodos)) ;
 	}
 
 	/**
@@ -145,8 +139,8 @@ public class Jarras extends Problema {
 	 	
 		Vector successor = new Vector();
 
-	 	int nuevaJarra3 = 1;
-	 	int nuevaJarra4 = 1;
+	 	int nuevaJarra3 = 0;
+	 	int nuevaJarra4 = 0;
 	 	nodosExpandidos++;
 
 	 	for(numOperador = 0; numOperador <6; numOperador++){

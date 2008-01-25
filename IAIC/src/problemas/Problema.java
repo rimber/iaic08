@@ -31,7 +31,7 @@ public abstract class Problema implements State,Heuristic{
 	 * Constante que indica el máximo número de
 	 * nodos que se pueden expandir.
 	 */	
-	protected static final int maxNodos = 1000;
+	protected static final int maxNodos = 20000;
 	
 	/**
 	 * Contador de nodos expandidos.
@@ -190,6 +190,7 @@ public abstract class Problema implements State,Heuristic{
 	   for(int j=camino.size()-1; j>=0;j--){
 		   System.out.println((String)camino.get(j));
 	   }
+	   System.out.println();
 	   return true;
 	}
     
