@@ -145,8 +145,8 @@ public class Jarras extends Problema {
 	 	
 		Vector successor = new Vector();
 
-	 	int nuevaJarra3 = 0;
-	 	int nuevaJarra4 = 0;
+	 	int nuevaJarra3 = 1;
+	 	int nuevaJarra4 = 1;
 	 	nodosExpandidos++;
 
 	 	for(numOperador = 0; numOperador <6; numOperador++){
@@ -154,13 +154,13 @@ public class Jarras extends Problema {
 	 		if(numOperador == 0 && jarra4<4 ){
 	 			nuevaJarra4 = 4;
 	 			nuevaJarra3 = jarra3;
-	 			nombreOperador ="LLenar jarra de 4 L.";
+	 			nombreOperador ="Llenar jarra de 4 L.";
 	 		}
 	 		//Llenar garrafa de 3L
 	 		if(numOperador == 1 && jarra3<3 ){
 	 			nuevaJarra3 = 3;
 	 			nuevaJarra4 = jarra4;
-	 			nombreOperador ="LLenar jarra de 3 L.";
+	 			nombreOperador ="Llenar jarra de 3 L.";
 	 		}
 	 		//Vaciar garrafa de 4L
 	 		if(numOperador == 2 && jarra4>0 ){
