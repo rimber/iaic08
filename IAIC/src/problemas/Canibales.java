@@ -86,6 +86,7 @@ public class Canibales extends Problema{
 	public float h() {
 		// Heurística: Mejor cuanto menor sea h, es decir, cuanto menos componentes
 		// estén en el lado izquierdo.
+		//LEWIS POR QUE RESTAS LA POSBARCA????
 		int h = numMisionerosIzq + numCanibalesIzq - posBarca;
 		return (float)h;
 	}
