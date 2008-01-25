@@ -30,7 +30,7 @@ public class Puzzle8 extends Problema{
 	private int [][] tablero; // Tablero.
 	
 	/**
-	 * 
+	 * Constructor por defecto: inicializa las componentes a valores por defecto.
 	 */
 	public Puzzle8(){
 		// Escogemos un tablero base.
@@ -56,10 +56,10 @@ public class Puzzle8 extends Problema{
 	}
 	
 	/**
-	 * 
-	 * @param x
-	 * @param y
-	 * @param t
+	 * Constructor principal, inicializa los atributos a los valores indicados.
+	 * @param x Coordenada 'x' del hueco.
+	 * @param y Coordena 'y' del hueco.
+	 * @param t Tablero.
 	 */
 	public Puzzle8(int x, int y, int [][] t){
 		
@@ -80,11 +80,13 @@ public class Puzzle8 extends Problema{
 	}
 	
 	/**
-	 * 
+	 * Genera el valor heurístico del estado.
+	 * @return Valor de la heúristica. 
 	 */
 	public float h() {
 	 	int h = 0;
 	 	
+	 	// Si el elemento está en su casilla correcta incrementamos h.
 	 	if(tablero[0][0]!=1){
 	 		h++;
 	 	}
@@ -121,7 +123,8 @@ public class Puzzle8 extends Problema{
 	}
 
 	/**
-	 * 
+	 * Indica si estamos ante un estado solución.
+	 * @return Valor indicando si el estado es solución o no.
 	 */
 	public boolean isGoal() {
 		return ((tablero[0][0] == 1) &&	(tablero[0][1] == 2) && (tablero[0][2] == 3) &&	(tablero[1][0] == 8) &&
@@ -129,22 +132,24 @@ public class Puzzle8 extends Problema{
 	}
 
 	/**
-	 * 
+	 * Comprueba si el estado del problema es válido.
+	 * @return Valor indicando la validez del estado.
 	 */
 	protected boolean isValid() {
 		return true;
 	}
 
 	/**
-	 * 
+	 * Genera todos los posibles estados sucesores del estado actual.
+	 * @return Conjunto de estados sucesores.	 
 	 */
 	public Enumeration successors() {
 		
-		// Tenemos  operadores:
-		// Operador 0: Mueve el hueco a la derecha.
-		// Operador 1: Mueve el hueco a la izquierda.
-		// Operador 2: Mueve el hueco hacia arriba.
-		// Operador 3: Mueve el hueco hacia abajo.
+		// OPERADORES:
+		//  - Operador 0: Mueve el hueco a la derecha.
+		//  - Operador 1: Mueve el hueco a la izquierda.
+		//  - Operador 2: Mueve el hueco hacia arriba.
+		//  - Operador 3: Mueve el hueco hacia abajo.
 		
 	 	// Operador usado.
 	 	int numOperador;
@@ -246,7 +251,8 @@ public class Puzzle8 extends Problema{
 	 }
 
     /**
-     * 
+     * Actualizador de la representación de estado en función del
+     * valor actual de los atributos del objeto.
      */
     private void setRepEstado(){
     	
