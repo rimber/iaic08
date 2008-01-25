@@ -5,6 +5,7 @@
 package problemas;
 
 import java.util.Enumeration;
+import java.util.Vector;
 
 /**
  * Clase que implementa el problema de los amigos
@@ -19,9 +20,9 @@ public class Puente extends Problema {
 	private int posLinterna;
 	
 	/**
-	 * Posición de Alicia (Lado del puente: 1-izquierda, 0-derecha).
+	 * Posición de Ana (Lado del puente: 1-izquierda, 0-derecha).
 	 */
-	private int posAlicia;
+	private int posAna;
 	
 	/**
 	 * Posición de Benito (Lado del puente: 1-izquierda, 0-derecha).
@@ -39,7 +40,7 @@ public class Puente extends Problema {
 	private int posDavid;	
 	
 	/**
-	 * Lo que cuesta cruzar el puente.
+	 * Lo que se tarda cruzar el puente.
 	 */
 	private float coste;
 	
@@ -48,22 +49,54 @@ public class Puente extends Problema {
 	 */
 	private float tiempo;
 	
+	/**
+	 * Constructor por defecto: inicializa las componentes a valores por defecto.
+	 */
 	public Puente(){
 		enunciado = "Cuatro amigos deben cruzar un frágil puente de madera.\n"+
 					"Es de noche y es indispensable usar una linterna para\n"+
 					"cruzarlo. El puente sólo puede aguantar el peso de dos\n"+
 					"personas como máximo y solo tienen una linterna.\n"+
-					"Alicia tarda 8 minutos en cruzarlo, Benito 4 minutos,\n"+
+					"Ana tarda 8 minutos en cruzarlo, Benito 4 minutos,\n"+
 					"Carlos tarda 2 y David 1.";
 		posLinterna = 1;		
-		posAlicia = 1;		
+		posAna = 1;		
 		posBenito = 1;	
 		posCarlos = 1;		
 		posDavid = 1;
-		repEstado = "("+posLinterna+","+posAlicia+","+posBenito+","+posCarlos+","+posDavid+")";
+		repEstado = "("+posLinterna+","+posAna+","+posBenito+","+posCarlos+","+posDavid+")";
 		nombreOperador = "";
 		coste = 0;
 		tiempo = 15;
+	}
+	
+	/**
+	 * Constructor principal, inicializa los atributos a los valores indicados.
+	 * @param l Posición de la linterna.
+	 * @param a Posición de Ana.
+	 * @param b Posición de Benito.
+	 * @param c Posición de Carlos.
+	 * @param d Posición de David.
+	 * @param costeEmpleado cuanto cuesta llegar a este estado.
+	 * @param tiempoDisponible cuanto tiempo queda.
+	 */
+	
+	public Puente(int l,int a,int b,int c,int d,int costeEmpleado,int tiempoDisponible){
+		enunciado = "Cuatro amigos deben cruzar un frágil puente de madera.\n"+
+					"Es de noche y es indispensable usar una linterna para\n"+
+					"cruzarlo. El puente sólo puede aguantar el peso de dos\n"+
+					"personas como máximo y solo tienen una linterna.\n"+
+					"Ana tarda 8 minutos en cruzarlo, Benito 4 minutos,\n"+
+					"Carlos tarda 2 y David 1.";
+		posLinterna = l;		
+		posAna = a;		
+		posBenito = b;	
+		posCarlos = c;		
+		posDavid = d;
+		repEstado = "("+posLinterna+","+posAna+","+posBenito+","+posCarlos+","+posDavid+")";
+		nombreOperador = "";
+		coste = costeEmpleado;
+		tiempo = tiempoDisponible;
 	}
 	
 	/**
@@ -73,7 +106,7 @@ public class Puente extends Problema {
 	public float h() {
 		// Heurística: Mejor cuanto menor sea h, es decir, cuanto menos componentes
 		// estén en el lado izquierdo.
-		int h = posLinterna + posAlicia + posBenito + posCarlos + posDavid;
+		int h = posLinterna + posAna + posBenito + posCarlos + posDavid;
 		return (float)h;
 	}
 
@@ -83,7 +116,7 @@ public class Puente extends Problema {
 	 */
 	public boolean isGoal() {
 		// Solución si todos los componentes están a la derecha.
-		return ((posLinterna == 0)&&(posAlicia == 0)&&(posBenito == 0)&&(posCarlos == 0)&&(posDavid == 0));
+		return ((posLinterna == 0)&&(posAna == 0)&&(posBenito == 0)&&(posCarlos == 0)&&(posDavid == 0));
 	}
 
 	/**
@@ -100,7 +133,30 @@ public class Puente extends Problema {
 	 * @return Conjunto de estados sucesores.	 
 	 */
 	public Enumeration successors() {
-		// TODO Auto-generated method stub
+		// Tenemos 10 operadores:
+		// Operador 0: Cruza Ana sola (con la linterna).
+		// Operador 1: Cruza Benito solo (con la linterna).
+		// Operador 2: Cruza Carlos solo (con la linterna).
+		// Operador 3: Cruza David solo (con la linterna).
+		// Operador 4: Cruza Ana con Benito (con la linterna).
+		// Operador 5: Cruza Ana con Carlos (con la linterna).
+		// Operador 6: Cruza Ana con David (con la linterna).
+		// Operador 7: Cruza Benito con Carlos (con la linterna).
+		// Operador 8: Cruza Benito con David (con la linterna).
+		// Operador 9: Cruza Carlos con David (con la linterna).
+		
+	 	// Operador usado.
+	 	int numOperador;
+	 	
+	 	// Nuevas posiciones.
+	 	int nposLinterna = 1;
+	 	int nposAna = 1;
+	 	int nposBenito = 1;
+	 	int nposCarlos  = 1;
+	 	int nposDavid = 1;
+	 	
+	 	Vector successor = new Vector();
+	 	
 		return null;
 	}
 
