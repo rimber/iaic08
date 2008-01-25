@@ -154,10 +154,143 @@ public class Puente extends Problema {
 	 	int nposBenito = 1;
 	 	int nposCarlos  = 1;
 	 	int nposDavid = 1;
+	 	int nCoste = 0;
+	 	int nTiempo = 0;
 	 	
 	 	Vector successor = new Vector();
 	 	
-		return null;
+	 	for (numOperador = 0; numOperador<10;numOperador++){
+	 		// Operador 0: Cruza Ana sola (con la linterna).
+	 		if (numOperador == 0){
+	 			// Para poder cruzar Ana la linterna tiene que estar con ella
+	 			if(posLinterna == posAna){
+	 				nombreOperador = "Cruza Ana sola.";
+	 				//Cruza la linterna
+	 				nposLinterna = 1 - posLinterna;
+	 				//Cruza Ana
+	 				nposAna = 1 - posAna;
+	 				// Los demás se quedan donde están.
+	 				nposBenito = posBenito;
+	 				nposCarlos = posCarlos;
+	 				nposDavid = posDavid;
+	 				//Actualizar el coste y el tiempo
+	 				nCoste = 8; // Tiempo que tarda Ana en cruzar
+	 				nTiempo = (int) (tiempo - nCoste);
+	 			}
+	 		}
+	 		// Operador 1: Cruza Benito solo (con la linterna).
+	 		if(numOperador == 1){
+	 			// Para poder cruzar Benito la linterna tiene que estar con el
+	 			if(posLinterna == posBenito){
+	 				nombreOperador = "Cruza Benito solo.";
+	 				//Cruza la linterna
+	 				nposLinterna = 1 - posLinterna;
+	 				//Cruza Benito
+	 				nposBenito = 1 - posBenito;
+	 				// Los demás se quedan donde están.
+	 				nposAna = posAna;
+	 				nposCarlos = posCarlos;
+	 				nposDavid = posDavid;
+	 				//Actualizar el coste y el tiempo
+	 				nCoste = 4; // Tiempo que tarda Benito en cruzar
+	 				nTiempo = (int) (tiempo - nCoste);
+	 			}
+	 		}
+	 		// Operador 2: Cruza Carlos solo (con la linterna).
+	 		if(numOperador == 2){
+	 			// Para poder cruzar Carlos la linterna tiene que estar con el
+	 			if(posLinterna == posCarlos){
+	 				nombreOperador = "Cruza Carlos solo.";
+	 				//Cruza la linterna
+	 				nposLinterna = 1 - posLinterna;
+	 				//Cruza Carlos
+	 				nposCarlos = 1 - posCarlos;
+	 				// Los demás se quedan donde están.
+	 				nposAna = posAna;
+	 				nposBenito = posBenito;
+	 				nposDavid = posDavid;
+	 				//Actualizar el coste y el tiempo
+	 				nCoste = 2; // Tiempo que tarda Carlos en cruzar
+	 				nTiempo = (int) (tiempo - nCoste);
+	 			}
+	 		}
+	 		// Operador 3: Cruza David solo (con la linterna).
+	 		if(numOperador == 3){
+	 			// Para poder cruzar David la linterna tiene que estar con el
+	 			if(posLinterna == posDavid){
+	 				nombreOperador = "Cruza David solo.";
+	 				//Cruza la linterna
+	 				nposLinterna = 1 - posLinterna;
+	 				//Cruza David
+	 				nposDavid = 1 - posDavid;
+	 				// Los demás se quedan donde están.
+	 				nposAna = posAna;
+	 				nposBenito = posBenito;
+	 				nposCarlos = posCarlos;
+	 				//Actualizar el coste y el tiempo
+	 				nCoste = 1; // Tiempo que tarda David en cruzar
+	 				nTiempo = (int) (tiempo - nCoste);
+	 			}
+	 		}
+	 		// Operador 4: Cruza Ana con Benito (con la linterna).
+	 		if (numOperador == 4){
+	 			// Para poder cruzar Ana y Benito la linterna tiene que estar con ellos
+	 			if((posLinterna == posAna)&&(posLinterna == posBenito)){
+	 				nombreOperador = "Cruzan Ana y Benito.";
+	 				//Cruza la linterna
+	 				nposLinterna = 1 - posLinterna;
+	 				//Cruza Ana
+	 				nposAna = 1 - posAna;
+	 				//Cruza Benito
+	 				nposBenito = 1 - posBenito;
+	 				// Los demás se quedan donde están.
+	 				nposCarlos = posCarlos;
+	 				nposDavid = posDavid;
+	 				//Actualizar el coste y el tiempo
+	 				nCoste = 8; // Tiempo del que más tarda en cruzar que es Ana
+	 				nTiempo = (int) (tiempo - nCoste);
+	 			}
+	 		}
+	 		// Operador 5: Cruza Ana con Carlos (con la linterna).
+	 		if (numOperador == 5){
+	 			// Para poder cruzar Ana y Carlos la linterna tiene que estar con ellos
+	 			if((posLinterna == posAna)&&(posLinterna == posCarlos)){
+	 				nombreOperador = "Cruzan Ana y Carlos.";
+	 				//Cruza la linterna
+	 				nposLinterna = 1 - posLinterna;
+	 				//Cruza Ana
+	 				nposAna = 1 - posAna;
+	 				//Cruza Carlos
+	 				nposCarlos = 1 - posCarlos;
+	 				// Los demás se quedan donde están.
+	 				nposBenito = posBenito;
+	 				nposDavid = posDavid;
+	 				//Actualizar el coste y el tiempo
+	 				nCoste = 8; // Tiempo del que más tarda en cruzar que es Ana
+	 				nTiempo = (int) (tiempo - nCoste);
+	 			}
+	 		}
+	 		// Operador 6: Cruza Ana con David (con la linterna).
+	 		if (numOperador == 6){
+	 			// Para poder cruzar Ana y David la linterna tiene que estar con ellos
+	 			if((posLinterna == posAna)&&(posLinterna == posDavid)){
+	 				nombreOperador = "Cruzan Ana y David.";
+	 				//Cruza la linterna
+	 				nposLinterna = 1 - posLinterna;
+	 				//Cruza Ana
+	 				nposAna = 1 - posAna;
+	 				//Cruza David
+	 				nposDavid = 1 - posDavid;
+	 				// Los demás se quedan donde están.
+	 				nposBenito = posBenito;
+	 				nposCarlos = posCarlos;
+	 				//Actualizar el coste y el tiempo
+	 				nCoste = 8; // Tiempo del que más tarda en cruzar que es Ana
+	 				nTiempo = (int) (tiempo - nCoste);
+	 			}
+	 		}
+	 		//faltan 7,8,9. crear el nuevo estado, comprobar si es valido y añadirlo
+	 	}
+	 	return successor.elements();
 	}
-
 }
