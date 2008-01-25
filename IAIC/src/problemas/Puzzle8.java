@@ -145,6 +145,9 @@ public class Puzzle8 extends Problema{
 	 * @return Valor indicando la validez del estado.
 	 */
 	protected boolean isValid() {
+		if (nodosExpandidos > maxNodos){
+			return false;
+		}
 		return true;
 	}
 

@@ -32,7 +32,7 @@ public abstract class Problema implements State,Heuristic{
 	 * Constante que indica el máximo número de
 	 * nodos que se pueden expandir.
 	 */	
-	protected static final int maxNodos = 20;
+	protected static final int maxNodos = 7000;
 	
 	/**
 	 * Contador de nodos expandidos.

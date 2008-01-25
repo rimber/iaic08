@@ -103,6 +103,10 @@ public class Granjero extends Problema{
 	 * @return Valor indicando la validez del estado.
 	 */
 	protected boolean isValid() {
+		if (nodosExpandidos > maxNodos){
+			return false;
+		}
+		
 		// Si el lobo está con la cabra en un margen y el granjero está 
 		// en la contraria.
 		if ((posLobo == posCabra) && (posGranjero!=posLobo)){
