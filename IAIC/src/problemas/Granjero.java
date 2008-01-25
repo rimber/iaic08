@@ -137,8 +137,8 @@ public class Granjero extends Problema{
 	 	// Nuevas posiciones.
 	 	int nposLobo = 1;
 	 	int nposCabra = 1;
-	 	int nposCol = 0;
-	 	int nposGranjero  = 0;
+	 	int nposCol = 1;
+	 	int nposGranjero  = 1;
 	 	Vector successor = new Vector();
 	 	 
 	 	for (numOperador = 0; numOperador <4; numOperador++){

@@ -37,7 +37,17 @@ public class Puente extends Problema {
 	 * Posición de David (Lado del puente: 1-izquierda, 0-derecha).
 	 */
 	private int posDavid;	
-
+	
+	/**
+	 * Lo que cuesta cruzar el puente.
+	 */
+	private float coste;
+	
+	/**
+	 * Tiempo que queda disponible para cruzar el puente.
+	 */
+	private float tiempo;
+	
 	public Puente(){
 		enunciado = "Cuatro amigos deben cruzar un frágil puente de madera.\n"+
 					"Es de noche y es indispensable usar una linterna para\n"+
@@ -52,6 +62,8 @@ public class Puente extends Problema {
 		posDavid = 1;
 		repEstado = "("+posLinterna+","+posAlicia+","+posBenito+","+posCarlos+","+posDavid+")";
 		nombreOperador = "";
+		coste = 0;
+		tiempo = 15;
 	}
 	
 	/**
@@ -79,8 +91,8 @@ public class Puente extends Problema {
 	 * @return Valor indicando la validez del estado.
 	 */
 	protected boolean isValid() {
-		// TODO Auto-generated method stub
-		return false;
+		//Es válido si lo que nos cuesta cruzar el puente no supera el tiempo que nos queda.
+		return (coste<=tiempo);
 	}
 
 	/**
