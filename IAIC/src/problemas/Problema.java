@@ -19,12 +19,13 @@ public abstract class Problema implements State,Heuristic{
 	protected String enunciado;
 	
 	/**
-	 * 
+	 * Forma de representar el estado de cada problema.
 	 */
 	protected String repEstado;
 	
 	/**
-	 * 
+	 * Nombre del operador aplicado para pasar 
+	 * de un estado a otro.
 	 */
 	protected String nombreOperador;
 	
@@ -40,10 +41,9 @@ public abstract class Problema implements State,Heuristic{
 	protected static int nodosExpandidos = 0;
 	
 	/**
-	 *Numero de problemas distintos que tenemos
+	 * Numero de problemas distintos que tenemos
 	 */	
 	public static final int numProblemas = 3;
-	
 	
 	/**
 	 * Indica si estamos ante un estado solución.
@@ -214,7 +214,7 @@ public abstract class Problema implements State,Heuristic{
 	   return true;
 	}
     /**
-     * @return Un String con la representación del estado.
+     * @return La representación del estado.
      */
     
     public String toString(){
@@ -222,7 +222,7 @@ public abstract class Problema implements State,Heuristic{
     }
     
     /**
-	 * @return los nodos expandidos.
+	 * @return Los nodos expandidos.
 	 */
 	public static int getNodosExpandidos() {
 		return nodosExpandidos;
@@ -233,6 +233,46 @@ public abstract class Problema implements State,Heuristic{
 	 */
 	public static void setNodosExpandidos(int n) {
 		nodosExpandidos = n;
+	}
+	
+	/**
+	 *  Método que dado un número de estrategia
+	 *  devuelve el nombre de la estrategia aplicada.
+	 *  @param estrategia nº que representa la estrategia usada.
+	 *  @retun El nombre de la estrategia.
+	 */	
+	public String estrategiaAplicada(int estrategia){
+		String metodo="";
+			switch (estrategia){
+			//0. Primero en profundidad.
+			case 0:
+				metodo="Primero en profundidad(Máxima profundidad = 7).";
+				break;
+			//1. Primero en anchura.
+			case 1:
+				metodo="Primero en anchura.";
+				break;
+			//2. Coste uniforme.
+			case 2:
+				metodo="Coste uniforme.";
+				break;
+			//3. Profundidad Iterativa.
+			case 3:
+				metodo="Profundidad iterativa.";
+				break;
+			//4. Escalada.
+			case 4:
+				metodo="Escalada.";
+				break;
+			//5. A*
+			case 5:
+				metodo="A*.";	
+				break;
+			
+			default: 
+				return null;	
+		}				
+	return metodo;
 	}
 	
 }
