@@ -7,6 +7,8 @@ package problemas;
 import java.util.Enumeration;
 import java.util.Vector;
 
+import aima.search.Successor;
+
 /**
  * Clase que implementa el problema de los amigos
  * que quieren cruzar el puente con una linterna
@@ -105,8 +107,8 @@ public class Puente extends Problema {
 	 */
 	public float h() {
 		// Heurística: Mejor cuanto menor sea h, es decir, cuanto menos componentes
-		// estén en el lado izquierdo.
-		int h = posLinterna + posAna + posBenito + posCarlos + posDavid;
+		// estén en el lado izquierdo teniendo en cuenta lo que tardan en cruzar.
+		int h = posLinterna + posAna*8 + posBenito*4 + posCarlos*2 + posDavid;
 		return (float)h;
 	}
 
@@ -123,12 +125,12 @@ public class Puente extends Problema {
 	 * Comprueba si el estado del problema es válido.
 	 * @return Valor indicando la validez del estado.
 	 */
-	protected boolean isValid() {
-		//Es válido si lo que nos cuesta cruzar el puente no supera el tiempo que nos queda.
+	protected boolean isValid() {		
 		if (nodosExpandidos > maxNodos){
 			return false;
 		}
-		return (coste<=tiempo);
+		//Es válido si lo que nos queda tiempo.
+		return (tiempo>=0);
 	}
 
 	/**
@@ -159,6 +161,9 @@ public class Puente extends Problema {
 	 	int nposDavid = 1;
 	 	int nCoste = 0;
 	 	int nTiempo = 0;
+	 	
+	 	// Incrementamos el número de nodos expandidos.
+	 	nodosExpandidos++;
 	 	
 	 	Vector successor = new Vector();
 	 	
@@ -292,7 +297,71 @@ public class Puente extends Problema {
 	 				nTiempo = (int) (tiempo - nCoste);
 	 			}
 	 		}
-	 		//faltan 7,8,9. crear el nuevo estado, comprobar si es valido y añadirlo
+	 		// Operador 7: Cruza Benito con Carlos (con la linterna).
+	 		if (numOperador == 7){
+	 			// Para poder cruzar Benito y Carlos la linterna tiene que estar con ellos
+	 			if((posLinterna == posBenito)&&(posLinterna == posCarlos)){
+	 				nombreOperador = "Cruzan Benito y Carlos.";
+	 				//Cruza la linterna
+	 				nposLinterna = 1 - posLinterna;
+	 				//Cruza Benito
+	 				nposBenito = 1 - posBenito;
+	 				//Cruza Carlos
+	 				nposCarlos = 1 - posCarlos;
+	 				// Los demás se quedan donde están.
+	 				nposAna = posAna;
+	 				nposDavid = posDavid;
+	 				//Actualizar el coste y el tiempo
+	 				nCoste = 4; // Tiempo del que más tarda en cruzar que es Benito
+	 				nTiempo = (int) (tiempo - nCoste);
+	 			}
+	 		}
+	 		// Operador 8: Cruza Benito con David (con la linterna).
+	 		if (numOperador == 8){
+	 			// Para poder cruzar Benito y David la linterna tiene que estar con ellos
+	 			if((posLinterna == posBenito)&&(posLinterna == posDavid)){
+	 				nombreOperador = "Cruzan Benito y David.";
+	 				//Cruza la linterna
+	 				nposLinterna = 1 - posLinterna;
+	 				//Cruza Benito
+	 				nposBenito = 1 - posBenito;
+	 				//Cruza David
+	 				nposDavid = 1 - posDavid;
+	 				// Los demás se quedan donde están.
+	 				nposAna = posAna;
+	 				nposCarlos = posCarlos;
+	 				//Actualizar el coste y el tiempo
+	 				nCoste = 4; // Tiempo del que más tarda en cruzar que es Benito
+	 				nTiempo = (int) (tiempo - nCoste);
+	 			}
+	 		}
+	 		// Operador 9: Cruza Carlos con David (con la linterna).
+	 		if (numOperador == 9){
+	 			// Para poder cruzar Carlos y David la linterna tiene que estar con ellos
+	 			if((posLinterna == posCarlos)&&(posLinterna == posDavid)){
+	 				nombreOperador = "Cruzan Carlos y David.";
+	 				//Cruza la linterna
+	 				nposLinterna = 1 - posLinterna;
+	 				//Cruza Carlos
+	 				nposCarlos = 1 - posCarlos;
+	 				//Cruza David
+	 				nposDavid = 1 - posDavid;
+	 				// Los demás se quedan donde están.
+	 				nposAna = posAna;
+	 				nposBenito = posBenito;
+	 				//Actualizar el coste y el tiempo
+	 				nCoste = 2; // Tiempo del que más tarda en cruzar que es Carlos
+	 				nTiempo = (int) (tiempo - nCoste);
+	 			}
+	 		}
+	 		// Creamos el nuevo estado.
+	 	 	Puente nuevoEstado = new Puente(nposLinterna,nposAna,nposBenito,nposCarlos,nposDavid,nCoste,nTiempo);
+	 	 		
+	 	 	// Comprobamos si el nuevo estado es válido.
+	 	 	if(nuevoEstado.isValid()){	 	 		
+	 	 		// Añadimos el estado como sucesor.
+	 	 		successor.addElement(new Successor(nuevoEstado,nombreOperador,nCoste)); 
+	 	 	}
 	 	}
 	 	return successor.elements();
 	}

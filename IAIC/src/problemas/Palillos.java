@@ -117,8 +117,11 @@ public class Palillos extends Problema {
 	 	
 	 	// Nuevo nivel.
 	    int nivel2=nivel+1;
+	    
 	    Vector successor = new Vector();
-	    nodosExpandidos++;
+	    
+	    // Incrementamos el número de nodos expandidos.
+	 	nodosExpandidos++;
 	    for (numOperador=1; numOperador<=3; numOperador++) {
 	    	if ( palillos-numOperador>=0 ) {
 	    		 nombreOperador = "Quito " + numOperador + " palillo";

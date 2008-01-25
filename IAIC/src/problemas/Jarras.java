@@ -136,12 +136,14 @@ public class Jarras extends Problema {
 	 	// Operador usado.
 	 	int numOperador;
 	 	
-		Vector successor = new Vector();
-
+		// Nuevas posiciones.
 	 	int nuevaJarra3 = 0;
 	 	int nuevaJarra4 = 0;
+	 	
+		// Incrementamos el número de nodos expandidos.
 	 	nodosExpandidos++;
-
+	 	
+	 	Vector successor = new Vector();
 	 	for(numOperador = 0; numOperador <6; numOperador++){
 	 		//Llenar garrafa de 4L
 	 		if(numOperador == 0 && jarra4<4 ){
