@@ -125,7 +125,7 @@ public class Puente extends Problema {
 		if (nodosExpandidos > maxNodos){
 			return false;
 		}
-		//Es válido si lo que nos queda tiempo.
+		//Es válido si queda tiempo.
 		return (tiempo>=0);
 	}
 
