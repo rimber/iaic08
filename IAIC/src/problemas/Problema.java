@@ -243,7 +243,7 @@ public abstract class Problema implements State,Heuristic{
 	 */	
 	public String estrategiaAplicada(int estrategia){
 		String metodo="";
-			switch (estrategia){
+		switch (estrategia){
 			//0. Primero en profundidad.
 			case 0:
 				metodo="Primero en profundidad(Máxima profundidad = 7).";
