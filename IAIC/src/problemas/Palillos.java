@@ -102,8 +102,8 @@ public class Palillos extends Problema {
 		return true;
 	}
 	/**
-	 * genera los sucesores del nodo actual
-	 * @return devuelve los sucesores de ese nodo en un Enumeration
+	 * Genera todos los posibles estados sucesores del estado actual.
+	 * @return Conjunto de estados sucesores.	 
 	 */
 	public Enumeration successors() { 
 

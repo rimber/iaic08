@@ -120,9 +120,8 @@ public class Jarras extends Problema {
 	}
 
 	/**
-	 * Método que calcula los estados alcanzables
-	 * desde el estado actual.
-	 * @return Conjunto de estados nuevos alcanzables.
+	 * Genera todos los posibles estados sucesores del estado actual.
+	 * @return Conjunto de estados sucesores.	 
 	 */
 	public Enumeration successors(){
 		
