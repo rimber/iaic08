@@ -5,7 +5,6 @@
 package problemas;
 
 import aima.search.*;
-
 import java.util.*;
 
 /**
@@ -38,18 +37,25 @@ public abstract class Problema implements State,Heuristic{
 	/**
 	 * Contador de nodos expandidos.
 	 */
-	protected static int nodosExpandidos = 0;
+	protected int nodosExpandidos;
 	
 	/**
 	 * Numero de problemas distintos que tenemos
 	 */	
-	public static final int numProblemas = 3;
+	public static final int numProblemas = 7;
+	
+	/**
+	 * Método accesor para el atributo enunciado.
+	 * @return Valor del atributo enunciado.
+	 */
+	public String getEnunciado(){
+		return enunciado;
+	}
 	
 	/**
 	 * Indica si estamos ante un estado solución.
 	 * @return Valor indicando si el estado es solución o no.
 	 */
-		
 	public abstract boolean isGoal();
 	
 	/**
@@ -69,14 +75,6 @@ public abstract class Problema implements State,Heuristic{
 	 * @return Valor de la heúristica. 
 	 */
 	public abstract float h();
-	
-	/**
-	 * Método accesor para el atributo enunciado.
-	 * @return Valor del atributo enunciado.
-	 */
-	public String getEnunciado(){
-		return enunciado;
-	}
 	
 	/**
 	 * Método que intenta resolver un problema según el número de estrategia
@@ -130,7 +128,7 @@ public abstract class Problema implements State,Heuristic{
  	 * de búsqueda A*. 
  	 * @return Si se ha resuelto o no el problema.
  	 */
-	protected boolean resolverA() {
+	private boolean resolverA() {
 		boolean resuelto = listPath((new AStarSearch(this)).search());
 		return resuelto;
 	}
@@ -140,7 +138,7 @@ public abstract class Problema implements State,Heuristic{
  	 * de búsqueda de coste uniforme. 
  	 * @return Si se ha resuelto o no el problema.
  	 */
-	protected boolean resolverCosteUni() {
+	private boolean resolverCosteUni() {
 		boolean resuelto = listPath((new UniformCostSearch(this)).search());
 		return resuelto;
 	}
@@ -150,7 +148,7 @@ public abstract class Problema implements State,Heuristic{
  	 * de búsqueda escalada. 
  	 * @return Si se ha resuelto o no el problema.
  	 */
-	protected boolean resolverEscalada() {
+	private boolean resolverEscalada() {
 		boolean resuelto = listPath((new GreedySearch(this)).search());
 		return resuelto;
 	}
@@ -160,8 +158,8 @@ public abstract class Problema implements State,Heuristic{
  	 * primero en anchura.
  	 * @return Si se ha resuelto o no el problema.
  	 */
-	protected boolean resolverPrimAnchura() {
-		boolean resuelto = listPath( ( new BreadthFirstSearch(this)).search());
+	private boolean resolverPrimAnchura() {
+		boolean resuelto = listPath((new BreadthFirstSearch(this)).search());
 		return resuelto;
 	}
 	
@@ -170,7 +168,7 @@ public abstract class Problema implements State,Heuristic{
  	 * en profundidad iterativa.
  	 * @return Si se ha resuelto o no el problema.
  	 */
-	protected boolean resolverProfIt() {
+	private boolean resolverProfIt() {
 		boolean resuelto=listPath((new IteratedDeepeningSearch(this)).search());
 		return resuelto;
 	}
@@ -180,17 +178,16 @@ public abstract class Problema implements State,Heuristic{
  	 * primero en profundidad.
  	 * @return Si se ha resuelto o no el problema.
  	 */
-	protected boolean resolverProfundidad() {
-		boolean resuelto=listPath((new DepthBoundedSearch(this,7)).search());
+	private boolean resolverProfundidad() {
+		boolean resuelto=listPath((new DepthBoundedSearch(this,10)).search());
 		return resuelto;
 	}
 	
 	/**
-	 * 
-	 * @param node
-	 * @return
+	 * Método para mostar los resultados de la resolución de un problema.
+	 * @param node Nodo (estado) del problema del que mostrar información.
+	 * @return Devuelve si el problema se ha resuelto.
 	 */
-	
     public boolean listPath(SearchNode node) {
        ArrayList camino = new ArrayList();
 	   if (node == null) {
@@ -213,26 +210,21 @@ public abstract class Problema implements State,Heuristic{
 	   System.out.println();
 	   return true;
 	}
-    /**
-     * @return La representación del estado.
-     */
     
+    /**
+     * Método accesor para repEstado.
+     * @return Representación del estado actual del problema.
+     */
     public String toString(){
     	return repEstado;
     }
     
     /**
-	 * @return Los nodos expandidos.
+     * Método accesor para el número de nodos expandidos.
+	 * @return Número de nodos expandidos.
 	 */
-	public static int getNodosExpandidos() {
+	public int getNodosExpandidos() {
 		return nodosExpandidos;
-	}
-
-	/**
-	 * @param n que es el número de nodos expandidos.
-	 */
-	public static void setNodosExpandidos(int n) {
-		nodosExpandidos = n;
 	}
 	
 	/**
@@ -246,7 +238,7 @@ public abstract class Problema implements State,Heuristic{
 		switch (estrategia){
 			//0. Primero en profundidad.
 			case 0:
-				metodo="Primero en profundidad(Máxima profundidad = 7).";
+				metodo="Primero en profundidad (Máxima profundidad = 10).";
 				break;
 			//1. Primero en anchura.
 			case 1:
@@ -272,7 +264,7 @@ public abstract class Problema implements State,Heuristic{
 			default: 
 				return null;	
 		}				
-	return metodo;
+		return metodo;
 	}
 	
 }
