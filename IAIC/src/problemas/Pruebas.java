@@ -10,7 +10,7 @@ public class Pruebas {
 		for (int i=0; i<6; i++){
 			System.out.println("Estrategia: "+ juego.estrategiaAplicada(i));
 			boolean resuelto = juego.resolver(i);
-			System.out.println("Num nodos : "+ juego.getNodosExpandidos()+"\n");
+			System.out.println("Número de nodos expandidos : "+ juego.getNodosExpandidos()+"\n");
 		}
 		
 	}
