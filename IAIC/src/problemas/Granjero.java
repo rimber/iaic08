@@ -5,7 +5,6 @@
 package problemas;
 
 import aima.search.*;
-
 import java.util.Enumeration;
 import java.util.Vector;
 
@@ -142,6 +141,7 @@ public class Granjero extends Problema{
 	 	Vector successor = new Vector();
 	 	 
 	 	for (numOperador = 0; numOperador <4; numOperador++){
+	 		
 	 		// Operador 0: Cruza el lobo (con el granjero).
 	 		if (numOperador == 0){
 	 			// El lobo y el granjero deben estar en la misma orilla

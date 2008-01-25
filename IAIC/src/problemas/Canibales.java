@@ -72,14 +72,6 @@ public class Canibales extends Problema{
 	}
 	
 	/**
-	 * Método accesor para el atributo enunciado.
-	 * @return Valor del atributo enunciado.
-	 */
-	public String getEnunciado(){
-		return enunciado;
-	}
-	
-	/**
 	 * Genera el valor heurístico del estado.
 	 * @return Valor de la heúristica. 
 	 */
@@ -305,38 +297,4 @@ public class Canibales extends Problema{
 
 	    return successorVec.elements();
 	}
-
-	protected boolean resolverA() {
-		boolean resuelto = listPath((new AStarSearch(this)).search());
-		return resuelto;
-	}
-
-	protected boolean resolverCosteUni() {
-		boolean resuelto = listPath((new UniformCostSearch(this)).search());
-		return resuelto;
-	}
-
-	protected boolean resolverEscalada() {
-		boolean resuelto = listPath((new GreedySearch(this)).search());
-		return resuelto;
-	}
-
-	protected boolean resolverPrimAnchura() {
-		boolean resuelto = listPath((new BreadthFirstSearch(this)).search());
-		return resuelto;
-	}
-
-	protected boolean resolverProfIt() {
-		boolean resuelto=listPath((new IteratedDeepeningSearch(this)).search());
-		return resuelto;
-	}
-
-	protected boolean resolverProfundidad() {
-		boolean resuelto=listPath((new DepthBoundedSearch(this,7)).search());
-		return resuelto;
-	}
-
-    public String toString(){
-    	return repEstado;
-    }
 }
