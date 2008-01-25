@@ -59,6 +59,7 @@ public class Mono extends Problema{
 		subidoCaja = false;
 		tienePlatano = false;
 	 	nombreOperador = "";
+	 	repEstado = "("+posMono+","+posCaja+","+subidoCaja+","+tienePlatano+")";
 	}
 	
 	/**
@@ -81,6 +82,7 @@ public class Mono extends Problema{
 		subidoCaja = sCaja;
 		tienePlatano = tPlatano;
 	 	nombreOperador = "";
+	 	repEstado = "("+posMono+","+posCaja+","+subidoCaja+","+tienePlatano+")";
 	}
 	
 	/**
