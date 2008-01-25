@@ -26,9 +26,8 @@ public class Palillos extends Problema {
 	private int nivel;
 	
 	/**
-	 * Constructora con parámetros del estado de los palillos correspondiente
-	 * @param p numero de palillos que hay en el juego
-	 * @param n nivel en que se encuentra de expansión
+	 * Constructora por defecto que crea el juego con 6 palillos
+	 * en el nivel 1.
 	 */
 	public Palillos(){
 		enunciado =" Se dispone inicialmente de un montón de 6 palillos.\n " +
@@ -56,7 +55,11 @@ public class Palillos extends Problema {
 				   "el último palillo del montón es el que pierde.";
 		palillos=p;
 		nivel=n;
-		repEstado = "Quedan "+ palillos +" palillos en el nivel "+nivel+".";
+		String auxiliar = " palillo";
+		if(p != 1){
+			auxiliar = auxiliar+"s";
+		}
+		repEstado = "Quedan "+ palillos + auxiliar+" en el nivel "+nivel+".";
 		nombreOperador = "";
 	}
 	/**
