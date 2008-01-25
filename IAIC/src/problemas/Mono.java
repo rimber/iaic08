@@ -1,5 +1,6 @@
 /**
- * 
+ * Contiene el conjunto de los problemas implementados según el paradigma
+ * del espacio de estados.
  */
 package problemas;
 
@@ -8,7 +9,8 @@ import java.util.Vector;
 import aima.search.*;
 
 /**
- *
+ * Clase que implementa el problema de la habitación, el mono y el plátano según
+ * el paradigma del espacio de estados.
  */
 public class Mono extends Problema{
 
@@ -38,9 +40,8 @@ public class Mono extends Problema{
 	 */
 	private boolean tienePlatano;
 	
-	
 	/**
-	 * 
+	 * Constructor por defecto: inicializa las componentes a valores por defecto.
 	 */
 	public Mono(){
 		enunciado = "Hay un mono en la puerta de una habitación. En el centro de la"
@@ -60,10 +61,15 @@ public class Mono extends Problema{
 		tienePlatano = false;
 	 	nombreOperador = "";
 	 	repEstado = "("+posMono+","+posCaja+","+subidoCaja+","+tienePlatano+")";
+	 	nodosExpandidos = 0;
 	}
 	
 	/**
-	 * 
+	 * Constructor principal, inicializa los atributos a los valores indicados.
+	 * @param pMono Posición del mono.
+	 * @param pCaja Posición de la caja.
+	 * @param sCaja Si se está subido o no en la caja.
+	 * @param tPlatano Si se tiene o no el platano.
 	 */
 	public Mono(int pMono, int pCaja, boolean sCaja, boolean tPlatano){
 		enunciado = "Hay un mono en la puerta de una habitación. En el centro de la"
@@ -83,10 +89,12 @@ public class Mono extends Problema{
 		tienePlatano = tPlatano;
 	 	nombreOperador = "";
 	 	repEstado = "("+posMono+","+posCaja+","+subidoCaja+","+tienePlatano+")";
+	 	nodosExpandidos = 0;
 	}
 	
 	/**
-	 * 
+	 * Genera el valor heurístico del estado.
+	 * @return Valor de la heúristica. 
 	 */
 	public float h() {
 		int h = 0;
@@ -114,33 +122,36 @@ public class Mono extends Problema{
 	}
 
 	/**
-	 * 
+	 * Indica si estamos ante un estado solución.
+	 * @return Valor indicando si el estado es solución o no.
 	 */
 	public boolean isGoal() {
 		return tienePlatano;
 	}
 
 	/**
-	 * 
+	 * Comprueba si el estado del problema es válido.
+	 * @return Valor indicando la validez del estado.
 	 */
 	protected boolean isValid() {
 		return true;
 	}
 
 	/**
-	 * 
+	 * Genera todos los posibles estados sucesores del estado actual.
+	 * @return Conjunto de estados sucesores.	 
 	 */
 	public Enumeration successors() {
 
-		// Tenemos 8 operadores:
-		// Operador 0: Mono anda por el suelo hasta la ventana.
-		// Operador 1: Mono anda por el suelo hasta el centro.
-		// Operador 2: Mono anda por el suelo hasta la puerta.
-		// Operador 3: Mono empuja la caja hacia la ventana.
-		// Operador 4: Mono empuja la caja hacia el centro. 
-		// Operador 5: Mono empuja la caja hacia la puerta. 
-		// Operador 6: Mono se sube a la caja. 
-		// Operador 7: Mono coje el platano. 
+		// OPERADORES:
+		//  - Operador 0: Mono anda por el suelo hasta la ventana.
+		//  - Operador 1: Mono anda por el suelo hasta el centro.
+		//  - Operador 2: Mono anda por el suelo hasta la puerta.
+		//  - Operador 3: Mono empuja la caja hacia la ventana.
+		//  - Operador 4: Mono empuja la caja hacia el centro. 
+		//  - Operador 5: Mono empuja la caja hacia la puerta. 
+		//  - Operador 6: Mono se sube a la caja. 
+		//  - Operador 7: Mono coje el platano. 
 		
 	 	// Operador usado.
 	 	int numOperador;
@@ -151,6 +162,8 @@ public class Mono extends Problema{
 	 	boolean nsubidoCaja = false;
 	 	boolean ntienePlatano = false;
 	 	Vector successorVec = new Vector();
+	 	
+	 	nodosExpandidos++;
 
 	 	for (numOperador=0; numOperador<8; numOperador++){
 	 		

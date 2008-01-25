@@ -52,6 +52,7 @@ public class Granjero extends Problema{
 		posCol = 1;
 		repEstado = "("+posGranjero+","+posLobo+","+posCabra+","+posCol+")";
 		nombreOperador = "";
+		nodosExpandidos = 0;
 	}
 	
 	/**
@@ -76,6 +77,7 @@ public class Granjero extends Problema{
 		posCol = pCol;
 		repEstado = "("+posGranjero+","+posLobo+","+posCabra+","+posCol+")";
 		nombreOperador = "";
+		nodosExpandidos = 0;
 	}
 	
 	/**
@@ -124,11 +126,11 @@ public class Granjero extends Problema{
 	 */
 	public Enumeration successors() {
 		
-		// Tenemos 4 operadores:
-		// Operador 0: Cruza el lobo (con el granjero).
-		// Operador 1: Cruza la cabra (con el granjero).
-		// Operador 2: Cruza la col (con el granjero).
-		// Operador 3: Cruza el granjero solo.
+		// OPERADORES:
+		//  - Operador 0: Cruza el lobo (con el granjero).
+		//  - Operador 1: Cruza la cabra (con el granjero).
+		//  - Operador 2: Cruza la col (con el granjero).
+		//  - Operador 3: Cruza el granjero solo.
 		
 	 	// Operador usado.
 	 	int numOperador;
@@ -139,6 +141,9 @@ public class Granjero extends Problema{
 	 	int nposCol = 1;
 	 	int nposGranjero  = 1;
 	 	Vector successor = new Vector();
+	 	
+	 	// Incrementamos el número de nodos expandidos.
+	 	nodosExpandidos++;
 	 	 
 	 	for (numOperador = 0; numOperador <4; numOperador++){
 	 		
