@@ -209,39 +209,5 @@ public class Granjero extends Problema{
 	 	 
 	 	 return successor.elements();
 	}
-
-	protected boolean resolverA() {
-		boolean resuelto = listPath((new AStarSearch(this)).search());
-		return resuelto;
-	}
-
-	protected boolean resolverCosteUni() {
-		boolean resuelto = listPath((new UniformCostSearch(this)).search());
-		return resuelto;
-	}
-
-	protected boolean resolverEscalada() {
-		boolean resuelto = listPath((new GreedySearch(this)).search());
-		return resuelto;
-	}
-
-	protected boolean resolverPrimAnchura() {
-		boolean resuelto = listPath( ( new BreadthFirstSearch(this)).search());
-		return resuelto;
-	}
-
-	protected boolean resolverProfIt() {
-		boolean resuelto=listPath((new IteratedDeepeningSearch(this)).search());
-		return resuelto;
-	}
-
-	protected boolean resolverProfundidad() {
-		boolean resuelto=listPath((new DepthBoundedSearch(this,7)).search());
-		return resuelto;
-	}
-	
-    public String toString(){
-    	return repEstado;
-    }
    
 }

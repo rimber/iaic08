@@ -38,10 +38,10 @@ public class Jarras extends Problema {
 	 * a las dos jarras vacías.
 	 */
 	public Jarras(){
-		enunciado = "Se tienen dos garrafas vacías con capacidades de 3 y 4 litros " +
-					"respectivamente pero sin ninguna marca de medida parcial. Las " +
-					"garrafas pueden vaciarse o llenarse de agua, así como verter " +
-					"el contenido de una a otra. El objetivo consiste en tener " +
+		enunciado = "Se tienen dos garrafas vacías con capacidades de 3 y 4 litros\n " +
+					"respectivamente pero sin ninguna marca de medida parcial. Las\n " +
+					"garrafas pueden vaciarse o llenarse de agua, así como verter\n " +
+					"el contenido de una a otra. El objetivo consiste en tener\n " +
 					"exactamente 2 litros de agua en la garrafa de 4 litros.";
 		jarra4 = 0;
 		jarra3 = 0;
@@ -56,11 +56,11 @@ public class Jarras extends Problema {
 	 * @param j litros en la jarra de 3 litros.
 	 */	
 	public Jarras(int i,int j){
-		enunciado = "Se tienen dos garrafas vacías con capacidades de 3 y 4 litros " +
-		"respectivamente pero sin ninguna marca de medida parcial. Las " +
-		"garrafas pueden vaciarse o llenarse de agua, así como verter " +
-		"el contenido de una a otra. El objetivo consiste en tener " +
-		"exactamente 2 litros de agua en la garrafa de 4 litros.";
+		enunciado = "Se tienen dos garrafas vacías con capacidades de 3 y 4 litros\n " +
+					"respectivamente pero sin ninguna marca de medida parcial. Las\n " +
+					"garrafas pueden vaciarse o llenarse de agua, así como verter\n " +
+					"el contenido de una a otra. El objetivo consiste en tener\n " +
+					"exactamente 2 litros de agua en la garrafa de 4 litros.";
 		if((i<0)||(i>4)){
 			String mensaje = new String();
 			mensaje = "No se puede crear el estado "+ String.valueOf(i)+" litros\n";
