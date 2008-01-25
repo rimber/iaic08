@@ -5,6 +5,7 @@
 package problemas;
 
 import aima.search.*;
+
 import java.util.Enumeration;
 import java.util.Vector;
 
@@ -45,6 +46,8 @@ public class Canibales extends Problema{
 		posBarca = 1;
 		numMisionerosIzq = 3;
 		numCanibalesIzq = 3;
+		repEstado = "("+numMisionerosIzq+","+numCanibalesIzq+","+posBarca+")";
+		nombreOperador = "";
 	}
 	
 	/**
@@ -65,6 +68,8 @@ public class Canibales extends Problema{
 		posBarca = pBarca;
 		numMisionerosIzq = nMisioneros;
 		numCanibalesIzq = nCanibales;
+		nombreOperador = "";
+		repEstado = "("+numMisionerosIzq+","+numCanibalesIzq+","+posBarca+")";
 	}
 	
 	/**
@@ -105,11 +110,6 @@ public class Canibales extends Problema{
 	 */
 	protected boolean isValid() {
 		
-        // Comprobaciones para no salirse de rango.
-        if ((posBarca < 0) || (numMisionerosIzq < 0) || (numCanibalesIzq < 0)){
-        	return false;
-        }
-
         // Si el número de caníbales supera al de misioneros en la izquierda 
         // (siempre que halla alguno).
         if ((numMisionerosIzq > 0) && (numCanibalesIzq > numMisionerosIzq)){
@@ -130,34 +130,179 @@ public class Canibales extends Problema{
 	 * @return Conjunto de estados sucesores.	 
 	 */
 	public Enumeration successors() {
-	    
+		
+		// Tenemos  operadores:
+		// Operador 0: Cruza un canibal.
+		// Operador 1: Cruzan dos canibales.
+		// Operador 2: Cruza un misionero.
+		// Operador 3: Cruzan dos misioneros.
+		// Operador 4: Cruza un misionero y un canibal.
+		
+	 	// Operador usado.
+	 	int numOperador;
+		
 	 	// Nuevas posiciones.
-		int nnumMisioneros;
-	    int nnumCanibales;
-	    int nposBarco;
+		int nnumMisionerosIzq = 0;
+	    int nnumCanibalesIzq = 0;
+	    int nposBarca = 0;
 	    Vector successorVec = new Vector();
 	    
-	    for (nposBarco= 0; nposBarco<2; nposBarco++){
-	    	for (nnumMisioneros=0; nnumMisioneros<3; nnumMisioneros++){
-	    		for (nnumCanibales=0; nnumCanibales+nnumMisioneros<3; nnumCanibales++) {
-	    	  		
-	    			if ((nnumMisioneros+nnumCanibales)>0){
-	    	  			// Creamos el nuevo estado.
-	    	  			Canibales nuevoEstado = 
-	    	  				new Canibales(numMisionerosIzq+nposBarco*nnumMisioneros,
-	    	  							numCanibalesIzq+nposBarco*nnumCanibales,
-	    	  							posBarca+nposBarco);
-	                    
-	    	  			// Comprobamos si el nuevo estado es válido.
-	    	  			if (nuevoEstado.isValid()) {
-	    	  				// Añadimos el estado como sucesor.
-	    	  			   successorVec.addElement(
-	    	  					   new Successor(nuevoEstado,"(" + nnumMisioneros + "," + nnumCanibales + ","+ nposBarco + ")", 1)); 
-	    	  			}
-	    	  		}  
-	    	  	}
-	      	}
-	    }
+	    for (numOperador = 0; numOperador <5; numOperador++){
+	    	// Operador 0: Cruza un canibal.
+	 		if (numOperador == 0){
+	 			// La barca está en la izquierda
+	 			if (posBarca == 1){
+	 				// Si hay canibales en la izquierda.
+	 				if (numCanibalesIzq>0){
+	 					nombreOperador = "Cruza un canibal.";
+	 				    // Cruza canibal.
+	 				    nnumCanibalesIzq = numCanibalesIzq - 1;
+	 				    // Cruza la barca.
+	 				    nposBarca = 0;
+	 				    // Misioneros se quedan igual.
+	 				    nnumMisionerosIzq = numMisionerosIzq;
+	 				}
+
+	 			}else{// La barca está a la derecha.
+	 				// Si hay canibales en la derecha.
+	 				if ((3-numCanibalesIzq)>0){
+	 					nombreOperador = "Cruza un canibal.";
+	 				    // Cruza canibal.
+	 				    nnumCanibalesIzq = numCanibalesIzq + 1;
+	 				    // Cruza la barca.
+	 				    nposBarca = 1;
+	 				    // Misioneros se quedan igual.
+	 				    nnumMisionerosIzq = numMisionerosIzq;
+	 				}
+	 			}
+	 	 	}
+	    
+	 		// Operador 1: Cruzan dos canibales.
+	 		if (numOperador == 1){
+
+	 			// La barca está en la izquierda
+	 			if (posBarca == 1){
+	 				// Si hay al menos dos canibales en la izquierda.
+	 				if (numCanibalesIzq>1){
+	 					nombreOperador = "Cruzan dos canibales.";
+	 				    // Cruzan dos canibales.
+	 				    nnumCanibalesIzq = numCanibalesIzq - 2;
+	 				    // Cruza la barca.
+	 				    nposBarca = 0;
+	 				    // Misioneros se quedan igual.
+	 				    nnumMisionerosIzq = numMisionerosIzq;
+	 				}
+
+	 			}else{// La barca está a la derecha.
+	 				// Si hay al menos dos canibales en la derecha.
+	 				if ((3-numCanibalesIzq)>1){
+	 					nombreOperador = "Cruzan dos canibales.";
+	 				    // Cruzan dos canibales.
+	 				    nnumCanibalesIzq = numCanibalesIzq + 2;
+	 				    // Cruza la barca.
+	 				    nposBarca = 1;
+	 				    // Misioneros se quedan igual.
+	 				    nnumMisionerosIzq = numMisionerosIzq;
+	 				}
+	 			}
+	 	 	}
+	 		
+	    	// Operador 2: Cruza un misionero.
+	 		if (numOperador == 2){
+	 			// La barca está en la izquierda
+	 			if (posBarca == 1){
+	 				// Si hay misioneros en la izquierda.
+	 				if (numMisionerosIzq>0){
+	 					nombreOperador = "Cruza un misionero.";
+	 				    // Cruza misionero.
+	 				    nnumMisionerosIzq = numMisionerosIzq - 1;
+	 				    // Cruza la barca.
+	 				    nposBarca = 0;
+	 				    // Canibales se quedan igual.
+	 				    nnumCanibalesIzq = numCanibalesIzq;
+	 				}
+
+	 			}else{// La barca está a la derecha.
+	 				// Si hay misioneros en la derecha.
+	 				if ((3-numMisionerosIzq)>0){
+	 					nombreOperador = "Cruza un misionero.";
+	 				    // Cruza canibal.
+	 					nnumMisionerosIzq = numMisionerosIzq + 1;
+	 				    // Cruza la barca.
+	 					nposBarca = 1;
+	 				    // Misioneros se quedan igual.
+	 				    nnumCanibalesIzq = numCanibalesIzq;
+	 				}
+	 			}
+	 	 	}
+	 		
+	    	// Operador 3: Cruzan dos misioneros.
+	 		if (numOperador == 3){
+	 			// La barca está en la izquierda
+	 			if (posBarca == 1){
+	 				// Si hay al menos dos misioneros en la izquierda.
+	 				if (numMisionerosIzq>1){
+	 					nombreOperador = "Cruzan dos misioneros.";
+	 				    // Cruzan dos misioneros.
+	 					nnumMisionerosIzq = numMisionerosIzq - 2;
+	 				    // Cruza la barca.
+	 					nposBarca = 0;
+	 				    // Canibales se quedan igual.
+	 				    nnumCanibalesIzq = numCanibalesIzq;
+	 				}
+
+	 			}else{// La barca está a la derecha.
+	 				// Si hay al menos dos misioneros en la derecha.
+	 				if ((3-numMisionerosIzq)>1){
+	 					nombreOperador = "Cruzan dos canibales.";
+	 				    // Cruzan dos misioneros.
+	 					nnumMisionerosIzq = numMisionerosIzq + 2;
+	 				    // Cruza la barca.
+	 					nposBarca = 1;
+	 				    // Canibales se quedan igual.
+	 				    nnumCanibalesIzq = numCanibalesIzq;
+	 				}
+	 			}
+	 	 	}
+	 		
+	    	// Operador 4: Cruza un misionero y un canibal.
+	 		if (numOperador == 4){
+	 			// La barca está en la izquierda
+	 			if (posBarca == 1){
+	 				// Si hay al menos hay un misionero y un canibal en la izquierda.
+	 				if ((numMisionerosIzq>0)&&(numCanibalesIzq>0)){
+	 					nombreOperador = "Cruza un misionero y un canibal.";
+	 				    // Cruzan un misionero.
+	 					nnumMisionerosIzq = numMisionerosIzq - 1;
+	 				    // Cruza un canibal.
+	 				    nnumCanibalesIzq = numCanibalesIzq - 1;
+	 				    // Cruza la barca.
+	 				    nposBarca = 0;
+	 				}
+
+	 			}else{// La barca está a la derecha.
+	 				// Si hay al menos hay un misionero y un canibal en la derecha.
+	 				if (((3-numMisionerosIzq)>0)&&((3-numCanibalesIzq)>0)){
+	 					nombreOperador = "Cruza un misionero y un canibal.";
+	 				    // Cruzan un misionero.
+	 					nnumMisionerosIzq = numMisionerosIzq + 1;
+	 				    // Cruza un canibal.
+	 				    nnumCanibalesIzq = numCanibalesIzq + 1;
+	 				    // Cruza la barca.
+	 				    nposBarca = 1;
+	 				}
+	 			}
+	 	 	}
+	 		
+	 	 	// Creamos el nuevo estado.
+	 	 	Canibales nuevoEstado = new Canibales(nnumMisionerosIzq, nnumCanibalesIzq, nposBarca);
+	 	 	
+	 	 	// Comprobamos si el nuevo estado es válido.
+	 	 	if(nuevoEstado.isValid()){	 	 		
+	 	 		// Añadimos el estado como sucesor.
+	 	 		successorVec.addElement(new Successor(nuevoEstado,nombreOperador,1)); 
+	 	 	}
+		}
 
 	    return successorVec.elements();
 	}
@@ -178,7 +323,7 @@ public class Canibales extends Problema{
 	}
 
 	protected boolean resolverPrimAnchura() {
-		boolean resuelto = listPath( ( new BreadthFirstSearch(this)).search());
+		boolean resuelto = listPath((new BreadthFirstSearch(this)).search());
 		return resuelto;
 	}
 
