@@ -316,16 +316,16 @@ public class Puzzle8 extends Problema{
 	   	tablero[0][0] = 8;
 	   	tablero[0][1] = 7;
 	   	tablero[0][2] = 5;
-	   	tablero[1][0] = 0;
-		tablero[1][1] = 3;
+	   	tablero[1][0] = 3;
+		tablero[1][1] = 0;
 		tablero[1][2] = 2;
 		tablero[2][0] = 4;
 		tablero[2][1] = 6;
 		tablero[2][2] = 1;
 		
-		// Hueco en (1,0).
+		// Hueco en (1,1).
 		coorX = 1;
-		coorY = 0;
+		coorY = 1;
     }
     
     /**
@@ -339,13 +339,13 @@ public class Puzzle8 extends Problema{
 	   	tablero[1][0] = 3;
 		tablero[1][1] = 4;
 		tablero[1][2] = 1;
-		tablero[2][0] = 0;
+		tablero[2][0] = 6;
 		tablero[2][1] = 7;
-		tablero[2][2] = 6;
+		tablero[2][2] = 0;
 		
-		// Hueco en (2,0).
+		// Hueco en (2,2).
 		coorX = 2;
-		coorY = 0;
+		coorY = 2;
     }
     
     /**
@@ -357,14 +357,14 @@ public class Puzzle8 extends Problema{
 	   	tablero[0][1] = 5;
 	   	tablero[0][2] = 4;
 	   	tablero[1][0] = 2;
-		tablero[1][1] = 1;
+		tablero[1][1] = 0;
 		tablero[1][2] = 6;
 		tablero[2][0] = 7;
-		tablero[2][1] = 0;
+		tablero[2][1] = 1;
 		tablero[2][2] = 3;
 		
-		// Hueco en (2,1).
-		coorX = 2;
+		// Hueco en (1,1).
+		coorX = 1;
 		coorY = 1;
     }
     
