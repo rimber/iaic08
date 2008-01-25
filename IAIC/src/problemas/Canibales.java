@@ -47,6 +47,7 @@ public class Canibales extends Problema{
 		numCanibalesIzq = 3;
 		repEstado = "("+numMisionerosIzq+","+numCanibalesIzq+","+posBarca+")";
 		nombreOperador = "";
+		nodosExpandidos = 0;
 	}
 	
 	/**
@@ -69,6 +70,7 @@ public class Canibales extends Problema{
 		numCanibalesIzq = nCanibales;
 		nombreOperador = "";
 		repEstado = "("+numMisionerosIzq+","+numCanibalesIzq+","+posBarca+")";
+		nodosExpandidos = 0;
 	}
 	
 	/**
@@ -122,12 +124,12 @@ public class Canibales extends Problema{
 	 */
 	public Enumeration successors() {
 		
-		// Tenemos  operadores:
-		// Operador 0: Cruza un canibal.
-		// Operador 1: Cruzan dos canibales.
-		// Operador 2: Cruza un misionero.
-		// Operador 3: Cruzan dos misioneros.
-		// Operador 4: Cruza un misionero y un canibal.
+		// OPERADORES:
+		//  - Operador 0: Cruza un canibal.
+		//  - Operador 1: Cruzan dos canibales.
+		//  - Operador 2: Cruza un misionero.
+		//  - Operador 3: Cruzan dos misioneros.
+		//  - Operador 4: Cruza un misionero y un canibal.
 		
 	 	// Operador usado.
 	 	int numOperador;
@@ -138,7 +140,11 @@ public class Canibales extends Problema{
 	    int nposBarca = 0;
 	    Vector successorVec = new Vector();
 	    
-	    for (numOperador = 0; numOperador <5; numOperador++){
+	    // Incrementamos los nodos expandidos.
+	    nodosExpandidos++;
+	    
+	    for (numOperador=0; numOperador<5; numOperador++){
+	    	
 	    	// Operador 0: Cruza un canibal.
 	 		if (numOperador == 0){
 	 			// La barca está en la izquierda
