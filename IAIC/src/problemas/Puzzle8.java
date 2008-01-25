@@ -4,6 +4,7 @@
  */
 package problemas;
 
+import java.util.*;
 import java.util.Enumeration;
 import java.util.Vector;
 import aima.search.*;;
@@ -33,22 +34,30 @@ public class Puzzle8 extends Problema{
 	 * Constructor por defecto: inicializa las componentes a valores por defecto.
 	 */
 	public Puzzle8(){
+		
 		// Escogemos un tablero base.
+		Random generador = new Random();
+		int numTablero	= generador.nextInt(5);
 	    tablero = new int [3][3];
-	   	tablero[0][0] = 1;
-	   	tablero[0][1] = 3;
-	   	tablero[0][2] = 4;
-	   	tablero[1][0] = 8;
-		tablero[1][1] = 0;
-		tablero[1][2] = 2;
-		tablero[2][0] = 7;
-		tablero[2][1] = 6;
-		tablero[2][2] = 5;
 		
-		// Hueco en (1,1).
-		coorX = 1;
-		coorY = 1;
-		
+		switch (numTablero){
+			case 0: 
+				tableroUno();
+				break;
+			case 1:
+				tableroDos();
+				break;
+			case 2:
+				tableroTres();
+				break;
+			case 3:
+				tableroCuatro();
+				break;
+			case 4:
+				tableroCinco();
+				break;
+		}
+
 		// Inicializamos el nombre del operador.
 		nombreOperador = "";
 		nodosExpandidos = 0;
@@ -277,6 +286,106 @@ public class Puzzle8 extends Problema{
 	 			}
 	 		}
 	 	}
+    }
+    
+    /**
+     * Inicializa el tablero con unos valores determinados.
+     */
+    private void tableroUno(){
+    	// Tablero.
+	   	tablero[0][0] = 1;
+	   	tablero[0][1] = 3;
+	   	tablero[0][2] = 4;
+	   	tablero[1][0] = 8;
+		tablero[1][1] = 0;
+		tablero[1][2] = 2;
+		tablero[2][0] = 7;
+		tablero[2][1] = 6;
+		tablero[2][2] = 5;
+		
+		// Hueco en (1,1).
+		coorX = 1;
+		coorY = 1;
+    }
+    
+    /**
+     * Inicializa el tablero con unos valores determinados.
+     */
+    private void tableroDos(){
+    	// Tablero.
+	   	tablero[0][0] = 8;
+	   	tablero[0][1] = 7;
+	   	tablero[0][2] = 5;
+	   	tablero[1][0] = 0;
+		tablero[1][1] = 3;
+		tablero[1][2] = 2;
+		tablero[2][0] = 4;
+		tablero[2][1] = 6;
+		tablero[2][2] = 1;
+		
+		// Hueco en (1,0).
+		coorX = 1;
+		coorY = 0;
+    }
+    
+    /**
+     * Inicializa el tablero con unos valores determinados.
+     */
+    private void tableroTres(){
+    	// Tablero.
+	   	tablero[0][0] = 5;
+	   	tablero[0][1] = 8;
+	   	tablero[0][2] = 2;
+	   	tablero[1][0] = 3;
+		tablero[1][1] = 4;
+		tablero[1][2] = 1;
+		tablero[2][0] = 0;
+		tablero[2][1] = 7;
+		tablero[2][2] = 6;
+		
+		// Hueco en (2,0).
+		coorX = 2;
+		coorY = 0;
+    }
+    
+    /**
+     * Inicializa el tablero con unos valores determinados.
+     */
+    private void tableroCuatro(){
+    	// Tablero.
+	   	tablero[0][0] = 8;
+	   	tablero[0][1] = 5;
+	   	tablero[0][2] = 4;
+	   	tablero[1][0] = 2;
+		tablero[1][1] = 1;
+		tablero[1][2] = 6;
+		tablero[2][0] = 7;
+		tablero[2][1] = 0;
+		tablero[2][2] = 3;
+		
+		// Hueco en (2,1).
+		coorX = 2;
+		coorY = 1;
+    }
+    
+    /**
+     * Inicializa el tablero con unos valores determinados.
+     */
+    private void tableroCinco(){
+    	// Tablero.
+	   	tablero[0][0] = 0;
+	   	tablero[0][1] = 6;
+	   	tablero[0][2] = 2;
+	   	tablero[1][0] = 7;
+		tablero[1][1] = 4;
+		tablero[1][2] = 1;
+		tablero[2][0] = 8;
+		tablero[2][1] = 5;
+		tablero[2][2] = 3;
+		
+		// Hueco en (0,0).
+		coorX = 0;
+		coorY = 0;
     }
 
 }
