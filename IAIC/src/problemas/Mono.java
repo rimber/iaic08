@@ -170,9 +170,8 @@ public class Mono extends Problema{
 	 		
 			// Operador 0: Mono anda por el suelo hasta la ventana. 
 	 		if (numOperador == 0){
-	 			// Si el mono no está en la ventana, no tiene la caja y no está
-	 			// subido a ella.
-	 			if ((posMono != 1) && (posMono != posCaja) && (!subidoCaja)){
+	 			// Si el mono no está en la ventana y no está subido a la caja.
+	 			if ((posMono != 1) && (!subidoCaja)){
 	 				nombreOperador = "Mono anda a ventana.";
 	 				// Cambiamos la posición del mono.
 	 				nposMono = 1;
@@ -184,9 +183,8 @@ public class Mono extends Problema{
 	 		
 			// Operador 1: Mono anda por el suelo hasta el centro. 
 	 		if (numOperador == 1){
-	 			// Si el mono no está en el centro, no tiene la caja y no está
-	 			// subido a ella.
-	 			if ((posMono != 2) && (posMono != posCaja) && (!subidoCaja)){
+	 			// Si el mono no está en el centro y no está subido a la caja.
+	 			if ((posMono != 2) && (!subidoCaja)){
 	 				nombreOperador = "Mono anda al centro.";
 	 				// Cambiamos la posición del mono.
 	 				nposMono = 2;
@@ -198,9 +196,9 @@ public class Mono extends Problema{
 	 		
 			// Operador 2: Mono anda por el suelo hasta la puerta. 
 	 		if (numOperador == 2){
-	 			// Si el mono no está en la puerta, no tiene la caja y no está
+	 			// Si el mono no está en la puerta y no está subido a la caja.
 	 			// subido a ella.
-	 			if ((posMono != 0) && (posMono != posCaja) && (!subidoCaja)){
+	 			if ((posMono != 0) && (!subidoCaja)){
 	 				nombreOperador = "Mono anda hacia puerta.";
 	 				// Cambiamos la posición del mono.
 	 				nposMono = 0;
