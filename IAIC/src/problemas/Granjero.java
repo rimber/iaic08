@@ -43,8 +43,8 @@ public class Granjero extends Problema{
 		+ " granjero pretende transportar al lobo, la cabra y la col al otro lado del río, utilizando el"
 		+ " bote. Sin embargo, debe tener cuidado y no dejar solos en una orilla al lobo y a la cabra"
 		+ " porque el lobo se comería a la cabra. Tampoco puede dejar solas a la cabra y la col"
-		+ " porque la cabra se comería la col. Consigue que el granjero traslade a todos a la"
-		+ " margen derecha del río.";
+		+ " porque la cabra se comería la col. Consigue que el granjero traslade a todos al"
+		+ " margen derecho del río.";
 		
 		posGranjero = 1;
 		posLobo = 1;
@@ -67,8 +67,8 @@ public class Granjero extends Problema{
 		+ " granjero pretende transportar al lobo, la cabra y la col al otro lado del río, utilizando el"
 		+ " bote. Sin embargo, debe tener cuidado y no dejar solos en una orilla al lobo y a la cabra"
 		+ " porque el lobo se comería a la cabra. Tampoco puede dejar solas a la cabra y la col"
-		+ " porque la cabra se comería la col. Consigue que el granjero traslade a todos a la"
-		+ " margen derecha del río.";
+		+ " porque la cabra se comería la col. Consigue que el granjero traslade a todos al"
+		+ " margen derecho del río.";
 		
 		posGranjero = pGranjero;
 		posLobo = pLobo;
@@ -154,7 +154,7 @@ public class Granjero extends Problema{
 	 			// El lobo y el granjero deben estar en la misma orilla
 	 			// para poder cruzar.
 	 			if (posGranjero == posLobo){
-	 				nombreOperador = "Cruza lobo.";
+	 				nombreOperador = "cruzaLobo";
 	 				// Cruza el granjero.
 		 	 		nposGranjero = 1 - posGranjero;
 		 	 		// Cruza el lobo.
@@ -168,7 +168,7 @@ public class Granjero extends Problema{
 	 		// Operador 1: Cruza la cabra (con el granjero).
 	 	 	if (numOperador == 1){
 	 	 		if (posGranjero == posCabra){
-	 				nombreOperador = "Cruza cabra.";
+	 				nombreOperador = "cruzaCabra";
 	 				// Cruza el granjero.
 		 	 		nposGranjero = 1 - posGranjero;
 		 	 		// Cruza la cabra.
@@ -182,7 +182,7 @@ public class Granjero extends Problema{
 	 	    // Operador 2: Cruza la col (con el granjero).
 	 	 	if (numOperador == 2){
 	 	 		if (posGranjero == posCol){
-	 				nombreOperador = "Cruza col.";
+	 				nombreOperador = "cruzaCol";
 	 				// Cruza el granjero.
 		 	 		nposGranjero = 1 - posGranjero;
 		 	 		// Cruza la cabra.
@@ -195,7 +195,7 @@ public class Granjero extends Problema{
 	 	 	
 	 	 	// Operador 3: Cruza el granjero solo.
 	 	 	if(numOperador == 3){
- 				nombreOperador = "Cruza granjero.";
+ 				nombreOperador = "cruzaGranjero";
  				// Cruza el granjero.
 	 	 		nposGranjero = 1 - posGranjero;
 	 	 		// Los demás se quedan donde están.
