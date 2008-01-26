@@ -90,7 +90,7 @@ public class Palillos extends Problema {
 	 * @return true si ha llegado a solucion o false en caso contrario
 	 */
 	public boolean isGoal() {
-		//¿No quedan palillos y el nivel en el que estamos es par?
+		//¿No quedan palillos y el nivel en el que estamos es par?.
 	      return  ((palillos==0)&&(multiploDos(nivel)));
 	      
 	   }
