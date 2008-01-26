@@ -49,7 +49,6 @@ public class RojoAzul extends Problema {
 		Random generador = new Random();
 		int numTablero	= generador.nextInt(5);
 	    tablero = new int [3][3];
-		numTablero = 0; // De momento para ver que funciona
 		switch (numTablero){
 			case 0: 
 				tableroUno();
@@ -183,6 +182,7 @@ public class RojoAzul extends Problema {
 	 				//si no ahora es rojo.
 	 				nuevoEstado.tablero[0][0] = rojo;
 	 			}
+	 			nombreOperador = "Cambia de color la casilla [0][0].";
 	 		}
 			// Operador 1 : Cambiar color casilla [0][1].
 	 		if(numOperador == 1){
@@ -195,6 +195,7 @@ public class RojoAzul extends Problema {
 	 				//si no ahora es rojo.
 	 				nuevoEstado.tablero[0][1] = rojo;
 	 			}
+	 			nombreOperador = "Cambia de color la casilla [0][1].";
 	 		}
 			// Operador 2 : Cambiar color casilla [0][2].
 	 		if(numOperador == 2){
@@ -207,6 +208,7 @@ public class RojoAzul extends Problema {
 	 				//si no ahora es rojo.
 	 				nuevoEstado.tablero[0][2] = rojo;
 	 			}
+	 			nombreOperador = "Cambia de color la casilla [0][2].";
 	 		}
 	 		// Operador 3 : Cambiar color casilla [1][0].
 	 		if(numOperador == 3){
@@ -219,6 +221,7 @@ public class RojoAzul extends Problema {
 	 				//si no ahora es rojo.
 	 				nuevoEstado.tablero[1][0] = rojo;
 	 			}
+	 			nombreOperador = "Cambia de color la casilla [1][0].";
 	 		}
 	 		// Operador 4 : Cambiar color casilla [1][1].
 	 		if(numOperador == 4){
@@ -231,6 +234,7 @@ public class RojoAzul extends Problema {
 	 				//si no ahora es rojo.
 	 				nuevoEstado.tablero[1][1] = rojo;
 	 			}
+	 			nombreOperador = "Cambia de color la casilla [1][1].";
 	 		}
 	 		// Operador 5 : Cambiar color casilla [1][2].
 	 		if(numOperador == 5){
@@ -243,7 +247,8 @@ public class RojoAzul extends Problema {
 	 				//si no ahora es rojo.
 	 				nuevoEstado.tablero[1][2] = rojo;
 	 			}
-	 		}
+	 			nombreOperador = "Cambia de color la casilla [1][2].";
+	 		}	 		
 	 		// Operador 6 : Cambiar color casilla [2][0].
 	 		if(numOperador == 6){
 	 			//Si era de color rojo.
@@ -255,6 +260,7 @@ public class RojoAzul extends Problema {
 	 				//si no ahora es rojo.
 	 				nuevoEstado.tablero[2][0] = rojo;
 	 			}
+	 			nombreOperador = "Cambia de color la casilla [2][0].";
 	 		}
 	 		// Operador 7 : Cambiar color casilla [2][1].
 	 		if(numOperador == 7){
@@ -267,6 +273,7 @@ public class RojoAzul extends Problema {
 	 				//si no ahora es rojo.
 	 				nuevoEstado.tablero[2][1] = rojo;
 	 			}
+	 			nombreOperador = "Cambia de color la casilla [2][1].";
 	 		}
 	 		// Operador 8 : Cambiar color casilla [2][2].
 	 		if(numOperador == 8){
@@ -279,7 +286,10 @@ public class RojoAzul extends Problema {
 	 				//si no ahora es rojo.
 	 				nuevoEstado.tablero[2][2] = rojo;
 	 			}
+	 			nombreOperador = "Cambia de color la casilla [2][2].";
 	 		}
+	 		// Actualizamos la representación del estado.
+ 			nuevoEstado.setRepEstado();
 	 		if(nuevoEstado.isValid()){
 	  	 		successor.addElement(new Successor(nuevoEstado,nombreOperador,1));
 			} 
@@ -297,10 +307,10 @@ public class RojoAzul extends Problema {
 		repEstado = "\n(";
 	 	for (int i=0; i<3; i++){
 	 		for (int j=0; j<3; j++){
-	 			int valor = tablero[i][j]; 
+	 			int valor = this.tablero[i][j]; 
 	 			String repValor =" ";
 	 			if (valor!=0){
-	 				if(tablero[i][j] == rojo){	 					
+	 				if(this.tablero[i][j] == rojo){	 					
 	 					repValor = "R";
 	 				}
 	 				else{
@@ -338,15 +348,15 @@ public class RojoAzul extends Problema {
      */
     private void tableroDos(){
     	// Tablero.
-	   	tablero[0][0] = 8;
-	   	tablero[0][1] = 7;
-	   	tablero[0][2] = 5;
-	   	tablero[1][0] = 3;
-		tablero[1][1] = 0;
-		tablero[1][2] = 2;
-		tablero[2][0] = 4;
-		tablero[2][1] = 6;
-		tablero[2][2] = 1;
+    	tablero[0][0] = rojo;
+	   	tablero[0][1] = azul;
+	   	tablero[0][2] = azul;
+	   	tablero[1][0] = azul;
+		tablero[1][1] = rojo;
+		tablero[1][2] = rojo;
+		tablero[2][0] = azul;
+		tablero[2][1] = azul;
+		tablero[2][2] = rojo;
     }
     
     /**
@@ -354,15 +364,15 @@ public class RojoAzul extends Problema {
      */
     private void tableroTres(){
     	// Tablero.
-	   	tablero[0][0] = 5;
-	   	tablero[0][1] = 8;
-	   	tablero[0][2] = 2;
-	   	tablero[1][0] = 3;
-		tablero[1][1] = 4;
-		tablero[1][2] = 1;
-		tablero[2][0] = 6;
-		tablero[2][1] = 7;
-		tablero[2][2] = 0;
+    	tablero[0][0] = rojo;
+	   	tablero[0][1] = rojo;
+	   	tablero[0][2] = rojo;
+	   	tablero[1][0] = rojo;
+		tablero[1][1] = rojo;
+		tablero[1][2] = rojo;
+		tablero[2][0] = azul;
+		tablero[2][1] = rojo;
+		tablero[2][2] = azul;
     }
     
     /**
@@ -370,15 +380,15 @@ public class RojoAzul extends Problema {
      */
     private void tableroCuatro(){
     	// Tablero.
-	   	tablero[0][0] = 8;
-	   	tablero[0][1] = 5;
-	   	tablero[0][2] = 4;
-	   	tablero[1][0] = 2;
-		tablero[1][1] = 0;
-		tablero[1][2] = 6;
-		tablero[2][0] = 7;
-		tablero[2][1] = 1;
-		tablero[2][2] = 3;
+    	tablero[0][0] = azul;
+	   	tablero[0][1] = azul;
+	   	tablero[0][2] = rojo;
+	   	tablero[1][0] = azul;
+		tablero[1][1] = rojo;
+		tablero[1][2] = rojo;
+		tablero[2][0] = azul;
+		tablero[2][1] = azul;
+		tablero[2][2] = azul;
     }
     
     /**
@@ -386,14 +396,14 @@ public class RojoAzul extends Problema {
      */
     private void tableroCinco(){
     	// Tablero.
-	   	tablero[0][0] = 0;
-	   	tablero[0][1] = 6;
-	   	tablero[0][2] = 2;
-	   	tablero[1][0] = 7;
-		tablero[1][1] = 4;
-		tablero[1][2] = 1;
-		tablero[2][0] = 8;
-		tablero[2][1] = 5;
-		tablero[2][2] = 3;
+    	tablero[0][0] = rojo;
+	   	tablero[0][1] = rojo;
+	   	tablero[0][2] = azul;
+	   	tablero[1][0] = azul;
+		tablero[1][1] = rojo;
+		tablero[1][2] = azul;
+		tablero[2][0] = azul;
+		tablero[2][1] = azul;
+		tablero[2][2] = azul;
     }
 }
