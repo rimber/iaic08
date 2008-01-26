@@ -7,9 +7,10 @@ public class Pruebas {
 	 */
 	public static void main(String[] args) {
 		Problema juego = new Puente();
-		for (int i=5; i<6; i++){
+		for (int i=0; i<6; i++){
 			System.out.println("Estrategia: "+ juego.estrategiaAplicada(i));
-			boolean resuelto = juego.resolver(i);
+			juego.setNodosExpandidos(0);
+			boolean resuelto = juego.resolver(i);			
 			System.out.println("Número de nodos expandidos : "+ juego.getNodosExpandidos()+"\n");
 		}
 		

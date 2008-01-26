@@ -226,6 +226,12 @@ public abstract class Problema implements State,Heuristic{
 	public int getNodosExpandidos() {
 		return nodosExpandidos;
 	}
+	//ESTE METODO QUITARLO PERO DE MOMNENTO NOS SIRVE PARA
+	//PROBAR TODAS LAS ESTRATEGIAS EN EL FOR
+	public void setNodosExpandidos(int n){
+		//TODO eliminar este metodo!!!!!!!!
+		nodosExpandidos = n;
+	}
 	
 	/**
 	 *  Método que dado un número de estrategia
