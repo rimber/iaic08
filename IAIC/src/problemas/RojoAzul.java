@@ -113,6 +113,10 @@ public class RojoAzul extends Problema {
 				if( tablero[i][j] == tablero [i][j+1]){
 					numCasillas++;
 				}
+			}
+		}
+		for (int i = 0; i<2; i++){
+			for (int j = 0; j<3; j++){
 				if(tablero [i][j] == tablero [i+1][j]){
 					numCasillas++;
 				}
