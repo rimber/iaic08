@@ -106,7 +106,7 @@ public class Jarras extends Problema {
 	 * @return true si es solución false en otro caso.
 	 */
 	public boolean isGoal(){
-		//¿Tenemos 2 litros en la jarra de 4 litros?
+		//¿Tenemos 2 litros en la jarra de 4 litros?.
 		return jarra4 == 2;
 	}
 	
@@ -145,31 +145,31 @@ public class Jarras extends Problema {
 	 	
 	 	Vector successor = new Vector();
 	 	for(numOperador = 0; numOperador <6; numOperador++){
-	 		//Llenar garrafa de 4L
+	 		//Llenar garrafa de 4L.
 	 		if(numOperador == 0 && jarra4<4 ){
 	 			nuevaJarra4 = 4;
 	 			nuevaJarra3 = jarra3;
 	 			nombreOperador ="Llenar jarra de 4 L.";
 	 		}
-	 		//Llenar garrafa de 3L
+	 		//Llenar garrafa de 3L.
 	 		if(numOperador == 1 && jarra3<3 ){
 	 			nuevaJarra3 = 3;
 	 			nuevaJarra4 = jarra4;
 	 			nombreOperador ="Llenar jarra de 3 L.";
 	 		}
-	 		//Vaciar garrafa de 4L
+	 		//Vaciar garrafa de 4L.
 	 		if(numOperador == 2 && jarra4>0 ){
 	 			nuevaJarra4 = 0;
 	 			nuevaJarra3 = jarra3;
 	 			nombreOperador ="Vaciar jarra de 4 L.";
 	 		}
-	 		//Vaciar garrafa de 3L
+	 		//Vaciar garrafa de 3L.
 	 		if(numOperador == 3 && jarra3>0 ){
 	 			nuevaJarra4 = jarra4;
 	 			nuevaJarra3 = 0;
 	 			nombreOperador ="Vaciar jarra de 3 L.";
 	 		}
-	 		//Verter garrafa de 4L sobre garrafa de 3L
+	 		//Verter garrafa de 4L sobre garrafa de 3L.
 	 		if(numOperador == 4 && jarra4>0 && jarra3<3 ){
 	 			if(jarra3+jarra4 <= 3){
 	 				nuevaJarra3=jarra3+jarra4;
@@ -180,7 +180,7 @@ public class Jarras extends Problema {
 	 			nuevaJarra4 = jarra4-(nuevaJarra3-jarra3);
 	 			nombreOperador ="Verter jarra de 4 L sobre la de 3 L.";
 	 		}
-	 		//Verter garrafa de 3L sobre garrafa de 4L
+	 		//Verter garrafa de 3L sobre garrafa de 4L.
 	 		if(numOperador == 5 && jarra3>0 && jarra4<4 ){
 	 			if(jarra3+jarra4 <= 4){
 	 				nuevaJarra4=jarra3+jarra4;
