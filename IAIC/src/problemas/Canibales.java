@@ -40,7 +40,7 @@ public class Canibales extends Problema{
 			"momento los misioneros estén en peligro de ser devorados por los" +
 			" caníbales. Se considera que los misioneros están en peligro " +
 			"cuando, en un determinado lugar, el número de caníbales supera al" +
-			" de misioneros.";
+			" de misioneros. Consigue trasladar a todos al margen derecho del río.";
 			
 		posBarca = 1;
 		numMisionerosIzq = 3;
@@ -63,7 +63,7 @@ public class Canibales extends Problema{
 			"momento los misioneros estén en peligro de ser devorados por los" +
 			" caníbales. Se considera que los misioneros están en peligro " +
 			"cuando, en un determinado lugar, el número de caníbales supera al" +
-			" de misioneros.";
+			" de misioneros. Consigue trasladar a todos al margen derecho del río.";
 		posBarca = pBarca;
 		numMisionerosIzq = nMisioneros;
 		numCanibalesIzq = nCanibales;
@@ -78,7 +78,7 @@ public class Canibales extends Problema{
 	public float h() {
 		// Heurística: Mejor cuanto menor sea h, es decir, cuanto menos componentes
 		// estén en el lado izquierdo.
-		int h = numMisionerosIzq + numCanibalesIzq - posBarca;
+		int h = numMisionerosIzq + numCanibalesIzq + posBarca;
 		return (float)h;
 	}
 
@@ -153,7 +153,7 @@ public class Canibales extends Problema{
 	 			if (posBarca == 1){
 	 				// Si hay canibales en la izquierda.
 	 				if (numCanibalesIzq>0){
-	 					nombreOperador = "Cruza un canibal.";
+	 					nombreOperador = "cruzaCanibal";
 	 				    // Cruza canibal.
 	 				    nnumCanibalesIzq = numCanibalesIzq - 1;
 	 				    // Cruza la barca.
@@ -165,7 +165,7 @@ public class Canibales extends Problema{
 	 			}else{// La barca está a la derecha.
 	 				// Si hay canibales en la derecha.
 	 				if ((3-numCanibalesIzq)>0){
-	 					nombreOperador = "Cruza un canibal.";
+	 					nombreOperador = "cruzaCanibal";
 	 				    // Cruza canibal.
 	 				    nnumCanibalesIzq = numCanibalesIzq + 1;
 	 				    // Cruza la barca.
@@ -183,7 +183,7 @@ public class Canibales extends Problema{
 	 			if (posBarca == 1){
 	 				// Si hay al menos dos canibales en la izquierda.
 	 				if (numCanibalesIzq>1){
-	 					nombreOperador = "Cruzan dos canibales.";
+	 					nombreOperador = "cruzanCanibales";
 	 				    // Cruzan dos canibales.
 	 				    nnumCanibalesIzq = numCanibalesIzq - 2;
 	 				    // Cruza la barca.
@@ -195,7 +195,7 @@ public class Canibales extends Problema{
 	 			}else{// La barca está a la derecha.
 	 				// Si hay al menos dos canibales en la derecha.
 	 				if ((3-numCanibalesIzq)>1){
-	 					nombreOperador = "Cruzan dos canibales.";
+	 					nombreOperador = "cruzanCanibales";
 	 				    // Cruzan dos canibales.
 	 				    nnumCanibalesIzq = numCanibalesIzq + 2;
 	 				    // Cruza la barca.
@@ -212,7 +212,7 @@ public class Canibales extends Problema{
 	 			if (posBarca == 1){
 	 				// Si hay misioneros en la izquierda.
 	 				if (numMisionerosIzq>0){
-	 					nombreOperador = "Cruza un misionero.";
+	 					nombreOperador = "cruzaMisionero";
 	 				    // Cruza misionero.
 	 				    nnumMisionerosIzq = numMisionerosIzq - 1;
 	 				    // Cruza la barca.
@@ -224,7 +224,7 @@ public class Canibales extends Problema{
 	 			}else{// La barca está a la derecha.
 	 				// Si hay misioneros en la derecha.
 	 				if ((3-numMisionerosIzq)>0){
-	 					nombreOperador = "Cruza un misionero.";
+	 					nombreOperador = "cruzaMisionero";
 	 				    // Cruza canibal.
 	 					nnumMisionerosIzq = numMisionerosIzq + 1;
 	 				    // Cruza la barca.
@@ -241,7 +241,7 @@ public class Canibales extends Problema{
 	 			if (posBarca == 1){
 	 				// Si hay al menos dos misioneros en la izquierda.
 	 				if (numMisionerosIzq>1){
-	 					nombreOperador = "Cruzan dos misioneros.";
+	 					nombreOperador = "cruzanMisioneros";
 	 				    // Cruzan dos misioneros.
 	 					nnumMisionerosIzq = numMisionerosIzq - 2;
 	 				    // Cruza la barca.
@@ -253,7 +253,7 @@ public class Canibales extends Problema{
 	 			}else{// La barca está a la derecha.
 	 				// Si hay al menos dos misioneros en la derecha.
 	 				if ((3-numMisionerosIzq)>1){
-	 					nombreOperador = "Cruzan dos canibales.";
+	 					nombreOperador = "cruzanMisioneros";
 	 				    // Cruzan dos misioneros.
 	 					nnumMisionerosIzq = numMisionerosIzq + 2;
 	 				    // Cruza la barca.
@@ -270,7 +270,7 @@ public class Canibales extends Problema{
 	 			if (posBarca == 1){
 	 				// Si hay al menos hay un misionero y un canibal en la izquierda.
 	 				if ((numMisionerosIzq>0)&&(numCanibalesIzq>0)){
-	 					nombreOperador = "Cruza un misionero y un canibal.";
+	 					nombreOperador = "cruzaMisioneroCanibal";
 	 				    // Cruzan un misionero.
 	 					nnumMisionerosIzq = numMisionerosIzq - 1;
 	 				    // Cruza un canibal.
@@ -282,7 +282,7 @@ public class Canibales extends Problema{
 	 			}else{// La barca está a la derecha.
 	 				// Si hay al menos hay un misionero y un canibal en la derecha.
 	 				if (((3-numMisionerosIzq)>0)&&((3-numCanibalesIzq)>0)){
-	 					nombreOperador = "Cruza un misionero y un canibal.";
+	 					nombreOperador = "cruzaMisioneroCanibal";
 	 				    // Cruzan un misionero.
 	 					nnumMisionerosIzq = numMisionerosIzq + 1;
 	 				    // Cruza un canibal.
