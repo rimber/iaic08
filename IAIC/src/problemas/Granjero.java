@@ -148,12 +148,14 @@ public class Granjero extends Problema{
 	 	nodosExpandidos++;
 	 	 
 	 	for (numOperador = 0; numOperador <4; numOperador++){
+	 		boolean operadorAplicado = false;
 	 		
 	 		// Operador 0: Cruza el lobo (con el granjero).
 	 		if (numOperador == 0){
 	 			// El lobo y el granjero deben estar en la misma orilla
 	 			// para poder cruzar.
 	 			if (posGranjero == posLobo){
+	 				operadorAplicado = true;
 	 				nombreOperador = "cruzaLobo";
 	 				// Cruza el granjero.
 		 	 		nposGranjero = 1 - posGranjero;
@@ -168,6 +170,7 @@ public class Granjero extends Problema{
 	 		// Operador 1: Cruza la cabra (con el granjero).
 	 	 	if (numOperador == 1){
 	 	 		if (posGranjero == posCabra){
+	 	 			operadorAplicado = true;
 	 				nombreOperador = "cruzaCabra";
 	 				// Cruza el granjero.
 		 	 		nposGranjero = 1 - posGranjero;
@@ -182,6 +185,7 @@ public class Granjero extends Problema{
 	 	    // Operador 2: Cruza la col (con el granjero).
 	 	 	if (numOperador == 2){
 	 	 		if (posGranjero == posCol){
+	 	 			operadorAplicado = true;
 	 				nombreOperador = "cruzaCol";
 	 				// Cruza el granjero.
 		 	 		nposGranjero = 1 - posGranjero;
@@ -195,6 +199,7 @@ public class Granjero extends Problema{
 	 	 	
 	 	 	// Operador 3: Cruza el granjero solo.
 	 	 	if(numOperador == 3){
+	 	 		operadorAplicado = true;
  				nombreOperador = "cruzaGranjero";
  				// Cruza el granjero.
 	 	 		nposGranjero = 1 - posGranjero;
@@ -203,14 +208,15 @@ public class Granjero extends Problema{
 	 	 		nposLobo = posLobo;
 	 	 		nposCabra = posCabra;
 	 	 	}
-	 	 	
-	 	 	// Creamos el nuevo estado.
-	 	 	Granjero nuevoEstado = new Granjero(nposGranjero,nposLobo,nposCabra,nposCol);
-	 	 		
-	 	 	// Comprobamos si el nuevo estado es válido.
-	 	 	if(nuevoEstado.isValid()){	 	 		
-	 	 		// Añadimos el estado como sucesor.
-	 	 		successor.addElement(new Successor(nuevoEstado,nombreOperador,1)); 
+	 	 	if (operadorAplicado){
+		 	 	// Creamos el nuevo estado.
+		 	 	Granjero nuevoEstado = new Granjero(nposGranjero,nposLobo,nposCabra,nposCol);
+		 	 		
+		 	 	// Comprobamos si el nuevo estado es válido.
+		 	 	if(nuevoEstado.isValid()){	 	 		
+		 	 		// Añadimos el estado como sucesor.
+		 	 		successor.addElement(new Successor(nuevoEstado,nombreOperador,1)); 
+		 	 	}
 	 	 	}
 	 	 }
 	 	 
