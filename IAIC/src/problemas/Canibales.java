@@ -146,6 +146,7 @@ public class Canibales extends Problema{
 	    nodosExpandidos++;
 	    
 	    for (numOperador=0; numOperador<5; numOperador++){
+	    	boolean operadorAplicado = false;
 	    	
 	    	// Operador 0: Cruza un canibal.
 	 		if (numOperador == 0){
@@ -153,6 +154,7 @@ public class Canibales extends Problema{
 	 			if (posBarca == 1){
 	 				// Si hay canibales en la izquierda.
 	 				if (numCanibalesIzq>0){
+	 					operadorAplicado = true;
 	 					nombreOperador = "cruzaCanibal";
 	 				    // Cruza canibal.
 	 				    nnumCanibalesIzq = numCanibalesIzq - 1;
@@ -165,6 +167,7 @@ public class Canibales extends Problema{
 	 			}else{// La barca está a la derecha.
 	 				// Si hay canibales en la derecha.
 	 				if ((3-numCanibalesIzq)>0){
+	 					operadorAplicado = true;
 	 					nombreOperador = "cruzaCanibal";
 	 				    // Cruza canibal.
 	 				    nnumCanibalesIzq = numCanibalesIzq + 1;
@@ -183,6 +186,7 @@ public class Canibales extends Problema{
 	 			if (posBarca == 1){
 	 				// Si hay al menos dos canibales en la izquierda.
 	 				if (numCanibalesIzq>1){
+	 					operadorAplicado = true;
 	 					nombreOperador = "cruzanCanibales";
 	 				    // Cruzan dos canibales.
 	 				    nnumCanibalesIzq = numCanibalesIzq - 2;
@@ -195,6 +199,7 @@ public class Canibales extends Problema{
 	 			}else{// La barca está a la derecha.
 	 				// Si hay al menos dos canibales en la derecha.
 	 				if ((3-numCanibalesIzq)>1){
+	 					operadorAplicado = true;
 	 					nombreOperador = "cruzanCanibales";
 	 				    // Cruzan dos canibales.
 	 				    nnumCanibalesIzq = numCanibalesIzq + 2;
@@ -212,6 +217,7 @@ public class Canibales extends Problema{
 	 			if (posBarca == 1){
 	 				// Si hay misioneros en la izquierda.
 	 				if (numMisionerosIzq>0){
+	 					operadorAplicado = true;
 	 					nombreOperador = "cruzaMisionero";
 	 				    // Cruza misionero.
 	 				    nnumMisionerosIzq = numMisionerosIzq - 1;
@@ -224,6 +230,7 @@ public class Canibales extends Problema{
 	 			}else{// La barca está a la derecha.
 	 				// Si hay misioneros en la derecha.
 	 				if ((3-numMisionerosIzq)>0){
+	 					operadorAplicado = true;
 	 					nombreOperador = "cruzaMisionero";
 	 				    // Cruza canibal.
 	 					nnumMisionerosIzq = numMisionerosIzq + 1;
@@ -241,6 +248,7 @@ public class Canibales extends Problema{
 	 			if (posBarca == 1){
 	 				// Si hay al menos dos misioneros en la izquierda.
 	 				if (numMisionerosIzq>1){
+	 					operadorAplicado = true;
 	 					nombreOperador = "cruzanMisioneros";
 	 				    // Cruzan dos misioneros.
 	 					nnumMisionerosIzq = numMisionerosIzq - 2;
@@ -253,6 +261,7 @@ public class Canibales extends Problema{
 	 			}else{// La barca está a la derecha.
 	 				// Si hay al menos dos misioneros en la derecha.
 	 				if ((3-numMisionerosIzq)>1){
+	 					operadorAplicado = true;
 	 					nombreOperador = "cruzanMisioneros";
 	 				    // Cruzan dos misioneros.
 	 					nnumMisionerosIzq = numMisionerosIzq + 2;
@@ -270,6 +279,7 @@ public class Canibales extends Problema{
 	 			if (posBarca == 1){
 	 				// Si hay al menos hay un misionero y un canibal en la izquierda.
 	 				if ((numMisionerosIzq>0)&&(numCanibalesIzq>0)){
+	 					operadorAplicado = true;
 	 					nombreOperador = "cruzaMisioneroCanibal";
 	 				    // Cruzan un misionero.
 	 					nnumMisionerosIzq = numMisionerosIzq - 1;
@@ -282,6 +292,7 @@ public class Canibales extends Problema{
 	 			}else{// La barca está a la derecha.
 	 				// Si hay al menos hay un misionero y un canibal en la derecha.
 	 				if (((3-numMisionerosIzq)>0)&&((3-numCanibalesIzq)>0)){
+	 					operadorAplicado = true;
 	 					nombreOperador = "cruzaMisioneroCanibal";
 	 				    // Cruzan un misionero.
 	 					nnumMisionerosIzq = numMisionerosIzq + 1;
@@ -293,14 +304,16 @@ public class Canibales extends Problema{
 	 			}
 	 	 	}
 	 		
-	 	 	// Creamos el nuevo estado.
-	 	 	Canibales nuevoEstado = new Canibales(nnumMisionerosIzq, nnumCanibalesIzq, nposBarca);
-	 	 	
-	 	 	// Comprobamos si el nuevo estado es válido.
-	 	 	if(nuevoEstado.isValid()){	 	 		
-	 	 		// Añadimos el estado como sucesor.
-	 	 		successorVec.addElement(new Successor(nuevoEstado,nombreOperador,1)); 
-	 	 	}
+	 		if (operadorAplicado){
+		 	 	// Creamos el nuevo estado.
+		 	 	Canibales nuevoEstado = new Canibales(nnumMisionerosIzq, nnumCanibalesIzq, nposBarca);
+		 	 	
+		 	 	// Comprobamos si el nuevo estado es válido.
+		 	 	if(nuevoEstado.isValid()){	 	 		
+		 	 		// Añadimos el estado como sucesor.
+		 	 		successorVec.addElement(new Successor(nuevoEstado,nombreOperador,1)); 
+		 	 	}
+	 		}
 		}
 
 	    return successorVec.elements();
