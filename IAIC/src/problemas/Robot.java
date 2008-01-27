@@ -6,6 +6,8 @@ package problemas;
 import java.util.Enumeration;
 import java.util.Vector;
 
+import aima.search.Successor;
+
 /**
  * Clase que implementa el problema del robot-aspiradora según el paradigma del 
  * espacio de estados.
@@ -136,7 +138,7 @@ public class Robot extends Problema {
 	public Enumeration successors(){
 	
 		// OPERADORES:
-		//  - Operador 0: Aspirar habitacion.
+		//  - Operador 0: Aspirar habitación.
 		//  - Operador 1: Mover robor a la habitación de la izquierda.
 		//  - Operador 2: Mover robot a la habitación de la derecha.
 		
@@ -152,6 +154,99 @@ public class Robot extends Problema {
 	 	
 	 	// Incrementamos el número de nodos expandidos.
 	 	nodosExpandidos++;
+	 	
+	 	for (numOperador = 0; numOperador <3; numOperador++){
+	 		boolean operadorAplicado = false;
+	 		
+	 		// Operador 0: Aspirar habitación.
+	 		if (numOperador == 0){
+	 			// Comprobamos como está la alfombra de la habitación
+	 			// en la que está el aspirador.
+	 			boolean limpiaHab = false;
+	 			switch (posRobot){
+	 				case 0: 
+	 					limpiaHab = limpiaHabIzq;
+	 					break;
+	 				case 1:
+	 					limpiaHab = limpiaHabCen;
+	 					break;
+	 				case 2:
+	 					limpiaHab = limpiaHabDer;
+	 					break;
+	 			}
+	 			
+	 			// Si no está limpia, aplicamos operador.
+	 			if (!limpiaHab){
+	 				operadorAplicado = true;
+	 				nombreOperador = "aspirar";
+	 				
+	 				// Limpiamos la habitación.
+		 			switch (posRobot){
+		 				case 0: 
+		 					limHabIzq = true;
+		 					limHabCen = limpiaHabCen;
+		 					limHabDer = limpiaHabDer;
+		 					break;
+		 				case 1:
+		 					limHabCen = true;
+		 					limHabIzq = limpiaHabIzq;
+		 					limHabDer = limpiaHabDer;
+		 					break;
+		 				case 2:
+		 					limHabDer = true;
+		 					limHabCen = limpiaHabCen;
+		 					limHabIzq = limpiaHabIzq;
+		 					break;
+		 			}
+		 			pRobot = posRobot;
+	 			}
+	 	 	}
+	 		
+	 		// Operador 1: Mover robot a la habitación de la izquierda.
+	 		if (numOperador == 1){
+	 			// Si el robot no está en la habitación de la izquierda.
+	 			if (posRobot!=0){
+	 				// Aplicamos operador.
+	 				operadorAplicado = true;
+	 				nombreOperador = "moverIzquierda";
+	 				// Movemos al robot.
+	 				pRobot = posRobot-1;
+	 				// El resto se queda igual.
+ 					limHabCen = limpiaHabCen;
+ 					limHabDer = limpiaHabDer;
+ 					limHabIzq = limpiaHabIzq;
+	 			}
+	 		}
+	 		
+	 		// Operador 1: Mover robot a la habitación de la derecha.
+	 		if (numOperador == 2){
+	 			// Si el robot no está en la habitación de la derecha.
+	 			if (posRobot!=2){
+	 				// Aplicamos operador.
+	 				operadorAplicado = true;
+	 				nombreOperador = "moverDerecha";
+	 				// Movemos al robot.
+	 				pRobot = posRobot + 1;
+	 				// El resto se queda igual.
+ 					limHabCen = limpiaHabCen;
+ 					limHabDer = limpiaHabDer;
+ 					limHabIzq = limpiaHabIzq;
+	 			}
+	 		}
+	 		
+	 		if (operadorAplicado){
+	 			// Creamos el nuevo estado.
+		 		Robot nuevoEstado = new Robot(pRobot,limHabIzq,limHabCen,limHabDer);
+	 	 		
+	 	 		// Comprobamos si el nuevo estado es válido.
+	 	 		if(nuevoEstado.isValid()){	 	 		
+	 	 			// Añadimos el estado como sucesor.
+	 	 			successor.addElement(new Successor(nuevoEstado,nombreOperador,1)); 
+	 	 		}
+	 		}
+ 	 	}
+ 	 
+ 	 	return successor.elements();
 	}
 
 }
