@@ -34,8 +34,8 @@ public class Palillos extends Problema {
 				   " Los jugadores A y B alternan sus jugadas, comenzando\n" +
 				   " el jugador A. En cada jugada un jugador puede retirar\n"+
 				   " del montón 1, 2 o 3 palillos siempre que haya un número\n"+
-				   "suficiente de palillos en éste. El jugador que retira\n"+
-				   "el último palillo del montón es el que pierde.";
+				   " suficiente de palillos en éste. El jugador que retira\n"+
+				   " el último palillo del montón es el que pierde.";
 		palillos=6;
 		nivel=1;
 		repEstado = "Quedan "+ palillos +" palillos en el nivel "+nivel+".";
@@ -51,8 +51,8 @@ public class Palillos extends Problema {
 				   " Los jugadores A y B alternan sus jugadas, comenzando\n" +
 				   " el jugador A. En cada jugada un jugador puede retirar\n"+
 				   " del montón 1, 2 o 3 palillos siempre que haya un número\n"+
-				   "suficiente de palillos en éste. El jugador que retira\n"+
-				   "el último palillo del montón es el que pierde.";
+				   " suficiente de palillos en éste. El jugador que retira\n"+
+				   " el último palillo del montón es el que pierde.";
 		palillos=p;
 		nivel=n;
 		String auxiliar = " palillo";
@@ -76,13 +76,17 @@ public class Palillos extends Problema {
 	 * @param nivel número a evaluar 
 	 * @return Devuelve true si es par sino false
 	 */
-	private boolean multiploDos(int nivel){
+	/*private boolean multiploDos(int nivel){
 		int mul=nivel;
 		while(mul>=2){
 			mul=mul-2;
 		}
 		if (mul==0) return true;
 		return false;
+	}*/
+	private boolean multiploDos(int nivel){
+		int mul=nivel;
+		return ((mul%2)==0);
 	}
 	//hacer éste metodo con modulo 2 yo creo q es =
 	/**
@@ -124,7 +128,13 @@ public class Palillos extends Problema {
 	 	nodosExpandidos++;
 	    for (numOperador=1; numOperador<=3; numOperador++) {
 	    	if ( palillos-numOperador>=0 ) {
-	    		 nombreOperador = "Quito " + numOperador + " palillo";
+	    		if(multiploDos(nivel2)){
+	    			nombreOperador = "El jugador A quita ";
+	    		}
+	    		else{
+	    			nombreOperador = "El jugador B quita ";
+	    		}
+	    		nombreOperador = nombreOperador+ numOperador + " palillo";
 	    		if (numOperador != 1){
 	    			nombreOperador = nombreOperador + "s.";
 	    		}
