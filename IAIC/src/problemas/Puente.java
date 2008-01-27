@@ -155,7 +155,7 @@ public class Puente extends Problema {
 	 	int nposBenito = 1;
 	 	int nposCarlos  = 1;
 	 	int nposDavid = 1;
-	 	int nCoste = 0;
+	 	int coste = 0;
 	 	int nTiempo = 0;
 	 	
 	 	// Incrementamos el número de nodos expandidos.
@@ -178,8 +178,8 @@ public class Puente extends Problema {
 	 				nposCarlos = posCarlos;
 	 				nposDavid = posDavid;
 	 				//Actualizar el coste y el tiempo.
-	 				nCoste = 8; // Tiempo que tarda Ana en cruzar.
-	 				nTiempo = (int) (tiempo - nCoste);
+	 				coste = 8; // Tiempo que tarda Ana en cruzar.
+	 				nTiempo = (int) (tiempo - coste);
 	 			}
 	 		}
 	 		// Operador 1: Cruza Benito solo (con la linterna).
@@ -196,8 +196,8 @@ public class Puente extends Problema {
 	 				nposCarlos = posCarlos;
 	 				nposDavid = posDavid;
 	 				//Actualizar el coste y el tiempo.
-	 				nCoste = 4; // Tiempo que tarda Benito en cruzar.
-	 				nTiempo = (int) (tiempo - nCoste);
+	 				coste = 4; // Tiempo que tarda Benito en cruzar.
+	 				nTiempo = (int) (tiempo - coste);
 	 			}
 	 		}
 	 		// Operador 2: Cruza Carlos solo (con la linterna).
@@ -214,8 +214,8 @@ public class Puente extends Problema {
 	 				nposBenito = posBenito;
 	 				nposDavid = posDavid;
 	 				//Actualizar el coste y el tiempo.
-	 				nCoste = 2; // Tiempo que tarda Carlos en cruzar.
-	 				nTiempo = (int) (tiempo - nCoste);
+	 				coste = 2; // Tiempo que tarda Carlos en cruzar.
+	 				nTiempo = (int) (tiempo - coste);
 	 			}
 	 		}
 	 		// Operador 3: Cruza David solo (con la linterna).
@@ -232,8 +232,8 @@ public class Puente extends Problema {
 	 				nposBenito = posBenito;
 	 				nposCarlos = posCarlos;
 	 				//Actualizar el coste y el tiempo.
-	 				nCoste = 1; // Tiempo que tarda David en cruzar.
-	 				nTiempo = (int) (tiempo - nCoste);
+	 				coste = 1; // Tiempo que tarda David en cruzar.
+	 				nTiempo = (int) (tiempo - coste);
 	 			}
 	 		}
 	 		// Operador 4: Cruza Ana con Benito (con la linterna).
@@ -251,8 +251,8 @@ public class Puente extends Problema {
 	 				nposCarlos = posCarlos;
 	 				nposDavid = posDavid;
 	 				//Actualizar el coste y el tiempo.
-	 				nCoste = 8; // Tiempo del que más tarda en cruzar que es Ana.
-	 				nTiempo = (int) (tiempo - nCoste);
+	 				coste = 8; // Tiempo del que más tarda en cruzar que es Ana.
+	 				nTiempo = (int) (tiempo - coste);
 	 			}
 	 		}
 	 		// Operador 5: Cruza Ana con Carlos (con la linterna).
@@ -270,8 +270,8 @@ public class Puente extends Problema {
 	 				nposBenito = posBenito;
 	 				nposDavid = posDavid;
 	 				//Actualizar el coste y el tiempo.
-	 				nCoste = 8; // Tiempo del que más tarda en cruzar que es Ana.
-	 				nTiempo = (int) (tiempo - nCoste);
+	 				coste = 8; // Tiempo del que más tarda en cruzar que es Ana.
+	 				nTiempo = (int) (tiempo - coste);
 	 			}
 	 		}
 	 		// Operador 6: Cruza Ana con David (con la linterna).
@@ -289,8 +289,8 @@ public class Puente extends Problema {
 	 				nposBenito = posBenito;
 	 				nposCarlos = posCarlos;
 	 				//Actualizar el coste y el tiempo.
-	 				nCoste = 8; // Tiempo del que más tarda en cruzar que es Ana.
-	 				nTiempo = (int) (tiempo - nCoste);
+	 				coste = 8; // Tiempo del que más tarda en cruzar que es Ana.
+	 				nTiempo = (int) (tiempo - coste);
 	 			}
 	 		}
 	 		// Operador 7: Cruza Benito con Carlos (con la linterna).
@@ -308,8 +308,8 @@ public class Puente extends Problema {
 	 				nposAna = posAna;
 	 				nposDavid = posDavid;
 	 				//Actualizar el coste y el tiempo.
-	 				nCoste = 4; // Tiempo del que más tarda en cruzar que es Benito.
-	 				nTiempo = (int) (tiempo - nCoste);
+	 				coste = 4; // Tiempo del que más tarda en cruzar que es Benito.
+	 				nTiempo = (int) (tiempo - coste);
 	 			}
 	 		}
 	 		// Operador 8: Cruza Benito con David (con la linterna).
@@ -327,8 +327,8 @@ public class Puente extends Problema {
 	 				nposAna = posAna;
 	 				nposCarlos = posCarlos;
 	 				//Actualizar el coste y el tiempo.
-	 				nCoste = 4; // Tiempo del que más tarda en cruzar que es Benito.
-	 				nTiempo = (int) (tiempo - nCoste);
+	 				coste = 4; // Tiempo del que más tarda en cruzar que es Benito.
+	 				nTiempo = (int) (tiempo - coste);
 	 			}
 	 		}
 	 		// Operador 9: Cruza Carlos con David (con la linterna).
@@ -346,8 +346,8 @@ public class Puente extends Problema {
 	 				nposAna = posAna;
 	 				nposBenito = posBenito;
 	 				//Actualizar el coste y el tiempo.
-	 				nCoste = 2; // Tiempo del que más tarda en cruzar que es Carlos.
-	 				nTiempo = (int) (tiempo - nCoste);
+	 				coste = 2; // Tiempo del que más tarda en cruzar que es Carlos.
+	 				nTiempo = (int) (tiempo - coste);
 	 			}
 	 		}
 	 		// Creamos el nuevo estado.
@@ -356,7 +356,7 @@ public class Puente extends Problema {
 	 	 	// Comprobamos si el nuevo estado es válido.
 	 	 	if(nuevoEstado.isValid()){	 	 		
 	 	 		// Añadimos el estado como sucesor.
-	 	 		successor.addElement(new Successor(nuevoEstado,nombreOperador,nCoste)); 
+	 	 		successor.addElement(new Successor(nuevoEstado,nombreOperador,coste)); 
 	 	 	}
 	 	}
 	 	return successor.elements();
