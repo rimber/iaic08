@@ -139,7 +139,7 @@ public class Robot extends Problema {
 	
 		// OPERADORES:
 		//  - Operador 0: Aspirar habitación.
-		//  - Operador 1: Mover robor a la habitación de la izquierda.
+		//  - Operador 1: Mover robot a la habitación de la izquierda.
 		//  - Operador 2: Mover robot a la habitación de la derecha.
 		
 	 	// Operador usado.
