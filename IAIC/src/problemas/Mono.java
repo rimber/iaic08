@@ -169,12 +169,14 @@ public class Mono extends Problema{
 	 	nodosExpandidos++;
 
 	 	for (numOperador=0; numOperador<8; numOperador++){
+	 		boolean operadorAplicado = false;
 	 		
 			// Operador 0: Mono anda por el suelo hasta la ventana. 
 	 		if (numOperador == 0){
 	 			// Si el mono no está en la ventana y no está subido a la caja.
 	 			if ((posMono != 1) && (!subidoCaja)){
 	 				nombreOperador = "irVentana";
+	 				operadorAplicado = true;
 	 				// Cambiamos la posición del mono.
 	 				nposMono = 1;
 		 			nposCaja = posCaja;
@@ -188,6 +190,7 @@ public class Mono extends Problema{
 	 			// Si el mono no está en el centro y no está subido a la caja.
 	 			if ((posMono != 2) && (!subidoCaja)){
 	 				nombreOperador = "irCentro";
+	 				operadorAplicado = true;
 	 				// Cambiamos la posición del mono.
 	 				nposMono = 2;
 		 			nposCaja = posCaja;
@@ -202,6 +205,7 @@ public class Mono extends Problema{
 	 			// subido a ella.
 	 			if ((posMono != 0) && (!subidoCaja)){
 	 				nombreOperador = "irPuerta";
+	 				operadorAplicado = true;
 	 				// Cambiamos la posición del mono.
 	 				nposMono = 0;
 		 			nposCaja = posCaja;
@@ -216,6 +220,7 @@ public class Mono extends Problema{
 	 			// subido a ella.
 	 			if ((posMono != 1) && (posMono == posCaja) && (!subidoCaja)){
 	 				nombreOperador = "empujaCajaVentana";
+	 				operadorAplicado = true;
 	 				// Cambiamos la posición del mono.
 	 				nposMono = 1;
 	 				// Cambiamos la posición de la caja.
@@ -231,6 +236,7 @@ public class Mono extends Problema{
 	 			// subido a ella.
 	 			if ((posMono != 2) && (posMono == posCaja) && (!subidoCaja)){
 	 				nombreOperador = "empujaCajaCentro";
+	 				operadorAplicado = true;
 	 				// Cambiamos la posición del mono.
 	 				nposMono = 2;
 	 				// Cambiamos la posición de la caja.
@@ -246,6 +252,7 @@ public class Mono extends Problema{
 	 			// subido a ella.
 	 			if ((posMono != 0) && (posMono == posCaja) && (!subidoCaja)){
 	 				nombreOperador = "empujaCajaPuerta";
+	 				operadorAplicado = true;
 	 				// Cambiamos la posición del mono.
 	 				nposMono = 0;
 	 				// Cambiamos la posición de la caja.
@@ -260,6 +267,7 @@ public class Mono extends Problema{
 	 			// Si el mono tiene la caja y no está subido a ella.
 	 			if ((posMono == posCaja) && (!subidoCaja)){
 	 				nombreOperador = "subirseCaja";
+	 				operadorAplicado = true;
 	 				nposMono = posMono;
 		 			nposCaja = posCaja;
 		 			// Indicamos que se sube a la caja.
@@ -274,6 +282,7 @@ public class Mono extends Problema{
 	 			// no tiene el platano.
 	 			if ((posMono == 2) && (subidoCaja)&&(!tienePlatano)){
 	 				nombreOperador = "cojerPlatano";
+	 				operadorAplicado = true;
 	 				nposMono = posMono;
 		 			nposCaja = posCaja;
 		 			nsubidoCaja = subidoCaja;
@@ -282,14 +291,16 @@ public class Mono extends Problema{
 	 			}	
 	 		}
 	 		
-	 	    // Creamos el nuevo estado.
-	 		Mono nuevoEstado = new Mono(nposMono,nposCaja,nsubidoCaja,ntienePlatano);
-	 	 	
-	 		// Comprobamos si el nuevo estado es válido.
-	 	 	if(nuevoEstado.isValid()){	 	 		
-	 	 		// Añadimos el estado como sucesor.
-	 	 		successorVec.addElement(new Successor(nuevoEstado,nombreOperador,1)); 
-	 	 	}
+	 		if (operadorAplicado){
+		 	    // Creamos el nuevo estado.
+		 		Mono nuevoEstado = new Mono(nposMono,nposCaja,nsubidoCaja,ntienePlatano);
+		 	 	
+		 		// Comprobamos si el nuevo estado es válido.
+		 	 	if(nuevoEstado.isValid()){	 	 		
+		 	 		// Añadimos el estado como sucesor.
+		 	 		successorVec.addElement(new Successor(nuevoEstado,nombreOperador,1)); 
+		 	 	}
+	 		}
 	 	}
 
 	 	return successorVec.elements();
