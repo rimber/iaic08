@@ -16,12 +16,12 @@ import aima.search.*;;
 public class Puzzle8 extends Problema{
 
 	/**
-	 * Coordenada x de la casilla hueco.
+	 * Coordenada 'x' del array del tablero de la casilla hueco.
 	 */
 	private int coorX;
 	
 	/**
-	 * Coordenada y de la casilla hueco.
+	 * Coordenada 'y' del array del tablero de la casilla hueco.
 	 */
 	private int coorY;
 	
@@ -35,12 +35,19 @@ public class Puzzle8 extends Problema{
 	 */
 	public Puzzle8(){
 		
+		enunciado = "Se presenta un tablero de 3x3, en el que tenemos 8 fichas" +
+				" numéricas, de valores únicos comprendidos entre 1 y 8, y un" +
+				" hueco. El hueco puede intercambiarse con la ficha de su derecha," +
+				" de su izquierda, por la que tiene encima o por la que tiene" +
+				" debajo (intentando conservar esa prioridad de orden), siempre y" +
+				" cuando sea posible.";
+			
 		// Escogemos un tablero base.
 		Random generador = new Random();
 		int numTablero	= generador.nextInt(5);
 	    tablero = new int [3][3];
 		
-		switch (3){
+		switch (numTablero){
 			case 0: 
 				tableroUno();
 				break;
@@ -72,6 +79,13 @@ public class Puzzle8 extends Problema{
 	 * @param t Tablero.
 	 */
 	public Puzzle8(int x, int y, int [][] t){
+		
+		enunciado = "Se presenta un tablero de 3x3, en el que tenemos 8 fichas" +
+		" numéricas, de valores únicos comprendidos entre 1 y 8, y un" +
+		" hueco. El hueco puede intercambiarse con la ficha de su derecha," +
+		" de su izquierda, por la que tiene encima o por la que tiene" +
+		" debajo (intentando conservar esa prioridad de orden), siempre y" +
+		" cuando sea posible.";
 		
 		coorX = x;
 		coorY = y;
