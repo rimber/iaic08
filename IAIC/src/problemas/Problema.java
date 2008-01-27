@@ -94,26 +94,32 @@ public abstract class Problema implements State,Heuristic{
 		switch (estrategia){
 			//0. Primero en profundidad.
 			case 0:
+				nodosExpandidos = 0;
 				resuelto=resolverProfundidad();
 				break;
 			//1. Primero en anchura.
 			case 1:
+				nodosExpandidos = 0;
 				resuelto=resolverPrimAnchura();
 				break;
 			//2. Coste uniforme.
 			case 2:
+				nodosExpandidos = 0;
 				resuelto=resolverCosteUni();
 				break;
 			//3. Profundidad Iterativa.
 			case 3:
+				nodosExpandidos = 0;
 				resuelto=resolverProfIt();
 				break;
 			//4. Escalada.
 			case 4:
+				nodosExpandidos = 0;
 				resuelto=resolverEscalada();
 				break;
 			//5. A*
 			case 5:
+				nodosExpandidos = 0;
 				resuelto=resolverA();	
 				break;
 			
