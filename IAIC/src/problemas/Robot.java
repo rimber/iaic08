@@ -4,6 +4,7 @@
 package problemas;
 
 import java.util.Enumeration;
+import java.util.Random;
 import java.util.Vector;
 
 import aima.search.Successor;
@@ -54,10 +55,26 @@ public class Robot extends Problema {
 			" movimientos serán elementales, es	decir, sólo permitirán el paso a la habitación" +
 			" contigua a la actual.";
 		
-		posRobot = 0;
-		limpiaHabIzq = false;
-		limpiaHabCen = false;
-		limpiaHabDer = false;
+		Random generador = new Random();
+		posRobot = generador.nextInt(3);
+
+		if ((generador.nextInt(2))==0){
+			limpiaHabIzq = false;
+		}else{
+			limpiaHabIzq = true;
+		}
+		
+		if ((generador.nextInt(2))==0){
+			limpiaHabCen = false;
+		}else{
+			limpiaHabCen = true;
+		}
+		
+		if ((generador.nextInt(2))==0){
+			limpiaHabDer = false;
+		}else{
+			limpiaHabDer = true;
+		}
 		
 		repEstado = "("+posRobot+","+limpiaHabIzq+","+limpiaHabCen+","+limpiaHabDer+")";
 		nombreOperador = "";
