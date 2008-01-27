@@ -9,7 +9,7 @@ import java.util.Vector;
 import aima.search.Successor;
 
 /**
- * Clase que implementa el problema del robot-aspiradora según el paradigma del 
+ * Clase que implementa el problema del robot-aspirador según el paradigma del 
  * espacio de estados.
  */
 public class Robot extends Problema {
