@@ -40,7 +40,7 @@ public class Puzzle8 extends Problema{
 		int numTablero	= generador.nextInt(5);
 	    tablero = new int [3][3];
 		
-		switch (numTablero){
+		switch (3){
 			case 0: 
 				tableroUno();
 				break;
@@ -183,7 +183,7 @@ public class Puzzle8 extends Problema{
 	 		if (numOperador == 0){
 	 			// Si el hueco se puede mover hacia la derecha.
 	 			if (coorY<2){
-		 			nombreOperador = "Derecha.";
+		 			nombreOperador = "derecha";
 		 			aplicado = true;
 	 				// Copiamos el valor de la derecha.
 		 			int valor = tablero[coorX][coorY+1];
@@ -202,7 +202,7 @@ public class Puzzle8 extends Problema{
 	 		if (numOperador == 1){
 	 			// Si el hueco se puede mover hacia la izquierda.
 	 			if (coorY>0){
-		 			nombreOperador = "Izquierda.";
+		 			nombreOperador = "izquierda";
 		 			aplicado = true;
 	 				// Copiamos el valor de la izquierda del hueco.
 		 			int valor = tablero[coorX][coorY-1];
@@ -221,7 +221,7 @@ public class Puzzle8 extends Problema{
 	 		if (numOperador == 2){
 	 			// Si el hueco se puede mover hacia arriba.
 	 			if (coorX>0){
-		 			nombreOperador = "Arriba.";
+		 			nombreOperador = "arriba";
 		 			aplicado = true;
 	 				// Copiamos el valor de arriba del hueco.
 		 			int valor = tablero[coorX-1][coorY];
@@ -240,7 +240,7 @@ public class Puzzle8 extends Problema{
 	 		if (numOperador == 3){
 	 			// Si el hueco se puede mover hacia abajo.
 	 			if (coorX<2){
-		 			nombreOperador = "Abajo.";
+		 			nombreOperador = "abajo";
 		 			aplicado = true;
 	 				// Copiamos el valor de abajo del hueco.
 		 			int valor = tablero[coorX+1][coorY];
@@ -316,19 +316,19 @@ public class Puzzle8 extends Problema{
      */
     private void tableroDos(){
     	// Tablero.
-	   	tablero[0][0] = 8;
-	   	tablero[0][1] = 7;
-	   	tablero[0][2] = 5;
-	   	tablero[1][0] = 3;
-		tablero[1][1] = 0;
-		tablero[1][2] = 2;
-		tablero[2][0] = 4;
+	   	tablero[0][0] = 1;
+	   	tablero[0][1] = 3;
+	   	tablero[0][2] = 4;
+	   	tablero[1][0] = 8;
+		tablero[1][1] = 2;
+		tablero[1][2] = 0;
+		tablero[2][0] = 7;
 		tablero[2][1] = 6;
-		tablero[2][2] = 1;
+		tablero[2][2] = 5;
 		
-		// Hueco en (1,1).
+		// Hueco en (1,2).
 		coorX = 1;
-		coorY = 1;
+		coorY = 2;
     }
     
     /**
@@ -336,19 +336,19 @@ public class Puzzle8 extends Problema{
      */
     private void tableroTres(){
     	// Tablero.
-	   	tablero[0][0] = 5;
-	   	tablero[0][1] = 8;
-	   	tablero[0][2] = 2;
-	   	tablero[1][0] = 3;
-		tablero[1][1] = 4;
-		tablero[1][2] = 1;
-		tablero[2][0] = 6;
-		tablero[2][1] = 7;
-		tablero[2][2] = 0;
+	   	tablero[0][0] = 8;
+	   	tablero[0][1] = 1;
+	   	tablero[0][2] = 3;
+	   	tablero[1][0] = 0;
+		tablero[1][1] = 2;
+		tablero[1][2] = 4;
+		tablero[2][0] = 7;
+		tablero[2][1] = 6;
+		tablero[2][2] = 5;
 		
-		// Hueco en (2,2).
-		coorX = 2;
-		coorY = 2;
+		// Hueco en (1,0).
+		coorX = 1;
+		coorY = 0;
     }
     
     /**
@@ -357,18 +357,18 @@ public class Puzzle8 extends Problema{
     private void tableroCuatro(){
     	// Tablero.
 	   	tablero[0][0] = 8;
-	   	tablero[0][1] = 5;
-	   	tablero[0][2] = 4;
-	   	tablero[1][0] = 2;
-		tablero[1][1] = 0;
-		tablero[1][2] = 6;
-		tablero[2][0] = 7;
-		tablero[2][1] = 1;
-		tablero[2][2] = 3;
+	   	tablero[0][1] = 1;
+	   	tablero[0][2] = 3;
+	   	tablero[1][0] = 7;
+		tablero[1][1] = 2;
+		tablero[1][2] = 0;
+		tablero[2][0] = 6;
+		tablero[2][1] = 5;
+		tablero[2][2] = 4;
 		
-		// Hueco en (1,1).
+		// Hueco en (1,2).
 		coorX = 1;
-		coorY = 1;
+		coorY = 2;
     }
     
     /**
@@ -376,19 +376,19 @@ public class Puzzle8 extends Problema{
      */
     private void tableroCinco(){
     	// Tablero.
-	   	tablero[0][0] = 0;
-	   	tablero[0][1] = 6;
-	   	tablero[0][2] = 2;
+	   	tablero[0][0] = 8;
+	   	tablero[0][1] = 1;
+	   	tablero[0][2] = 3;
 	   	tablero[1][0] = 7;
-		tablero[1][1] = 4;
-		tablero[1][2] = 1;
-		tablero[2][0] = 8;
-		tablero[2][1] = 5;
-		tablero[2][2] = 3;
+		tablero[1][1] = 2;
+		tablero[1][2] = 4;
+		tablero[2][0] = 6;
+		tablero[2][1] = 0;
+		tablero[2][2] = 5;
 		
-		// Hueco en (0,0).
-		coorX = 0;
-		coorY = 0;
+		// Hueco en (2,1).
+		coorX = 2;
+		coorY = 1;
     }
 
 }
