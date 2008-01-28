@@ -68,7 +68,7 @@ public class Palillos extends Problema {
 	 */
 	public float h() {
 		// Mejor cuantos menos palillos quedan.
-	     return 6-palillos;
+	     return (6-palillos);
 	            
 	  }
 	/**
@@ -95,7 +95,7 @@ public class Palillos extends Problema {
 	 */
 	public boolean isGoal() {
 		//¿No quedan palillos y el nivel en el que estamos es par?.
-	      return  ((palillos==0)&&(multiploDos(nivel)));
+	      return  ((palillos==1)&&(multiploDos(nivel)));
 	      
 	   }
 	/**
