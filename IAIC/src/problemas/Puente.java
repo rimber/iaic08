@@ -164,10 +164,12 @@ public class Puente extends Problema {
 	 	Vector<Successor> successor = new Vector<Successor>();
 	 	
 	 	for (numOperador = 0; numOperador<10;numOperador++){
+	 		boolean operadorAplicado = false;
 	 		// Operador 0: Cruza Ana sola (con la linterna).
 	 		if (numOperador == 0){
 	 			// Para poder cruzar Ana la linterna tiene que estar con ella.
 	 			if(posLinterna == posAna){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruza Ana sola.";
 	 				//Cruza la linterna.
 	 				nposLinterna = 1 - posLinterna;
@@ -186,6 +188,7 @@ public class Puente extends Problema {
 	 		if(numOperador == 1){
 	 			// Para poder cruzar Benito la linterna tiene que estar con el.
 	 			if(posLinterna == posBenito){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruza Benito solo.";
 	 				//Cruza la linterna.
 	 				nposLinterna = 1 - posLinterna;
@@ -204,6 +207,7 @@ public class Puente extends Problema {
 	 		if(numOperador == 2){
 	 			// Para poder cruzar Carlos la linterna tiene que estar con el.
 	 			if(posLinterna == posCarlos){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruza Carlos solo.";
 	 				//Cruza la linterna.
 	 				nposLinterna = 1 - posLinterna;
@@ -222,6 +226,7 @@ public class Puente extends Problema {
 	 		if(numOperador == 3){
 	 			// Para poder cruzar David la linterna tiene que estar con el.
 	 			if(posLinterna == posDavid){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruza David solo.";
 	 				//Cruza la linterna.
 	 				nposLinterna = 1 - posLinterna;
@@ -240,6 +245,7 @@ public class Puente extends Problema {
 	 		if (numOperador == 4){
 	 			// Para poder cruzar Ana y Benito la linterna tiene que estar con ellos.
 	 			if((posLinterna == posAna)&&(posLinterna == posBenito)){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruzan Ana y Benito.";
 	 				//Cruza la linterna.
 	 				nposLinterna = 1 - posLinterna;
@@ -259,6 +265,7 @@ public class Puente extends Problema {
 	 		if (numOperador == 5){
 	 			// Para poder cruzar Ana y Carlos la linterna tiene que estar con ellos.
 	 			if((posLinterna == posAna)&&(posLinterna == posCarlos)){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruzan Ana y Carlos.";
 	 				//Cruza la linterna.
 	 				nposLinterna = 1 - posLinterna;
@@ -278,6 +285,7 @@ public class Puente extends Problema {
 	 		if (numOperador == 6){
 	 			// Para poder cruzar Ana y David la linterna tiene que estar con ellos.
 	 			if((posLinterna == posAna)&&(posLinterna == posDavid)){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruzan Ana y David.";
 	 				//Cruza la linterna.
 	 				nposLinterna = 1 - posLinterna;
@@ -297,6 +305,7 @@ public class Puente extends Problema {
 	 		if (numOperador == 7){
 	 			// Para poder cruzar Benito y Carlos la linterna tiene que estar con ellos.
 	 			if((posLinterna == posBenito)&&(posLinterna == posCarlos)){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruzan Benito y Carlos.";
 	 				//Cruza la linterna.
 	 				nposLinterna = 1 - posLinterna;
@@ -316,6 +325,7 @@ public class Puente extends Problema {
 	 		if (numOperador == 8){
 	 			// Para poder cruzar Benito y David la linterna tiene que estar con ellos.
 	 			if((posLinterna == posBenito)&&(posLinterna == posDavid)){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruzan Benito y David.";
 	 				//Cruza la linterna.
 	 				nposLinterna = 1 - posLinterna;
@@ -335,6 +345,7 @@ public class Puente extends Problema {
 	 		if (numOperador == 9){
 	 			// Para poder cruzar Carlos y David la linterna tiene que estar con ellos.
 	 			if((posLinterna == posCarlos)&&(posLinterna == posDavid)){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruzan Carlos y David.";
 	 				//Cruza la linterna.
 	 				nposLinterna = 1 - posLinterna;
@@ -350,14 +361,17 @@ public class Puente extends Problema {
 	 				nTiempo = (int) (tiempo - coste);
 	 			}
 	 		}
-	 		// Creamos el nuevo estado.
-	 	 	Puente nuevoEstado = new Puente(nposLinterna,nposAna,nposBenito,nposCarlos,nposDavid,nTiempo);
-	 	 		
-	 	 	// Comprobamos si el nuevo estado es válido.
-	 	 	if(nuevoEstado.isValid()){	 	 		
-	 	 		// Añadimos el estado como sucesor.
-	 	 		successor.addElement(new Successor(nuevoEstado,nombreOperador,coste)); 
-	 	 	}
+	 		
+	 		if (operadorAplicado){
+		 		// Creamos el nuevo estado.
+		 	 	Puente nuevoEstado = new Puente(nposLinterna,nposAna,nposBenito,nposCarlos,nposDavid,nTiempo);
+		 	 		
+		 	 	// Comprobamos si el nuevo estado es válido.
+		 	 	if(nuevoEstado.isValid()){	 	 		
+		 	 		// Añadimos el estado como sucesor.
+		 	 		successor.addElement(new Successor(nuevoEstado,nombreOperador,coste)); 
+		 	 	}
+	 		}
 	 	}
 	 	return successor.elements();
 	}

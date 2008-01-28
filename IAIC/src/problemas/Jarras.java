@@ -139,32 +139,38 @@ public class Jarras extends Problema {
 	 	
 	 	Vector<Successor> successor = new Vector<Successor>();
 	 	for(numOperador = 0; numOperador <6; numOperador++){
+	 		boolean operadorAplicado = false;
 	 		//Llenar garrafa de 4L.
 	 		if(numOperador == 0 && jarra4<4 ){
+	 			operadorAplicado = true;
 	 			nuevaJarra4 = 4;
 	 			nuevaJarra3 = jarra3;
 	 			nombreOperador ="Llenar jarra de 4 L.";
 	 		}
 	 		//Llenar garrafa de 3L.
 	 		if(numOperador == 1 && jarra3<3 ){
+	 			operadorAplicado = true;
 	 			nuevaJarra3 = 3;
 	 			nuevaJarra4 = jarra4;
 	 			nombreOperador ="Llenar jarra de 3 L.";
 	 		}
 	 		//Vaciar garrafa de 4L.
 	 		if(numOperador == 2 && jarra4>0 ){
+	 			operadorAplicado = true;
 	 			nuevaJarra4 = 0;
 	 			nuevaJarra3 = jarra3;
 	 			nombreOperador ="Vaciar jarra de 4 L.";
 	 		}
 	 		//Vaciar garrafa de 3L.
 	 		if(numOperador == 3 && jarra3>0 ){
+	 			operadorAplicado = true;
 	 			nuevaJarra4 = jarra4;
 	 			nuevaJarra3 = 0;
 	 			nombreOperador ="Vaciar jarra de 3 L.";
 	 		}
 	 		//Verter garrafa de 4L sobre garrafa de 3L.
 	 		if(numOperador == 4 && jarra4>0 && jarra3<3 ){
+	 			operadorAplicado = true;
 	 			if(jarra3+jarra4 <= 3){
 	 				nuevaJarra3=jarra3+jarra4;
 	 			}
@@ -176,6 +182,7 @@ public class Jarras extends Problema {
 	 		}
 	 		//Verter garrafa de 3L sobre garrafa de 4L.
 	 		if(numOperador == 5 && jarra3>0 && jarra4<4 ){
+	 			operadorAplicado = true;
 	 			if(jarra3+jarra4 <= 4){
 	 				nuevaJarra4=jarra3+jarra4;
 	 			}
@@ -186,13 +193,15 @@ public class Jarras extends Problema {
 	 			nombreOperador ="Verter jarra de 3 L sobre la de 4 L.";
 	 		}
 	 		
-	 		// Creamos el nuevo estado.
-	 		Jarras nuevoEstado = new Jarras(nuevaJarra4,nuevaJarra3);
-	 		
-	 		// Comprobamos si el nuevo estado es válido.
-	 		if(nuevoEstado.isValid()){
-	 		// Añadimos el estado como sucesor.
-	 			successor.addElement(new Successor(nuevoEstado,nombreOperador, 1 ));
+	 		if (operadorAplicado){
+		 		// Creamos el nuevo estado.
+		 		Jarras nuevoEstado = new Jarras(nuevaJarra4,nuevaJarra3);
+		 		
+		 		// Comprobamos si el nuevo estado es válido.
+		 		if(nuevoEstado.isValid()){
+		 		// Añadimos el estado como sucesor.
+		 			successor.addElement(new Successor(nuevoEstado,nombreOperador, 1 ));
+		 		}
 	 		}
 	 	}
 	 	return successor.elements();

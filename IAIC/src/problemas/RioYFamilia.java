@@ -220,10 +220,12 @@ public class RioYFamilia extends Problema {
 	 	Vector<Successor> successor = new Vector<Successor>();
 	 	
 	 	for (numOperador = 0; numOperador<15;numOperador++){
+	 		boolean operadorAplicado = false;
 	 		// Operador 0 : Cruza el policía solo (con la barca).
 	 		if(numOperador == 0){
 	 			//Para poder cruzar el policía tiene que estar con la barca.
 	 			if(posBarca == posPolicia){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruza Policía solo.";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
@@ -243,6 +245,7 @@ public class RioYFamilia extends Problema {
 	 		if(numOperador == 1){
 	 			//Para poder cruzar la madre tiene que estar con la barca.
 	 			if(posBarca == posMadre){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruza Madre sola.";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
@@ -262,6 +265,7 @@ public class RioYFamilia extends Problema {
 	 		if(numOperador == 2){
 	 			//Para poder cruzar el padre tiene que estar con la barca.
 	 			if(posBarca == posPadre){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruza Padre solo.";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
@@ -281,6 +285,7 @@ public class RioYFamilia extends Problema {
 	 		if(numOperador == 3){
 	 			//Para poder cruzar el policía y la madre tienen que estar con la barca.
 	 			if((posBarca == posPolicia)&&(posBarca == posMadre)){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruzan Policía y Madre.";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
@@ -301,6 +306,7 @@ public class RioYFamilia extends Problema {
 	 		if(numOperador == 4){
 	 			//Para poder cruzar el policía y el padre tienen que estar con la barca.
 	 			if((posBarca == posPolicia)&&(posBarca == posPadre)){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruzan Policía y Padre.";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
@@ -321,6 +327,7 @@ public class RioYFamilia extends Problema {
 	 		if(numOperador == 5){
 	 			//Para poder cruzar el policía y el ladrón tienen que estar con la barca.
 	 			if((posBarca == posPolicia)&&(posBarca == posLadron)){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruzan Policía y Ladrón.";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
@@ -341,6 +348,7 @@ public class RioYFamilia extends Problema {
 	 		if(numOperador == 6){
 	 			//Para poder cruzar el policía y el hijo1 tienen que estar con la barca.
 	 			if((posBarca == posPolicia)&&(posBarca == posHijo1)){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruzan Policía e Hijo1.";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
@@ -361,6 +369,7 @@ public class RioYFamilia extends Problema {
 	 		if(numOperador == 7){
 	 			//Para poder cruzar el policía y el hijo2 tienen que estar con la barca.
 	 			if((posBarca == posPolicia)&&(posBarca == posHijo2)){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruzan Policía e Hijo2.";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
@@ -381,6 +390,7 @@ public class RioYFamilia extends Problema {
 	 		if(numOperador == 8){
 	 			//Para poder cruzar el policía y la hija1 tienen que estar con la barca.
 	 			if((posBarca == posPolicia)&&(posBarca == posHija1)){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruzan Policía e Hija1.";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
@@ -401,6 +411,7 @@ public class RioYFamilia extends Problema {
 	 		if(numOperador == 9){
 	 			//Para poder cruzar el policía y la hija2 tienen que estar con la barca.
 	 			if((posBarca == posPolicia)&&(posBarca == posHija2)){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruzan Policía e Hija2.";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
@@ -421,6 +432,7 @@ public class RioYFamilia extends Problema {
 	 		if(numOperador == 10){
 	 			//Para poder cruzar la madre y el padre tienen que estar con la barca.
 	 			if((posBarca == posMadre)&&(posBarca == posPadre)){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruzan Madre y Padre.";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
@@ -441,6 +453,7 @@ public class RioYFamilia extends Problema {
 	 		if(numOperador == 11){
 	 			//Para poder cruzar la madre y la hija1 tienen que estar con la barca.
 	 			if((posBarca == posMadre)&&(posBarca == posHija1)){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruzan Madre e Hija1.";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
@@ -461,6 +474,7 @@ public class RioYFamilia extends Problema {
 	 		if(numOperador == 12){
 	 			//Para poder cruzar la madre y la hija2 tienen que estar con la barca.
 	 			if((posBarca == posMadre)&&(posBarca == posHija2)){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruzan Madre e Hija2.";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
@@ -481,6 +495,7 @@ public class RioYFamilia extends Problema {
 	 		if(numOperador == 13){
 	 			//Para poder cruzar el padre y el hijo1 tienen que estar con la barca.
 	 			if((posBarca == posPadre)&&(posBarca == posHijo1)){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruzan Padre e Hijo1.";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
@@ -501,6 +516,7 @@ public class RioYFamilia extends Problema {
 	 		if(numOperador == 14){
 	 			//Para poder cruzar el padre y el hijo2 tienen que estar con la barca.
 	 			if((posBarca == posPadre)&&(posBarca == posHijo2)){
+	 				operadorAplicado = true;
 	 				nombreOperador = "Cruzan Padre e Hijo2.";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
@@ -517,15 +533,17 @@ public class RioYFamilia extends Problema {
 	 			 	nposMadre = posMadre;
 	 			}
 	 		}
-	 		// Creamos el nuevo estado.
-	 	 	RioYFamilia nuevoEstado = new RioYFamilia(nposBarca,nposPolicia,nposLadron,nposMadre,nposPadre,
-	 	 											  nposHijo1,nposHijo2,nposHija1,nposHija2);
-	 	 		
-	 	 	// Comprobamos si el nuevo estado es válido.
-	 	 	if(nuevoEstado.isValid()){	 	 		
-	 	 		// Añadimos el estado como sucesor.
-	 	 		successor.addElement(new Successor(nuevoEstado,nombreOperador,1)); 
-	 	 	}
+	 		if (operadorAplicado){
+		 		// Creamos el nuevo estado.
+		 	 	RioYFamilia nuevoEstado = new RioYFamilia(nposBarca,nposPolicia,nposLadron,nposMadre,nposPadre,
+		 	 											  nposHijo1,nposHijo2,nposHija1,nposHija2);
+		 	 		
+		 	 	// Comprobamos si el nuevo estado es válido.
+		 	 	if(nuevoEstado.isValid()){	 	 		
+		 	 		// Añadimos el estado como sucesor.
+		 	 		successor.addElement(new Successor(nuevoEstado,nombreOperador,1)); 
+		 	 	}
+	 		}
 	 	}
 		return successor.elements();
 	}

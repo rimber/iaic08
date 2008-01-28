@@ -133,14 +133,14 @@ public class Palillos extends Problema {
 	    		else{
 	    			nombreOperador = nombreOperador + ".";
 	    		}
-			     // Creamos el nuevo estado.
-	             Palillos nuevoEstado = new Palillos(palillos-numOperador,nivel2);
+			    // Creamos el nuevo estado.
+	            Palillos nuevoEstado = new Palillos(palillos-numOperador,nivel2);
 	             
-	             // Comprobamos si el nuevo estado es válido.
-	             if (nuevoEstado.isValid()) {
+	            // Comprobamos si el nuevo estado es válido.
+	            if (nuevoEstado.isValid()) {
 	            	// Añadimos el estado como sucesor.
-	            	 successor.addElement(new Successor(nuevoEstado, nombreOperador, 1 ));
-	             }
+	            	successor.addElement(new Successor(nuevoEstado, nombreOperador, 1 ));
+	            }
 	    	}
 	    }
 		return successor.elements();
