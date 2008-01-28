@@ -76,14 +76,6 @@ public class Palillos extends Problema {
 	 * @param nivel número a evaluar 
 	 * @return Devuelve true si es par sino false
 	 */
-	/*private boolean multiploDos(int nivel){
-		int mul=nivel;
-		while(mul>=2){
-			mul=mul-2;
-		}
-		if (mul==0) return true;
-		return false;
-	}*/
 	private boolean multiploDos(int nivel){
 		int mul=nivel;
 		return ((mul%2)==0);
