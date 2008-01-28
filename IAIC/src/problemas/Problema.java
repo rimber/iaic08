@@ -85,6 +85,7 @@ public abstract class Problema implements State,Heuristic{
 	 *  3. Profundidad iterativa.
 	 *  4. Escalada.
 	 *  5. A*.
+	 *  6. Voraz.
 	 * @param estrategia Número de estrategia de búsqueda.
 	 * @return Si se ha resuelto o no el problema con esa estrategia.
 	 */
@@ -117,15 +118,29 @@ public abstract class Problema implements State,Heuristic{
 				nodosExpandidos = 0;
 				resuelto=resolverEscalada();
 				break;
-			//5. A*
+			//5. A*.
 			case 5:
 				nodosExpandidos = 0;
 				resuelto=resolverA();	
 				break;
-			
+			//6. Voraz.	
+			case 6:
+				nodosExpandidos = 0;
+				resuelto=resolverVoraz();
+				break;
 			default: 
-				return false;	
+				return false;
 		}				
+		return resuelto;
+	}
+	
+	/**
+ 	 * Método que intenta resolver un problema según la estrategia 
+ 	 * de búsqueda voraz. 
+ 	 * @return Si se ha resuelto o no el problema.
+ 	 */
+	private boolean resolverVoraz() {
+		boolean resuelto = listPath((new GreedySearch(this)).search());
 		return resuelto;
 	}
 
@@ -272,7 +287,10 @@ public abstract class Problema implements State,Heuristic{
 			case 5:
 				metodo="A*.";	
 				break;
-			
+			//6. Voraz
+			case 6:
+				metodo="Voraz.";	
+				break;
 			default: 
 				return null;	
 		}				
