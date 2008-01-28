@@ -5,6 +5,7 @@
 package problemas;
 
 import aima.search.*;
+
 import java.util.Enumeration;
 import java.util.Vector;
 
@@ -124,7 +125,7 @@ public class Canibales extends Problema{
 	 * Genera todos los posibles estados sucesores del estado actual.
 	 * @return Conjunto de estados sucesores.	 
 	 */
-	public Enumeration successors() {
+	public Enumeration<Successor> successors() {
 		
 		// OPERADORES:
 		//  - Operador 0: Cruza un canibal.
@@ -140,7 +141,7 @@ public class Canibales extends Problema{
 		int nnumMisionerosIzq = 0;
 	    int nnumCanibalesIzq = 0;
 	    int nposBarca = 0;
-	    Vector successorVec = new Vector();
+	    Vector<Successor> successorVec = new Vector<Successor>();
 	    
 	    // Incrementamos los nodos expandidos.
 	    nodosExpandidos++;

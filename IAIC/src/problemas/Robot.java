@@ -152,7 +152,7 @@ public class Robot extends Problema {
 	 * Genera todos los posibles estados sucesores del estado actual.
 	 * @return Conjunto de estados sucesores.	 
 	 */
-	public Enumeration successors(){
+	public Enumeration<Successor> successors(){
 	
 		// OPERADORES:
 		//  - Operador 0: Aspirar habitación.
@@ -167,7 +167,7 @@ public class Robot extends Problema {
 		boolean limHabIzq = false;
 		boolean limHabCen = false;
 		boolean limHabDer = false;
-	 	Vector successor = new Vector();
+	 	Vector<Successor> successor = new Vector<Successor>();
 	 	
 	 	// Incrementamos el número de nodos expandidos.
 	 	nodosExpandidos++;

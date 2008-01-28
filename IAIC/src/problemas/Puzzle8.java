@@ -5,9 +5,7 @@
 package problemas;
 
 import java.util.*;
-import java.util.Enumeration;
-import java.util.Vector;
-import aima.search.*;;
+import aima.search.*;
 
 /**
  * Clase que implementa el problema del Puzzle de 8 según
@@ -169,7 +167,7 @@ public class Puzzle8 extends Problema{
 	 * Genera todos los posibles estados sucesores del estado actual.
 	 * @return Conjunto de estados sucesores.	 
 	 */
-	public Enumeration successors() {
+	public Enumeration<Successor> successors() {
 		
 		// OPERADORES:
 		//  - Operador 0: Mueve el hueco a la derecha.
@@ -181,9 +179,7 @@ public class Puzzle8 extends Problema{
 	 	int numOperador;
 		
 		// Nuevas posiciones.
-	 	int nCoorX = coorX;
-	 	int nCoorY = coorY;
-	 	Vector successorVec = new Vector<Puzzle8>();
+	 	Vector<Successor> successorVec = new Vector<Successor>();
 	 	nodosExpandidos++;
 	 	
 	 	for (numOperador=0; numOperador<4; numOperador++){

@@ -5,6 +5,7 @@
 package problemas;
 
 import aima.search.*;
+
 import java.util.Enumeration;
 import java.util.Vector;
 
@@ -126,7 +127,7 @@ public class Granjero extends Problema{
 	 * Genera todos los posibles estados sucesores del estado actual.
 	 * @return Conjunto de estados sucesores.	 
 	 */
-	public Enumeration successors() {
+	public Enumeration<Successor> successors() {
 		
 		// OPERADORES:
 		//  - Operador 0: Cruza el lobo (con el granjero).
@@ -142,7 +143,7 @@ public class Granjero extends Problema{
 	 	int nposCabra = 1;
 	 	int nposCol = 1;
 	 	int nposGranjero  = 1;
-	 	Vector successor = new Vector();
+	 	Vector<Successor> successor = new Vector<Successor>();
 	 	
 	 	// Incrementamos el número de nodos expandidos.
 	 	nodosExpandidos++;

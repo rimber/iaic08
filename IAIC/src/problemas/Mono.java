@@ -144,7 +144,7 @@ public class Mono extends Problema{
 	 * Genera todos los posibles estados sucesores del estado actual.
 	 * @return Conjunto de estados sucesores.	 
 	 */
-	public Enumeration successors() {
+	public Enumeration<Successor> successors() {
 
 		// OPERADORES:
 		//  - Operador 0: Mono anda por el suelo hasta la ventana.
@@ -164,7 +164,7 @@ public class Mono extends Problema{
 	 	int nposCaja = 1;
 	 	boolean nsubidoCaja = false;
 	 	boolean ntienePlatano = false;
-	 	Vector successorVec = new Vector();
+	 	Vector<Successor> successorVec = new Vector<Successor>();
 	 	
 	 	nodosExpandidos++;
 
