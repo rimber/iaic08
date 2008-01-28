@@ -281,7 +281,7 @@ public class SwingTest2 extends JPanel implements ActionListener {
     // create an Alpha interpolator to automatically generate
     // modifications to the rotation component of the transformation matrix
     Alpha rotationAlpha = new Alpha(-1, Alpha.INCREASING_ENABLE, 0, 0,
-        4000, 0, 0, 0, 0, 0);
+        8000, 0, 0, 0, 0, 0);
 
     // create a RotationInterpolator behavior to effect the TransformGroup
     rotator = new RotationInterpolator(rotationAlpha, objTrans, yAxis,
@@ -338,7 +338,7 @@ public class SwingTest2 extends JPanel implements ActionListener {
   protected BranchGroup createCube() {
     BranchGroup bg = new BranchGroup();
     bg.setCapability(BranchGroup.ALLOW_DETACH);
-    bg.addChild(new com.sun.j3d.utils.geometry.Box());
+    bg.addChild(new com.sun.j3d.utils.geometry.ColorCube());
     bg.setUserData("Cube");
     return bg;
   }
