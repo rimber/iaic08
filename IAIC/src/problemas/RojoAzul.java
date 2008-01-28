@@ -148,7 +148,7 @@ public class RojoAzul extends Problema {
 	 * Genera todos los posibles estados sucesores del estado actual.
 	 * @return Conjunto de estados sucesores.	 
 	 */
-	public Enumeration successors() {
+	public Enumeration<Successor> successors() {
 		// Tenemos 9 operadores
 		// Operador 0 : Cambiar color casilla [0][0].
 		// Operador 1 : Cambiar color casilla [0][1].
@@ -166,7 +166,7 @@ public class RojoAzul extends Problema {
 	 	// Incrementamos el número de nodos expandidos.
 	 	nodosExpandidos++;
 	 	
-	 	Vector successor = new Vector();
+	 	Vector<Successor> successor = new Vector<Successor>();
 	 	
 	 	for (numOperador = 0; numOperador<9;numOperador++){
 	 		RojoAzul nuevoEstado = new RojoAzul(tablero);

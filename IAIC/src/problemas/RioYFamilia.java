@@ -182,7 +182,7 @@ public class RioYFamilia extends Problema {
 	 * Genera todos los posibles estados sucesores del estado actual.
 	 * @return Conjunto de estados sucesores.	 
 	 */
-	public Enumeration successors() {
+	public Enumeration<Successor> successors() {
 		// Tenemos 15 operadores
 		// Operador 0 : Cruza el policía solo (con la barca).
 		// Operador 1 : Cruza la madre sola (con la barca).
@@ -217,7 +217,7 @@ public class RioYFamilia extends Problema {
 	 	// Incrementamos el número de nodos expandidos.
 	 	nodosExpandidos++;
 	 	
-	 	Vector successor = new Vector();
+	 	Vector<Successor> successor = new Vector<Successor>();
 	 	
 	 	for (numOperador = 0; numOperador<15;numOperador++){
 	 		// Operador 0 : Cruza el policía solo (con la barca).

@@ -133,7 +133,7 @@ public class Puente extends Problema {
 	 * Genera todos los posibles estados sucesores del estado actual.
 	 * @return Conjunto de estados sucesores.	 
 	 */
-	public Enumeration successors() {
+	public Enumeration<Successor> successors() {
 		// Tenemos 10 operadores:
 		// Operador 0: Cruza Ana sola (con la linterna).
 		// Operador 1: Cruza Benito solo (con la linterna).
@@ -161,7 +161,7 @@ public class Puente extends Problema {
 	 	// Incrementamos el número de nodos expandidos.
 	 	nodosExpandidos++;
 	 	
-	 	Vector successor = new Vector();
+	 	Vector<Successor> successor = new Vector<Successor>();
 	 	
 	 	for (numOperador = 0; numOperador<10;numOperador++){
 	 		// Operador 0: Cruza Ana sola (con la linterna).

@@ -7,13 +7,7 @@ package problemas;
 import java.util.Enumeration;
 import java.util.Vector;
 
-import aima.search.AStarSearch;
-import aima.search.BreadthFirstSearch;
-import aima.search.DepthBoundedSearch;
-import aima.search.GreedySearch;
-import aima.search.IteratedDeepeningSearch;
 import aima.search.Successor;
-import aima.search.UniformCostSearch;
 
 /** 
  * Clase que implementa el problema de las jarras según
@@ -123,7 +117,7 @@ public class Jarras extends Problema {
 	 * Genera todos los posibles estados sucesores del estado actual.
 	 * @return Conjunto de estados sucesores.	 
 	 */
-	public Enumeration successors(){
+	public Enumeration<Successor> successors(){
 		
 		// Tenemos 6 operadores:
 		// Operador 0: Llenar jarra de 4 Litros.
@@ -143,7 +137,7 @@ public class Jarras extends Problema {
 		// Incrementamos el número de nodos expandidos.
 	 	nodosExpandidos++;
 	 	
-	 	Vector successor = new Vector();
+	 	Vector<Successor> successor = new Vector<Successor>();
 	 	for(numOperador = 0; numOperador <6; numOperador++){
 	 		//Llenar garrafa de 4L.
 	 		if(numOperador == 0 && jarra4<4 ){

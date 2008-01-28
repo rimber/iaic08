@@ -42,7 +42,7 @@ public abstract class Problema implements State,Heuristic{
 	/**
 	 * Numero de problemas distintos que tenemos
 	 */	
-	public static final int numProblemas = 7;
+	public static final int numProblemas = 10;
 	
 	/**
 	 * Método accesor para el atributo enunciado.
@@ -68,7 +68,7 @@ public abstract class Problema implements State,Heuristic{
 	 * Genera todos los posibles estados sucesores del estado actual.
 	 * @return Conjunto de estados sucesores.	 
 	 */
-	public abstract Enumeration successors();
+	public abstract Enumeration<Successor> successors();
 
 	/**
 	 * Genera el valor heurístico del estado.
@@ -210,7 +210,7 @@ public abstract class Problema implements State,Heuristic{
 	 * @return Devuelve si el problema se ha resuelto.
 	 */
     public boolean listPath(SearchNode node) {
-       ArrayList camino = new ArrayList();
+       ArrayList<String> camino = new ArrayList<String>();
 	   if (node == null) {
 		   return false;
 	   }

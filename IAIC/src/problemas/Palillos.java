@@ -101,7 +101,7 @@ public class Palillos extends Problema {
 	 * Genera todos los posibles estados sucesores del estado actual.
 	 * @return Conjunto de estados sucesores.	 
 	 */
-	public Enumeration successors() { 
+	public Enumeration<Successor> successors() { 
 
 	    // Tenemos 3 operadores:
 		// Operador 1: Quitar un palillo.
@@ -114,7 +114,7 @@ public class Palillos extends Problema {
 	 	// Nuevo nivel.
 	    int nivel2=nivel+1;
 	    
-	    Vector successor = new Vector();
+	    Vector<Successor> successor = new Vector<Successor>();
 	    
 	    // Incrementamos el número de nodos expandidos.
 	 	nodosExpandidos++;
