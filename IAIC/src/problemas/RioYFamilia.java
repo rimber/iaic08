@@ -560,7 +560,7 @@ public class RioYFamilia extends Problema {
 		int i = 1;
 		boolean resuelto= false;
 		while((i<=maxNivel)&&(!resuelto)){
-			System.out.println("Profundidad iterativa, nivel = "+i);
+			System.out.println("Profundidad iterativa, nivel = "+i+"\n");
 			resuelto=listPath((new DepthBoundedSearch(this,i)).search());
 			i++;
 		}
