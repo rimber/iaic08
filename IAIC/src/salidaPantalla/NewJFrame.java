@@ -11,17 +11,7 @@ public class NewJFrame extends javax.swing.JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * 
-	 */
-	private static final int posicionX = 100;
-	
-	/**
-	 * 
-	 */
-	private static final int posicionY = 100;
-	
+		
 	private int metodoElegido;
 	
     /** Creates new form NewJFrame */
