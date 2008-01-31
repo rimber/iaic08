@@ -6,12 +6,17 @@ public class Pruebas {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Problema juego = new RojoAzul();
-		for (int i=5; i<6; i++){
+		Problema juego = new Puzzle8();
+		for (int i=0; i<6; i++){
 			System.out.println("Estrategia: "+ juego.estrategiaAplicada(i));
-			juego.resolver(i);			
-			System.out.println("Número de nodos expandidos : "+ juego.getNodosExpandidos()+"\n");
-		}		
+			boolean resuelto = juego.resolver(i);			
+			if (resuelto){
+				System.out.println("Número de nodos expandidos : "+ juego.getNodosExpandidos()+"\n");
+			}
+			else{
+				System.out.println("¡Solucion no encontrada!");
+			}
+		}
 	}
 
 }

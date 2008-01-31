@@ -547,5 +547,14 @@ public class RioYFamilia extends Problema {
 	 	}
 		return successor.elements();
 	}
+	
+	/**
+ 	 * Método que intenta resolver un problema según la estrategia de búsqueda
+ 	 * en profundidad iterativa.
+ 	 * @return Si se ha resuelto o no el problema.
+ 	 */
+	protected boolean resolverProfIt() {	
+		return false;
+	}
 
 }

@@ -220,7 +220,6 @@ public class Granjero extends Problema{
 		 	 	}
 	 	 	}
 	 	 }
-	 	 
 	 	 return successor.elements();
 	}
    

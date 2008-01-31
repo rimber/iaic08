@@ -105,7 +105,7 @@ public class Canibales extends Problema{
 		if (nodosExpandidos > maxNodos){
 			return false;
 		}
-		
+
         // Si el número de caníbales supera al de misioneros en la izquierda 
         // (siempre que halla alguno).
         if ((numMisionerosIzq > 0) && (numCanibalesIzq > numMisionerosIzq)){
@@ -304,7 +304,7 @@ public class Canibales extends Problema{
 	 				}
 	 			}
 	 	 	}
-	 		
+
 	 		if (operadorAplicado){
 		 	 	// Creamos el nuevo estado.
 		 	 	Canibales nuevoEstado = new Canibales(nnumMisionerosIzq, nnumCanibalesIzq, nposBarca);
@@ -315,8 +315,17 @@ public class Canibales extends Problema{
 		 	 		successorVec.addElement(new Successor(nuevoEstado,nombreOperador,1)); 
 		 	 	}
 	 		}
-		}
-
+	 		
+		}		
 	    return successorVec.elements();
+	}
+	
+	/**
+ 	 * Método que intenta resolver un problema según la estrategia de búsqueda
+ 	 * en profundidad iterativa.
+ 	 * @return Si se ha resuelto o no el problema.
+ 	 */
+	protected boolean resolverProfIt() {	
+		return false;
 	}
 }

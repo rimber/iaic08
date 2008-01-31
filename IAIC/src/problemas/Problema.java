@@ -11,12 +11,6 @@ import java.util.*;
  * Clase que implementa un problema según el paradigma del espacio de estados.
  */
 public abstract class Problema implements State,Heuristic{
-
-	/**
-	 * Reloj para controlar el tiempo máximo
-	 * en el que puede hacerse la búsqueda.
-	 */
-	protected Reloj reloj;
 	
 	/**
 	 * Enunciado del problema.
@@ -130,8 +124,9 @@ public abstract class Problema implements State,Heuristic{
 				break;
 			default: 
 				return false;
-		}				
+		}
 		return resuelto;
+		
 	}
 
 	/**
@@ -139,7 +134,7 @@ public abstract class Problema implements State,Heuristic{
  	 * de búsqueda A*. 
  	 * @return Si se ha resuelto o no el problema.
  	 */
-	private boolean resolverA() {
+	protected boolean resolverA() {
 		boolean resuelto = listPath((new AStarSearch(this)).search());
 		return resuelto;
 	}
@@ -149,7 +144,7 @@ public abstract class Problema implements State,Heuristic{
  	 * de búsqueda de coste uniforme. 
  	 * @return Si se ha resuelto o no el problema.
  	 */
-	private boolean resolverCosteUni() {
+	protected boolean resolverCosteUni() {
 		boolean resuelto = listPath((new UniformCostSearch(this)).search());
 		return resuelto;
 	}
@@ -159,7 +154,7 @@ public abstract class Problema implements State,Heuristic{
  	 * de búsqueda escalada máxima. 
  	 * @return Si se ha resuelto o no el problema.
  	 */
-	private boolean resolverEscalada() {
+	protected boolean resolverEscalada() {
 		boolean resuelto = listPath((new GreedySearch(this)).search());
 		return resuelto;
 	}
@@ -169,7 +164,7 @@ public abstract class Problema implements State,Heuristic{
  	 * primero en anchura.
  	 * @return Si se ha resuelto o no el problema.
  	 */
-	private boolean resolverPrimAnchura() {
+	protected boolean resolverPrimAnchura() {
 		boolean resuelto = listPath((new BreadthFirstSearch(this)).search());
 		return resuelto;
 	}
@@ -179,7 +174,7 @@ public abstract class Problema implements State,Heuristic{
  	 * en profundidad iterativa.
  	 * @return Si se ha resuelto o no el problema.
  	 */
-	private boolean resolverProfIt() {
+	protected boolean resolverProfIt() {	
 		boolean resuelto=listPath((new IteratedDeepeningSearch(this)).search());
 		return resuelto;
 	}
@@ -189,7 +184,7 @@ public abstract class Problema implements State,Heuristic{
  	 * primero en profundidad.
  	 * @return Si se ha resuelto o no el problema.
  	 */
-	private boolean resolverProfundidad() {
+	protected boolean resolverProfundidad() {
 		boolean resuelto=listPath((new DepthBoundedSearch(this,10)).search());
 		return resuelto;
 	}
@@ -275,6 +270,12 @@ public abstract class Problema implements State,Heuristic{
 				return null;	
 		}				
 		return metodo;
+	}
+
+	public void finalizar()throws Exception {
+		// TODO Auto-generated method stub
+		 System.out.println("Game over!!.");
+		 throw new Exception();
 	}
 	
 }
