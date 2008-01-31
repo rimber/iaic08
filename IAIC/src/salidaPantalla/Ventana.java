@@ -13,7 +13,12 @@ package salidaPantalla;
 
 public class Ventana extends javax.swing.JFrame {
     
-    /** Creates new form Ventana */
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	/** Creates new form Ventana */
     public Ventana() {
         initComponents();
     }
