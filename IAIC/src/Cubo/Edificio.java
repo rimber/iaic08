@@ -3,7 +3,6 @@
  */
 package Cubo;
 
-import java.util.ArrayList;
 import java.util.*;
 
 /**
@@ -19,7 +18,7 @@ public class Edificio {
 	/**
 	 * 
 	 */
-    private ArrayList recorrido;
+    private ArrayList<Coord3d> recorrido;
     
     /**
      * 
@@ -38,7 +37,7 @@ public class Edificio {
     public Edificio (int n){
     	habitaciones = new Habitacion[n][n][n]; 
         dimension = n;
-        recorrido = new ArrayList();
+        recorrido = new ArrayList<Coord3d>();
         edificioCerrado = false;
     }
     

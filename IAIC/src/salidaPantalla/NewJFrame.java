@@ -1,14 +1,19 @@
 package salidaPantalla;
 
-
-import javax.swing.*;
 /**
  *
  * @author  usuario_local
  */
+
 public class NewJFrame extends javax.swing.JFrame {
     
-    private int metodoElegido;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private int metodoElegido;
+	
     /** Creates new form NewJFrame */
     public NewJFrame() {
         initComponents();
@@ -25,7 +30,6 @@ public class NewJFrame extends javax.swing.JFrame {
         cas[3]="Profundidad Iterativa";
         cas[4]="Escalada Maxima";
         cas[5]="A*";
-        cas[6]="Voraz";
         ComboBusquedas.setModel(new javax.swing.DefaultComboBoxModel(cas));
     }
     /** This method is called from within the constructor to
@@ -220,10 +224,9 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jMenuItemJugarAleatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemJugarAleatorioActionPerformed
         // TODO add your handling code here:
-    Ventana ven=new Ventana();
+    Ventana ven=new Ventana("INFORMACION");
     ven.setTitle("INFO");
-    Dialogo d=new Dialogo(ven,"INFORMACION");
-    d.setVisible(true);     
+    ven.setVisible(true);     
         
     }//GEN-LAST:event_jMenuItemJugarAleatorioActionPerformed
 
