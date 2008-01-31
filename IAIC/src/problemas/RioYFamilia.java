@@ -7,6 +7,7 @@ package problemas;
 import java.util.Enumeration;
 import java.util.Vector;
 
+import aima.search.DepthBoundedSearch;
 import aima.search.Successor;
 
 /**
@@ -550,11 +551,23 @@ public class RioYFamilia extends Problema {
 	
 	/**
  	 * Método que intenta resolver un problema según la estrategia de búsqueda
- 	 * en profundidad iterativa.
+ 	 * en profundidad iterativa pero limitandola a un nivel máximo
+ 	 * debido a que en este problema usar la búsqueda implementada
+ 	 * en el aima tarda demasiado tiempo en terminar o no termina.
  	 * @return Si se ha resuelto o no el problema.
  	 */
-	protected boolean resolverProfIt() {	
-		return false;
+	protected boolean resolverProfIt() {
+		int i = 1;
+		boolean resuelto= false;
+		while((i<=maxNivel)&&(!resuelto)){
+			System.out.println("Profundidad iterativa, nivel = "+i);
+			resuelto=listPath((new DepthBoundedSearch(this,i)).search());
+			i++;
+		}
+		if(i>maxNivel){
+			return false;
+		}
+		return resuelto;
 	}
 
 }

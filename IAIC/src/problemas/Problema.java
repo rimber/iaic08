@@ -42,6 +42,11 @@ public abstract class Problema implements State,Heuristic{
 	/**
 	 * Numero de problemas distintos que tenemos
 	 */	
+	public static final int maxNivel = 1000;
+	
+	/**
+	 * Numero de problemas distintos que tenemos
+	 */	
 	public static final int numProblemas = 10;
 	
 	/**
