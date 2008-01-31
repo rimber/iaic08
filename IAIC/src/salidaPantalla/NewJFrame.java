@@ -12,6 +12,16 @@ public class NewJFrame extends javax.swing.JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * 
+	 */
+	private static final int posicionX = 100;
+	
+	/**
+	 * 
+	 */
+	private static final int posicionY = 100;
+	
 	private int metodoElegido;
 	
     /** Creates new form NewJFrame */
@@ -22,7 +32,7 @@ public class NewJFrame extends javax.swing.JFrame {
     
     private void actualizaComponentes(){
     
-        String[] cas=new String [7];
+        String[] cas=new String [6];
         
         cas[0]="Primero en Profundidad";
         cas[1]="Primero en Anchura";
@@ -70,11 +80,11 @@ public class NewJFrame extends javax.swing.JFrame {
         jDesktopPane1.setBackground(new java.awt.Color(102, 204, 255));
 
         jDesktopPane2.setBackground(new java.awt.Color(255, 255, 255));
-        jDesktopPane2.setBounds(0, 0, 280, 260);
+        jDesktopPane2.setBounds(0,0, 280, 260);
         jDesktopPane1.add(jDesktopPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jDesktopPane3.setBackground(new java.awt.Color(255, 255, 255));
-        jDesktopPane3.setBounds(0, 290, 280, 250);
+        jDesktopPane3.setBounds(0,290, 280, 250);
         jDesktopPane1.add(jDesktopPane3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jDesktopPane4.setBackground(new java.awt.Color(204, 255, 153));
@@ -110,7 +120,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jDesktopPane4.add(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         ComboBusquedas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        ComboBusquedas.setBounds(130, 110, 150,20);
+        ComboBusquedas.setBounds(130,110, 150,20);
         jDesktopPane4.add(ComboBusquedas, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jDesktopPane4.setBounds(320, 0, 300, 260);
@@ -201,6 +211,12 @@ public class NewJFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setTitle("Micromundo Cúbico : Práctica 1 IAIC.");
+        /*TODO añadirle 
+			setSize(ancho, alto);
+        	setLocation(posx, posy);
+        	setResizable(false);
+        */
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSalirActionPerformed
@@ -224,9 +240,9 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jMenuItemJugarAleatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemJugarAleatorioActionPerformed
         // TODO add your handling code here:
-    Ventana ven=new Ventana("INFORMACION");
-    ven.setTitle("INFO");
-    ven.setVisible(true);     
+    	Ventana ven=new Ventana(this,"INFORMACION");
+    	ven.setTitle("INFO");
+    	ven.setVisible(true);     
         
     }//GEN-LAST:event_jMenuItemJugarAleatorioActionPerformed
 

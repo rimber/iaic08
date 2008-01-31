@@ -18,14 +18,22 @@ public class Ventana extends javax.swing.JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * 
+	 */
+	private NewJFrame referencia;
+	
 	/** Creates new form Ventana */
     public Ventana() {
         initComponents();
     }
     
-    public Ventana(String mensaje) {
+    public Ventana(NewJFrame r,String mensaje) {
+        referencia = r;
         initComponents();
         jTextArea1.setText(mensaje);
+        referencia.setEnabled(false);
+
     }
     
     /** This method is called from within the constructor to
@@ -40,13 +48,13 @@ public class Ventana extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        jDesktopPane1.setBackground(new java.awt.Color(51, 102, 255));
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        jDesktopPane1.setBackground(new java.awt.Color(102, 204, 255));
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jScrollPane1.setBounds(0, 2, 400, 450);
+        jScrollPane1.setBounds(2, 2, 296, 223);
         jDesktopPane1.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton1.setText("Aceptar");
@@ -56,7 +64,7 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBounds(160, 480, 90, 20);
+        jButton1.setBounds(110, 250, 80, 20);
         jDesktopPane1.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
@@ -70,11 +78,15 @@ public class Ventana extends javax.swing.JFrame {
             .add(jDesktopPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
         );
         pack();
+        setSize(307, 320);
+        setLocation(100, 100);
+        setResizable(false);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
 // TODO add your handling code here:
-        dispose();
+    	referencia.setEnabled(true);
+     	dispose();
     }//GEN-LAST:event_jButton1MouseClicked
     
     /**
