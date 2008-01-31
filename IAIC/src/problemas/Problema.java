@@ -13,6 +13,12 @@ import java.util.*;
 public abstract class Problema implements State,Heuristic{
 
 	/**
+	 * Reloj para controlar el tiempo máximo
+	 * en el que puede hacerse la búsqueda.
+	 */
+	protected Reloj reloj;
+	
+	/**
 	 * Enunciado del problema.
 	 */
 	protected String enunciado;
@@ -85,7 +91,6 @@ public abstract class Problema implements State,Heuristic{
 	 *  3. Profundidad iterativa.
 	 *  4. Escalada.
 	 *  5. A*.
-	 *  6. Voraz.
 	 * @param estrategia Número de estrategia de búsqueda.
 	 * @return Si se ha resuelto o no el problema con esa estrategia.
 	 */
@@ -123,24 +128,9 @@ public abstract class Problema implements State,Heuristic{
 				nodosExpandidos = 0;
 				resuelto=resolverA();	
 				break;
-			//6. Voraz.	
-			case 6:
-				nodosExpandidos = 0;
-				resuelto=resolverVoraz();
-				break;
 			default: 
 				return false;
 		}				
-		return resuelto;
-	}
-	
-	/**
- 	 * Método que intenta resolver un problema según la estrategia 
- 	 * de búsqueda voraz. 
- 	 * @return Si se ha resuelto o no el problema.
- 	 */
-	private boolean resolverVoraz() {
-		boolean resuelto = listPath((new GreedySearch(this)).search());
 		return resuelto;
 	}
 
@@ -166,7 +156,7 @@ public abstract class Problema implements State,Heuristic{
 	
 	/**
  	 * Método que intenta resolver un problema según la estrategia 
- 	 * de búsqueda escalada. 
+ 	 * de búsqueda escalada máxima. 
  	 * @return Si se ha resuelto o no el problema.
  	 */
 	private boolean resolverEscalada() {
@@ -247,12 +237,6 @@ public abstract class Problema implements State,Heuristic{
 	public int getNodosExpandidos() {
 		return nodosExpandidos;
 	}
-	//ESTE METODO QUITARLO PERO DE MOMNENTO NOS SIRVE PARA
-	//PROBAR TODAS LAS ESTRATEGIAS EN EL FOR
-	public void setNodosExpandidos(int n){
-		//TODO eliminar este metodo!!!!!!!!
-		nodosExpandidos = n;
-	}
 	
 	/**
 	 *  Método que dado un número de estrategia
@@ -281,15 +265,11 @@ public abstract class Problema implements State,Heuristic{
 				break;
 			//4. Escalada.
 			case 4:
-				metodo="Escalada.";
+				metodo="Escalada Máxima.";
 				break;
 			//5. A*
 			case 5:
 				metodo="A*.";	
-				break;
-			//6. Voraz
-			case 6:
-				metodo="Voraz.";	
 				break;
 			default: 
 				return null;	
