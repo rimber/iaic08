@@ -1,11 +1,17 @@
 package salidaPantalla;
 
+import java.awt.image.BufferedImage;
+
+import javax.swing.ImageIcon;
+
+import Cubo.Edificio;
+
 /**
  *
  * @author  usuario_local
  */
 
-public class NewJFrame extends javax.swing.JFrame {
+public class VPrincipal extends javax.swing.JFrame {
     
     /**
 	 * 
@@ -14,8 +20,13 @@ public class NewJFrame extends javax.swing.JFrame {
 		
 	private int metodoElegido;
 	
+	private int dimensionEdi;
+	private ImageIcon flecha;
+	private ImageIcon puerta;
+	
+	private Edificio edi;
     /** Creates new form NewJFrame */
-    public NewJFrame() {
+    public VPrincipal() {
         initComponents();
         actualizaComponentes();
     }
@@ -228,13 +239,79 @@ public class NewJFrame extends javax.swing.JFrame {
         metodoElegido=ComboBusquedas.getSelectedIndex();       
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
+    private void pintarFlecha(int direccion){
+    	switch (direccion){
+    	
+    	case 0:flecha=new ImageIcon("C:/flechaAbajo.png");
+    				  break;
+    	case 1:flecha=new ImageIcon("C:/flechaDerecha.png");
+		  			  break;
+    	case 2:flecha=new ImageIcon("C:/flechaArriba.png");
+		  			  break;
+    	case 3:flecha=new ImageIcon("C:/flechaIzquierda.png");
+    				  break;
+    	case 4:flecha=new ImageIcon("C:/flechaAbajo.png");//sera enfrente cuando tengamos dibujo
+    				  break;
+    	case 5:flecha=new ImageIcon("C:/flechaAbajo.png");//sera detras cuando tengamos dibujo
+		  			  break;    	
+    	default:flecha=new ImageIcon("C:/flechaAbajo.png");//por si acaso		  		    	        	
+    	}
+    	
+    	etiquetaImagen=new javax.swing.JLabel(flecha);
+    }
+    
+    public char VentanaPideDato(){
+    	char c='1';
+    	return c;
+    }
+    
+    public void setDimension(int dim){
+    	dimensionEdi=dim;    	
+    }
+    
+    
     private void jMenuItemJugarAleatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemJugarAleatorioActionPerformed
         // TODO add your handling code here:
-    	Ventana ven=new Ventana(this,"INFORMACION");
-    	ven.setTitle("INFO");
-    	ven.setVisible(true);     
-        
-    }//GEN-LAST:event_jMenuItemJugarAleatorioActionPerformed
+    	    //PEDIR UN Entero y actualizar dimension del cubo
+    	VentanaPedirDato ven=new VentanaPedirDato(this);
+    	ven.setTitle("Introduzca Tamaño del edificio");
+    	ven.setVisible(true); 
+    }
+    public void empiezaJugar(){ 
+    	edi=new Edificio(dimensionEdi,this);
+    	edi.inicia();
+		int direccion = 0;
+	    pintarFlecha(direccion);   
+		while (!edi.salida() && !edi.cerrado()){
+		
+			//antes de avanzar pintar la puerta cerrada y esperar a que haga click en la estrategia
+			
+			if (!edi.avanza(direccion)){
+                direccion++;                     
+            }
+			else{
+                direccion=0;
+            }
+			
+			// Vueltra atrás.
+            if (direccion>5){
+        	   direccion = edi.retrocede()+1;
+            }
+		}            		
+		// Informamos del resultado.
+		
+		// Se queda encerrado.
+		if (edi.cerrado()){
+			System.out.println("Encerrado!");
+			System.exit(0);
+		}
+		else{ // Consigue salir.
+			System.out.println("He salido!");
+			edi.muestraRecorrido();
+			System.exit(1);
+       }        
+}//GEN-LAST:event_jMenuItemJugarAleatorioActionPerformed
 
     private void jMenuItemAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAyudaActionPerformed
         // TODO add your handling code here:
@@ -242,6 +319,13 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jMenuItemComponentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemComponentesActionPerformed
         // TODO add your handling code here:
+    	VentanaInfo ven=new VentanaInfo(this,
+    			"Pablo Fernández Poblaciones"+"\n"+
+    			"Luis Gonzalez de Paula"+"\n" + 
+    			"Antonio Murillo Melero"+"\n"
+    			+"4º A \nIAIC Facultad de Informática");
+    	ven.setTitle("Integrantes del grupo");
+    	ven.setVisible(true); 
     }//GEN-LAST:event_jMenuItemComponentesActionPerformed
     
     /**
@@ -250,7 +334,7 @@ public class NewJFrame extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewJFrame().setVisible(true);
+                new VPrincipal().setVisible(true);
                 
             }
         });
@@ -281,6 +365,8 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel etiquetaImagen;
+    
     // End of variables declaration//GEN-END:variables
     
 }

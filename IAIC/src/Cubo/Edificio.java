@@ -5,6 +5,8 @@ package Cubo;
 
 import java.util.*;
 
+import salidaPantalla.VPrincipal;
+
 /**
  *
  */
@@ -25,6 +27,7 @@ public class Edificio {
      */
     private int dimension;
     
+    private VPrincipal enlace;
     /**
      * 
      */
@@ -34,11 +37,12 @@ public class Edificio {
      * 
      * @param n
      */
-    public Edificio (int n){
+    public Edificio (int n,VPrincipal v){
     	habitaciones = new Habitacion[n][n][n]; 
         dimension = n;
         recorrido = new ArrayList<Coord3d>();
         edificioCerrado = false;
+        enlace=v;
     }
     
     /**
@@ -116,7 +120,10 @@ public class Edificio {
     	}
     	catch(Exception e){}
     	
+    	caracter=enlace.VentanaPideDato();
     	int estrategia = (int)caracter;
+    	
+    	//comprobar que lo que te han dado es valido
     	estrategia = estrategia%6;
     	if (estrategia<0){ 
     		estrategia = -estrategia;

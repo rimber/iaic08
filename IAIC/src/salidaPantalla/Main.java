@@ -19,7 +19,7 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        NewJFrame f= new NewJFrame();
+        VPrincipal f= new VPrincipal();
         f.setVisible(true);
     }
     

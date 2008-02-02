@@ -19,7 +19,7 @@ public class Main {
 		int dimension = 3;
 		
 		// Creamos el edificio y lo inicializamos.
-		Edificio edi = new Edificio(dimension);
+		Edificio edi = new Edificio(dimension,null);
 		edi.inicia();
 		
 		// PROCESO: salida del edificio por backtracking.

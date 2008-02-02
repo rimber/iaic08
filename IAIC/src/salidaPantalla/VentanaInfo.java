@@ -8,10 +8,10 @@ package salidaPantalla;
 
 /**
  *
- * @author  Pablo & Antonio
+ * @author  Pablo & Antonio &Luis
  */
 
-public class Ventana extends javax.swing.JFrame {
+public class VentanaInfo extends javax.swing.JFrame {
     
     /**
 	 * 
@@ -21,14 +21,14 @@ public class Ventana extends javax.swing.JFrame {
 	/**
 	 * 
 	 */
-	private NewJFrame referencia;
+	private VPrincipal referencia;
 	
 	/** Creates new form Ventana */
-    public Ventana() {
+    public VentanaInfo() {
         initComponents();
     }
     
-    public Ventana(NewJFrame r,String mensaje) {
+    public VentanaInfo(VPrincipal r,String mensaje) {
         referencia = r;
         initComponents();
         jTextArea1.setText(mensaje);
@@ -89,18 +89,8 @@ public class Ventana extends javax.swing.JFrame {
      	dispose();
     }//GEN-LAST:event_jButton1MouseClicked
     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Ventana().setVisible(true);
-            }
-        });
-    }
     
-    // Declaraciï¿½n de variables - no modificar//GEN-BEGIN:variables
+    // Declaraciçon de variables - no modificar//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JScrollPane jScrollPane1;
