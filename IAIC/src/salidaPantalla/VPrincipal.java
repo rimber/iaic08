@@ -19,10 +19,11 @@ public class VPrincipal extends javax.swing.JFrame {
 	private static final long serialVersionUID = 1L;
 		
 	private int metodoElegido;
-	
+	private boolean manual;
 	private int dimensionEdi;
 	private ImageIcon flecha;
 	private ImageIcon puerta;
+	private int direccion;
 	
 	private Edificio edi;
     /** Creates new form NewJFrame */
@@ -81,11 +82,11 @@ public class VPrincipal extends javax.swing.JFrame {
         jDesktopPane1.setBackground(new java.awt.Color(102, 204, 255));
 
         jDesktopPane2.setBackground(new java.awt.Color(255, 255, 255));
-        jDesktopPane2.setBounds(0,0, 280, 260);
+        jDesktopPane2.setBounds(10,10, 350, 310);// 280 260
         jDesktopPane1.add(jDesktopPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jDesktopPane3.setBackground(new java.awt.Color(255, 255, 255));
-        jDesktopPane3.setBounds(0,290, 280, 250);
+        jDesktopPane3.setBounds(10,370, 350, 310); //290 280 250
         jDesktopPane1.add(jDesktopPane3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jDesktopPane4.setBackground(new java.awt.Color(204, 255, 153));
@@ -98,7 +99,7 @@ public class VPrincipal extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jButton1.setBounds(100, 230, 120, 20);
+        jButton1.setBounds(140, 230, 120, 40);
         jDesktopPane4.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel1.setFont(new java.awt.Font("Batang", 1, 14));
@@ -112,19 +113,19 @@ public class VPrincipal extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
-        jTextField1.setBounds(130, 40, 150, 20);
+        jTextField1.setBounds(170, 40, 150, 20);
         jDesktopPane4.add(jTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel2.setFont(new java.awt.Font("Batang", 1, 14));
         jLabel2.setText("Búsqueda");
-        jLabel2.setBounds(30, 110, 80, 15);
+        jLabel2.setBounds(30, 130, 80, 15);
         jDesktopPane4.add(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         ComboBusquedas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        ComboBusquedas.setBounds(130,110, 150,20);
+        ComboBusquedas.setBounds(170,130, 150,20);
         jDesktopPane4.add(ComboBusquedas, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jDesktopPane4.setBounds(320, 0, 300, 260);
+        jDesktopPane4.setBounds(390, 10, 390, 310); //320 0 300 260
         jDesktopPane1.add(jDesktopPane4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jDesktopPane5.setBackground(new java.awt.Color(255, 255, 153));
@@ -133,15 +134,15 @@ public class VPrincipal extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jScrollPane1.setBounds(40, 60, 240, 170);
+        jScrollPane1.setBounds(70, 80, 260, 190);
         jDesktopPane5.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel3.setFont(new java.awt.Font("Batang", 1, 14));
         jLabel3.setText("Información");
-        jLabel3.setBounds(120, 20, 90, 20);
+        jLabel3.setBounds(160, 25, 90, 20);
         jDesktopPane5.add(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jDesktopPane5.setBounds(320, 290, 300, 250);
+        jDesktopPane5.setBounds(390, 370, 390, 310);
         jDesktopPane1.add(jDesktopPane5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jMenu.setText("Menu");
@@ -204,24 +205,19 @@ public class VPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, jDesktopPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, jDesktopPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 790, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, jDesktopPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, jDesktopPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE)
         );
 
-        setSize(1000,1000);
+      
         setResizable(false);
         pack();
         
         setTitle("Micromundo Cúbico : Práctica 1 IAIC.");
-        /*TODO añadirle 
-			setSize(ancho, alto);
-        	setLocation(posx, posy);
-        	setResizable(false);
-        */
-        pintarFlecha(0);
+        pintarFlecha();
         pintarPuerta(0);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -241,11 +237,12 @@ public class VPrincipal extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         //codigo del boton COntinuar
-        metodoElegido=ComboBusquedas.getSelectedIndex();       
+        metodoElegido=ComboBusquedas.getSelectedIndex();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     
-    private void pintarFlecha(int direccion){
+    private void pintarFlecha(){
     	switch (direccion){
     	
     	case 0:flecha=new ImageIcon("flechaAbajo.png");
@@ -263,12 +260,12 @@ public class VPrincipal extends javax.swing.JFrame {
     	default:flecha=new ImageIcon("flechaAbajo.png");//por si acaso		  		    	        	
     	}    	
     	etiquetaImagenFlecha=new javax.swing.JLabel(flecha);
-        etiquetaImagenFlecha.setBounds(40, 40, 200, 200);
+        etiquetaImagenFlecha.setBounds(70, 60, 200, 200);
         jDesktopPane2.add(etiquetaImagenFlecha, javax.swing.JLayeredPane.DEFAULT_LAYER);    	    	
     }
     
-    private void pintarPuerta(int direccion){
-    	switch (direccion){
+    private void pintarPuerta(int estado){
+    	switch (estado){
     	
     	case 0:puerta=new ImageIcon("puertaabierta.jpg");
     				  break;
@@ -279,7 +276,7 @@ public class VPrincipal extends javax.swing.JFrame {
     	default:flecha=new ImageIcon("tapiada.jpg");//por si acaso		  		    	        	
     	}    	
     	etiquetaImagenPuerta=new javax.swing.JLabel(puerta);
-        etiquetaImagenPuerta.setBounds(40, 40, 200, 200);
+        etiquetaImagenPuerta.setBounds(70, 60, 200, 200);
         jDesktopPane3.add(etiquetaImagenPuerta, javax.swing.JLayeredPane.DEFAULT_LAYER);    	    	
     }
     
@@ -299,12 +296,16 @@ public class VPrincipal extends javax.swing.JFrame {
     	VentanaPedirDato ven=new VentanaPedirDato(this);
     	ven.setTitle("Introduzca Tamaño del edificio");
     	ven.setVisible(true); 
+    	
     }
     public void empiezaJugar(){ 
     	edi=new Edificio(dimensionEdi,this);
     	edi.inicia();
-		int direccion = 0;
-	    pintarFlecha(direccion);   
+		direccion = 0;
+	    pintarFlecha();   
+    }
+    
+    public void resuelve(){
 		while (!edi.salida() && !edi.cerrado()){
 		
 			//antes de avanzar pintar la puerta cerrada y esperar a que haga click en la estrategia
