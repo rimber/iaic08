@@ -81,6 +81,15 @@ public class Habitacion {
      * @param pos
      * @return
      */
+    
+    public String dameTitulo(int dir){
+    	return puertas[dir].dameTitulo();
+    	
+    }
+    
+    public String dameDescripcion(int dir){
+    	return puertas[dir].dameDescripcion();
+    }
     public boolean setPuerta(Puerta p,int pos){
         
         if ((pos<0) || (pos >5)){

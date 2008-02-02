@@ -48,12 +48,35 @@ public class Edificio {
     /**
      * 
      */
-    public void muestraRecorrido(){
-    	System.out.println("Recorrido: ");
+    
+    public String muestraTituloSiguienteProblema(int direccion){
+    	String devolver="";
+    	  int posicion = recorrido.size();
+          Coord3d c = (Coord3d)recorrido.get(posicion-1);
+          Habitacion h = habitaciones[c.getx()][c.gety()][c.getz()];
+          devolver=h.dameTitulo(direccion);
+    	return devolver;
+    	
+    }
+    
+    public String muestraDescripcionSiguienteProblema(int direccion){
+    	String devolver="";
+    	  int posicion = recorrido.size();
+          Coord3d c = (Coord3d)recorrido.get(posicion-1);
+          Habitacion h = habitaciones[c.getx()][c.gety()][c.getz()];
+          devolver=h.dameDescripcion(direccion);
+    	  return devolver;    	
+    }
+    public String muestraRecorrido(){
+    	
+    	String devolver="Recorrido: \n ";
+    	    	
     	for (int i=0;i<recorrido.size();i++){
     		Coord3d c=(Coord3d)recorrido.get(i);
-    		System.out.println("  (" +c.getx()+","+c.gety()+","+c.getz()+")");    		
+    		devolver+=("  (" +c.getx()+","+c.gety()+","+c.getz()+")");    		
     	}
+    	System.out.println(devolver);
+    	return devolver;
     } 
     
     /**
@@ -109,28 +132,8 @@ public class Edificio {
      * @param direccion
      * @return
      */
-    public boolean avanza(int direccion){
-    	
-    	//-------------------------------------
-    	// Para pruebas: pedir estrategia!
-    	char caracter = '1';
-    	try{
-    		System.out.println("Dame Estrategia:");
-    		caracter = (char) System.in.read(); 
-    	}
-    	catch(Exception e){}
-    	
-    	caracter=enlace.VentanaPideDato();
-    	int estrategia = (int)caracter;
-    	
-    	//comprobar que lo que te han dado es valido
-    	estrategia = estrategia%6;
-    	if (estrategia<0){ 
-    		estrategia = -estrategia;
-    	}
-    	
-    	//---------------------------------------
-    	
+    public boolean avanza(int direccion,int estrategia){
+    	           	
         // Seleccionamos la habitacion en la que estamos.
         int posicion = recorrido.size();
         Coord3d c = (Coord3d)recorrido.get(posicion-1);

@@ -340,4 +340,8 @@ public class Canibales extends Problema{
 		}
 		return resuelto;
 	}
+	public String dameTitulo(){
+		return "Canibales";
+		
+	}
 }

@@ -146,4 +146,8 @@ public class Palillos extends Problema {
 		return successor.elements();
 	}
 	
+	public String dameTitulo(){
+		return "Palillos";
+		
+	}
 }

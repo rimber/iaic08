@@ -399,4 +399,8 @@ public class Puzzle8 extends Problema{
 		coorY = 1;
     }
 
+	public String dameTitulo(){
+		return "Puzzle 8";
+		
+	}
 }

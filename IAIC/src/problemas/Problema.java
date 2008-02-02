@@ -12,6 +12,7 @@ import java.util.*;
  */
 public abstract class Problema implements State,Heuristic{
 	
+			
 	/**
 	 * Enunciado del problema.
 	 */
@@ -81,6 +82,8 @@ public abstract class Problema implements State,Heuristic{
 	 */
 	public abstract float h();
 	
+	
+	public abstract String dameTitulo();
 	/**
 	 * Método que intenta resolver un problema según el número de estrategia
 	 * de búsqueda indicada por parámetro:

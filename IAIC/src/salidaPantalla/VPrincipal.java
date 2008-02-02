@@ -24,7 +24,7 @@ public class VPrincipal extends javax.swing.JFrame {
 	private ImageIcon flecha;
 	private ImageIcon puerta;
 	private int direccion;
-	
+	private boolean encerrado;
 	private Edificio edi;
     /** Creates new form NewJFrame */
     public VPrincipal() {
@@ -217,7 +217,6 @@ public class VPrincipal extends javax.swing.JFrame {
         pack();
         
         setTitle("Micromundo Cúbico : Práctica 1 IAIC.");
-        pintarFlecha();
         pintarPuerta(0);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -237,7 +236,10 @@ public class VPrincipal extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         //codigo del boton COntinuar
-        metodoElegido=ComboBusquedas.getSelectedIndex();
+    	if(!encerrado){
+    		metodoElegido=ComboBusquedas.getSelectedIndex();
+    		resuelve();
+    	}
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -296,27 +298,28 @@ public class VPrincipal extends javax.swing.JFrame {
     	VentanaPedirDato ven=new VentanaPedirDato(this);
     	ven.setTitle("Introduzca Tamaño del edificio");
     	ven.setVisible(true); 
-    	
+    
     }
     public void empiezaJugar(){ 
     	edi=new Edificio(dimensionEdi,this);
     	edi.inicia();
 		direccion = 0;
-	    pintarFlecha();   
+	    pintarFlecha();
+	    jTextArea1.setText(edi.muestraDescripcionSiguienteProblema(direccion));
+	    jTextField1.setText(edi.muestraTituloSiguienteProblema(direccion));
     }
     
     public void resuelve(){
-		while (!edi.salida() && !edi.cerrado()){
+		if (!edi.salida() && !edi.cerrado()){
 		
 			//antes de avanzar pintar la puerta cerrada y esperar a que haga click en la estrategia
 			
-			if (!edi.avanza(direccion)){
+			if (!edi.avanza(direccion,metodoElegido)){
                 direccion++;                     
             }
 			else{
                 direccion=0;
-            }
-			
+            }			
 			// Vueltra atrás.
             if (direccion>5){
         	   direccion = edi.retrocede()+1;
@@ -326,14 +329,16 @@ public class VPrincipal extends javax.swing.JFrame {
 		
 		// Se queda encerrado.
 		if (edi.cerrado()){
-			System.out.println("Encerrado!");
-			System.exit(0);
+			encerrado=true;
+			jTextArea1.setText("Encerrado!");			
 		}
-		else{ // Consigue salir.
-			System.out.println("He salido!");
-			edi.muestraRecorrido();
-			System.exit(1);
-       }        
+		if(edi.salida()){					
+			jTextArea1.setText("¡¡He salido!!\n"+edi.muestraRecorrido());						
+		}
+		pintarFlecha();   
+		jTextArea1.setText(edi.muestraDescripcionSiguienteProblema(direccion));
+	    jTextField1.setText(edi.muestraTituloSiguienteProblema(direccion));
+		
 }//GEN-LAST:event_jMenuItemJugarAleatorioActionPerformed
 
     private void jMenuItemAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAyudaActionPerformed

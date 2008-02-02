@@ -21,8 +21,7 @@ public class VentanaPedirDato extends javax.swing.JFrame {
     public VentanaPedirDato(VPrincipal r) {
         referencia = r;
         initComponents();        
-        referencia.setEnabled(false);
-
+        referencia.setEnabled(false); 
     }
     
     /** This method is called from within the constructor to

@@ -406,4 +406,9 @@ public class RojoAzul extends Problema {
 		tablero[2][1] = azul;
 		tablero[2][2] = azul;
     }
+    
+	public String dameTitulo(){
+		return "RojoAzul";
+		
+	}
 }

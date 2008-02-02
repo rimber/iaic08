@@ -89,6 +89,17 @@ public class Puerta {
      * @param est
      * @return
      */
+    
+    public String dameDescripcion(){
+    	
+    	return prob.getEnunciado();
+    }
+    
+    public String dameTitulo(){
+    	return prob.dameTitulo();    	
+    }
+    
+    
     public boolean abre(int est){
     
 	    if (estado==2){

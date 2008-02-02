@@ -27,7 +27,7 @@ public class Main {
 		// Inicializamos la direccion.
 		int direccion = 0;
        
-		while (!edi.salida() && !edi.cerrado()){
+		/*while (!edi.salida() && !edi.cerrado()){
 			
 			if (!edi.avanza(direccion)){
                 direccion++;                     
@@ -53,6 +53,6 @@ public class Main {
 			System.out.println("He salido!");
 			edi.muestraRecorrido();
 			System.exit(1);
-       }
+       }*/
     }
 }

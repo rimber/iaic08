@@ -569,5 +569,9 @@ public class RioYFamilia extends Problema {
 		}
 		return resuelto;
 	}
-
+	public String dameTitulo(){
+		return "Rio y Familia";
+		
+	}
+	
 }

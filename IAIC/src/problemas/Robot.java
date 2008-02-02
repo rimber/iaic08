@@ -265,5 +265,9 @@ public class Robot extends Problema {
  	 
  	 	return successor.elements();
 	}
-
+	public String dameTitulo(){
+		return "Robot";
+		
+	}
+	
 }

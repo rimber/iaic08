@@ -206,5 +206,8 @@ public class Jarras extends Problema {
 	 	}
 	 	return successor.elements();
 	}
-	
+	public String dameTitulo(){
+		return "Jarras";
+		
+	}
 }
