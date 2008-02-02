@@ -63,8 +63,24 @@ public class Puerta {
             		
             	case 2:
             		prob = new Granjero();
-            		break;  		    	  
+            		break;  
+            	case 3:prob = new Mono();break;
+            	case 4:prob = new Palillos();break;
+            	case 5:prob = new Puente();break;
+            	case 6:prob = new Puzzle8();break;
+            	case 7:prob = new RioYFamilia();break;
+            	case 8:prob = new Robot();break;
+            	case 9:prob = new RojoAzul();break;
+            		
+            	default:prob = new Granjero();
             }
+        }
+        
+        if(e==2){
+        	prob=new Jarras();        	
+        }
+        if(e==1){
+        	prob=new Jarras();        	
         }
     }
     

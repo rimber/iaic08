@@ -76,7 +76,9 @@ public class VPrincipal extends javax.swing.JFrame {
         jMenuItemAyuda = new javax.swing.JMenuItem();
         jMenuComponentes = new javax.swing.JMenu();
         jMenuItemComponentes = new javax.swing.JMenuItem();
-
+        etiquetaImagenPuerta=new javax.swing.JLabel();
+    	etiquetaImagenFlecha=new javax.swing.JLabel();
+    	
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jDesktopPane1.setBackground(new java.awt.Color(102, 204, 255));
@@ -136,6 +138,11 @@ public class VPrincipal extends javax.swing.JFrame {
 
         jScrollPane1.setBounds(70, 80, 260, 190);
         jDesktopPane5.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        
+        etiquetaImagenFlecha.setBounds(70, 60, 200, 200);
+          
+        etiquetaImagenPuerta.setBounds(70, 60, 200, 200);
+        
 
         jLabel3.setFont(new java.awt.Font("Batang", 1, 14));
         jLabel3.setText("Información");
@@ -262,8 +269,9 @@ public class VPrincipal extends javax.swing.JFrame {
     	default:flecha=new ImageIcon("flechaAbajo.png");//por si acaso		  		    	        	
     	}    	
     	etiquetaImagenFlecha=new javax.swing.JLabel(flecha);
-        etiquetaImagenFlecha.setBounds(70, 60, 200, 200);
-        jDesktopPane2.add(etiquetaImagenFlecha, javax.swing.JLayeredPane.DEFAULT_LAYER);    	    	
+    	jDesktopPane2.add(etiquetaImagenFlecha, javax.swing.JLayeredPane.DEFAULT_LAYER);  
+        pack();  
+  	    	
     }
     
     private void pintarPuerta(int estado){
@@ -277,9 +285,8 @@ public class VPrincipal extends javax.swing.JFrame {
 		  			  break;    		    	
     	default:flecha=new ImageIcon("tapiada.jpg");//por si acaso		  		    	        	
     	}    	
-    	etiquetaImagenPuerta=new javax.swing.JLabel(puerta);
-        etiquetaImagenPuerta.setBounds(70, 60, 200, 200);
-        jDesktopPane3.add(etiquetaImagenPuerta, javax.swing.JLayeredPane.DEFAULT_LAYER);    	    	
+    	etiquetaImagenPuerta=new javax.swing.JLabel(puerta);    	
+    	jDesktopPane3.add(etiquetaImagenPuerta, javax.swing.JLayeredPane.DEFAULT_LAYER);
     }
     
     public char VentanaPideDato(){
@@ -335,10 +342,12 @@ public class VPrincipal extends javax.swing.JFrame {
 		if(edi.salida()){					
 			jTextArea1.setText("¡¡He salido!!\n"+edi.muestraRecorrido());						
 		}
-		pintarFlecha();   
-		jTextArea1.setText(edi.muestraDescripcionSiguienteProblema(direccion));
-	    jTextField1.setText(edi.muestraTituloSiguienteProblema(direccion));
-		
+		else{
+			pintarFlecha();
+			edi.muestraRecorrido();
+			jTextArea1.setText(edi.muestraDescripcionSiguienteProblema(direccion));
+			jTextField1.setText(edi.muestraTituloSiguienteProblema(direccion));
+		}
 }//GEN-LAST:event_jMenuItemJugarAleatorioActionPerformed
 
     private void jMenuItemAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAyudaActionPerformed
