@@ -211,13 +211,18 @@ public class VPrincipal extends javax.swing.JFrame {
             .add(org.jdesktop.layout.GroupLayout.TRAILING, jDesktopPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
         );
 
+        setSize(1000,1000);
+        setResizable(false);
         pack();
+        
         setTitle("Micromundo Cúbico : Práctica 1 IAIC.");
         /*TODO añadirle 
 			setSize(ancho, alto);
         	setLocation(posx, posy);
         	setResizable(false);
         */
+        pintarFlecha(0);
+        pintarPuerta(0);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSalirActionPerformed
@@ -243,22 +248,39 @@ public class VPrincipal extends javax.swing.JFrame {
     private void pintarFlecha(int direccion){
     	switch (direccion){
     	
-    	case 0:flecha=new ImageIcon("C:/flechaAbajo.png");
+    	case 0:flecha=new ImageIcon("flechaAbajo.png");
     				  break;
-    	case 1:flecha=new ImageIcon("C:/flechaDerecha.png");
+    	case 1:flecha=new ImageIcon("flechaDerecha.png");
 		  			  break;
-    	case 2:flecha=new ImageIcon("C:/flechaArriba.png");
+    	case 2:flecha=new ImageIcon("flechaArriba.png");
 		  			  break;
-    	case 3:flecha=new ImageIcon("C:/flechaIzquierda.png");
+    	case 3:flecha=new ImageIcon("flechaIzquierda.png");
     				  break;
-    	case 4:flecha=new ImageIcon("C:/flechaAbajo.png");//sera enfrente cuando tengamos dibujo
+    	case 4:flecha=new ImageIcon("flechaAbajo.png");//sera enfrente cuando tengamos dibujo
     				  break;
-    	case 5:flecha=new ImageIcon("C:/flechaAbajo.png");//sera detras cuando tengamos dibujo
+    	case 5:flecha=new ImageIcon("flechaAbajo.png");//sera detras cuando tengamos dibujo
 		  			  break;    	
-    	default:flecha=new ImageIcon("C:/flechaAbajo.png");//por si acaso		  		    	        	
-    	}
+    	default:flecha=new ImageIcon("flechaAbajo.png");//por si acaso		  		    	        	
+    	}    	
+    	etiquetaImagenFlecha=new javax.swing.JLabel(flecha);
+        etiquetaImagenFlecha.setBounds(40, 40, 200, 200);
+        jDesktopPane2.add(etiquetaImagenFlecha, javax.swing.JLayeredPane.DEFAULT_LAYER);    	    	
+    }
+    
+    private void pintarPuerta(int direccion){
+    	switch (direccion){
     	
-    	etiquetaImagen=new javax.swing.JLabel(flecha);
+    	case 0:puerta=new ImageIcon("puertaabierta.jpg");
+    				  break;
+    	case 1:puerta=new ImageIcon("cerrada.jpg");
+		  			  break;
+    	case 2:puerta=new ImageIcon("tapiada.jpg");
+		  			  break;    		    	
+    	default:flecha=new ImageIcon("tapiada.jpg");//por si acaso		  		    	        	
+    	}    	
+    	etiquetaImagenPuerta=new javax.swing.JLabel(puerta);
+        etiquetaImagenPuerta.setBounds(40, 40, 200, 200);
+        jDesktopPane3.add(etiquetaImagenPuerta, javax.swing.JLayeredPane.DEFAULT_LAYER);    	    	
     }
     
     public char VentanaPideDato(){
@@ -365,8 +387,8 @@ public class VPrincipal extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel etiquetaImagen;
-    
+    private javax.swing.JLabel etiquetaImagenFlecha;
+    private javax.swing.JLabel etiquetaImagenPuerta;
     // End of variables declaration//GEN-END:variables
     
 }
