@@ -44,17 +44,17 @@ public class Mono extends Problema{
 	 * Constructor por defecto: inicializa las componentes a valores por defecto.
 	 */
 	public Mono(){
-		enunciado = "Hay un mono en la puerta de una habitación. En el centro de la"
-				+ " habitación hay un plátano colgando del techo. El mono está"
-				+ " hambriento y quiere conseguir el plátano pero no alcanza porque"
-				+ " está muy alto. En la habitación también hay una ventana y"
-				+ " debajo de ella hay una caja que le permitiría alcanzar el "
-				+ "plátano si se subiera a ella. El mono puede realizar las "
-				+ "siguientes acciones: andar por el suelo, subirse a la caja, "
-				+ "empujar la caja (si el mono está en la misma posición que la "
-				+ "caja) y coger el plátano (si está subido encima de la caja y la"
-				+ " caja está justo debajo del plátano). Consigue que el mono coja el"
-				+ " platano.";
+		enunciado = "Hay un mono en la puerta de una habitación. En el centro de la\n"
+				+ " habitación hay un plátano colgando del techo. El mono está\n"
+				+ " hambriento y quiere conseguir el plátano pero no alcanza porque\n"
+				+ " está muy alto. En la habitación también hay una ventana y\n"
+				+ " debajo de ella hay una caja que le permitiría alcanzar el\n "
+				+ "plátano si se subiera a ella. El mono puede realizar las \n"
+				+ "siguientes acciones: andar por el suelo, subirse a la caja,\n "
+				+ "empujar la caja (si el mono está en la misma posición que la \n"
+				+ "caja) y coger el plátano (si está subido encima de la caja y la\n"
+				+ " caja está justo debajo del plátano). Consigue que el mono coja el\n"
+				+ " platano.\n";
 		
 		posMono = 0;
 		posCaja = 1;

@@ -268,10 +268,10 @@ public class VPrincipal extends javax.swing.JFrame {
 		  			  break;    	
     	default:flecha=new ImageIcon("flechaAbajo.png");//por si acaso		  		    	        	
     	}    	
-    	etiquetaImagenFlecha=new javax.swing.JLabel(flecha);
-    	jDesktopPane2.add(etiquetaImagenFlecha, javax.swing.JLayeredPane.DEFAULT_LAYER);  
-        pack();  
-  	    	
+    	
+    	jDesktopPane2.remove(etiquetaImagenFlecha);
+    	etiquetaImagenFlecha=new javax.swing.JLabel(flecha);    	    	
+    	jDesktopPane2.add(etiquetaImagenFlecha, javax.swing.JLayeredPane.DEFAULT_LAYER);      	    	
     }
     
     private void pintarPuerta(int estado){
@@ -287,6 +287,7 @@ public class VPrincipal extends javax.swing.JFrame {
     	}    	
     	etiquetaImagenPuerta=new javax.swing.JLabel(puerta);    	
     	jDesktopPane3.add(etiquetaImagenPuerta, javax.swing.JLayeredPane.DEFAULT_LAYER);
+    	  
     }
     
     public char VentanaPideDato(){
@@ -314,6 +315,7 @@ public class VPrincipal extends javax.swing.JFrame {
 	    pintarFlecha();
 	    jTextArea1.setText(edi.muestraDescripcionSiguienteProblema(direccion));
 	    jTextField1.setText(edi.muestraTituloSiguienteProblema(direccion));
+	
     }
     
     public void resuelve(){

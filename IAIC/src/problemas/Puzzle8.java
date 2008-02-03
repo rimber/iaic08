@@ -33,12 +33,12 @@ public class Puzzle8 extends Problema{
 	 */
 	public Puzzle8(){
 		
-		enunciado = "Se presenta un tablero de 3x3, en el que tenemos 8 fichas" +
-				" numéricas, de valores únicos comprendidos entre 1 y 8, y un" +
-				" hueco. El hueco puede intercambiarse con la ficha de su derecha," +
-				" de su izquierda, por la que tiene encima o por la que tiene" +
-				" debajo (intentando conservar esa prioridad de orden), siempre y" +
-				" cuando sea posible.";
+		enunciado = "Se presenta un tablero de 3x3, en el que tenemos 8 fichas\n" +
+				" numéricas, de valores únicos comprendidos entre 1 y 8, y un\n" +
+				" hueco. El hueco puede intercambiarse con la ficha de su derecha,\n" +
+				" de su izquierda, por la que tiene encima o por la que tiene\n" +
+				" debajo (intentando conservar esa prioridad de orden), siempre y\n" +
+				" cuando sea posible.\n";
 			
 		// Escogemos un tablero base.
 		Random generador = new Random();

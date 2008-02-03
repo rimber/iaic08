@@ -63,13 +63,13 @@ public class Granjero extends Problema{
 	 * @param pCol Posición de la col.
 	 */
 	public Granjero(int pGranjero, int pLobo, int pCabra, int pCol) {
-		enunciado = "Un granjero se encuentra en la orilla izquierda de un río junto con un lobo, una cabra y"
-		+ " una col. Dispone de un bote en el que sólo puede transportar una única cosa cada vez. El"
-		+ " granjero pretende transportar al lobo, la cabra y la col al otro lado del río, utilizando el"
-		+ " bote. Sin embargo, debe tener cuidado y no dejar solos en una orilla al lobo y a la cabra"
-		+ " porque el lobo se comería a la cabra. Tampoco puede dejar solas a la cabra y la col"
-		+ " porque la cabra se comería la col. Consigue que el granjero traslade a todos al"
-		+ " margen derecho del río.";
+		enunciado = "Un granjero se encuentra en la orilla izquierda de un río junto con un lobo, una cabra y\n"
+		+ " una col. Dispone de un bote en el que sólo puede transportar una única cosa cada vez. El\n"
+		+ " granjero pretende transportar al lobo, la cabra y la col al otro lado del río, utilizando el\n"
+		+ " bote. Sin embargo, debe tener cuidado y no dejar solos en una orilla al lobo y a la cabra\n"
+		+ " porque el lobo se comería a la cabra. Tampoco puede dejar solas a la cabra y la col\n"
+		+ " porque la cabra se comería la col. Consigue que el granjero traslade a todos al\n"
+		+ " margen derecho del río.\n";
 		
 		posGranjero = pGranjero;
 		posLobo = pLobo;
