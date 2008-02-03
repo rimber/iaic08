@@ -3,6 +3,7 @@ package salidaPantalla;
 import java.awt.image.BufferedImage;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 
 import Cubo.Edificio;
 
@@ -234,6 +235,16 @@ public class VPrincipal extends javax.swing.JFrame {
 
     private void jMenuItemCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCargarActionPerformed
 // TODO add your handling code here:
+    	Filtro f=new Filtro();
+    	JFileChooser j=new JFileChooser();
+    	j.setFileFilter(f);
+    	j.setMultiSelectionEnabled(false);    	
+    	j.showOpenDialog(jMenuItemCargar);
+    	
+    	if (j.getSelectedFile()!=null){    		
+    		String archivo=j.getSelectedFile().getPath();
+    		//ahora hay que leer del archivo todo lo necesario
+    	}
     }//GEN-LAST:event_jMenuItemCargarActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -270,8 +281,9 @@ public class VPrincipal extends javax.swing.JFrame {
     	}    	
     	
     	jDesktopPane2.remove(etiquetaImagenFlecha);
-    	etiquetaImagenFlecha=new javax.swing.JLabel(flecha);    	    	
-    	jDesktopPane2.add(etiquetaImagenFlecha, javax.swing.JLayeredPane.DEFAULT_LAYER);      	    	
+    	etiquetaImagenFlecha=new javax.swing.JLabel(flecha);    	
+    	
+    	jDesktopPane2.add(etiquetaImagenFlecha, javax.swing.JLayeredPane.DEFAULT_LAYER);    	
     }
     
     private void pintarPuerta(int estado){
@@ -285,7 +297,8 @@ public class VPrincipal extends javax.swing.JFrame {
 		  			  break;    		    	
     	default:flecha=new ImageIcon("tapiada.jpg");//por si acaso		  		    	        	
     	}    	
-    	etiquetaImagenPuerta=new javax.swing.JLabel(puerta);    	
+    	etiquetaImagenPuerta=new javax.swing.JLabel(puerta);    
+    	etiquetaImagenPuerta.doLayout();
     	jDesktopPane3.add(etiquetaImagenPuerta, javax.swing.JLayeredPane.DEFAULT_LAYER);
     	  
     }
