@@ -40,7 +40,7 @@ public class VentanaInfo extends javax.swing.JFrame {
     public void cambiaTamanio(){
     	
     	this.setBounds(100, 100, 600, 400);
-    	jScrollPane1.setBounds(2, 2, 596, 300);
+    	jScrollPane1.setBounds(2, 2, 590, 300);
     	jButton1.setBounds(250, 330, 80, 20);
     	jDesktopPane1.setBackground(new java.awt.Color(215, 115,15 ));
     }
