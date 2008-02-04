@@ -11,8 +11,7 @@ import java.util.*;
  * Clase que implementa un problema según el paradigma del espacio de estados.
  */
 public abstract class Problema implements State,Heuristic{
-	
-			
+		
 	/**
 	 * Enunciado del problema.
 	 */
@@ -41,16 +40,18 @@ public abstract class Problema implements State,Heuristic{
 	protected static int nodosExpandidos = 0;
 	
 	/**
-	 * Numero de problemas distintos que tenemos
+	 * Numero máximo de niveles en profundidad iterativa.
 	 */	
 	public static final int maxNivel = 1000;
 	
 	/**
-	 * Numero de problemas distintos que tenemos
+	 * Numero de problemas distintos que tenemos.
 	 */	
 	public static final int numProblemas = 10;
 	
-	
+	/**
+	 * El camino seguido para resolver el problema.
+	 */
 	private ArrayList<String> camino;
 	
 	/**
@@ -200,12 +201,16 @@ public abstract class Problema implements State,Heuristic{
 		return resuelto;
 	}
 	
+	/**
+	 * Método accesor para el camino seguido en la resolución del problema.
+	 * @return El camino seguido.
+	 */
 	public ArrayList<String> getCamino(){	
 		return camino;
 	}
 	
 	/**
-	 * Método para mostar los resultados de la resolución de un problema.
+	 * Método que se usa para saber si el problema se ha resuelto.
 	 * @param node Nodo (estado) del problema del que mostrar información.
 	 * @return Devuelve si el problema se ha resuelto.
 	 */
@@ -224,11 +229,6 @@ public abstract class Problema implements State,Heuristic{
 		   node = node.getParent();
 	   }	  
 	   linea = ( "\n Estado inicial: " + node.getState());  
-	   camino.add(linea);
-	   for(int j=camino.size()-1; j>=0;j--){
-		   System.out.println((String)camino.get(j));
-	   }
-	   System.out.println();
 	   return true;
 	}
     
@@ -285,12 +285,6 @@ public abstract class Problema implements State,Heuristic{
 				return null;	
 		}				
 		return metodo;
-	}
-
-	public void finalizar()throws Exception {
-		// TODO Auto-generated method stub
-		 System.out.println("Game over!!.");
-		 throw new Exception();
 	}
 	
 }
