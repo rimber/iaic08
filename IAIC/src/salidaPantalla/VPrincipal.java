@@ -1,6 +1,7 @@
 package salidaPantalla;
 
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.io.FileReader;
 
 import javax.swing.ImageIcon;
@@ -82,17 +83,29 @@ public class VPrincipal extends javax.swing.JFrame {
         jMenuItemComponentes = new javax.swing.JMenuItem();
         etiquetaImagenPuerta=new javax.swing.JLabel();
     	etiquetaImagenFlecha=new javax.swing.JLabel();
-    	
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    	jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+    	jTextArea1.setEditable(false);
+    	jTextArea2.setEditable(false);
+    	jLabel4 = new javax.swing.JLabel();
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);        
+        jLabel4.setFont(new java.awt.Font("Batang", 1, 14));
+        jLabel4.setText("Solucion último problema");
+        jLabel4.setBounds(160, 25, 90, 20);
+        
 
         jDesktopPane1.setBackground(new java.awt.Color(102, 204, 255));
 
         jDesktopPane2.setBackground(new java.awt.Color(255, 255, 255));
-        jDesktopPane2.setBounds(10,10, 350, 310);// 280 260
+        jDesktopPane2.setBounds(10,10, 350, 310);
+        //en el 2 va un area
+        
         jDesktopPane1.add(jDesktopPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jDesktopPane3.setBackground(new java.awt.Color(255, 255, 255));
-        jDesktopPane3.setBounds(10,370, 350, 310); //290 280 250
+        jDesktopPane3.setBackground(new java.awt.Color(0,255, 204));
+        //aguamarina
+        
+        jDesktopPane3.setBounds(10,370, 350, 310);
         jDesktopPane1.add(jDesktopPane3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jDesktopPane4.setBackground(new java.awt.Color(204, 255, 153));
@@ -119,7 +132,7 @@ public class VPrincipal extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
-        jTextField1.setBounds(170, 40, 150, 20);
+        jTextField1.setBounds(170, 40, 170, 20);
         jDesktopPane4.add(jTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel2.setFont(new java.awt.Font("Batang", 1, 14));
@@ -128,7 +141,7 @@ public class VPrincipal extends javax.swing.JFrame {
         jDesktopPane4.add(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         ComboBusquedas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        ComboBusquedas.setBounds(170,130, 150,20);
+        ComboBusquedas.setBounds(170,130, 170,20);
         jDesktopPane4.add(ComboBusquedas, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jDesktopPane4.setBounds(390, 10, 390, 310); //320 0 300 260
@@ -237,6 +250,7 @@ public class VPrincipal extends javax.swing.JFrame {
 
     private void jMenuItemCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCargarActionPerformed
 // TODO add your handling code here:
+    	//AQUI
     	manual=false;  
     	Filtro f=new Filtro();
     	JFileChooser j=new JFileChooser();
@@ -277,8 +291,11 @@ public class VPrincipal extends javax.swing.JFrame {
     			System.out.println("Se acabó el fichero o hubo problemas");
     		}
         
-    }//GEN-LAST:event_jButton1ActionPerformed
-
+    }//GEN-LAST:event_jButton1ActionPerformed           
+    
+    public boolean esManual(){
+    	return manual;   	
+    }
     
     private void pintarFlecha(){
     	switch (direccion){
@@ -336,7 +353,7 @@ public class VPrincipal extends javax.swing.JFrame {
     	    //PEDIR UN Entero y actualizar dimension del cubo
     	manual=true;
     	VentanaPedirDato ven=new VentanaPedirDato(this);
-    	ven.setTitle("Introduzca Tamaño del edificio");
+    	ven.setTitle("Introducción de Datos");
     	ven.setVisible(true); 
     	
     }
@@ -386,6 +403,23 @@ public class VPrincipal extends javax.swing.JFrame {
 
     private void jMenuItemAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAyudaActionPerformed
         // TODO add your handling code here:
+		String mensaje="";
+		try{
+            BufferedReader flujo = new BufferedReader(new FileReader("AyudaIAIC.txt"));
+            String frase = flujo.readLine();
+			while(frase != null){
+                mensaje = mensaje + frase + "\n";
+                frase = flujo.readLine();
+            }
+			flujo.close();
+			VentanaInfo ventana = new VentanaInfo(this,mensaje);	
+    		ventana.setLocation(250,200);
+    		ventana.setTitle("CHOPED LEWIS");
+    		ventana.setVisible(true);   
+		  }
+		catch(Exception e){
+			System.out.println("SIN AYUDA");
+        }
     }//GEN-LAST:event_jMenuItemAyudaActionPerformed
 
     private void jMenuItemComponentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemComponentesActionPerformed
@@ -422,6 +456,7 @@ public class VPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu;
     private javax.swing.JMenu jMenuAyuda;
     private javax.swing.JMenuBar jMenuBar1;
@@ -432,9 +467,11 @@ public class VPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemJugarAleatorio;
     private javax.swing.JMenuItem jMenuItemSalir;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel etiquetaImagenFlecha;
     private javax.swing.JLabel etiquetaImagenPuerta;

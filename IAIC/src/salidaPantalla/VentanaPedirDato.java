@@ -45,10 +45,12 @@ public class VentanaPedirDato extends javax.swing.JFrame {
     
     private void initComponents() {
         jDesktopPane1 = new javax.swing.JDesktopPane();
-       
+        jLabel = new javax.swing.JLabel();
+        jLabel.setText("Introduzca Dimensión del edificio");
         jTextField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-
+        
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         jDesktopPane1.setBackground(new java.awt.Color(204, 255, 204));
         jTextField.setText(""); 
@@ -62,7 +64,9 @@ public class VentanaPedirDato extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
-
+        jLabel.setFont(new java.awt.Font("Batang", 1, 14));      
+        jLabel.setBounds(30, 40, 350, 20);
+        jDesktopPane1.add(jLabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jButton1.setBounds(100, 110, 80, 20);
         jDesktopPane1.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -96,6 +100,7 @@ public class VentanaPedirDato extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1; 
     private javax.swing.JTextField jTextField;
+    private javax.swing.JLabel jLabel;
     // Fin de declaración de variables//GEN-END:variables
     
 }

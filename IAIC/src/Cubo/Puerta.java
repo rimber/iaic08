@@ -22,6 +22,7 @@ public class Puerta {
 	 * 2. Bloqueada.
 	 */
     private int estado;
+    private int estrategia;
     
     /**
      * 
@@ -71,7 +72,6 @@ public class Puerta {
             	case 7:prob = new RioYFamilia();break;
             	case 8:prob = new Robot();break;
             	case 9:prob = new RojoAzul();break;
-            		
             	default:prob = new Granjero();
             }
         }
@@ -115,6 +115,34 @@ public class Puerta {
     	return prob.dameTitulo();    	
     }
     
+    public boolean abre(){
+    	if (estado==2){
+	    	// Si está bloqueada no se puede abrir.
+	        return false;
+	    }
+	    
+	    if (estado==1){
+	    	// Sin está abierta.
+	        return true;
+	    }
+	       
+	    if (estado==0){
+	    	// Si está cerrada, trata de resolver.
+	    	if (prob.resolver(estrategia)){	
+	    		// Abre la puerta.
+	    		estado = 1;
+	    		return true;
+	    	}
+	    	else{
+	    		// Bloquea la puerta.
+	    		estado = 2;
+	    		return false;
+	    	}
+	    }    	    
+	    return true;
+	
+    	
+    }
     
     public boolean abre(int est){
     
