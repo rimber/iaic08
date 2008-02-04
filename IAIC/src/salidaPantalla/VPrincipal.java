@@ -482,8 +482,8 @@ public class VPrincipal extends javax.swing.JFrame {
                 frase = flujo.readLine();
             }
 			flujo.close();
-			VentanaInfo ventana = new VentanaInfo(this,mensaje);	
-    		ventana.setLocation(250,200);
+			VentanaInfo ventana = new VentanaInfo(this,mensaje);	    		
+    		ventana.cambiaTamanio();
     		ventana.setTitle("CHOPED LEWIS¡¡¡");
     		ventana.setVisible(true);
     		

@@ -33,7 +33,16 @@ public class VentanaInfo extends javax.swing.JFrame {
         initComponents();
         jTextArea1.setText(mensaje);
         referencia.setEnabled(false);
-
+        jTextArea1.setEditable(false);
+        
+    }
+    
+    public void cambiaTamanio(){
+    	
+    	this.setBounds(100, 100, 600, 400);
+    	jScrollPane1.setBounds(2, 2, 596, 300);
+    	jButton1.setBounds(250, 330, 80, 20);
+    	jDesktopPane1.setBackground(new java.awt.Color(215, 115,15 ));
     }
     
     /** This method is called from within the constructor to
