@@ -73,7 +73,9 @@ public class Edificio {
     	    	
     	for (int i=0;i<recorrido.size();i++){
     		Coord3d c=(Coord3d)recorrido.get(i);
-    		devolver+=("  (" +c.getx()+","+c.gety()+","+c.getz()+")");    		
+    		devolver+=("  (" +c.getx()+","+c.gety()+","+c.getz()+")");
+    		if((i%8)==0&&(i>0))	
+    			devolver+="\n";
     	}
     	System.out.println(devolver);
     	return devolver;
