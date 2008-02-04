@@ -391,24 +391,7 @@ public class VPrincipal extends javax.swing.JFrame {
     private void jMenuItemJugarAleatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemJugarAleatorioActionPerformed
         // TODO add your handling code here:
     	    //PEDIR UN Entero y actualizar dimension del cubo
-        ComboBusquedas.setVisible(true);
-        jButton1.setVisible(true);
-        jDesktopPane2.setVisible(true);
-        jDesktopPane3.setVisible(true);
-        jDesktopPane4.setVisible(true);
-        jDesktopPane5.setVisible(true);
-        jLabel1.setVisible(true);
-        jLabel2.setVisible(true);
-        jLabel3.setVisible(true);
-        jLabel4.setVisible(true);
-               
-        jScrollPane1.setVisible(true);
-        jScrollPane2.setVisible(true);
-       
-        jTextArea1.setVisible(true);
-        jTextArea2.setVisible(true);
-       
-        jTextField1.setVisible(true);
+        
     	manual=true;
     	VentanaPedirDato ven=new VentanaPedirDato(this);
     	ven.setTitle("Introducción de Datos");
@@ -417,7 +400,26 @@ public class VPrincipal extends javax.swing.JFrame {
     
     
     public void empiezaJugar(){ 
+
     	if(dimensionEdi>0){
+        	ComboBusquedas.setVisible(true);
+            jButton1.setVisible(true);
+            jDesktopPane2.setVisible(true);
+            jDesktopPane3.setVisible(true);
+            jDesktopPane4.setVisible(true);
+            jDesktopPane5.setVisible(true);
+            jLabel1.setVisible(true);
+            jLabel2.setVisible(true);
+            jLabel3.setVisible(true);
+            jLabel4.setVisible(true);
+                   
+            jScrollPane1.setVisible(true);
+            jScrollPane2.setVisible(true);
+           
+            jTextArea1.setVisible(true);
+            jTextArea2.setVisible(true);
+           
+            jTextField1.setVisible(true);
     		edi=new Edificio(dimensionEdi,this);
     		edi.inicia();
     		direccion = 0;
@@ -482,8 +484,9 @@ public class VPrincipal extends javax.swing.JFrame {
 			flujo.close();
 			VentanaInfo ventana = new VentanaInfo(this,mensaje);	
     		ventana.setLocation(250,200);
-    		ventana.setTitle("CHOPED LEWIS");
-    		ventana.setVisible(true);   
+    		ventana.setTitle("CHOPED LEWIS¡¡¡");
+    		ventana.setVisible(true);
+    		
 		  }
 		catch(Exception e){
 			System.out.println("SIN AYUDA");
