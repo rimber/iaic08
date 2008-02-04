@@ -3,6 +3,8 @@
  */
 package Cubo;
 
+import java.util.ArrayList;
+
 /**
  *
  */
@@ -85,6 +87,11 @@ public class Habitacion {
     public String dameTitulo(int dir){
     	return puertas[dir].dameTitulo();
     	
+    }
+    
+    public ArrayList<String> dameSolucion(int dir){
+    	
+    	return puertas[dir].dameSolucion();
     }
     
     public String dameDescripcion(int dir){

@@ -57,7 +57,7 @@ public class Edificio {
 		int posicion = recorrido.size();
 		Coord3d c = (Coord3d) recorrido.get(posicion - 1);
 		Habitacion h = habitaciones[c.getx()][c.gety()][c.getz()];
-		devolver = h.dameTitulo(direccion);
+		devolver = h.dameTitulo(direccion);		
 		return devolver;
 
 	}
@@ -151,6 +151,12 @@ public class Edificio {
 			 * nueva (la comparación de habitaciones[x][y][z]==NULL nos dice si hemos
 			 * estado antes en la habitacion).
 			 */
+			
+			ArrayList <String> solucion=h.dameSolucion(direccion);
+			if(solucion==null){
+				solucion=new ArrayList<String>();				
+			}
+			enlace.ponSolucion(solucion);
 			switch (direccion) {
 			case 0:
 				if (habitaciones[c.getx()][c.gety() - 1][c.getz()] == null) {

@@ -50,6 +50,9 @@ public abstract class Problema implements State,Heuristic{
 	 */	
 	public static final int numProblemas = 10;
 	
+	
+	private ArrayList<String> camino;
+	
 	/**
 	 * Método accesor para el atributo enunciado.
 	 * @return Valor del atributo enunciado.
@@ -197,13 +200,17 @@ public abstract class Problema implements State,Heuristic{
 		return resuelto;
 	}
 	
+	public ArrayList<String> getCamino(){	
+		return camino;
+	}
+	
 	/**
 	 * Método para mostar los resultados de la resolución de un problema.
 	 * @param node Nodo (estado) del problema del que mostrar información.
 	 * @return Devuelve si el problema se ha resuelto.
 	 */
     public boolean listPath(SearchNode node) {
-       ArrayList<String> camino = new ArrayList<String>();
+       camino = new ArrayList<String>();
 	   if (node == null) {
 		   return false;
 	   }

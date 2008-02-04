@@ -3,6 +3,7 @@ package salidaPantalla;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -383,6 +384,14 @@ public class VPrincipal extends javax.swing.JFrame {
     	}
     }
     
+    public void ponSolucion(ArrayList<String> a){
+    	
+    	String mostrar="";
+    	for (int i=0;i<a.size();i++){
+    		mostrar+=(String)a.get(i)+"\n";    		
+    	}
+    	jTextArea2.setText(mostrar);
+    }
     public void resuelve(){
 		if (!edi.salida() && !edi.cerrado()){
 		

@@ -3,6 +3,7 @@
  */
 package Cubo;
 
+import java.util.ArrayList;
 import java.util.Random;
 import problemas.*;
 
@@ -90,6 +91,11 @@ public class Puerta {
      */
     public int dameEstado(){
         return estado;
+    }
+    
+    
+    public ArrayList<String> dameSolucion(){    	
+    	return prob.getCamino();
     }
     
     /**
