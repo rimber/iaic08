@@ -89,23 +89,30 @@ public class VPrincipal extends javax.swing.JFrame {
     	jTextArea2.setEditable(false);
     	jLabel4 = new javax.swing.JLabel();
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);        
+       
         jLabel4.setFont(new java.awt.Font("Batang", 1, 14));
         jLabel4.setText("Solucion último problema");
-        jLabel4.setBounds(160, 25, 90, 20);
+        jLabel4.setBounds(80, 25, 200, 20);
         
+        jDesktopPane3.add(jLabel4,javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        jDesktopPane4.setBounds(10,10, 350, 310);
+        jDesktopPane5.setBounds(390, 10, 390, 310); 
+        jDesktopPane3.setBounds(10,370, 350, 310);
+        jDesktopPane2.setBounds(390, 370, 390, 310);
+
+        //3 aguamarina
+        
+      
+        
         jDesktopPane1.setBackground(new java.awt.Color(102, 204, 255));
 
         jDesktopPane2.setBackground(new java.awt.Color(255, 255, 255));
-        jDesktopPane2.setBounds(10,10, 350, 310);
-        //en el 2 va un area
-        
         jDesktopPane1.add(jDesktopPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jDesktopPane3.setBackground(new java.awt.Color(0,255, 204));
         //aguamarina
-        
-        jDesktopPane3.setBounds(10,370, 350, 310);
+
         jDesktopPane1.add(jDesktopPane3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jDesktopPane4.setBackground(new java.awt.Color(204, 255, 153));
@@ -144,15 +151,24 @@ public class VPrincipal extends javax.swing.JFrame {
         ComboBusquedas.setBounds(170,130, 170,20);
         jDesktopPane4.add(ComboBusquedas, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jDesktopPane4.setBounds(390, 10, 390, 310); //320 0 300 260
+       
         jDesktopPane1.add(jDesktopPane4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jDesktopPane5.setBackground(new java.awt.Color(255, 255, 153));
 
         jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);        
+        jTextArea1.setRows(5); 
+        jTextArea2.setColumns(20);
+        
+        jTextArea2.setRows(5);       
         jScrollPane1.setViewportView(jTextArea1);        
         jScrollPane1.setBounds(10, 80, 370, 190);
+        
+        jScrollPane2.setViewportView(jTextArea2);        
+        jScrollPane2.setBounds(10, 70, 330, 230);
+        jDesktopPane3.add(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        
+        
         jDesktopPane5.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         
         etiquetaImagenFlecha.setBounds(70, 60, 200, 200);
@@ -165,7 +181,7 @@ public class VPrincipal extends javax.swing.JFrame {
         jLabel3.setBounds(160, 25, 90, 20);
         jDesktopPane5.add(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jDesktopPane5.setBounds(390, 370, 390, 310);
+
         jDesktopPane1.add(jDesktopPane5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jMenu.setText("Menu");
@@ -354,17 +370,17 @@ public class VPrincipal extends javax.swing.JFrame {
     	manual=true;
     	VentanaPedirDato ven=new VentanaPedirDato(this);
     	ven.setTitle("Introducción de Datos");
-    	ven.setVisible(true); 
-    	
+    	ven.setVisible(true);     	
     }
     public void empiezaJugar(){ 
-    	edi=new Edificio(dimensionEdi,this);
-    	edi.inicia();
-		direccion = 0;
-	    pintarFlecha();
-	    jTextArea1.setText(edi.muestraDescripcionSiguienteProblema(direccion));
-	    jTextField1.setText(edi.muestraTituloSiguienteProblema(direccion));
-	
+    	if(dimensionEdi>0){
+    		edi=new Edificio(dimensionEdi,this);
+    		edi.inicia();
+    		direccion = 0;
+    		pintarFlecha();
+    		jTextArea1.setText(edi.muestraDescripcionSiguienteProblema(direccion));
+    		jTextField1.setText(edi.muestraTituloSiguienteProblema(direccion));
+    	}
     }
     
     public void resuelve(){

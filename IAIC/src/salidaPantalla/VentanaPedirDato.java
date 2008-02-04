@@ -36,11 +36,12 @@ public class VentanaPedirDato extends javax.swing.JFrame {
     	String dato =jTextField.getText();
     	try{    		
     		dim=Integer.valueOf(dato);
+    		referencia.setDimension(dim);    
     	}catch(Exception e){
-    		System.out.println("NO HAS INTRODUCIDO UN NUMERO");    		
-    	}
-    	referencia.setDimension(dim);    	
-    	
+    		VentanaInfo ven=new VentanaInfo(referencia,"NO HAS INTRODUCIDO UN NUMERO");
+        	ven.setTitle("Error");
+        	ven.setVisible(true); 
+    	}    	    	
     }
     
     private void initComponents() {

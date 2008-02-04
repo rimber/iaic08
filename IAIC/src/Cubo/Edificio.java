@@ -39,11 +39,13 @@ public class Edificio {
 	 * @param n
 	 */
 	public Edificio(int n, VPrincipal v) {
-		habitaciones = new Habitacion[n][n][n];
-		dimension = n;
-		recorrido = new ArrayList<Coord3d>();
-		edificioCerrado = false;
-		enlace = v;
+		if(n>0){
+			habitaciones = new Habitacion[n][n][n];
+			dimension = n;
+			recorrido = new ArrayList<Coord3d>();
+			edificioCerrado = false;
+			enlace = v;
+		}
 	}
 
 	/**
