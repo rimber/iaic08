@@ -15,7 +15,7 @@ public class Filtro extends FileFilter{
         return f.getName().toLowerCase().endsWith(".txt")||f.isDirectory();
     }
 	public String getDescription(){
-    return " .txt" ;
+    return " .trk" ;
 	}
 
 }

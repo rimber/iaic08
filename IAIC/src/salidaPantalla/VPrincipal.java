@@ -1,6 +1,7 @@
 package salidaPantalla;
 
 import java.awt.image.BufferedImage;
+import java.io.FileReader;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -27,6 +28,8 @@ public class VPrincipal extends javax.swing.JFrame {
 	private int direccion;
 	private boolean encerrado;
 	private Edificio edi;
+	private FileReader fuente;
+	private char buffer;
     /** Creates new form NewJFrame */
     public VPrincipal() {
         initComponents();
@@ -134,10 +137,9 @@ public class VPrincipal extends javax.swing.JFrame {
         jDesktopPane5.setBackground(new java.awt.Color(255, 255, 153));
 
         jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jScrollPane1.setBounds(70, 80, 260, 190);
+        jTextArea1.setRows(5);        
+        jScrollPane1.setViewportView(jTextArea1);        
+        jScrollPane1.setBounds(10, 80, 370, 190);
         jDesktopPane5.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         
         etiquetaImagenFlecha.setBounds(70, 60, 200, 200);
@@ -235,16 +237,22 @@ public class VPrincipal extends javax.swing.JFrame {
 
     private void jMenuItemCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCargarActionPerformed
 // TODO add your handling code here:
+    	manual=false;  
     	Filtro f=new Filtro();
     	JFileChooser j=new JFileChooser();
     	j.setFileFilter(f);
     	j.setMultiSelectionEnabled(false);    	
-    	j.showOpenDialog(jMenuItemCargar);
-    	
+    	j.showOpenDialog(jMenuItemCargar);    	
     	if (j.getSelectedFile()!=null){    		
-    		String archivo=j.getSelectedFile().getPath();
+    		String ruta=j.getSelectedFile().getPath();
     		//ahora hay que leer del archivo todo lo necesario
-    	}
+    			fuente=null;
+        	try{
+    			fuente = new FileReader(ruta);
+    			}
+    		catch (Exception e)
+    		{System.out.println("Problemas con el fichero.");}    	    		    		
+    	}    	    	
     }//GEN-LAST:event_jMenuItemCargarActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -254,10 +262,20 @@ public class VPrincipal extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         //codigo del boton COntinuar
-    	if(!encerrado){
-    		metodoElegido=ComboBusquedas.getSelectedIndex();
-    		resuelve();
-    	}
+    	if (manual){
+    		if(!encerrado){
+    			metodoElegido=ComboBusquedas.getSelectedIndex();
+    			resuelve();
+    		}
+    	}else{
+    		try{
+    			buffer=(char)fuente.read();
+    			metodoElegido=(int)buffer;    			
+        		resuelve();    		
+    		}
+    		catch(Exception e){}
+    			System.out.println("Se acabó el fichero o hubo problemas");
+    		}
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -316,10 +334,11 @@ public class VPrincipal extends javax.swing.JFrame {
     private void jMenuItemJugarAleatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemJugarAleatorioActionPerformed
         // TODO add your handling code here:
     	    //PEDIR UN Entero y actualizar dimension del cubo
+    	manual=true;
     	VentanaPedirDato ven=new VentanaPedirDato(this);
     	ven.setTitle("Introduzca Tamaño del edificio");
     	ven.setVisible(true); 
-    
+    	
     }
     public void empiezaJugar(){ 
     	edi=new Edificio(dimensionEdi,this);
