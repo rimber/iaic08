@@ -232,6 +232,105 @@ public class Edificio {
 		return false;
 	}
 
+	//igual que el anterior, pero colocamos el problema que queremos en la puerta
+	public boolean avanza(int direccion, int estrategia, int problema) {
+
+		// Seleccionamos la habitacion en la que estamos.
+		int posicion = recorrido.size();
+		Coord3d c = (Coord3d) recorrido.get(posicion - 1);
+		Habitacion h = habitaciones[c.getx()][c.gety()][c.getz()];
+     
+		Puerta p=h.damePuerta(direccion);
+		//meter el problema en la puerta
+		// Abrimos la puerta indicada   
+		p.setProblema(problema);
+		if (h.abrePuerta(direccion, estrategia)) {
+			/* Si la puerta se ha abierto, puede ser porque  hallamos llegado
+			 * a una habitacion donde ya hemos estado, o porque estemos en una habitacion
+			 * nueva (la comparación de habitaciones[x][y][z]==NULL nos dice si hemos
+			 * estado antes en la habitacion).
+			 */
+			
+			ArrayList <String> solucion=h.dameSolucion(direccion);
+			if(solucion==null){
+				solucion=new ArrayList<String>();				
+			}
+			enlace.ponSolucion(solucion);
+			switch (direccion) {
+			case 0:
+				if (habitaciones[c.getx()][c.gety() - 1][c.getz()] == null) {
+					habitaciones[c.getx()][c.gety() - 1][c.getz()] = new Habitacion();
+					Coord3d nuevac = new Coord3d(c.getx(), c.gety() - 1, c
+							.getz());
+					recorrido.add(nuevac);
+					ponPuertas(nuevac);
+					return true;
+				}
+				break;
+
+			case 1:
+				if (habitaciones[c.getx() + 1][c.gety()][c.getz()] == null) {
+					habitaciones[c.getx() + 1][c.gety()][c.getz()] = new Habitacion();
+					Coord3d nuevac = new Coord3d(c.getx() + 1, c.gety(), c
+							.getz());
+					recorrido.add(nuevac);
+					ponPuertas(nuevac);
+					return true;
+				}
+				break;
+
+			case 2:
+				if (habitaciones[c.getx()][c.gety() + 1][c.getz()] == null) {
+					habitaciones[c.getx()][c.gety() + 1][c.getz()] = new Habitacion();
+					Coord3d nuevac = new Coord3d(c.getx(), c.gety() + 1, c
+							.getz());
+					recorrido.add(nuevac);
+					ponPuertas(nuevac);
+					return true;
+				}
+				break;
+
+			case 3:
+				if (habitaciones[c.getx() - 1][c.gety()][c.getz()] == null) {
+					habitaciones[c.getx() - 1][c.gety()][c.getz()] = new Habitacion();
+					Coord3d nuevac = new Coord3d(c.getx() - 1, c.gety(), c
+							.getz());
+					recorrido.add(nuevac);
+					ponPuertas(nuevac);
+					return true;
+				}
+				break;
+
+			case 4:
+				if (habitaciones[c.getx()][c.gety()][c.getz() - 1] == null) {
+					habitaciones[c.getx()][c.gety()][c.getz() - 1] = new Habitacion();
+					Coord3d nuevac = new Coord3d(c.getx(), c.gety(),
+							c.getz() - 1);
+					recorrido.add(nuevac);
+					ponPuertas(nuevac);
+					return true;
+				}
+				break;
+
+			case 5:
+				if (habitaciones[c.getx()][c.gety()][c.getz() + 1] == null) {
+					habitaciones[c.getx()][c.gety()][c.getz() + 1] = new Habitacion();
+					Coord3d nuevac = new Coord3d(c.getx(), c.gety(),
+							c.getz() + 1);
+					recorrido.add(nuevac);
+					ponPuertas(nuevac);
+					return true;
+				}
+				break;
+
+			default:
+				return false;
+			}
+		}
+		// Si no has podido abrir la puerta o has llegado a una de las otras.
+		return false;
+	}
+
 	/**
 	 * 
 	 * @param c

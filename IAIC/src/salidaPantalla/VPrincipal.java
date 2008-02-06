@@ -292,9 +292,10 @@ public class VPrincipal extends javax.swing.JFrame {
 // TODO add your handling code here:
 
     	manual=false;  
+    	ComboBusquedas.setEnabled(false);
     	Filtro f=new Filtro();
     	JFileChooser j=new JFileChooser();
-    	j.setFileFilter(f);
+     	j.setFileFilter(f);
     	j.setMultiSelectionEnabled(false);    	
     	j.showOpenDialog(jMenuItemCargar);    	
     	if (j.getSelectedFile()!=null){    		
@@ -303,10 +304,13 @@ public class VPrincipal extends javax.swing.JFrame {
     			fuente=null;
         	try{
     			fuente = new FileReader(ruta);
+    			empiezaJugar();
     			}
     		catch (Exception e)
     		{System.out.println("Problemas con el fichero.");}    	    		    		
     	}    	    	
+    	
+    	//AQUI
     }//GEN-LAST:event_jMenuItemCargarActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -317,20 +321,36 @@ public class VPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         //codigo del boton COntinuar
     	if (manual){
-    		if(!encerrado){
+    		if(!encerrado){    			
     			metodoElegido=ComboBusquedas.getSelectedIndex();
     			resuelve();
     		}
     	}else{
+    		int problema=0;
     		try{
-    			buffer=(char)fuente.read();
-    			metodoElegido=(int)buffer;    			
-        		resuelve();    		
+    			String s=new String(); 
+    			char c=(char)fuente.read();
+    			while (c!=','){//mirar que sea un numero    				
+    				s+=c;
+    				c=(char)fuente.read();
+    			}    			    		
+    			//pasamos el String a entero
+    			metodoElegido=Integer.parseInt(s);
+    			if ((metodoElegido<0)||(metodoElegido>5))
+    				metodoElegido=0;
+    			
+    			
+    			//tenemos el metodo
+    			while (c!=','){//mirar que sea un numero    				
+    				s+=c;
+    				c=(char)fuente.read();
+    			}    			    		
+    			//pasamos el String a entero
+    			problema=Integer.parseInt(s);
     		}
-    		catch(Exception e){}
-    			System.out.println("Se acabó el fichero o hubo problemas");
-    		}
-        
+    		catch(Exception e){System.out.println("El fichero no tiene un formato correcto");}
+    		resuelve(problema);
+    	}    	           
     }//GEN-LAST:event_jButton1ActionPerformed           
     
     public boolean esManual(){
@@ -390,8 +410,7 @@ public class VPrincipal extends javax.swing.JFrame {
     
     private void jMenuItemJugarAleatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemJugarAleatorioActionPerformed
         // TODO add your handling code here:
-    	    //PEDIR UN Entero y actualizar dimension del cubo
-        
+    	    //PEDIR UN Entero y actualizar dimension del cubo    	
     	manual=true;
     	VentanaPedirDato ven=new VentanaPedirDato(this);
     	ven.setTitle("Introducción de Datos");
@@ -400,7 +419,20 @@ public class VPrincipal extends javax.swing.JFrame {
     
     
     public void empiezaJugar(){ 
-
+    	if (!manual){
+    	   	
+    		try{
+    			String s=new String(); 
+    			char c=(char)fuente.read();
+    			while (c!=';'){//mirar que sea un numero    				
+    				s+=c;
+    				c=(char)fuente.read();
+    			}    			    		
+    			//pasamos el String a entero
+    			dimensionEdi=Integer.parseInt(s);
+    		}
+    		catch(Exception e){System.out.println("El fichero no tiene un formato correcto");}
+    	}
     	if(dimensionEdi>0){
         	ComboBusquedas.setVisible(true);
             jButton1.setVisible(true);
@@ -437,6 +469,7 @@ public class VPrincipal extends javax.swing.JFrame {
     	}
     	jTextArea2.setText(mostrar);
     }
+    
     public void resuelve(){
 		if (!edi.salida() && !edi.cerrado()){
 		
@@ -471,6 +504,40 @@ public class VPrincipal extends javax.swing.JFrame {
 		}
 }//GEN-LAST:event_jMenuItemJugarAleatorioActionPerformed
 
+    public void resuelve(int problema){
+		if (!edi.salida() && !edi.cerrado()){
+		
+			//antes de avanzar pintar la puerta cerrada y esperar a que haga click en la estrategia
+			
+			if (!edi.avanza(direccion,metodoElegido,problema)){
+                direccion++;                     
+            }
+			else{
+                direccion=0;
+            }			
+			// Vueltra atrás.
+            if (direccion>5){
+        	   direccion = edi.retrocede()+1;
+            }
+		}            		
+		// Informamos del resultado.
+		
+		// Se queda encerrado.
+		if (edi.cerrado()){
+			encerrado=true;
+			jTextArea1.setText("Encerrado!");			
+		}
+		if(edi.salida()){					
+			jTextArea1.setText("¡¡He salido!!\n"+edi.muestraRecorrido());						
+		}
+		else{
+			pintarFlecha();
+			edi.muestraRecorrido();
+			jTextArea1.setText(edi.muestraDescripcionSiguienteProblema(direccion));
+			jTextField1.setText(edi.muestraTituloSiguienteProblema(direccion));
+		}
+}//GEN-LAST:event_jMenuItemJugarAleatorioActionPerformed
+    
     private void jMenuItemAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAyudaActionPerformed
         // TODO add your handling code here:
 		String mensaje="";

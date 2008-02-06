@@ -85,6 +85,24 @@ public class Puerta {
         }
     }
     
+    public void setProblema(int problema){
+        switch (problema){      
+    	case 0:prob = new Canibales();break;    		
+    	case 1:prob = new Jarras();	break;    		
+    	case 2:prob = new Granjero();break;  
+    	case 3:prob = new Mono();break;
+    	case 4:prob = new Palillos();break;
+    	case 5:prob = new Puente();break;
+    	case 6:prob = new Puzzle8();break;
+    	case 7:prob = new RioYFamilia();break;
+    	case 8:prob = new Robot();break;
+    	case 9:prob = new RojoAzul();break;
+    	default:prob = new Mono();
+    }
+    	
+    	
+    }
+    
     /**
      * 
      * @return
