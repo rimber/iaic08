@@ -211,7 +211,7 @@ public class VPrincipal extends javax.swing.JFrame {
         
         jDesktopPane5.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         
-        etiquetaImagenFlecha.setBounds(70, 60, 200, 200);
+        etiquetaImagenFlecha.setBounds(130, 60, 200, 200);
         jDesktopPane2.add(etiquetaImagenFlecha, javax.swing.JLayeredPane.DEFAULT_LAYER);
         
           
