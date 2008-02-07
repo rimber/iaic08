@@ -1,5 +1,5 @@
 /**
- * 
+ * Contiene el conjunto de clases que implementan el micromundo dle edificio cúbico.
  */
 package Cubo;
 
@@ -8,17 +8,17 @@ import java.util.Random;
 import problemas.*;
 
 /**
- *
+ * Clase que implementa la representación de una puerta en el micromundo.
  */
 public class Puerta {
     	
 	/**
-	 * Instancia del problema que requiere la puerta para ser abierta
+	 * Instancia del problema que requiere la puerta para ser abierta.
 	 */
 	private Problema prob;
 	
 	/**
-	 * estado actual de la puerta
+	 * Estado actual de la puerta.
 	 * 0. Cerrada. 
 	 * 1. Abierta. 
 	 * 2. Bloqueada.
@@ -26,22 +26,21 @@ public class Puerta {
     private int estado;
     
     /**
-     * estrategia que se puede usar para resolver el problema en caso de que no se pase una por defecto
-     * 
-     * */
+     * Estrategia que se puede usar para resolver el problema en caso de que no se pase una por defecto.
+     */
     private int estrategia;
     
     /**
-     * Devuelve una nueva instacia de Puerta
+     * Constructor principal de Puerta.
      */
     public Puerta() {
         estado = 0;
     }
     
     /**
-     * Devuelve una nuva instancia de Puerta
-     * @param e estado en que comienza la puerta
-     * @param p problema asociado a la puerta
+     * Constructor por parámetros de Puerta.
+     * @param e Estado en que comienza la puerta.
+     * @param p Problema asociado a la puerta.
      */
     public Puerta(int e, Problema p){
     	estado = e;
@@ -49,8 +48,8 @@ public class Puerta {
     }
     
     /**
-     * Devuelve una nueva instancia de puerta
-     * @param e estado actual de la puerta
+     * Constructor por parámetros de Puerta.
+     * @param e Estado actual de la puerta.
      */
     public Puerta(int e){
         estado = e;
@@ -93,10 +92,9 @@ public class Puerta {
     
     
     /**
-     * Método que genera la nueva instancia del problema y lo coloca en la puerta
-     * @param identificador del problema a elegir
-     * 
-     * */
+     * Método que genera la nueva instancia del problema y lo coloca en la puerta.
+     * @param problema Identificador del problema a elegir.
+     */
     public void setProblema(int problema){
         switch (problema){      
     	case 0:prob = new Canibales();break;    		
@@ -114,24 +112,24 @@ public class Puerta {
     }
     
     /**
-     * Método accesor al estado actual de la puerta
-     * @return el estado actual de la puerta
+     * Método accesor al estado actual de la puerta.
+     * @return Estado actual de la puerta.
      */
     public int dameEstado(){
         return estado;
     }
     
     /**
-     * Método accesor a la posible solución encontrada para la instancia concreta del problema asociado a la puerta
-     * @return Descripción de la solución al problema asociado a la puerta
+     * Método accesor a la posible solución encontrada para la instancia concreta del problema asociado a la puerta.
+     * @return Descripción de la solución al problema asociado a la puerta.
      * */
     public ArrayList<String> dameSolucion(){    	
     	return prob.getCamino();
     }
     
     /**
-     * Pone la puerta al estado que se le pasa por parametro
-     * @param e Estado al que va a pasar la puerta
+     * Método que pone la puerta al estado que se le pasa por parametro.
+     * @param e Estado al que va a pasar la puerta.
      */
     public void setEstado(int e){
         if ((e>=0)&&(e<3))	estado = e;   
@@ -139,30 +137,27 @@ public class Puerta {
     }
 
     /**
-     * Metodo accesor al enunciado del problema asociado a la puerta
-     * @return Enunciado del problema asociado a la puerta
-     * 
-     * */    
+     * Metodo accesor al enunciado del problema asociado a la puerta.
+     * @return Enunciado del problema asociado a la puerta.
+     */    
     public String dameDescripcion(){
     	
     	return prob.getEnunciado();
     }
     
-    
     /**
-     * Metodo accesor al título del problema asociado a la puerta
-     * @return Título del problema asociado a la puerta
-     * 
-     * */
+     * Metodo accesor al título del problema asociado a la puerta.
+     * @return Título del problema asociado a la puerta.
+     */
     public String dameTitulo(){
     	return prob.dameTitulo();    	
     }
     
     
     /**
-     * Método que intenta resolver el problema asociado a la puerta utilizándo la estrategia asociada
-     * @return si se ha conseguido resolver el problema y abrir la puerta
-     * */
+     * Método que intenta resolver el problema asociado a la puerta utilizándo la estrategia asociada.
+     * @return Si se ha conseguido resolver el problema y abrir la puerta.
+     */
     public boolean abre(){
     	if (estado==2){
 	    	// Si está bloqueada no se puede abrir.
@@ -191,12 +186,11 @@ public class Puerta {
     }
     
     /**
-     * Método que intenta resolver el problema asociado a la puerta y abrirla
-     * @param estrategia con la que se queire resolver el problema asociado
-     * @return si se ha conseguido resolver el problema y abrir la puerta
+     * Método que intenta resolver el problema asociado a la puerta y abrirla.
+     * @param est Estrategia con la que se quiere resolver el problema asociado.
+     * @return Si se ha conseguido resolver el problema y abrir la puerta.
      */
-    //mirar cuando se llama a esto
-    public boolean abre(int est){
+    public boolean abre(int est){     //mirar cuando se llama a esto
     
 	    if (estado==2){
 	    	// Si está bloqueada no se puede abrir.

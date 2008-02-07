@@ -21,7 +21,7 @@ public class Habitacion {
     private int ultimaPuerta;
     
     /**
-     * Crea una instancia de habitación por defecto.
+     * Constructor principal de Habitación.
      */
     public Habitacion() {
         puertas = new Puerta[6];  
