@@ -213,7 +213,8 @@ public class VPrincipal extends javax.swing.JFrame {
         jDesktopPane5.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         
         etiquetaImagenFlecha.setBounds(130, 40, 200, 200);
-        etiquetaNombreFlecha.setBounds(130, 150, 200, 200);
+        etiquetaNombreFlecha.setBounds(110, 150, 200, 200);
+        etiquetaNombreFlecha.setFont(new java.awt.Font("Batang", 1, 12));
         jDesktopPane2.add(etiquetaImagenFlecha, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.add(etiquetaNombreFlecha, javax.swing.JLayeredPane.DEFAULT_LAYER);
           
