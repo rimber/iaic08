@@ -170,7 +170,7 @@ public class Puente extends Problema {
 	 			// Para poder cruzar Ana la linterna tiene que estar con ella.
 	 			if(posLinterna == posAna){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruza Ana sola.";
+	 				nombreOperador = "cruzaAna";
 	 				//Cruza la linterna.
 	 				nposLinterna = 1 - posLinterna;
 	 				//Cruza Ana.
@@ -189,7 +189,7 @@ public class Puente extends Problema {
 	 			// Para poder cruzar Benito la linterna tiene que estar con el.
 	 			if(posLinterna == posBenito){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruza Benito solo.";
+	 				nombreOperador = "cruzaBenito";
 	 				//Cruza la linterna.
 	 				nposLinterna = 1 - posLinterna;
 	 				//Cruza Benito
@@ -208,7 +208,7 @@ public class Puente extends Problema {
 	 			// Para poder cruzar Carlos la linterna tiene que estar con el.
 	 			if(posLinterna == posCarlos){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruza Carlos solo.";
+	 				nombreOperador = "cruzaCarlos";
 	 				//Cruza la linterna.
 	 				nposLinterna = 1 - posLinterna;
 	 				//Cruza Carlos.
@@ -227,7 +227,7 @@ public class Puente extends Problema {
 	 			// Para poder cruzar David la linterna tiene que estar con el.
 	 			if(posLinterna == posDavid){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruza David solo.";
+	 				nombreOperador = "cruzaDavid";
 	 				//Cruza la linterna.
 	 				nposLinterna = 1 - posLinterna;
 	 				//Cruza David.
@@ -246,7 +246,7 @@ public class Puente extends Problema {
 	 			// Para poder cruzar Ana y Benito la linterna tiene que estar con ellos.
 	 			if((posLinterna == posAna)&&(posLinterna == posBenito)){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruzan Ana y Benito.";
+	 				nombreOperador = "cruzanAnaBenito";
 	 				//Cruza la linterna.
 	 				nposLinterna = 1 - posLinterna;
 	 				//Cruza Ana.
@@ -266,7 +266,7 @@ public class Puente extends Problema {
 	 			// Para poder cruzar Ana y Carlos la linterna tiene que estar con ellos.
 	 			if((posLinterna == posAna)&&(posLinterna == posCarlos)){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruzan Ana y Carlos.";
+	 				nombreOperador = "cruzanAnaCarlos";
 	 				//Cruza la linterna.
 	 				nposLinterna = 1 - posLinterna;
 	 				//Cruza Ana.
@@ -286,7 +286,7 @@ public class Puente extends Problema {
 	 			// Para poder cruzar Ana y David la linterna tiene que estar con ellos.
 	 			if((posLinterna == posAna)&&(posLinterna == posDavid)){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruzan Ana y David.";
+	 				nombreOperador = "cruzanAnaDavid";
 	 				//Cruza la linterna.
 	 				nposLinterna = 1 - posLinterna;
 	 				//Cruza Ana.
@@ -306,7 +306,7 @@ public class Puente extends Problema {
 	 			// Para poder cruzar Benito y Carlos la linterna tiene que estar con ellos.
 	 			if((posLinterna == posBenito)&&(posLinterna == posCarlos)){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruzan Benito y Carlos.";
+	 				nombreOperador = "cruzanBenitoCarlos";
 	 				//Cruza la linterna.
 	 				nposLinterna = 1 - posLinterna;
 	 				//Cruza Benito.
@@ -326,7 +326,7 @@ public class Puente extends Problema {
 	 			// Para poder cruzar Benito y David la linterna tiene que estar con ellos.
 	 			if((posLinterna == posBenito)&&(posLinterna == posDavid)){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruzan Benito y David.";
+	 				nombreOperador = "cruzanBenitoDavid";
 	 				//Cruza la linterna.
 	 				nposLinterna = 1 - posLinterna;
 	 				//Cruza Benito.
@@ -346,7 +346,7 @@ public class Puente extends Problema {
 	 			// Para poder cruzar Carlos y David la linterna tiene que estar con ellos.
 	 			if((posLinterna == posCarlos)&&(posLinterna == posDavid)){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruzan Carlos y David.";
+	 				nombreOperador = "cruzanCarlosDavid";
 	 				//Cruza la linterna.
 	 				nposLinterna = 1 - posLinterna;
 	 				//Cruza Carlos.

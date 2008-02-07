@@ -227,7 +227,7 @@ public class RioYFamilia extends Problema {
 	 			//Para poder cruzar el policía tiene que estar con la barca.
 	 			if(posBarca == posPolicia){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruza Policía solo.";
+	 				nombreOperador = "cruzaPolicía";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
 	 				//Cruza el policía.
@@ -247,7 +247,7 @@ public class RioYFamilia extends Problema {
 	 			//Para poder cruzar la madre tiene que estar con la barca.
 	 			if(posBarca == posMadre){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruza Madre sola.";
+	 				nombreOperador = "cruzaMadre";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
 	 				//Cruza la madre.
@@ -267,7 +267,7 @@ public class RioYFamilia extends Problema {
 	 			//Para poder cruzar el padre tiene que estar con la barca.
 	 			if(posBarca == posPadre){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruza Padre solo.";
+	 				nombreOperador = "cruzaPadre";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
 	 				//Cruza el padre.
@@ -287,7 +287,7 @@ public class RioYFamilia extends Problema {
 	 			//Para poder cruzar el policía y la madre tienen que estar con la barca.
 	 			if((posBarca == posPolicia)&&(posBarca == posMadre)){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruzan Policía y Madre.";
+	 				nombreOperador = "cruzaPolicíaMadre";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
 	 				//Cruza el policía.
@@ -308,7 +308,7 @@ public class RioYFamilia extends Problema {
 	 			//Para poder cruzar el policía y el padre tienen que estar con la barca.
 	 			if((posBarca == posPolicia)&&(posBarca == posPadre)){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruzan Policía y Padre.";
+	 				nombreOperador = "cruzaPolicíaPadre";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
 	 				//Cruza el policía.
@@ -329,7 +329,7 @@ public class RioYFamilia extends Problema {
 	 			//Para poder cruzar el policía y el ladrón tienen que estar con la barca.
 	 			if((posBarca == posPolicia)&&(posBarca == posLadron)){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruzan Policía y Ladrón.";
+	 				nombreOperador = "cruzaPolicíaLadron";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
 	 				//Cruza el policía.
@@ -350,7 +350,7 @@ public class RioYFamilia extends Problema {
 	 			//Para poder cruzar el policía y el hijo1 tienen que estar con la barca.
 	 			if((posBarca == posPolicia)&&(posBarca == posHijo1)){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruzan Policía e Hijo1.";
+	 				nombreOperador = "cruzaPolicíaHijo1";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
 	 				//Cruza el policía.
@@ -371,7 +371,7 @@ public class RioYFamilia extends Problema {
 	 			//Para poder cruzar el policía y el hijo2 tienen que estar con la barca.
 	 			if((posBarca == posPolicia)&&(posBarca == posHijo2)){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruzan Policía e Hijo2.";
+	 				nombreOperador = "cruzaPolicíaHijo2";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
 	 				//Cruza el policía.
@@ -392,7 +392,7 @@ public class RioYFamilia extends Problema {
 	 			//Para poder cruzar el policía y la hija1 tienen que estar con la barca.
 	 			if((posBarca == posPolicia)&&(posBarca == posHija1)){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruzan Policía e Hija1.";
+	 				nombreOperador = "cruzaPolicíaHija1";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
 	 				//Cruza el policía.
@@ -413,7 +413,7 @@ public class RioYFamilia extends Problema {
 	 			//Para poder cruzar el policía y la hija2 tienen que estar con la barca.
 	 			if((posBarca == posPolicia)&&(posBarca == posHija2)){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruzan Policía e Hija2.";
+	 				nombreOperador = "cruzaPolicíaHija2";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
 	 				//Cruza el policía.
@@ -434,7 +434,7 @@ public class RioYFamilia extends Problema {
 	 			//Para poder cruzar la madre y el padre tienen que estar con la barca.
 	 			if((posBarca == posMadre)&&(posBarca == posPadre)){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruzan Madre y Padre.";
+	 				nombreOperador = "cruzaMadrePadre";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
 	 				//Cruza la madre.
@@ -455,7 +455,7 @@ public class RioYFamilia extends Problema {
 	 			//Para poder cruzar la madre y la hija1 tienen que estar con la barca.
 	 			if((posBarca == posMadre)&&(posBarca == posHija1)){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruzan Madre e Hija1.";
+	 				nombreOperador = "cruzaMadreHija1";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
 	 				//Cruza la madre.
@@ -476,7 +476,7 @@ public class RioYFamilia extends Problema {
 	 			//Para poder cruzar la madre y la hija2 tienen que estar con la barca.
 	 			if((posBarca == posMadre)&&(posBarca == posHija2)){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruzan Madre e Hija2.";
+	 				nombreOperador = "cruzaMadreHija2";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
 	 				//Cruza la madre.
@@ -497,7 +497,7 @@ public class RioYFamilia extends Problema {
 	 			//Para poder cruzar el padre y el hijo1 tienen que estar con la barca.
 	 			if((posBarca == posPadre)&&(posBarca == posHijo1)){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruzan Padre e Hijo1.";
+	 				nombreOperador = "cruzaPadreHijo1";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
 	 				//Cruza la padre.
@@ -518,7 +518,7 @@ public class RioYFamilia extends Problema {
 	 			//Para poder cruzar el padre y el hijo2 tienen que estar con la barca.
 	 			if((posBarca == posPadre)&&(posBarca == posHijo2)){
 	 				operadorAplicado = true;
-	 				nombreOperador = "Cruzan Padre e Hijo2.";
+	 				nombreOperador = "cruzaPadreHijo2";
 	 				//Cruza la barca.
 	 				nposBarca = 1 - posBarca;
 	 				//Cruza la padre.

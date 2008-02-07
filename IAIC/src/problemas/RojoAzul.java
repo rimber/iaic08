@@ -182,7 +182,7 @@ public class RojoAzul extends Problema {
 	 				//si no ahora es rojo.
 	 				nuevoEstado.tablero[0][0] = rojo;
 	 			}
-	 			nombreOperador = "Cambia de color la casilla [0][0].";
+	 			nombreOperador = "cambiaColor[0][0]";
 	 		}
 			// Operador 1 : Cambiar color casilla [0][1].
 	 		if(numOperador == 1){
@@ -195,7 +195,7 @@ public class RojoAzul extends Problema {
 	 				//si no ahora es rojo.
 	 				nuevoEstado.tablero[0][1] = rojo;
 	 			}
-	 			nombreOperador = "Cambia de color la casilla [0][1].";
+	 			nombreOperador = "cambiaColor[0][1]";
 	 		}
 			// Operador 2 : Cambiar color casilla [0][2].
 	 		if(numOperador == 2){
@@ -208,7 +208,7 @@ public class RojoAzul extends Problema {
 	 				//si no ahora es rojo.
 	 				nuevoEstado.tablero[0][2] = rojo;
 	 			}
-	 			nombreOperador = "Cambia de color la casilla [0][2].";
+	 			nombreOperador = "cambiaColor[0][2]";
 	 		}
 	 		// Operador 3 : Cambiar color casilla [1][0].
 	 		if(numOperador == 3){
@@ -221,7 +221,7 @@ public class RojoAzul extends Problema {
 	 				//si no ahora es rojo.
 	 				nuevoEstado.tablero[1][0] = rojo;
 	 			}
-	 			nombreOperador = "Cambia de color la casilla [1][0].";
+	 			nombreOperador = "cambiaColor[1][0]";
 	 		}
 	 		// Operador 4 : Cambiar color casilla [1][1].
 	 		if(numOperador == 4){
@@ -234,7 +234,7 @@ public class RojoAzul extends Problema {
 	 				//si no ahora es rojo.
 	 				nuevoEstado.tablero[1][1] = rojo;
 	 			}
-	 			nombreOperador = "Cambia de color la casilla [1][1].";
+	 			nombreOperador = "cambiaColor[1][1]";
 	 		}
 	 		// Operador 5 : Cambiar color casilla [1][2].
 	 		if(numOperador == 5){
@@ -247,7 +247,7 @@ public class RojoAzul extends Problema {
 	 				//si no ahora es rojo.
 	 				nuevoEstado.tablero[1][2] = rojo;
 	 			}
-	 			nombreOperador = "Cambia de color la casilla [1][2].";
+	 			nombreOperador = "cambiaColor[1][2]";
 	 		}	 		
 	 		// Operador 6 : Cambiar color casilla [2][0].
 	 		if(numOperador == 6){
@@ -260,7 +260,7 @@ public class RojoAzul extends Problema {
 	 				//si no ahora es rojo.
 	 				nuevoEstado.tablero[2][0] = rojo;
 	 			}
-	 			nombreOperador = "Cambia de color la casilla [2][0].";
+	 			nombreOperador = "cambiaColor[2][0]";
 	 		}
 	 		// Operador 7 : Cambiar color casilla [2][1].
 	 		if(numOperador == 7){
@@ -273,7 +273,7 @@ public class RojoAzul extends Problema {
 	 				//si no ahora es rojo.
 	 				nuevoEstado.tablero[2][1] = rojo;
 	 			}
-	 			nombreOperador = "Cambia de color la casilla [2][1].";
+	 			nombreOperador = "cambiaColor[2][1]";
 	 		}
 	 		// Operador 8 : Cambiar color casilla [2][2].
 	 		if(numOperador == 8){
@@ -286,7 +286,7 @@ public class RojoAzul extends Problema {
 	 				//si no ahora es rojo.
 	 				nuevoEstado.tablero[2][2] = rojo;
 	 			}
-	 			nombreOperador = "Cambia de color la casilla [2][2].";
+	 			nombreOperador = "cambiaColor[2][2]";
 	 		}
 	 		// Actualizamos la representación del estado.
  			nuevoEstado.setRepEstado();

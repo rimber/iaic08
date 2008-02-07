@@ -145,28 +145,28 @@ public class Jarras extends Problema {
 	 			operadorAplicado = true;
 	 			nuevaJarra4 = 4;
 	 			nuevaJarra3 = jarra3;
-	 			nombreOperador ="Llenar jarra de 4 L.";
+	 			nombreOperador ="llena4";
 	 		}
 	 		//Llenar garrafa de 3L.
 	 		if(numOperador == 1 && jarra3<3 ){
 	 			operadorAplicado = true;
 	 			nuevaJarra3 = 3;
 	 			nuevaJarra4 = jarra4;
-	 			nombreOperador ="Llenar jarra de 3 L.";
+	 			nombreOperador ="llena3";
 	 		}
 	 		//Vaciar garrafa de 4L.
 	 		if(numOperador == 2 && jarra4>0 ){
 	 			operadorAplicado = true;
 	 			nuevaJarra4 = 0;
 	 			nuevaJarra3 = jarra3;
-	 			nombreOperador ="Vaciar jarra de 4 L.";
+	 			nombreOperador ="vacia4";
 	 		}
 	 		//Vaciar garrafa de 3L.
 	 		if(numOperador == 3 && jarra3>0 ){
 	 			operadorAplicado = true;
 	 			nuevaJarra4 = jarra4;
 	 			nuevaJarra3 = 0;
-	 			nombreOperador ="Vaciar jarra de 3 L.";
+	 			nombreOperador ="vacia3";
 	 		}
 	 		//Verter garrafa de 4L sobre garrafa de 3L.
 	 		if(numOperador == 4 && jarra4>0 && jarra3<3 ){
@@ -178,7 +178,7 @@ public class Jarras extends Problema {
 	 				nuevaJarra3 = 3;
 	 			}
 	 			nuevaJarra4 = jarra4-(nuevaJarra3-jarra3);
-	 			nombreOperador ="Verter jarra de 4 L sobre la de 3 L.";
+	 			nombreOperador ="vierte4";
 	 		}
 	 		//Verter garrafa de 3L sobre garrafa de 4L.
 	 		if(numOperador == 5 && jarra3>0 && jarra4<4 ){
@@ -190,7 +190,7 @@ public class Jarras extends Problema {
 	 				nuevaJarra4 = 4;
 	 			}
 	 			nuevaJarra3 = jarra3 -(nuevaJarra4-jarra4);
-	 			nombreOperador ="Verter jarra de 3 L sobre la de 4 L.";
+	 			nombreOperador ="vierte3";
 	 		}
 	 		
 	 		if (operadorAplicado){
