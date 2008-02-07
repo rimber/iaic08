@@ -56,8 +56,8 @@ public class Edificio {
 
 	/**
 	 * Método accesor del titulo del siguiente problema a resolver.
-	 * @param Direccion de la puerta dentro de la habitación.
-	 * @return Titulo del siguiente problema a resolver.
+	 * @param direccion Direccion de la puerta dentro de la habitación.
+	 * @return Título del siguiente problema a resolver.
 	 */
 	public String muestraTituloSiguienteProblema(int direccion) {
 		String devolver = "";
@@ -71,8 +71,8 @@ public class Edificio {
 
 	/**
 	 * Método accesor de la descripcion del siguiente problema a resolver.
-	 * @param direccion de la puerta dentro de la habitación
-	 * @return descripcion del siguiente problema a resolver
+	 * @param direccion Dirección de la puerta dentro de la habitación.
+	 * @return Descripcion del siguiente problema a resolver.
 	 */
 	public String muestraDescripcionSiguienteProblema(int direccion) {
 		String devolver = "";
@@ -588,8 +588,8 @@ public class Edificio {
 
 	/**
 	 * Método que implementa la vuelta atras en el algoritmo de backtracking usado para salir
-	 *  del edificio.
-	 *  @return Última puerta probada de la habitación a la que hemos vuelto.
+	 * del edificio.
+	 * @return Última puerta probada de la habitación a la que hemos vuelto.
 	 */
 	public int retrocede() {
 
