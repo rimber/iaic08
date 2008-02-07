@@ -422,27 +422,27 @@ public class VPrincipal extends javax.swing.JFrame {
     	
     	case 0:
     		flecha=new ImageIcon("flechaAbajo.png");
-    		mensaje = "Puerta inferior.";
+    		mensaje = "Abriendo puerta inferior";
     	    break;
     	case 1:
     		flecha=new ImageIcon("flechaDerecha.png");
-    		mensaje = "Puerta de la derecha.";
+    		mensaje = "Abriendo puerta derecha";
 		    break;
     	case 2:
     		flecha=new ImageIcon("flechaArriba.png");
-    		mensaje = "Puerta superior.";
+    		mensaje = "Abriendo puerta superior";
 		    break;
     	case 3:
     		flecha=new ImageIcon("flechaIzquierda.png");
-    		mensaje = "Puerta de la izquierda.";
+    		mensaje = "Abriendo puerta izquierda";
     		break;
     	case 4:
     		flecha=new ImageIcon("flechaAbajo.png");//sera enfrente cuando tengamos dibujo
-    		mensaje = "Puerta del frente.";
+    		mensaje = "Abriendo puerta frontal";
     		break;
     	case 5:
     		flecha=new ImageIcon("flechaArriba.png");//sera detras cuando tengamos dibujo
-    		mensaje = "Puerta de atrás.";
+    		mensaje = "Abriendo puerta trasera";
     		break;    	
     	default:
     		flecha=new ImageIcon("flechaAbajo.png");	  		    	        	
