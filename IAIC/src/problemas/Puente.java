@@ -54,12 +54,12 @@ public class Puente extends Problema {
 	 * Constructor por defecto: inicializa las componentes a valores por defecto.
 	 */
 	public Puente(){
-		enunciado = "Cuatro amigos deben cruzar un frágil puente de madera.\n"+
-					"Es de noche y es indispensable usar una linterna para\n"+
-					"cruzarlo. El puente sólo puede aguantar el peso de dos\n"+
-					"personas como máximo y solo tienen una linterna. Tienen\n"+
-					"que cruzarlo antes de 15 minutos.Ana tarda 8 minutos en\n"+
-					"cruzarlo, Benito 4 minutos,Carlos tarda 2 y David 1.";
+		enunciado = " Cuatro amigos deben cruzar un frágil puente de madera.\n"+
+					" Es de noche y es indispensable usar una linterna para\n"+
+					" cruzarlo. El puente sólo puede aguantar el peso de dos\n"+
+					" personas como máximo y solo tienen una linterna. Tienen\n"+
+					" que cruzarlo antes de 15 minutos.Ana tarda 8 minutos en\n"+
+					" cruzarlo, Benito 4 minutos,Carlos tarda 2 y David 1.";
 		posLinterna = 1;		
 		posAna = 1;		
 		posBenito = 1;	
@@ -81,12 +81,12 @@ public class Puente extends Problema {
 	 */
 	
 	public Puente(int l,int a,int b,int c,int d,int tiempoDisponible){
-		enunciado = "Cuatro amigos deben cruzar un frágil puente de madera.\n"+
-					"Es de noche y es indispensable usar una linterna para\n"+
-					"cruzarlo. El puente sólo puede aguantar el peso de dos\n"+
-					"personas como máximo y solo tienen una linterna. Tienen\n"+
-					"que cruzarlo antes de 15 minutos.Ana tarda 8 minutos en\n"+
-					"cruzarlo, Benito 4 minutos,Carlos tarda 2 y David 1.";
+		enunciado = " Cuatro amigos deben cruzar un frágil puente de madera.\n"+
+					" Es de noche y es indispensable usar una linterna para\n"+
+					" cruzarlo. El puente sólo puede aguantar el peso de dos\n"+
+					" personas como máximo y solo tienen una linterna. Tienen\n"+
+					" que cruzarlo antes de 15 minutos.Ana tarda 8 minutos en\n"+
+					" cruzarlo, Benito 4 minutos,Carlos tarda 2 y David 1.";
 		posLinterna = l;		
 		posAna = a;		
 		posBenito = b;	
