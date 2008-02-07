@@ -1,5 +1,7 @@
 package Cubo;
 
+// ESTA CLASE NO DEBERIAMOS ELIMINARLA YA?
+
 public class Main {
     
 	public static void main(String[] args) {
