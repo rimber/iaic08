@@ -34,14 +34,15 @@ public class Canibales extends Problema{
 	 * Constructor por defecto: inicializa las componentes a valores por defecto.
 	 */
 	public Canibales(){
-		enunciado = "Tres misioneros y tres caníbales están a la orilla de un río\n" +
+		enunciado = " Tres misioneros y tres caníbales están a la orilla de un río\n" +
 			" que quieren cruzar. Para ello disponen de un bote que tiene como\n" +
 			" capacidad máxima 2 personas. El objetivo consiste en conseguir\n " +
 			"que todos acaben en la otra orilla del río sin que en ningún\n " +
-			"momento los misioneros estén en peligro de ser devorados por los\n" +
-			" caníbales. Se considera que los misioneros están en peligro\n " +
-			"cuando, en un determinado lugar, el número de caníbales supera al\n" +
-			" de misioneros. Consigue trasladar a todos al margen derecho del río.\n";
+			"momento los misioneros estén en peligro de ser devorados por\n" +
+			" los caníbales. Se considera que los misioneros están en peligro\n " +
+			"cuando, en un determinado lugar, el número de caníbales supera\n" +
+			" al de misioneros. Consigue trasladar a todos al margen derecho\n" +
+			" del río.\n";
 			
 		posBarca = 1;
 		numMisionerosIzq = 3;
@@ -57,14 +58,15 @@ public class Canibales extends Problema{
 	 * @param nCanibales Número de caníbales en el margen izquierdo.
 	 */
 	public Canibales(int nMisioneros, int nCanibales, int pBarca){
-		enunciado = "Tres misioneros y tres caníbales están a la orilla de un río" +
-			" que quieren cruzar. Para ello disponen de un bote que tiene como" +
-			" capacidad máxima 2 personas. El objetivo consiste en conseguir " +
-			"que todos acaben en la otra orilla del río sin que en ningún " +
-			"momento los misioneros estén en peligro de ser devorados por los" +
-			" caníbales. Se considera que los misioneros están en peligro " +
-			"cuando, en un determinado lugar, el número de caníbales supera al" +
-			" de misioneros. Consigue trasladar a todos al margen derecho del río.";
+		enunciado = " Tres misioneros y tres caníbales están a la orilla de un río\n" +
+			" que quieren cruzar. Para ello disponen de un bote que tiene como\n" +
+			" capacidad máxima 2 personas. El objetivo consiste en conseguir\n " +
+			"que todos acaben en la otra orilla del río sin que en ningún\n " +
+			"momento los misioneros estén en peligro de ser devorados por\n" +
+			" los caníbales. Se considera que los misioneros están en peligro\n " +
+			"cuando, en un determinado lugar, el número de caníbales supera\n" +
+			" al de misioneros. Consigue trasladar a todos al margen derecho\n" +
+			" del río.\n";
 		posBarca = pBarca;
 		numMisionerosIzq = nMisioneros;
 		numCanibalesIzq = nCanibales;

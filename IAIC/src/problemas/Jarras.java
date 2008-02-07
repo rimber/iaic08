@@ -32,7 +32,7 @@ public class Jarras extends Problema {
 	 * a las dos jarras vacías.
 	 */
 	public Jarras(){
-		enunciado = "Se tienen dos garrafas vacías con capacidades de 3 y 4 litros\n " +
+		enunciado = " Se tienen dos garrafas vacías con capacidades de 3 y 4 litros\n " +
 					"respectivamente pero sin ninguna marca de medida parcial. Las\n " +
 					"garrafas pueden vaciarse o llenarse de agua, así como verter\n " +
 					"el contenido de una a otra. El objetivo consiste en tener\n " +
@@ -50,7 +50,7 @@ public class Jarras extends Problema {
 	 * @param j litros en la jarra de 3 litros.
 	 */	
 	public Jarras(int i,int j){
-		enunciado = "Se tienen dos garrafas vacías con capacidades de 3 y 4 litros\n " +
+		enunciado = " Se tienen dos garrafas vacías con capacidades de 3 y 4 litros\n " +
 					"respectivamente pero sin ninguna marca de medida parcial. Las\n " +
 					"garrafas pueden vaciarse o llenarse de agua, así como verter\n " +
 					"el contenido de una a otra. El objetivo consiste en tener\n " +
