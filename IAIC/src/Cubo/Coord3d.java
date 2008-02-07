@@ -1,33 +1,34 @@
 /**
- * 
+ * Contiene el conjunto de clases que implementan el micromundo dle edificio cúbico.
  */
 package Cubo;
 
 /**
- * 
+ * Clase que implementa coordenadas en 3 dimensiones (x,y,z).
  */
 public class Coord3d {
 	
 	/**
-	 * desplazamiento con respecto al eje X
+	 * Desplazamiento con respecto al eje X.
 	 */
 	private int x;
 	
 	/**
-	 * desplazamiento con respecto al eje Y
+	 * Desplazamiento con respecto al eje Y.
 	 */
     private int y;
     
     /**
-     * desplazamiento con respecto al eje Z
+     * Desplazamiento con respecto al eje Z.
      */
     private int z;
     
     /**
-     * Crea una coordenada a partir de 3 desplazamientos con respecto a los ejes
-     * @param a desplazamiento con respecto al eje X
-     * @param b desplazamiento con respecto al eje X
-     * @param c desplazamiento con respecto al eje X
+     * Constructor principal que crea una coordenada a partir de 3 desplazamientos
+     * con respecto a los ejes.
+     * @param a Desplazamiento con respecto al eje X.
+     * @param b Desplazamiento con respecto al eje X.
+     * @param c Desplazamiento con respecto al eje X.
      */
     public Coord3d(int a,int b,int c){
         x = a;
@@ -36,8 +37,8 @@ public class Coord3d {
     }
     
     /**
-     * Método que devuelve la coordenada contigua a la izquierda a la instancia
-     * @return  Coordenada contigua a la instacia, pero con el desplazamiento X disminuido
+     * Método que devuelve la coordenada contigua a la izquierda de la instancia.
+     * @return Coordenada contigua a la instacia, pero con el desplazamiento X disminuido.
      */
     public Coord3d izquierda(){
         Coord3d c = new Coord3d (x-1,y,z);
@@ -45,8 +46,8 @@ public class Coord3d {
     }
     
     /**
-     * Método que devuelve la coordenada contigua a la derecha a la instancia
-     * @return  Coordenada contigua a la instacia, pero con el desplazamiento X aumentado
+     * Método que devuelve la coordenada contigua a la derecha de la instancia.
+     * @return Coordenada contigua a la instacia, pero con el desplazamiento X aumentado.
      */
     public Coord3d derecha(){
         Coord3d c = new Coord3d (x+1,y,z);
@@ -54,8 +55,8 @@ public class Coord3d {
     }
      
     /**
-     * Método que devuelve la coordenada contigua de arriba de la instancia
-     * @return  Coordenada contigua a la instacia, pero con el desplazamiento Y aumentado
+     * Método que devuelve la coordenada contigua de arriba de la instancia.
+     * @return Coordenada contigua a la instacia, pero con el desplazamiento Y aumentado.
      */
     public Coord3d arriba(){
         Coord3d c = new Coord3d (x,y+1,z);
@@ -63,8 +64,8 @@ public class Coord3d {
     }   
     
     /**
-     * Método que devuelve la coordenada contigua de debajo de la instancia
-     * @return  Coordenada contigua a la instacia, pero con el desplazamiento Y disminuido
+     * Método que devuelve la coordenada contigua de debajo de la instancia.
+     * @return Coordenada contigua a la instacia, pero con el desplazamiento Y disminuido.
      */
     
     public Coord3d abajo(){
@@ -73,8 +74,8 @@ public class Coord3d {
     }
     
     /**
-     * Método que devuelve la coordenada contigua de delante de la instancia
-     * @return  Coordenada contigua a la instacia, pero con el desplazamiento Z disminuido
+     * Método que devuelve la coordenada contigua de delante de la instancia.
+     * @return Coordenada contigua a la instacia, pero con el desplazamiento Z disminuido.
      */
     public Coord3d delante(){
         Coord3d c = new Coord3d (x,y,z-1);
@@ -82,8 +83,8 @@ public class Coord3d {
     }    
 
     /**
-     * Método que devuelve la coordenada contigua de detrás de la instancia
-     * @return  Coordenada contigua a la instacia, pero con el desplazamiento Z aumentado
+     * Método que devuelve la coordenada contigua de detrás de la instancia.
+     * @return Coordenada contigua a la instacia, pero con el desplazamiento Z aumentado.
      */
     public Coord3d detras(){
         Coord3d c = new Coord3d (x,y,z+1);
@@ -91,33 +92,33 @@ public class Coord3d {
     }    
     
     /**
-     * Compara 2 la coordenada con la que se le pasa como parámetro.
-     * @param c coordenada a comparar
-     * @return si coinciden sus desplazamientos
+     * Compara la coordenada con la que se le pasa como parámetro.
+     * @param c Coordenada a comparar.
+     * @return Si coinciden sus desplazamientos.
      */
     public boolean compara(Coord3d c){
         return ((x==c.x)&&(y==c.y)&&(z==c.z));    
     }
     
     /**
-     * método accesor al desplazamiento con respecto al eje X
-     * @return desplazamiento con respecto al eje X
+     * Método accesor al desplazamiento con respecto al eje X.
+     * @return Desplazamiento con respecto al eje X.
      */
     public int getx(){
         return x;
     }
     
     /**
-     * método accesor al desplazamiento con respecto al eje Y
-     * @return desplazamiento con respecto al eje Y
+     * Método accesor al desplazamiento con respecto al eje Y.
+     * @return Desplazamiento con respecto al eje Y.
      */
     public int gety(){
         return y;
     }
         
     /**
-     * método accesor al desplazamiento con respecto al eje Z
-     * @return desplazamiento con respecto al eje Z
+     * Método accesor al desplazamiento con respecto al eje Z.
+     * @return Desplazamiento con respecto al eje Z.
      */
     public int getz(){
         return z;

@@ -1,49 +1,48 @@
 /**
- * 
+ * Contiene el conjunto de clases que implementan el micromundo dle edificio cúbico.
  */
 package Cubo;
 
 import java.util.*;
-
 import salidaPantalla.VPrincipal;
 
 /**
- *Clase que implementa la representación del edificio en el micromundo
+ * Clase que implementa la representación del edificio en el micromundo.
  */
 public class Edificio {
 
 	/**
-	 * Matriz tridimensional de habitaciones para representar las habitaciones en el edificio
+	 * Matriz tridimensional de habitaciones para representar las habitaciones en el edificio.
 	 */
 	private Habitacion habitaciones[][][];
 
 	/**
-	 * Sub solución encontrada hasta el momento
+	 * Sub-solución encontrada hasta el momento.
 	 */
 	private ArrayList<Coord3d> recorrido;
 
 	/**
-	 * tamaño del edificio
+	 * Tamaño del edificio.
 	 */
 	private int dimension;
 
 	/**
-	 * referencia al formulario principal para poder pasarle datos de la resolución
-	 * del problema general
-	 * */
+	 * Referencia al formulario principal para poder pasarle datos de la resolución
+	 * del problema general.
+	 * 
+	 */
 	private VPrincipal enlace;
 
 	/**
 	 * Indica si hemos llegado a un conjunto cerrados de nodos expandidos entre los que no 
-	 * se encuentra la solucion
+	 * se encuentra la solucion.
 	 */
 	private boolean edificioCerrado;
 
 	/**
-	 * 
-	 * @param n tamaño del edificio a crear
-	 * 		  v referencia al formulario principal que ha creado el edificio
-	 * @return edificio creado
+	 * Constructor principal del edificio.
+	 * @param n Tamaño del edificio a crear.
+	 * @param v Referencia al formulario principal que ha creado el edificio.
 	 */
 	public Edificio(int n, VPrincipal v) {
 		if(n>0){
@@ -56,11 +55,10 @@ public class Edificio {
 	}
 
 	/**
-	 * Método accesor del titulo del siguiente problema a resolver
-	 * @param direccion de la puerta dentro de la habitación
-	 * @return titulo del siguiente problema a resolver
+	 * Método accesor del titulo del siguiente problema a resolver.
+	 * @param Direccion de la puerta dentro de la habitación.
+	 * @return Titulo del siguiente problema a resolver.
 	 */
-
 	public String muestraTituloSiguienteProblema(int direccion) {
 		String devolver = "";
 		int posicion = recorrido.size();
@@ -72,11 +70,10 @@ public class Edificio {
 	}
 
 	/**
-	 * Método accesor de la descripcion del siguiente problema a resolver
+	 * Método accesor de la descripcion del siguiente problema a resolver.
 	 * @param direccion de la puerta dentro de la habitación
 	 * @return descripcion del siguiente problema a resolver
 	 */
-	
 	public String muestraDescripcionSiguienteProblema(int direccion) {
 		String devolver = "";
 		int posicion = recorrido.size();
@@ -87,10 +84,9 @@ public class Edificio {
 	}
 
 	/**
-	 * Método accesor de la subsolución encontrada hasta ahora
-	 * @return descripcion del siguiente problema a resolver en una variable y por pantalla
+	 * Método accesor de la subsolución encontrada hasta ahora.
+	 * @return Descripcion del siguiente problema a resolver en una variable y por pantalla.
 	 */
-	
 	public String muestraRecorrido() {
 
 		String devolver = "Recorrido: \n ";
@@ -106,8 +102,8 @@ public class Edificio {
 	}
 
 	/**
-	 * Método que genera la primera habitación del edificio de forma aleatoria
-	 * @return coordenada de inicio
+	 * Método que genera la primera habitación del edificio de forma aleatoria.
+	 * @return Coordenada de inicio.
 	 */
 	public Coord3d inicia() {
 
@@ -126,8 +122,8 @@ public class Edificio {
 	}
 
 	/**
-	 * Metodo accesor para saber si se ha salido del edificcio
-	 * @return Devuelve si se ha encontrado una salida al edificio
+	 * Metodo accesor para saber si se ha salido del edificcio.
+	 * @return Devuelve si se ha encontrado una salida al edificio.
 	 */
 	public boolean salida() {
 		int posicion = recorrido.size();
@@ -143,8 +139,8 @@ public class Edificio {
 	}
 
 	/**
-	 * Método accesor para saber si no existe solución al problema de salir del edificio
-	 * @return Devuelve si no quedan más nodos por expandir y no se ha encontrado solución
+	 * Método accesor para saber si no existe solución al problema de salir del edificio.
+	 * @return Devuelve si no quedan más nodos por expandir y no se ha encontrado solución.
 	 */
 	public boolean cerrado() {
 		/* Devuelve si has llegado a un conjunto cerrado
@@ -154,10 +150,10 @@ public class Edificio {
 	}
 
 	/**
-	 * 
-	 * @param direccion indica la dirección dentro de la habitción en la que estamos hacia la que vamos a avanzar
-	 * @param estrategia indica la estrategia que vamos a usar para abrir la siguiente puerta para avanzar
-	 * @return Devuelve si se ha podido abrir la puerta y avanzar
+	 * Método que aplica el operador de avance.
+	 * @param direccion Indica la dirección dentro de la habitación en la que estamos hacia la que vamos a avanzar.
+	 * @param estrategia Indica la estrategia que vamos a usar para abrir la siguiente puerta para avanzar.
+	 * @return Devuelve si se ha podido abrir la puerta y avanzar.
 	 */
 	public boolean avanza(int direccion, int estrategia) {
 
@@ -255,10 +251,10 @@ public class Edificio {
 
 	/**
 	 * 
-	 * @param direccion indica la dirección dentro de la habitción en la que estamos hacia la que vamos a avanzar
-	 * @param estrategia indica la estrategia que vamos a usar para abrir la siguiente puerta para avanzar
-	 * @param problema indica el problema que vamos a poner en la siguiente puerta para avanzar
-	 * @return Devuelve si se ha podido abrir la puerta con el problema dado y avanzar
+	 * @param direccion Indica la dirección dentro de la habitción en la que estamos hacia la que vamos a avanzar.
+	 * @param estrategia Indica la estrategia que vamos a usar para abrir la siguiente puerta para avanzar.
+	 * @param problema Indica el problema que vamos a poner en la siguiente puerta para avanzar.
+	 * @return Devuelve si se ha podido abrir la puerta con el problema dado y avanzar.
 	 */
 	public boolean avanza(int direccion, int estrategia, int problema) {
 
