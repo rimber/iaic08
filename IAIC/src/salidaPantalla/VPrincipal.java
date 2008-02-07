@@ -429,10 +429,14 @@ public class VPrincipal extends javax.swing.JFrame {
     	default:flecha=new ImageIcon("flechaAbajo.png");//por si acaso		  		    	        	
     	}    	
     	
+    	/*
     	jDesktopPane2.remove(etiquetaImagenFlecha);
     	etiquetaImagenFlecha=new javax.swing.JLabel(flecha);    	
     	
     	jDesktopPane2.add(etiquetaImagenFlecha, javax.swing.JLayeredPane.DEFAULT_LAYER);    	
+        */
+    	etiquetaImagenFlecha.setIcon(flecha);
+    	jDesktopPane2.add(etiquetaImagenFlecha, javax.swing.JLayeredPane.DEFAULT_LAYER);
     }
     
     /**
