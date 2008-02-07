@@ -652,7 +652,7 @@ public class VPrincipal extends javax.swing.JFrame {
 			flujo.close();
 			VentanaInfo ventana = new VentanaInfo(this,mensaje);	    		
     		ventana.cambiaTamanio();
-    		ventana.setTitle("CHOPED LEWIS¡¡¡");
+    		ventana.setTitle("Ayuda");
     		ventana.setVisible(true);
     		
 		  }
