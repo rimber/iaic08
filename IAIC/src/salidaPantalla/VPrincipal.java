@@ -159,7 +159,7 @@ public class VPrincipal extends javax.swing.JFrame {
         jDesktopPane4.setForeground(java.awt.Color.white);
 
         jButton1.setFont(new java.awt.Font("Batang", 1, 12));
-        jButton1.setText("Continuar");
+        jButton1.setText("Resolver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -507,6 +507,7 @@ public class VPrincipal extends javax.swing.JFrame {
      * 
      */
     public void empiezaJugar(){ 
+    	jTextArea2.setText("");
     	if (!manual){
     	   	
     		try{

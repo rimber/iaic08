@@ -244,8 +244,13 @@ public class Edificio {
 			default:
 				return false;
 			}
+		}else{
+			// Si no has podido abrir la puerta o has llegado a una de las otras.
+			ArrayList <String> solucion=new ArrayList<String>();
+			solucion.add("No se ha podido abrir la puerta!");
+			enlace.ponSolucion(solucion);
 		}
-		// Si no has podido abrir la puerta o has llegado a una de las otras.
+
 		return false;
 	}
 
