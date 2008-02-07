@@ -215,22 +215,23 @@ public abstract class Problema implements State,Heuristic{
 	 * @return Devuelve si el problema se ha resuelto.
 	 */
     public boolean listPath(SearchNode node) {
-       camino = new ArrayList<String>();
-	   if (node == null) {
-		   return false;
-	   }
-	   String linea = "";
-	   while (node.getParent()!=null) {
-		   linea =  " Operador: " + node.getAppliedOp()+ 
-           			" Profundidad: " + node.getDepth() +
-           			" Coste: " + node.getPathCost() +
-           			" Estado: " + node.getState() ;
-		   camino.add("\n"+linea);
-		   node = node.getParent();
-	   }	  
-	   linea = ( "\n Estado inicial: " + node.getState());  
-	   return true;
-	}
+        camino = new ArrayList<String>();
+ 	   if (node == null) {
+ 		   return false;
+ 	   }
+ 	   String linea = "";
+
+ 	   while (node.getParent()!=null) {
+ 		   linea =  " Operador: " + node.getAppliedOp()+ "\n" +
+            			" Profundidad: " + node.getDepth()+ "\n" +
+            			" Coste: " + node.getPathCost()+ "\n" +
+            			" Estado: " + node.getState() ;
+ 		   camino.add("\n"+linea);
+ 		   node = node.getParent();
+ 	   }	    
+  	   camino.add( "\n Estado inicial: " + node.getState()); 
+ 	   return true;
+ 	}
     
     /**
      * Método accesor para repEstado.

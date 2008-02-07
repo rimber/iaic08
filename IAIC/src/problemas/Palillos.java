@@ -121,10 +121,10 @@ public class Palillos extends Problema {
 	    for (numOperador=1; numOperador<=3; numOperador++) {
 	    	if ( palillos-numOperador>=0 ) {
 	    		if(multiploDos(nivel2)){
-	    			nombreOperador = "Jugador A- quita";
+	    			nombreOperador = "Jugador A: quita";
 	    		}
 	    		else{
-	    			nombreOperador = "Jugador B- quita";
+	    			nombreOperador = "Jugador B: quita";
 	    		}
 	    		nombreOperador = nombreOperador+ numOperador + "palillo";
 	    		if (numOperador != 1){

@@ -520,7 +520,7 @@ public class VPrincipal extends javax.swing.JFrame {
     public void ponSolucion(ArrayList<String> a){
     	
     	String mostrar="";
-    	for (int i=0;i<a.size();i++){
+    	for (int i=a.size()-1;i>=0;i--){
     		mostrar+=(String)a.get(i)+"\n";    		
     	}
     	jTextArea2.setText(mostrar);
