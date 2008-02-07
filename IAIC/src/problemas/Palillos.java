@@ -121,17 +121,14 @@ public class Palillos extends Problema {
 	    for (numOperador=1; numOperador<=3; numOperador++) {
 	    	if ( palillos-numOperador>=0 ) {
 	    		if(multiploDos(nivel2)){
-	    			nombreOperador = "El jugador A quita ";
+	    			nombreOperador = "Jugador A- quita";
 	    		}
 	    		else{
-	    			nombreOperador = "El jugador B quita ";
+	    			nombreOperador = "Jugador B- quita";
 	    		}
-	    		nombreOperador = nombreOperador+ numOperador + " palillo";
+	    		nombreOperador = nombreOperador+ numOperador + "palillo";
 	    		if (numOperador != 1){
-	    			nombreOperador = nombreOperador + "s.";
-	    		}
-	    		else{
-	    			nombreOperador = nombreOperador + ".";
+	    			nombreOperador = nombreOperador + "s";
 	    		}
 			    // Creamos el nuevo estado.
 	            Palillos nuevoEstado = new Palillos(palillos-numOperador,nivel2);
