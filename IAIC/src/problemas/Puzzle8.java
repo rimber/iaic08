@@ -280,7 +280,7 @@ public class Puzzle8 extends Problema{
     private void setRepEstado(){
     	
 		// Hacemos la representación del estado.
-		repEstado = "\n(";
+		repEstado = "\n (";
 	 	for (int i=0; i<3; i++){
 	 		for (int j=0; j<3; j++){
 	 			int valor = tablero[i][j]; 
@@ -290,7 +290,7 @@ public class Puzzle8 extends Problema{
 	 			}
 	 			repEstado += " " + repValor + " ";
 	 			if (j==2 && i!=2){
-	 				repEstado+=")"+ "\n"+ "(";
+	 				repEstado+=")"+ "\n"+ " (";
 	 			}
 	 			if (j==2 && i == 2){
 	 				repEstado+=")";
