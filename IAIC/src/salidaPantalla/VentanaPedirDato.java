@@ -58,7 +58,7 @@ public class VentanaPedirDato extends javax.swing.JFrame {
     private void initComponents() {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jLabel = new javax.swing.JLabel();
-        jLabel.setText("Introduzca Dimensión del edificio");
+        jLabel.setText("Introduzca dimensión del edificio");
         jTextField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         

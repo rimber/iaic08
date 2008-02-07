@@ -498,7 +498,7 @@ public class VPrincipal extends javax.swing.JFrame {
     	//Pedir un entero y actualizar dimension del cubo    	
     	manual=true;
     	VentanaPedirDato ven=new VentanaPedirDato(this);
-    	ven.setTitle("Introducción de Datos");
+    	ven.setTitle("Introducción de datos");
     	ven.setVisible(true);     	
     }
     
