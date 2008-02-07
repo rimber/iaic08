@@ -103,12 +103,7 @@ public class VPrincipal extends javax.swing.JFrame {
         jDesktopPane4.setBounds(10,10, 350, 310);
         jDesktopPane5.setBounds(390, 10, 390, 310); 
         jDesktopPane3.setBounds(10,370, 350, 310);
-        jDesktopPane2.setBounds(390, 370, 390, 310);
-
-        //3 aguamarina
-        
-      
-        
+        jDesktopPane2.setBounds(390, 370, 390, 310);                  
         jDesktopPane1.setBackground(new java.awt.Color(102, 204, 255));
 
         jDesktopPane2.setBackground(new java.awt.Color(255, 255, 255));

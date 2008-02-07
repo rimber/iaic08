@@ -13,29 +13,35 @@ import problemas.*;
 public class Puerta {
     	
 	/**
-	 * 
+	 * Instancia del problema que requiere la puerta para ser abierta
 	 */
 	private Problema prob;
 	
 	/**
+	 * estado actual de la puerta
 	 * 0. Cerrada. 
 	 * 1. Abierta. 
 	 * 2. Bloqueada.
 	 */
     private int estado;
+    
+    /**
+     * estrategia que se puede usar para resolver el problema en caso de que no se pase una por defecto
+     * 
+     * */
     private int estrategia;
     
     /**
-     * 
+     * Devuelve una nueva instacia de Puerta
      */
     public Puerta() {
         estado = 0;
     }
     
     /**
-     * 
-     * @param e
-     * @param p
+     * Devuelve una nuva instancia de Puerta
+     * @param e estado en que comienza la puerta
+     * @param p problema asociado a la puerta
      */
     public Puerta(int e, Problema p){
     	estado = e;
@@ -43,8 +49,8 @@ public class Puerta {
     }
     
     /**
-     * 
-     * @param e
+     * Devuelve una nueva instancia de puerta
+     * @param e estado actual de la puerta
      */
     public Puerta(int e){
         estado = e;
@@ -85,6 +91,12 @@ public class Puerta {
         }
     }
     
+    
+    /**
+     * Método que genera la nueva instancia del problema y lo coloca en la puerta
+     * @param identificador del problema a elegir
+     * 
+     * */
     public void setProblema(int problema){
         switch (problema){      
     	case 0:prob = new Canibales();break;    		
@@ -98,47 +110,59 @@ public class Puerta {
     	case 8:prob = new Robot();break;
     	case 9:prob = new RojoAzul();break;
     	default:prob = new Mono();
-    }
-    	
-    	
+        }    	    	
     }
     
     /**
-     * 
-     * @return
+     * Método accesor al estado actual de la puerta
+     * @return el estado actual de la puerta
      */
     public int dameEstado(){
         return estado;
     }
     
-    
+    /**
+     * Método accesor a la posible solución encontrada para la instancia concreta del problema asociado a la puerta
+     * @return Descripción de la solución al problema asociado a la puerta
+     * */
     public ArrayList<String> dameSolucion(){    	
     	return prob.getCamino();
     }
     
     /**
-     * 
-     * @param e
+     * Pone la puerta al estado que se le pasa por parametro
+     * @param e Estado al que va a pasar la puerta
      */
     public void setEstado(int e){
-        estado = e;    
+        if ((e>=0)&&(e<3))	estado = e;   
+        estado=0;
     }
-    
+
     /**
+     * Metodo accesor al enunciado del problema asociado a la puerta
+     * @return Enunciado del problema asociado a la puerta
      * 
-     * @param est
-     * @return
-     */
-    
+     * */    
     public String dameDescripcion(){
     	
     	return prob.getEnunciado();
     }
     
+    
+    /**
+     * Metodo accesor al título del problema asociado a la puerta
+     * @return Título del problema asociado a la puerta
+     * 
+     * */
     public String dameTitulo(){
     	return prob.dameTitulo();    	
     }
     
+    
+    /**
+     * Método que intenta resolver el problema asociado a la puerta utilizándo la estrategia asociada
+     * @return si se ha conseguido resolver el problema y abrir la puerta
+     * */
     public boolean abre(){
     	if (estado==2){
 	    	// Si está bloqueada no se puede abrir.
@@ -163,11 +187,15 @@ public class Puerta {
 	    		return false;
 	    	}
 	    }    	    
-	    return true;
-	
-    	
+	    return true;		
     }
     
+    /**
+     * Método que intenta resolver el problema asociado a la puerta y abrirla
+     * @param estrategia con la que se queire resolver el problema asociado
+     * @return si se ha conseguido resolver el problema y abrir la puerta
+     */
+    //mirar cuando se llama a esto
     public boolean abre(int est){
     
 	    if (estado==2){
