@@ -44,11 +44,6 @@ public class VPrincipal extends javax.swing.JFrame {
 	/**
 	 * 
 	 */
-	private ImageIcon puerta;
-	
-	/**
-	 * 
-	 */
 	private int direccion;
 	
 	/**
@@ -120,7 +115,6 @@ public class VPrincipal extends javax.swing.JFrame {
         jMenuItemAyuda = new javax.swing.JMenuItem();
         jMenuComponentes = new javax.swing.JMenu();
         jMenuItemComponentes = new javax.swing.JMenuItem();
-        etiquetaImagenPuerta=new javax.swing.JLabel();
     	etiquetaImagenFlecha=new javax.swing.JLabel();
     	etiquetaNombreFlecha=new javax.swing.JLabel();
     	jScrollPane2 = new javax.swing.JScrollPane();
@@ -212,10 +206,6 @@ public class VPrincipal extends javax.swing.JFrame {
         etiquetaNombreFlecha.setFont(new java.awt.Font("Batang", 1, 12));
         jDesktopPane2.add(etiquetaImagenFlecha, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane2.add(etiquetaNombreFlecha, javax.swing.JLayeredPane.DEFAULT_LAYER);
-          
-        etiquetaImagenPuerta.setBounds(70, 60, 200, 200);
-        
-        
 
         jLabel3.setFont(new java.awt.Font("Batang", 1, 14));
         jLabel3.setText("Información");
@@ -316,7 +306,6 @@ public class VPrincipal extends javax.swing.JFrame {
         pack();
         
         setTitle("Micromundo Cúbico : Práctica 1 IAIC.");
-        pintarPuerta(0);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -446,27 +435,6 @@ public class VPrincipal extends javax.swing.JFrame {
     	
     	etiquetaImagenFlecha.setIcon(flecha);
     	etiquetaNombreFlecha.setText(mensaje);
-    }
-    
-    /**
-     * 
-     * @param estado
-     */
-    private void pintarPuerta(int estado){
-    	switch (estado){
-    	
-    	case 0:puerta=new ImageIcon("puertaabierta.jpg");
-    				  break;
-    	case 1:puerta=new ImageIcon("cerrada.jpg");
-		  			  break;
-    	case 2:puerta=new ImageIcon("tapiada.jpg");
-		  			  break;    		    	
-    	default:flecha=new ImageIcon("tapiada.jpg");//por si acaso		  		    	        	
-    	}    	
-    	etiquetaImagenPuerta=new javax.swing.JLabel(puerta);    
-    	etiquetaImagenPuerta.doLayout();
-    	jDesktopPane3.add(etiquetaImagenPuerta, javax.swing.JLayeredPane.DEFAULT_LAYER);
-    	  
     }
     
     /**
@@ -837,10 +805,6 @@ public class VPrincipal extends javax.swing.JFrame {
      */
     private javax.swing.JLabel etiquetaNombreFlecha;
     
-    /**
-     * 
-     */
-    private javax.swing.JLabel etiquetaImagenPuerta;
     // End of variables declaration//GEN-END:variables
     
 }
