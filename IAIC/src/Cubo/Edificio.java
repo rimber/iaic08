@@ -250,7 +250,7 @@ public class Edificio {
 	}
 
 	/**
-	 * 
+	 * Método que aplica el operador de avance.
 	 * @param direccion Indica la dirección dentro de la habitción en la que estamos hacia la que vamos a avanzar.
 	 * @param estrategia Indica la estrategia que vamos a usar para abrir la siguiente puerta para avanzar.
 	 * @param problema Indica el problema que vamos a poner en la siguiente puerta para avanzar.
@@ -355,8 +355,9 @@ public class Edificio {
 	}
 
 	/**
-	 * Método que coloca las puertas a la habitación indicada, comprobando por su situación, si esas puertas ya han sido generadas antes para otras habitaciones adyacentes
-	 * @param c: indica las coordenadas de la habitación a la que se le deben poner las puertas
+	 * Método que coloca las puertas a la habitación indicada, comprobando por su
+     * situación, si esas puertas ya han sido generadas antes para otras habitaciones adyacentes.
+	 * @param c Indica las coordenadas de la habitación a la que se le deben poner las puertas.
 	 */
 	private void ponPuertas(Coord3d c) {
 
@@ -566,9 +567,9 @@ public class Edificio {
 	}
 
 	/**
-	 * metodo que comprueba si una habitación ha sido creada en nuestro edifico
-	 * @param c Coordenada de la habitacion a buscar
-	 * @return Si la habitación ha sido creada en nuestro edificio
+	 * Método que comprueba si una habitación ha sido creada en nuestro edificio.
+	 * @param c Coordenada de la habitacion a buscar.
+	 * @return Si la habitación ha sido creada en nuestro edificio.
 	 */
 	public boolean existe(Coord3d c) {
 
@@ -586,8 +587,9 @@ public class Edificio {
 	}
 
 	/**
-	 * Método que implementa la vuelta atras en el algoritmo de vuelta atrás usado para salir del edificio.
-	 * @return la última puerta probada de la habitación a la que hemos vuelto
+	 * Método que implementa la vuelta atras en el algoritmo de backtracking usado para salir
+	 *  del edificio.
+	 *  @return Última puerta probada de la habitación a la que hemos vuelto.
 	 */
 	public int retrocede() {
 
