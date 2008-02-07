@@ -8,35 +8,42 @@ import java.util.*;
 import salidaPantalla.VPrincipal;
 
 /**
- *
+ *Clase que implementa la representación del edificio en el micromundo
  */
 public class Edificio {
 
 	/**
-	 * 
+	 * Matriz tridimensional de habitaciones para representar las habitaciones en el edificio
 	 */
 	private Habitacion habitaciones[][][];
 
 	/**
-	 * 
+	 * Sub solución encontrada hasta el momento
 	 */
 	private ArrayList<Coord3d> recorrido;
 
 	/**
-	 * 
+	 * tamaño del edificio
 	 */
 	private int dimension;
 
+	/**
+	 * referencia al formulario principal para poder pasarle datos de la resolución
+	 * del problema general
+	 * */
 	private VPrincipal enlace;
 
 	/**
-	 * 
+	 * Indica si hemos llegado a un conjunto cerrados de nodos expandidos entre los que no 
+	 * se encuentra la solucion
 	 */
 	private boolean edificioCerrado;
 
 	/**
 	 * 
-	 * @param n
+	 * @param n tamaño del edificio a crear
+	 * 		  v referencia al formulario principal que ha creado el edificio
+	 * @return edificio creado
 	 */
 	public Edificio(int n, VPrincipal v) {
 		if(n>0){
@@ -49,7 +56,9 @@ public class Edificio {
 	}
 
 	/**
-	 * 
+	 * Método accesor del titulo del siguiente problema a resolver
+	 * @param direccion de la puerta dentro de la habitación
+	 * @return titulo del siguiente problema a resolver
 	 */
 
 	public String muestraTituloSiguienteProblema(int direccion) {
@@ -62,6 +71,12 @@ public class Edificio {
 
 	}
 
+	/**
+	 * Método accesor de la descripcion del siguiente problema a resolver
+	 * @param direccion de la puerta dentro de la habitación
+	 * @return descripcion del siguiente problema a resolver
+	 */
+	
 	public String muestraDescripcionSiguienteProblema(int direccion) {
 		String devolver = "";
 		int posicion = recorrido.size();
@@ -71,6 +86,11 @@ public class Edificio {
 		return devolver;
 	}
 
+	/**
+	 * Método accesor de la subsolución encontrada hasta ahora
+	 * @return descripcion del siguiente problema a resolver en una variable y por pantalla
+	 */
+	
 	public String muestraRecorrido() {
 
 		String devolver = "Recorrido: \n ";
@@ -86,8 +106,8 @@ public class Edificio {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Método que genera la primera habitación del edificio de forma aleatoria
+	 * @return coordenada de inicio
 	 */
 	public Coord3d inicia() {
 
@@ -106,8 +126,8 @@ public class Edificio {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Metodo accesor para saber si se ha salido del edificcio
+	 * @return Devuelve si se ha encontrado una salida al edificio
 	 */
 	public boolean salida() {
 		int posicion = recorrido.size();
@@ -123,8 +143,8 @@ public class Edificio {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Método accesor para saber si no existe solución al problema de salir del edificio
+	 * @return Devuelve si no quedan más nodos por expandir y no se ha encontrado solución
 	 */
 	public boolean cerrado() {
 		/* Devuelve si has llegado a un conjunto cerrado
@@ -135,8 +155,9 @@ public class Edificio {
 
 	/**
 	 * 
-	 * @param direccion
-	 * @return
+	 * @param direccion indica la dirección dentro de la habitción en la que estamos hacia la que vamos a avanzar
+	 * 		  estrategia indica la estrategia que vamos a usar para abrir la siguiente puerta para avanzar
+	 * @return Devuelve si se ha podido abrir la puerta y avanzar
 	 */
 	public boolean avanza(int direccion, int estrategia) {
 
@@ -232,7 +253,13 @@ public class Edificio {
 		return false;
 	}
 
-	//igual que el anterior, pero colocamos el problema que queremos en la puerta
+	/**
+	 * 
+	 * @param direccion indica la dirección dentro de la habitción en la que estamos hacia la que vamos a avanzar
+	 * 		  estrategia indica la estrategia que vamos a usar para abrir la siguiente puerta para avanzar
+	 * 		  problema indica el problema que vamos a poner en la siguiente puerta para avanzar
+	 * @return Devuelve si se ha podido abrir la puerta con el problema dado y avanzar
+	 */
 	public boolean avanza(int direccion, int estrategia, int problema) {
 
 		// Seleccionamos la habitacion en la que estamos.
@@ -332,8 +359,8 @@ public class Edificio {
 	}
 
 	/**
-	 * 
-	 * @param c
+	 * Método que coloca las puertas a la habitación indicada, comprobando por su situación, si esas puertas ya han sido generadas antes para otras habitaciones adyacentes
+	 * @param c: indica las coordenadas de la habitación a la que se le deben poner las puertas
 	 */
 	private void ponPuertas(Coord3d c) {
 
@@ -543,9 +570,9 @@ public class Edificio {
 	}
 
 	/**
-	 * 
-	 * @param c
-	 * @return
+	 * metodo que comprueba si una habitación ha sido creada en nuestro edifico
+	 * @param c Coordenada de la habitacion a buscar
+	 * @return Si la habitación ha sido creada en nuestro edificio
 	 */
 	public boolean existe(Coord3d c) {
 
@@ -563,8 +590,8 @@ public class Edificio {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Método que implementa la vuelta atras en el algoritmo de vuelta atrás usado para salir del edificio.
+	 * @return la última puerta probada de la habitación a la que hemos vuelto
 	 */
 	public int retrocede() {
 
