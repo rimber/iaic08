@@ -65,11 +65,6 @@ public class VPrincipal extends javax.swing.JFrame {
 	 * 
 	 */
 	private FileReader fuente;
-	
-	/**
-	 * 
-	 */
-	private char buffer;
 
 	/**
 	 * 
