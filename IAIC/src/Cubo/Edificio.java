@@ -156,7 +156,7 @@ public class Edificio {
 	/**
 	 * 
 	 * @param direccion indica la dirección dentro de la habitción en la que estamos hacia la que vamos a avanzar
-	 * 		  estrategia indica la estrategia que vamos a usar para abrir la siguiente puerta para avanzar
+	 * @param estrategia indica la estrategia que vamos a usar para abrir la siguiente puerta para avanzar
 	 * @return Devuelve si se ha podido abrir la puerta y avanzar
 	 */
 	public boolean avanza(int direccion, int estrategia) {
@@ -256,8 +256,8 @@ public class Edificio {
 	/**
 	 * 
 	 * @param direccion indica la dirección dentro de la habitción en la que estamos hacia la que vamos a avanzar
-	 * 		  estrategia indica la estrategia que vamos a usar para abrir la siguiente puerta para avanzar
-	 * 		  problema indica el problema que vamos a poner en la siguiente puerta para avanzar
+	 * @param estrategia indica la estrategia que vamos a usar para abrir la siguiente puerta para avanzar
+	 * @param problema indica el problema que vamos a poner en la siguiente puerta para avanzar
 	 * @return Devuelve si se ha podido abrir la puerta con el problema dado y avanzar
 	 */
 	public boolean avanza(int direccion, int estrategia, int problema) {
