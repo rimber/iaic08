@@ -42,18 +42,21 @@ public class Robot extends Problema {
 	 * Constructor por defecto: inicializa las componentes a valores por defecto.
 	 */
 	public Robot(){
-		enunciado = "Sea un micro-mundo formado por 3 habitaciones y un robot aspirador.\n" +
-			" Hay una habitación a la izquierda, otra en el centro y otra a la derecha,\n " +
-			"cuyas alfombras pueden	estar sucias o limpias. El robot puede estar en\n" +
-			" cualquiera de las habitaciones y puede ejecutar dos tipos de operaciones:\n " +
-			"aspirar o moverse. La operación de aspirar requiere que la habitación en la\n" +
-			" que se encuentra el robot esté sucia y su resultado es que dicha habitación\n" +
-			" pasa a estar limpia. La operación mover tiene dos opciones: mover hacia la\n " +
-			"izquierda, que requiere que haya alguna habitación a la izquierda de aquella\n" +
-			" en la que se encuentra el robot, y mover hacia la derecha que requiere la\n" +
-			" existencia de alguna habitación situada a la derecha. En cualquier caso, los\n" +
-			" movimientos serán elementales, es	decir, sólo permitirán el paso a la habitación\n" +
-			" contigua a la actual.\n";
+		enunciado = " Sea un micro-mundo formado por 3 habitaciones y un robot\n" +
+	        " aspirador. Hay una habitación a la izquierda, otra en el centro\n" +
+	        " y otra a la derecha, cuyas alfombras pueden estar sucias o\n" +
+	        " limpias. El robot puede estar en cualquiera de las habitaciones\n" +
+	        " y puede ejecutar dos tipos de operaciones: aspirar o moverse.\n" +
+	        " La operación de aspirar requiere que la habitación en la que se\n" +
+	        " encuentra el robot esté sucia y su resultado es que dicha\n" +
+	        " habitación pasa a estar limpia. La operación mover tiene dos\n" +
+	        " opciones: mover hacia la izquierda, que requiere que haya\n" +
+	        " alguna habitación a la izquierda de aquella en la que se\n" +
+	        " encuentra el robot, y mover hacia la derecha que requiere\n" +
+	        " la existencia de alguna habitación situada a la derecha.\n" +
+	        " En cualquier caso, los movimientos serán elementales, es\n" +
+	        " decir, sólo permitirán el paso a la habitación contigua a\n" + 
+	        " la actual.";
 		
 		Random generador = new Random();
 		posRobot = generador.nextInt(3);
@@ -88,18 +91,21 @@ public class Robot extends Problema {
 	 * @param limHabDer Si está limpia o no la habitación de la derecha.
 	 */
 	public Robot(int pRobot, boolean limHabIzq, boolean limHabCen, boolean limHabDer){
-		enunciado = "Sea un micro-mundo formado por 3 habitaciones y un robot aspirador." +
-				" Hay una habitación a la izquierda, otra en el centro y otra a la derecha, " +
-				"cuyas alfombras pueden	estar sucias o limpias. El robot puede estar en" +
-				" cualquiera de las habitaciones y puede ejecutar dos tipos de operaciones: " +
-				"aspirar o moverse. La operación de aspirar requiere que la habitación en la" +
-				" que se encuentra el robot esté sucia y su resultado es que dicha habitación" +
-				" pasa a estar limpia. La operación mover tiene dos opciones: mover hacia la " +
-				"izquierda, que requiere que haya alguna habitación a la izquierda de aquella" +
-				" en la que se encuentra el robot, y mover hacia la derecha que requiere la" +
-				" existencia de alguna habitación situada a la derecha. En cualquier caso, los" +
-				" movimientos serán elementales, es	decir, sólo permitirán el paso a la habitación" +
-				" contigua a la actual.";
+		enunciado = " Sea un micro-mundo formado por 3 habitaciones y un robot\n" +
+	        " aspirador. Hay una habitación a la izquierda, otra en el centro\n" +
+	        " y otra a la derecha, cuyas alfombras pueden estar sucias o\n" +
+	        " limpias. El robot puede estar en cualquiera de las habitaciones\n" +
+	        " y puede ejecutar dos tipos de operaciones: aspirar o moverse.\n" +
+	        " La operación de aspirar requiere que la habitación en la que se\n" +
+	        " encuentra el robot esté sucia y su resultado es que dicha\n" +
+	        " habitación pasa a estar limpia. La operación mover tiene dos\n" +
+	        " opciones: mover hacia la izquierda, que requiere que haya\n" +
+	        " alguna habitación a la izquierda de aquella en la que se\n" +
+	        " encuentra el robot, y mover hacia la derecha que requiere\n" +
+	        " la existencia de alguna habitación situada a la derecha.\n" +
+	        " En cualquier caso, los movimientos serán elementales, es\n" +
+	        " decir, sólo permitirán el paso a la habitación contigua a\n" + 
+	        " la actual.";
 		
 		posRobot = pRobot;
 		limpiaHabIzq = limHabIzq;

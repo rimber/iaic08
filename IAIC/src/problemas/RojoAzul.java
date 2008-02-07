@@ -36,15 +36,15 @@ public class RojoAzul extends Problema {
 	 * Constructor por defecto: inicializa las componentes a valores por defecto.
 	 */
 	public RojoAzul(){
-		enunciado = "Dada una rejilla de 3*3 casillas coloreadas\n" +
-					"en rojo (R) o azul (A), se pretende alcanzar\n"+
-					"un estado de la rejilla en el que el número de\n"+
-					"pares de casillas adyacentes (en vertical y en\n"+
-					"horizontal, pero no en diagonal) coloreadas del\n"+
-					"mismo color sea mínimo.\n"+
-					"Se dispone de 9 operadores que permiten cambiar\n"+
-					"el color de cada una de las casillas" +
-					"(de rojo a azul o viceversa).";
+		enunciado = " Dada una rejilla de 3*3 casillas coloreadas\n" +
+					" en rojo (R) o azul (A), se pretende alcanzar\n"+
+					" un estado de la rejilla en el que el número de\n"+
+					" pares de casillas adyacentes (en vertical y en\n"+
+					" horizontal, pero no en diagonal) coloreadas del\n"+
+					" mismo color sea mínimo.\n"+
+					" Se dispone de 9 operadores que permiten cambiar\n"+
+					" el color de cada una de las casillas" +
+					" (de rojo a azul o viceversa).";
 		// Escogemos un tablero base.
 		Random generador = new Random();
 		int numTablero	= generador.nextInt(5);
@@ -77,15 +77,15 @@ public class RojoAzul extends Problema {
 	 * @param t Tablero.
 	 */
 	public RojoAzul(int[][] t) {
-		enunciado = "Dada una rejilla de 3*3 casillas coloreadas\n" +
-					"en rojo (R) o azul (A), se pretende alcanzar\n"+
-					"un estado de la rejilla en el que el número de\n"+
-					"pares de casillas adyacentes (en vertical y en\n"+
-					"horizontal, pero no en diagonal) coloreadas del\n"+
-					"mismo color sea mínimo.\n"+
-					"Se dispone de 9 operadores que permiten cambiar\n"+
-					"el color de cada una de las casillas" +
-					"(de rojo a azul o viceversa).";
+		enunciado = " Dada una rejilla de 3*3 casillas coloreadas\n" +
+					" en rojo (R) o azul (A), se pretende alcanzar\n"+
+					" un estado de la rejilla en el que el número de\n"+
+					" pares de casillas adyacentes (en vertical y en\n"+
+					" horizontal, pero no en diagonal) coloreadas del\n"+
+					" mismo color sea mínimo.\n"+
+					" Se dispone de 9 operadores que permiten cambiar\n"+
+					" el color de cada una de las casillas" +
+					" (de rojo a azul o viceversa).";
 		tablero = new int [3][3];		
 		for (int i = 0; i<3; i++){
 			for (int j = 0; j<3; j++){

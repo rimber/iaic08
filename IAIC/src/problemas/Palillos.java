@@ -31,7 +31,7 @@ public class Palillos extends Problema {
 	 */
 	public Palillos(){
 		enunciado =" Se dispone inicialmente de un montón de 6 palillos.\n " +
-				   " Los jugadores A y B alternan sus jugadas, comenzando\n" +
+				   "Los jugadores A y B alternan sus jugadas, comenzando\n" +
 				   " el jugador A. En cada jugada un jugador puede retirar\n"+
 				   " del montón 1, 2 o 3 palillos siempre que haya un número\n"+
 				   " suficiente de palillos en éste. El jugador que retira\n"+
@@ -48,7 +48,7 @@ public class Palillos extends Problema {
 	 */
 	public Palillos(int p,int n){
 		enunciado =" Se dispone inicialmente de un montón de 6 palillos.\n " +
-				   " Los jugadores A y B alternan sus jugadas, comenzando\n" +
+				   "Los jugadores A y B alternan sus jugadas, comenzando\n" +
 				   " el jugador A. En cada jugada un jugador puede retirar\n"+
 				   " del montón 1, 2 o 3 palillos siempre que haya un número\n"+
 				   " suficiente de palillos en éste. El jugador que retira\n"+

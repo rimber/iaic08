@@ -66,13 +66,13 @@ public class RioYFamilia extends Problema {
 	 * Constructor por defecto: inicializa las componentes a valores por defecto.
 	 */
 	public RioYFamilia(){
-		enunciado = "En un rio se encuentra una familia compuesta por un padre, una madre,\n"+
-				 	"dos hijas, dos hijos, un policia y un ladrón. Hay una barca en la que\n" +
-				 	"solo caben 2 personas.\n"+
-				 	"El padre, la madre y el policia son los únicos que saben manejar la barcar.\n"+
-				 	"La madre no puede estar con los hijos sin el padre.\n"+
-				 	"El padre no puede estar con las hijas sin la madre.\n "+
-				 	"El ladrón no puede estar con nadie de la familia sin el policia.\n";
+		enunciado = " En un rio se encuentra una familia compuesta por un padre, una\n" +
+		    " madre, dos hijas, dos hijos, un policia y un ladrón. Hay una barca\n" +
+		    " en la que solo caben 2 personas.\n"+
+		 	" El padre, la madre y el policia son los únicos que saben manejar\n" +
+		 	" la barcar. La madre no puede estar con los hijos sin el padre.\n"+
+		 	" El padre no puede estar con las hijas sin la madre.\n "+
+		 	"El ladrón no puede estar con nadie de la familia sin el policia.\n";
 		posBarca=1;
 		posPolicia=1;
 		posLadron=1;
@@ -101,12 +101,12 @@ public class RioYFamilia extends Problema {
 	 * @param ha2 posición de la hija2.
 	 */	
 	public RioYFamilia(int bar,int pol,int lad, int mad,int pad,int ho1,int ho2,int ha1,int ha2){
-		enunciado = "En un rio se encuentra una familia compuesta por un padre, una madre,\n"+
-				 	"dos hijas, dos hijos, un policia y un ladrón. Hay una barca en la que\n" +
-				 	"solo caben 2 personas.\n"+
-				 	"El padre, la madre y el policia son los únicos que saben manejar la barcar.\n"+
-				 	"La madre no puede estar con los hijos sin el padre.\n"+
-				 	"El padre no puede estar con las hijas sin la madre.\n "+
+		enunciado = " En un rio se encuentra una familia compuesta por un padre, una\n" +
+				    " madre, dos hijas, dos hijos, un policia y un ladrón. Hay una barca\n" +
+				    " en la que solo caben 2 personas.\n"+
+				 	" El padre, la madre y el policia son los únicos que saben manejar\n" +
+				 	" la barcar. La madre no puede estar con los hijos sin el padre.\n"+
+				 	" El padre no puede estar con las hijas sin la madre.\n "+
 				 	"El ladrón no puede estar con nadie de la familia sin el policia.\n";
 		posBarca=bar;
 		posPolicia=pol;
