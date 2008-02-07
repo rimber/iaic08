@@ -322,7 +322,7 @@ public class RojoAzul extends Problema {
 	 				repEstado+=")"+ "\n"+ "(";
 	 			}
 	 			if (j==2 && i == 2){
-	 				repEstado+=")"+ "\n";
+	 				repEstado+=")";
 	 			}
 	 		}
 	 	}
