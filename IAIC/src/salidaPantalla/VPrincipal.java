@@ -127,6 +127,7 @@ public class VPrincipal extends javax.swing.JFrame {
         jMenuItemComponentes = new javax.swing.JMenuItem();
         etiquetaImagenPuerta=new javax.swing.JLabel();
     	etiquetaImagenFlecha=new javax.swing.JLabel();
+    	etiquetaNombreFlecha=new javax.swing.JLabel();
     	jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
     	jTextArea1.setEditable(false);
@@ -211,9 +212,10 @@ public class VPrincipal extends javax.swing.JFrame {
         
         jDesktopPane5.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         
-        etiquetaImagenFlecha.setBounds(130, 60, 200, 200);
+        etiquetaImagenFlecha.setBounds(130, 40, 200, 200);
+        etiquetaNombreFlecha.setBounds(130, 150, 200, 200);
         jDesktopPane2.add(etiquetaImagenFlecha, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        
+        jDesktopPane2.add(etiquetaNombreFlecha, javax.swing.JLayeredPane.DEFAULT_LAYER);
           
         etiquetaImagenPuerta.setBounds(70, 60, 200, 200);
         
@@ -415,24 +417,39 @@ public class VPrincipal extends javax.swing.JFrame {
      * 
      */
     private void pintarFlecha(){
+    	String mensaje = "";
     	switch (direccion){
     	
-    	case 0:flecha=new ImageIcon("flechaAbajo.png");
-    				  break;
-    	case 1:flecha=new ImageIcon("flechaDerecha.png");
-		  			  break;
-    	case 2:flecha=new ImageIcon("flechaArriba.png");
-		  			  break;
-    	case 3:flecha=new ImageIcon("flechaIzquierda.png");
-    				  break;
-    	case 4:flecha=new ImageIcon("flechaAbajo.png");//sera enfrente cuando tengamos dibujo
-    				  break;
-    	case 5:flecha=new ImageIcon("flechaAbajo.png");//sera detras cuando tengamos dibujo
-		  			  break;    	
-    	default:flecha=new ImageIcon("flechaAbajo.png");//por si acaso		  		    	        	
+    	case 0:
+    		flecha=new ImageIcon("flechaAbajo.png");
+    		mensaje = "Puerta inferior.";
+    	    break;
+    	case 1:
+    		flecha=new ImageIcon("flechaDerecha.png");
+    		mensaje = "Puerta de la derecha.";
+		    break;
+    	case 2:
+    		flecha=new ImageIcon("flechaArriba.png");
+    		mensaje = "Puerta superior.";
+		    break;
+    	case 3:
+    		flecha=new ImageIcon("flechaIzquierda.png");
+    		mensaje = "Puerta de la izquierda.";
+    		break;
+    	case 4:
+    		flecha=new ImageIcon("flechaAbajo.png");//sera enfrente cuando tengamos dibujo
+    		mensaje = "Puerta del frente.";
+    		break;
+    	case 5:
+    		flecha=new ImageIcon("flechaArriba.png");//sera detras cuando tengamos dibujo
+    		mensaje = "Puerta de atrás.";
+    		break;    	
+    	default:
+    		flecha=new ImageIcon("flechaAbajo.png");	  		    	        	
     	}    	
     	
     	etiquetaImagenFlecha.setIcon(flecha);
+    	etiquetaNombreFlecha.setText(mensaje);
     }
     
     /**
@@ -812,6 +829,11 @@ public class VPrincipal extends javax.swing.JFrame {
      * 
      */
     private javax.swing.JLabel etiquetaImagenFlecha;
+    
+    /**
+     * 
+     */
+    private javax.swing.JLabel etiquetaNombreFlecha;
     
     /**
      * 
