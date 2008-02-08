@@ -221,6 +221,7 @@ public abstract class Problema implements State,Heuristic{
  	   }
  	   String linea = "";
 
+ 	  camino.add("\n"+" Nodos expandidos: "+nodosExpandidos);
  	   while (node.getParent()!=null) {
  		   linea =  " Operador: " + node.getAppliedOp()+ "\n" +
             			" Profundidad: " + node.getDepth()+ "\n" +
