@@ -550,11 +550,11 @@ public class VPrincipal extends javax.swing.JFrame {
 		// Se queda encerrado.
 		if (edi.cerrado()){
 			encerrado=true;
-			jTextArea1.setText("Encerrado!");		
+			jTextArea1.setText(" ¡Encerrado! ¡No hay forma de salir!");		
 			jButton1.setVisible(false);
 		}
 		if(edi.salida()){					
-			jTextArea1.setText("¡¡He salido!!\n"+edi.muestraRecorrido());		
+			jTextArea1.setText(" ¡Salida encontrada!\n"+edi.muestraRecorrido());		
 			jButton1.setVisible(false);
 			
 		}
@@ -591,11 +591,11 @@ public class VPrincipal extends javax.swing.JFrame {
 		// Se queda encerrado.
 		if (edi.cerrado()){
 			encerrado=true;
-			jTextArea1.setText("Encerrado!");	
+			jTextArea1.setText(" ¡Encerrado! ¡No hay forma de salir!");		
 			jButton1.setVisible(false);
 		}
 		if(edi.salida()){					
-			jTextArea1.setText("¡¡He salido!!\n"+edi.muestraRecorrido());
+			jTextArea1.setText(" ¡Salida encontrada!\n"+edi.muestraRecorrido());
 			jButton1.setVisible(false);
 		}
 		else{

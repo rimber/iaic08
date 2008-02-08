@@ -161,6 +161,7 @@ public class Edificio {
 		int posicion = recorrido.size();
 		Coord3d c = (Coord3d) recorrido.get(posicion - 1);
 		Habitacion h = habitaciones[c.getx()][c.gety()][c.getz()];
+		int estadoViejoPuerta = h.damePuerta(direccion).dameEstado();
 		// Abrimos la puerta indicada        
 		if (h.abrePuerta(direccion, estrategia)) {
 			/* Si la puerta se ha abierto, puede ser porque  hallamos llegado
@@ -246,8 +247,17 @@ public class Edificio {
 			}
 		}else{
 			// Si no has podido abrir la puerta o has llegado a una de las otras.
+			
 			ArrayList <String> solucion=new ArrayList<String>();
-			solucion.add("\n No se ha podido abrir la puerta!");
+			String mensaje = "\n No se ha podido abrir la puerta!";
+			/*
+			if (estadoViejoPuerta == 2){
+				mensaje = mensaje + "\n ¡La puerta estaba bloqueada!";
+			}else{
+				mensaje = mensaje + "\n ¡No se ha resuelto el problema!" + "\n ¡La puerta se ha bloqueado!";
+			}
+			*/
+			solucion.add(mensaje);
 			enlace.ponSolucion(solucion);
 		}
 
