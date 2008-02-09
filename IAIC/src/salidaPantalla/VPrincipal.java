@@ -3,12 +3,9 @@
  */
 package salidaPantalla;
 
-import java.awt.Image;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
