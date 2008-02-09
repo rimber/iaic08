@@ -211,6 +211,8 @@ public class VPrincipal extends javax.swing.JFrame {
      * etiqueta para mostrar un texto que acompaña a la imagen de la flecha
      */
     private javax.swing.JLabel etiquetaNombreFlecha;
+    
+    private ArrayList<String> procesoSeguido;
 
 	/**
 	 * Crea un instancia del formulario principal
@@ -218,6 +220,7 @@ public class VPrincipal extends javax.swing.JFrame {
     public VPrincipal() {
      	initComponents();
         actualizaComponentes();
+        procesoSeguido = new ArrayList<String>();
     }
     
     /**
@@ -663,6 +666,7 @@ public class VPrincipal extends javax.swing.JFrame {
     	for (int i=a.size()-1;i>=0;i--){
     		mostrar+=(String)a.get(i)+"\n";    		
     	}
+    	procesoSeguido.add(mostrar);
     	jTextArea2.setText(mostrar);
     }
     
@@ -690,7 +694,23 @@ public class VPrincipal extends javax.swing.JFrame {
 		if(edi.salida()){					
 			jTextArea1.setText("¡¡He salido!!\n"+edi.muestraRecorrido());		
 			jButton1.setVisible(false);
-			
+			String mensaje = new String();
+			for(int i = 0; i<procesoSeguido.size();i++){
+				mensaje += procesoSeguido.get(i);
+				if(i != procesoSeguido.size()-1){
+					mensaje += "\nSiguiente paso\n";
+				}
+				else{
+					mensaje += "\nFinal del proceso de salida\n";
+				}
+			}
+			if(!encerrado){
+				mensaje += edi.muestraRecorrido();
+			}
+			else{
+				mensaje += "Encerrado!";
+			}
+			jTextArea2.setText(mensaje);
 		}
 		else{
 			pintarFlecha();
