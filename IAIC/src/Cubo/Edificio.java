@@ -160,8 +160,7 @@ public class Edificio {
 		// Seleccionamos la habitacion en la que estamos.
 		int posicion = recorrido.size();
 		Coord3d c = (Coord3d) recorrido.get(posicion - 1);
-		Habitacion h = habitaciones[c.getx()][c.gety()][c.getz()];
-		int estadoViejoPuerta = h.damePuerta(direccion).dameEstado();
+		Habitacion h = habitaciones[c.getx()][c.gety()][c.getz()];		
 		// Abrimos la puerta indicada        
 		if (h.abrePuerta(direccion, estrategia)) {
 			/* Si la puerta se ha abierto, puede ser porque  hallamos llegado
