@@ -203,6 +203,11 @@ public class VPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel etiquetaImagenFlecha;
     
     /**
+     * etiqueta para mostrar la imagen de la puerta
+     */
+    private javax.swing.JLabel etiquetaImagenPuerta;
+    
+    /**
      * etiqueta para mostrar un texto que acompaña a la imagen de la flecha
      */
     private javax.swing.JLabel etiquetaNombreFlecha;
@@ -262,6 +267,7 @@ public class VPrincipal extends javax.swing.JFrame {
         jMenuItemComponentes = new javax.swing.JMenuItem();
     	etiquetaImagenFlecha=new javax.swing.JLabel();
     	etiquetaNombreFlecha=new javax.swing.JLabel();
+    	etiquetaImagenPuerta=new javax.swing.JLabel();
     	jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
     	jTextArea1.setEditable(false);
@@ -299,7 +305,7 @@ public class VPrincipal extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jButton1.setBounds(140, 230, 120, 40);
+        jButton1.setBounds(165, 215, 120, 40);
         jDesktopPane4.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel1.setFont(new java.awt.Font("Batang", 1, 14));
@@ -317,6 +323,11 @@ public class VPrincipal extends javax.swing.JFrame {
         jLabel2.setBounds(30, 130, 80, 15);
         jDesktopPane4.add(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        etiquetaImagenPuerta.setBounds(30, 130, 100, 200);
+        ImageIcon puerta=new ImageIcon("door.JPG");
+        etiquetaImagenPuerta.setIcon(puerta);
+        jDesktopPane4.add(etiquetaImagenPuerta, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        
         ComboBusquedas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         ComboBusquedas.setBounds(170,130, 170,20);
         jDesktopPane4.add(ComboBusquedas, javax.swing.JLayeredPane.DEFAULT_LAYER);
