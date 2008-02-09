@@ -6,40 +6,40 @@ Cliquear en el menú "Menú". Se despliegan tres opciones:
 
 	Aparece un selector de ficheros para poder elegir el fichero de pruebas.
 	Los ficheros de nuestra práctica tienen asociada la extensión '.trk'.
-	Una vez elegido el fichero de pruebas, en el panel verde nos aparece 
-	una etiqueta con el nombre "Problema",  y a continuación el nombre 
+	Una vez elegido el fichero de pruebas, en el panel verde nos aparece
+	una etiqueta con el nombre "Problema",  y a continuación el nombre
 	del problema que tiene la puerta por la que se quiere pasar.
 
-	Más abajo, aparece un menú desplegable con la búsqueda asociada en el 
+	Más abajo, aparece un menú desplegable con la búsqueda asociada en el
 	fichero a ese problema. A continuación pulsar el botón "Continuar".
 	En el panel amarillo aparece el enunciado del problema.
 	En el panel aguamarina aparece los resultados que produce aplicar la
 	búsqueda seleccionada al problema dado.
-	En el panel titulado "Dirección" aparece la dirección en la que se 
+	En el panel titulado "Dirección" aparece la dirección en la que se
 	encuentra la puerta que se quiere abrir.
 
     b) "Jugar Aleatorio".
 
-        Aparece una nueva ventana en la que se solicita la dimensión del cubo. 
+	Aparece una nueva ventana en la que se solicita la dimensión del cubo.
 	Pulsar Aceptar.
 	En el panel verde nos aparece una etiqueta con el nombre "Problema",
 	y a continuación el nombre del problema que tiene la puerta por la que
 	se quiere pasar.
 	Más abajo, aparece un menú desplegable con las búsquedas disponibles y
-	el usuario elige la que quiere usar. A continuación pulsar el botón 
+	el usuario elige la que quiere usar. A continuación pulsar el botón
 	"Continuar".
 	En el panel amarillo aparece el enunciado del problema.
-	En el panel aguamarina aparece los resultados que produce aplicar 
+	En el panel aguamarina aparece los resultados que produce aplicar
 	la búsqueda seleccionada al problema dado.
-	En el panel titulado "Dirección" aparece la dirección en la que se 
+	En el panel titulado "Dirección" aparece la dirección en la que se
 	encuentra la puerta que se quiere abrir.
 
     c) "Salir".
 
-        Sale de la aplicación.
+	Sale de la aplicación.
 
 
-En cuanto al menú titulado "Componentes del Grupo" si se cliquea en él se 
+En cuanto al menú titulado "Componentes del Grupo" si se cliquea en él se
 despliega una opción "Mostrar Componentes" y en una ventana aparte se muestran
 los autores de la práctica.
 

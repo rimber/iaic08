@@ -19,6 +19,26 @@ public class VentanaInfo extends javax.swing.JFrame {
 	private VPrincipal referencia;
 	
 	/**
+     * 
+     */
+    private javax.swing.JButton jButton1;
+    
+    /**
+     * 
+     */
+    private javax.swing.JDesktopPane jDesktopPane1;
+    
+    /**
+     * 
+     */
+    private javax.swing.JScrollPane jScrollPane1;
+    
+    /**
+     * 
+     */
+    private javax.swing.JTextArea jTextArea1;
+	
+	/**
 	 * 
 	 */
     public VentanaInfo() {
@@ -35,8 +55,7 @@ public class VentanaInfo extends javax.swing.JFrame {
         initComponents();
         jTextArea1.setText(mensaje);
         referencia.setEnabled(false);
-        jTextArea1.setEditable(false);
-        
+        jTextArea1.setEditable(false);        
     }
     
     /**
@@ -53,7 +72,6 @@ public class VentanaInfo extends javax.swing.JFrame {
     /**
  	 * 
  	 */
-    // <editor-fold defaultstate="collapsed" desc=" Cï¿½digo Generado ">//GEN-BEGIN:initComponents
     private void initComponents() {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -93,7 +111,7 @@ public class VentanaInfo extends javax.swing.JFrame {
         setSize(307, 320);
         setLocation(100, 100);
         setResizable(false);
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     /**
      * 
@@ -102,28 +120,6 @@ public class VentanaInfo extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
     	referencia.setEnabled(true);
      	dispose();
-    }//GEN-LAST:event_jButton1MouseClicked
-    
-    
-    // Declaraciçon de variables - no modificar//GEN-BEGIN:variables
-    /**
-     * 
-     */
-    private javax.swing.JButton jButton1;
-    
-    /**
-     * 
-     */
-    private javax.swing.JDesktopPane jDesktopPane1;
-    
-    /**
-     * 
-     */
-    private javax.swing.JScrollPane jScrollPane1;
-    
-    /**
-     * 
-     */
-    private javax.swing.JTextArea jTextArea1;
-    // Fin de declaración de variables//GEN-END:variables
+    }
+
 }

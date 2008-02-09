@@ -16,8 +16,8 @@ import Cubo.Edificio;
  */
 public class VPrincipal extends javax.swing.JFrame {
     
-    /**
-	 * 
+	/**
+	 * Indica la version de JFrame.
 	 */
 	private static final long serialVersionUID = 1L;
 		
@@ -60,6 +60,151 @@ public class VPrincipal extends javax.swing.JFrame {
 	 * Fichero fuente de el que vamos a cargar los datos en caso cargar de archivo
 	 */
 	private FileReader fuente;
+	
+    /**
+     * Lista de métodos de resolución
+     */
+    private javax.swing.JComboBox ComboBusquedas;
+    
+    /**
+     * Botón continuar
+     */
+    private javax.swing.JButton jButton1;
+    
+    /**
+     * Panel sobre el que se muestran otros componentes
+     */
+    private javax.swing.JDesktopPane jDesktopPane1;
+    
+    /**
+     * Panel sobre el que se muestran otros componentes
+     */
+    private javax.swing.JDesktopPane jDesktopPane2;
+    
+    /**
+     * Panel sobre el que se muestran otros componentes
+     */
+    private javax.swing.JDesktopPane jDesktopPane3;
+    
+    /**
+     * Panel sobre el que se muestran otros componentes
+     */
+    private javax.swing.JDesktopPane jDesktopPane4;
+    
+    /**
+     * Panel sobre el que se muestran otros componentes
+     */
+    private javax.swing.JDesktopPane jDesktopPane5;
+    
+    /**
+     * Etiqueta para mostrar datos o imágenes
+     */
+    private javax.swing.JLabel jLabel1;
+    
+    /**
+     * Etiqueta para mostrar datos o imágenes
+     */
+    private javax.swing.JLabel jLabel2;
+    
+    /**
+     * Etiqueta para mostrar datos o imágenes
+     */
+    private javax.swing.JLabel jLabel3;
+    
+    /**
+     * Etiqueta para mostrar datos o imágenes
+     */
+    private javax.swing.JLabel jLabel4;
+    
+    /**
+     * Botón Menú dentro del menú de la práctica
+     */
+    private javax.swing.JMenu jMenu;
+    
+    /**
+     * Botón del menú de ayuda
+     */
+    private javax.swing.JMenu jMenuAyuda;
+    
+    /**
+     * Barra de Menú
+     */
+    private javax.swing.JMenuBar jMenuBar1;
+    
+    /**
+     * Botón del menú componentes
+     */
+    private javax.swing.JMenu jMenuComponentes;
+    
+    /**
+     * Botón ayuda
+     */
+    private javax.swing.JMenuItem jMenuItemAyuda;
+    
+    /**
+     *Botón cargar 
+     */
+    private javax.swing.JMenuItem jMenuItemCargar;    
+    
+    /**
+     * Boton componentes
+     */
+    private javax.swing.JMenuItem jMenuItemComponentes;
+    
+    /**
+     * Boton JugarAleatorio
+     */
+    private javax.swing.JMenuItem jMenuItemJugarAleatorio;
+    
+    /**
+     * Botón salir
+     */
+    private javax.swing.JMenuItem jMenuItemSalir;
+    
+    /**
+     * Panel con barra desplazadora para mostrar datos
+     */
+    private javax.swing.JScrollPane jScrollPane1;
+    
+    /**
+     * Panel con barra desplazadora para mostrar datos
+     */
+    private javax.swing.JScrollPane jScrollPane2;
+    
+    /**
+     * Separador entre botones del menú
+     */
+    private javax.swing.JSeparator jSeparator1;
+    
+    /**
+     * Separador entre botones del menú
+     */
+    private javax.swing.JSeparator jSeparator2;
+    
+    /**
+     * Área de texto para mostrar datos
+     */
+    private javax.swing.JTextArea jTextArea1;
+    
+    /**
+     * Área de texto para mostrar datos
+     */
+    private javax.swing.JTextArea jTextArea2;
+    
+    /**
+     * Campo de texto para indicar el problema a resolver
+     */
+    private javax.swing.JTextField jTextField1;
+    
+    /**
+     * etiqueta para mostrar la imagen de la flecha
+     */
+    private javax.swing.JLabel etiquetaImagenFlecha;
+    
+    /**
+     * etiqueta para mostrar un texto que acompaña a la imagen de la flecha
+     */
+    private javax.swing.JLabel etiquetaNombreFlecha;
 
 	/**
 	 * Crea un instancia del formulario principal
@@ -85,7 +230,6 @@ public class VPrincipal extends javax.swing.JFrame {
         ComboBusquedas.setModel(new javax.swing.DefaultComboBoxModel(cas));
     }
 
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     /**
      * Método que inicializa todos los componentes que se muestran en el formulario
      */
@@ -279,44 +423,43 @@ public class VPrincipal extends javax.swing.JFrame {
       
         setResizable(false);
         
-         ComboBusquedas.setVisible(false);
-         jButton1.setVisible(false);
-         jDesktopPane2.setVisible(false);
-         jDesktopPane3.setVisible(false);
-         jDesktopPane4.setVisible(false);
-         jDesktopPane5.setVisible(false);
-         jLabel1.setVisible(false);
-         jLabel2.setVisible(false);
-         jLabel3.setVisible(false);
-         jLabel4.setVisible(false);
-                
-         jScrollPane1.setVisible(false);
-         jScrollPane2.setVisible(false);
-        
-         jTextArea1.setVisible(false);
-         jTextArea2.setVisible(false);
-        
-         jTextField1.setVisible(false);
-               
-        pack();
-        
+        ComboBusquedas.setVisible(false);
+		jButton1.setVisible(false);
+		jDesktopPane2.setVisible(false);
+		jDesktopPane3.setVisible(false);
+		jDesktopPane4.setVisible(false);
+		jDesktopPane5.setVisible(false);
+		jLabel1.setVisible(false);
+		jLabel2.setVisible(false);
+		jLabel3.setVisible(false);
+		jLabel4.setVisible(false);
+		       
+		jScrollPane1.setVisible(false);
+		jScrollPane2.setVisible(false);
+		
+		jTextArea1.setVisible(false);
+		jTextArea2.setVisible(false);
+		
+		jTextField1.setVisible(false);
+       
+		pack();
+
         setTitle("Micromundo Cúbico : Práctica 1 IAIC.");
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     /**
      * Método que ejecuta la accion de salir
      * @param evt
      */
-    private void jMenuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSalirActionPerformed   
+    private void jMenuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {
         System.exit(0);
-    }//GEN-LAST:event_jMenuItemSalirActionPerformed
+    }
 
     /**
      * Método que pide un archivo e intenta cargar desde él los datos
      * @param evt
      */
-    private void jMenuItemCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCargarActionPerformed
-
+    private void jMenuItemCargarActionPerformed(java.awt.event.ActionEvent evt) {
     	manual=false;  
     	ComboBusquedas.setEnabled(false);
     	Filtro f=new Filtro();
@@ -334,19 +477,18 @@ public class VPrincipal extends javax.swing.JFrame {
     			}
     		catch (Exception e)
     		{System.out.println("Problemas con el fichero.");}    	    		    		
-    	}    	    	
-    	
-    	//AQUI
-    }//GEN-LAST:event_jMenuItemCargarActionPerformed
+    	}  	
+    //AQUI
+    }
 
     /**
-     * Método que se ejecuta al pulsar el boton "Continuar", 
-     * continua con la ejecucción del problema dependiendo de si es por archibo o aleatorio
+     * Método que se ejecuta al pulsar el botón "Continuar", 
+     * continua con la ejecucción del problema dependiendo de si es por archivo o aleatorio
      * @param evt
      */
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //codigo del boton COntinuar
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        //codigo del boton Continuar
     	if (manual){
     		if(!encerrado){    			
     			metodoElegido=ComboBusquedas.getSelectedIndex();
@@ -375,10 +517,12 @@ public class VPrincipal extends javax.swing.JFrame {
     			//pasamos el String a entero
     			problema=Integer.parseInt(s);
     		}
-    		catch(Exception e){System.out.println("El fichero no tiene un formato correcto");}
+    		catch(Exception e){
+    			System.out.println("El fichero no tiene un formato correcto");
+    		}
     		resuelve(problema);
     	}    	           
-    }//GEN-LAST:event_jButton1ActionPerformed           
+    }          
     
     /**
      * Método accesor al atributo manual, el cual nos indica si se está ejecutando aleatoriamente
@@ -413,11 +557,11 @@ public class VPrincipal extends javax.swing.JFrame {
     		mensaje = "Abriendo puerta izquierda";
     		break;
     	case 4:
-    		flecha=new ImageIcon("flechaAbajo.png");//sera enfrente cuando tengamos dibujo
+    		flecha=new ImageIcon("flechaDelante.png");
     		mensaje = "Abriendo puerta frontal";
     		break;
     	case 5:
-    		flecha=new ImageIcon("flechaArriba.png");//sera detras cuando tengamos dibujo
+    		flecha=new ImageIcon("flechaDetras.png");
     		mensaje = "Abriendo puerta trasera";
     		break;    	
     	default:
@@ -442,7 +586,7 @@ public class VPrincipal extends javax.swing.JFrame {
      * Inicializa los datos necesarios para poder jugar en ese modo
      * @param evt
      */
-    private void jMenuItemJugarAleatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemJugarAleatorioActionPerformed
+    private void jMenuItemJugarAleatorioActionPerformed(java.awt.event.ActionEvent evt) {
     	//Pedir un entero y actualizar dimension del cubo    	
     	manual=true;
     	VentanaPedirDato ven=new VentanaPedirDato(this);
@@ -542,8 +686,8 @@ public class VPrincipal extends javax.swing.JFrame {
 			jTextArea1.setText(edi.muestraDescripcionSiguienteProblema(direccion));
 			jTextField1.setText(edi.muestraTituloSiguienteProblema(direccion));
 		}
-}//GEN-LAST:event_jMenuItemJugarAleatorioActionPerformed
-
+    }
+    
     /**
      * Método que resuelve el siguiente paso del problema, 
      * pero poniendo en la puerta siguiente el problema deseado
@@ -583,13 +727,13 @@ public class VPrincipal extends javax.swing.JFrame {
 			jTextArea1.setText(edi.muestraDescripcionSiguienteProblema(direccion));
 			jTextField1.setText(edi.muestraTituloSiguienteProblema(direccion));
 		}
-}//GEN-LAST:event_jMenuItemJugarAleatorioActionPerformed
+    }
     
     /**
      * Método que muestra una ventana informativa con el archivo de ayuda de la práctica
      * @param evt
      */
-    private void jMenuItemAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAyudaActionPerformed
+    private void jMenuItemAyudaActionPerformed(java.awt.event.ActionEvent evt) {
   		String mensaje="";
 		try{
             BufferedReader flujo = new BufferedReader(new FileReader("AyudaIAIC.txt"));
@@ -608,13 +752,13 @@ public class VPrincipal extends javax.swing.JFrame {
 		catch(Exception e){
 			System.out.println("SIN AYUDA");
         }
-    }//GEN-LAST:event_jMenuItemAyudaActionPerformed
+    }
 
     /**
      * Método que muestra un panel con los integrantes del grupo que ha realizado la práctica
      * @param evt
      */
-    private void jMenuItemComponentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemComponentesActionPerformed
+    private void jMenuItemComponentesActionPerformed(java.awt.event.ActionEvent evt) {
     	VentanaInfo ven=new VentanaInfo(this,
     			"Pablo Fernández Poblaciones"+"\n"+
     			"Luis Gonzalez de Paula"+"\n" + 
@@ -622,7 +766,7 @@ public class VPrincipal extends javax.swing.JFrame {
     			+"4º A \nIAIC Facultad de Informática");
     	ven.setTitle("Integrantes del grupo");
     	ven.setVisible(true); 
-    }//GEN-LAST:event_jMenuItemComponentesActionPerformed
+    }
     
     /**
      * Método principal
@@ -635,155 +779,5 @@ public class VPrincipal extends javax.swing.JFrame {
                 
             }
         });
-    }
-    
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    /**
-     * Lista de métodos de resolución
-     */
-    private javax.swing.JComboBox ComboBusquedas;
-    
-    /**
-     * Botón continuar
-     */
-    private javax.swing.JButton jButton1;
-    
-    /**
-     * Panel sobre el que se muestran otros componentes
-     */
-    private javax.swing.JDesktopPane jDesktopPane1;
-    
-    /**
-     * Panel sobre el que se muestran otros componentes
-     */
-    private javax.swing.JDesktopPane jDesktopPane2;
-    
-    /**
-     * Panel sobre el que se muestran otros componentes
-     */
-    private javax.swing.JDesktopPane jDesktopPane3;
-    
-    /**
-     * Panel sobre el que se muestran otros componentes
-     */
-    private javax.swing.JDesktopPane jDesktopPane4;
-    
-    /**
-     * Panel sobre el que se muestran otros componentes
-     */
-    private javax.swing.JDesktopPane jDesktopPane5;
-    
-    /**
-     * Etiqueta para mostrar datos o imágenes
-     */
-    private javax.swing.JLabel jLabel1;
-    
-    /**
-     * Etiqueta para mostrar datos o imágenes
-     */
-    private javax.swing.JLabel jLabel2;
-    
-    /**
-     * Etiqueta para mostrar datos o imágenes
-     */
-    private javax.swing.JLabel jLabel3;
-    
-    /**
-     * Etiqueta para mostrar datos o imágenes
-     */
-    private javax.swing.JLabel jLabel4;
-    
-    /**
-     * Botón Menú dentro del menú de la práctica
-     */
-    private javax.swing.JMenu jMenu;
-    
-    /**
-     * Botón del menú de ayuda
-     */
-    private javax.swing.JMenu jMenuAyuda;
-    
-    /**
-     * Barra de Menú
-     */
-    private javax.swing.JMenuBar jMenuBar1;
-    
-    /**
-     * Botón del menú componentes
-     */
-    private javax.swing.JMenu jMenuComponentes;
-    
-    /**
-     * Botón ayuda
-     */
-    private javax.swing.JMenuItem jMenuItemAyuda;
-    
-    /**
-     *Botón cargar 
-     */
-    private javax.swing.JMenuItem jMenuItemCargar;
-    
-    
-    /**
-     * Boton componentes
-     */
-    private javax.swing.JMenuItem jMenuItemComponentes;
-    
-    /**
-     * Boton JugarAleatorio
-     */
-    private javax.swing.JMenuItem jMenuItemJugarAleatorio;
-    
-    /**
-     * Botón salir
-     */
-    private javax.swing.JMenuItem jMenuItemSalir;
-    
-    /**
-     * Panel con barra desplazadora para mostrar datos
-     */
-    private javax.swing.JScrollPane jScrollPane1;
-    
-    /**
-     * Panel con barra desplazadora para mostrar datos
-     */
-    private javax.swing.JScrollPane jScrollPane2;
-    
-    /**
-     * Separador entre botones del menú
-     */
-    private javax.swing.JSeparator jSeparator1;
-    
-    /**
-     * Separador entre botones del menú
-     */
-    private javax.swing.JSeparator jSeparator2;
-    
-    /**
-     * Área de texto para mostrar datos
-     */
-    private javax.swing.JTextArea jTextArea1;
-    
-    /**
-     * Área de texto para mostrar datos
-     */
-    private javax.swing.JTextArea jTextArea2;
-    
-    /**
-     * Campo de texto para indicar el problema a resolver
-     */
-    private javax.swing.JTextField jTextField1;
-    
-    /**
-     * etiqueta para mostrar la imagen de la flecha
-     */
-    private javax.swing.JLabel etiquetaImagenFlecha;
-    
-    /**
-     * etiqueta para mostrar un texto que acompaña a la imagen de la flecha
-     */
-    private javax.swing.JLabel etiquetaNombreFlecha;
-    
-    // End of variables declaration//GEN-END:variables
-    
+    }    
 }
