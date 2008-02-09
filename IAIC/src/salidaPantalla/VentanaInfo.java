@@ -4,52 +4,57 @@
 package salidaPantalla;
 
 /**
- * 
+ * Clase que implementa un Frame que usamos de manera
+ * auxiliar en el micromundo.
  */
 public class VentanaInfo extends javax.swing.JFrame {
     
-    /**
-	 * 
+	/**
+	 * Indica la version de JFrame.
 	 */
 	private static final long serialVersionUID = 1L;
 	
 	/**
-	 * 
+	 * Es una referencia a la ventana principal
 	 */
 	private VPrincipal referencia;
 	
 	/**
-     * 
-     */
+	 * Es el botón Aceptar.
+	 */
     private javax.swing.JButton jButton1;
     
     /**
-     * 
+     * Contenedor que se usa para crear el interfaz
      */
     private javax.swing.JDesktopPane jDesktopPane1;
     
     /**
-     * 
+     * Un panel con barras de desplazamiento
+	 * para el área de texto.
      */
     private javax.swing.JScrollPane jScrollPane1;
     
     /**
-     * 
+     * Es el área de texto que se utiliza para mostrar
+     * información. 
      */
     private javax.swing.JTextArea jTextArea1;
 	
-	/**
-	 * 
-	 */
+    /**
+     * Constructor por defecto
+     */
     public VentanaInfo() {
         initComponents();
     }
     
-    /**
-     * 
-     * @param r
-     * @param mensaje
-     */
+	/**
+	 * 
+	 * @param r es el objeto de la clase VPrincipal 
+	 * que llama al objeto de la clase VentanaInfo.
+	 * @param mensaje es el texto que hay que mostrar
+	 * en el área de texto.
+	 */
     public VentanaInfo(VPrincipal r,String mensaje) {
         referencia = r;
         initComponents();
@@ -59,7 +64,8 @@ public class VentanaInfo extends javax.swing.JFrame {
     }
     
     /**
-     * 
+     * Método que cambia el tamaño del objeto VentanaInfo
+     * a un tamaño predefinido por nosotros.
      */
     public void cambiaTamanio(){
     	
@@ -70,8 +76,9 @@ public class VentanaInfo extends javax.swing.JFrame {
     }
     
     /**
- 	 * 
- 	 */
+     * Método privado que inicializa todos los atributos
+	 * del entorno gráfico de la clase VentanaInfo.
+     */
     private void initComponents() {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -114,8 +121,11 @@ public class VentanaInfo extends javax.swing.JFrame {
     }
 
     /**
-     * 
-     * @param evt
+     * Método que elimina el objeto de la clase VentanaInfo
+     * y devuelve el control al objeto de la clase VPrincipal
+     * que le invocó. 
+     * @param evt Evento asociado a pulsar con el ratón 
+     * o bien al darle espacio sobre el botón Aceptar.
      */
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
     	referencia.setEnabled(true);
