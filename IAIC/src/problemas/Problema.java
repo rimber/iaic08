@@ -257,8 +257,8 @@ public abstract class Problema implements State,Heuristic{
 	/**
 	 *  Método que dado un número de estrategia
 	 *  devuelve el nombre de la estrategia aplicada.
-	 *  @param estrategia nº que representa la estrategia usada.
-	 *  @retun El nombre de la estrategia.
+	 *  @param estrategia Nº que representa la estrategia usada.
+	 *  @return El nombre de la estrategia.
 	 */	
 	public static String estrategiaAplicada(int estrategia){
 		String metodo="";
