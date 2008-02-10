@@ -86,8 +86,12 @@ public abstract class Problema implements State,Heuristic{
 	 */
 	public abstract float h();
 	
-	
+	/**
+	 * Devuele el título del problema.
+	 * @return El nombre del problema.
+	 */
 	public abstract String dameTitulo();
+	
 	/**
 	 * Método que intenta resolver un problema según el número de estrategia
 	 * de búsqueda indicada por parámetro:
@@ -256,7 +260,7 @@ public abstract class Problema implements State,Heuristic{
 	 *  @param estrategia nº que representa la estrategia usada.
 	 *  @retun El nombre de la estrategia.
 	 */	
-	public String estrategiaAplicada(int estrategia){
+	public static String estrategiaAplicada(int estrategia){
 		String metodo="";
 		switch (estrategia){
 			//0. Primero en profundidad.

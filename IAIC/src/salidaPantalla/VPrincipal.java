@@ -9,6 +9,9 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+
+import problemas.Problema;
+
 import Cubo.Edificio;
 
 /**
@@ -28,7 +31,7 @@ public class VPrincipal extends javax.swing.JFrame {
 	private int metodoElegido;
 	
 	/**
-	 * Flag que indica se el usuario ha elegido el juego aleatorio o introducir los datos por archivos
+	 * Flag que indica si el usuario ha elegido el juego aleatorio o introducir los datos por archivos
 	 */
 	private boolean manual;
 	
@@ -65,7 +68,7 @@ public class VPrincipal extends javax.swing.JFrame {
     /**
      * Lista de métodos de resolución
      */
-    private javax.swing.JComboBox ComboBusquedas;
+    private javax.swing.JComboBox comboBusquedas;
     
     /**
      * Botón continuar
@@ -153,9 +156,14 @@ public class VPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemComponentes;
     
     /**
-     * Boton JugarAleatorio
+     * Boton Jugar Aleatorio
      */
     private javax.swing.JMenuItem jMenuItemJugarAleatorio;
+    
+    /**
+     * Botón Guardar Datos
+     */
+    private javax.swing.JMenuItem jMenuItemGuardar;
     
     /**
      * Botón salir
@@ -182,6 +190,10 @@ public class VPrincipal extends javax.swing.JFrame {
      */
     private javax.swing.JSeparator jSeparator2;
     
+    /**
+     * Separador entre botones del menú
+     */
+    private javax.swing.JSeparator jSeparator3;
     /**
      * Área de texto para mostrar datos
      */
@@ -212,7 +224,12 @@ public class VPrincipal extends javax.swing.JFrame {
      */
     private javax.swing.JLabel etiquetaNombreFlecha;
     
+    /**
+     * Lista en la que vamos almacenando el proceso seguido 
+     * para tratar de salir del edificio.
+     */
     private ArrayList<String> procesoSeguido;
+    
 
 	/**
 	 * Crea un instancia del formulario principal
@@ -236,7 +253,7 @@ public class VPrincipal extends javax.swing.JFrame {
         cas[3]="Profundidad Iterativa";
         cas[4]="Escalada Maxima";
         cas[5]="A*";
-        ComboBusquedas.setModel(new javax.swing.DefaultComboBoxModel(cas));
+        comboBusquedas.setModel(new javax.swing.DefaultComboBoxModel(cas));
     }
 
     /**
@@ -252,7 +269,7 @@ public class VPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        ComboBusquedas = new javax.swing.JComboBox();
+        comboBusquedas = new javax.swing.JComboBox();
         jDesktopPane5 = new javax.swing.JDesktopPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -263,6 +280,8 @@ public class VPrincipal extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jMenuItemJugarAleatorio = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JSeparator();
+        jMenuItemGuardar = new javax.swing.JMenuItem();
+        jSeparator3 = new javax.swing.JSeparator();
         jMenuItemSalir = new javax.swing.JMenuItem();
         jMenuAyuda = new javax.swing.JMenu();
         jMenuItemAyuda = new javax.swing.JMenuItem();
@@ -331,9 +350,9 @@ public class VPrincipal extends javax.swing.JFrame {
         etiquetaImagenPuerta.setIcon(puerta);
         jDesktopPane4.add(etiquetaImagenPuerta, javax.swing.JLayeredPane.DEFAULT_LAYER);
         
-        ComboBusquedas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        ComboBusquedas.setBounds(170,130, 170,20);
-        jDesktopPane4.add(ComboBusquedas, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        comboBusquedas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBusquedas.setBounds(170,130, 170,20);
+        jDesktopPane4.add(comboBusquedas, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
        
         jDesktopPane1.add(jDesktopPane4, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -388,7 +407,17 @@ public class VPrincipal extends javax.swing.JFrame {
         });
         jMenu.add(jMenuItemJugarAleatorio);
         jMenu.add(jSeparator2);
-
+        
+        jMenuItemGuardar.setText("Guardar");
+        jMenuItemGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemGuardarActionPerformed(evt);
+            }
+        });
+        jMenuItemGuardar.setEnabled(false);
+        jMenu.add(jMenuItemGuardar);
+        jMenu.add(jSeparator3);
+        
         jMenuItemSalir.setText("Salir");
         jMenuItemSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -438,7 +467,7 @@ public class VPrincipal extends javax.swing.JFrame {
       
         setResizable(false);
         
-        ComboBusquedas.setVisible(false);
+        comboBusquedas.setVisible(false);
 		jButton1.setVisible(false);
 		jDesktopPane2.setVisible(false);
 		jDesktopPane3.setVisible(false);
@@ -463,6 +492,32 @@ public class VPrincipal extends javax.swing.JFrame {
     }
 
     /**
+     * Método que ejecuta la accion de guardar
+     * @param evt
+     */
+    private void jMenuItemGuardarActionPerformed(java.awt.event.ActionEvent evt) {
+    	/*TODO hacer un jfileChooser 
+    	 * para guardar en un fichero con la extension que toq 
+    	 */
+        String mensaje = new String();
+		for(int i = 0; i<procesoSeguido.size();i++){
+			mensaje += procesoSeguido.get(i)+"\n";
+			if(i == procesoSeguido.size()-1){
+				mensaje += "\nFinal del proceso de salida\n";
+			}
+		}
+		if(!encerrado){
+			mensaje += edi.muestraRecorrido();
+		}
+		else{
+			mensaje += "Encerrado!";
+		}
+		//Quitar este println y guardarlo en el fichero
+		System.out.println(mensaje);
+		jMenuItemGuardar.setEnabled(false);
+    }
+    
+    /**
      * Método que ejecuta la accion de salir
      * @param evt
      */
@@ -476,7 +531,7 @@ public class VPrincipal extends javax.swing.JFrame {
      */
     private void jMenuItemCargarActionPerformed(java.awt.event.ActionEvent evt) {
     	manual=false;  
-    	ComboBusquedas.setEnabled(false);
+    	comboBusquedas.setEnabled(false);
     	Filtro f=new Filtro();
     	JFileChooser j=new JFileChooser();
      	j.setFileFilter(f);
@@ -506,7 +561,7 @@ public class VPrincipal extends javax.swing.JFrame {
         //codigo del boton Continuar
     	if (manual){
     		if(!encerrado){    			
-    			metodoElegido=ComboBusquedas.getSelectedIndex();
+    			metodoElegido=comboBusquedas.getSelectedIndex();    			
     			resuelve();
     		}
     	}else{
@@ -535,6 +590,8 @@ public class VPrincipal extends javax.swing.JFrame {
     		catch(Exception e){
     			System.out.println("El fichero no tiene un formato correcto");
     		}
+    		String mensaje = "Problema: "+jTextField1.getText()+"\n";
+			mensaje += "Estrategia: "+ Problema.estrategiaAplicada(metodoElegido);
     		resuelve(problema);
     	}    	           
     }          
@@ -604,7 +661,7 @@ public class VPrincipal extends javax.swing.JFrame {
     private void jMenuItemJugarAleatorioActionPerformed(java.awt.event.ActionEvent evt) {
     	//Pedir un entero y actualizar dimension del cubo    	
     	manual=true;
-    	ComboBusquedas.setEnabled(true);
+    	comboBusquedas.setEnabled(true);
     	VentanaPedirDato ven=new VentanaPedirDato(this);
     	ven.setTitle("Introducción de datos");
     	ven.setVisible(true);     	
@@ -630,7 +687,7 @@ public class VPrincipal extends javax.swing.JFrame {
     		catch(Exception e){System.out.println("El fichero no tiene un formato correcto");}
     	}
     	if(dimensionEdi>0){
-        	ComboBusquedas.setVisible(true);
+        	comboBusquedas.setVisible(true);
             jButton1.setVisible(true);
             jDesktopPane2.setVisible(true);
             jDesktopPane3.setVisible(true);
@@ -667,7 +724,10 @@ public class VPrincipal extends javax.swing.JFrame {
     	for (int i=a.size()-1;i>=0;i--){
     		mostrar+=(String)a.get(i)+"\n";    		
     	}
-    	procesoSeguido.add(mostrar);
+    	String mensaje = "Suguiente Paso\nProblema: "+jTextField1.getText()+"\n";
+		mensaje += "Estrategia: "+ Problema.estrategiaAplicada(metodoElegido)+"\n";
+		mensaje += mostrar;
+    	procesoSeguido.add(mensaje);
     	jTextArea2.setText(mostrar);
     }
     
@@ -681,7 +741,7 @@ public class VPrincipal extends javax.swing.JFrame {
             }
 			else{
                 direccion=0;
-            }			
+            }
 			// Vueltra atrás.
             if (direccion>5){
         	   direccion = edi.retrocede()+1;
@@ -691,27 +751,12 @@ public class VPrincipal extends javax.swing.JFrame {
 			encerrado=true;
 			jTextArea1.setText("Encerrado!");		
 			jButton1.setVisible(false);
+			jMenuItemGuardar.setEnabled(true);
 		}
 		if(edi.salida()){					
 			jTextArea1.setText("¡¡He salido!!\n"+edi.muestraRecorrido());		
-			jButton1.setVisible(false);
-			String mensaje = new String();
-			for(int i = 0; i<procesoSeguido.size();i++){
-				mensaje += procesoSeguido.get(i);
-				if(i != procesoSeguido.size()-1){
-					mensaje += "\nSiguiente paso\n";
-				}
-				else{
-					mensaje += "\nFinal del proceso de salida\n";
-				}
-			}
-			if(!encerrado){
-				mensaje += edi.muestraRecorrido();
-			}
-			else{
-				mensaje += "Encerrado!";
-			}
-			jTextArea2.setText(mensaje);
+			jButton1.setVisible(false);			
+			jMenuItemGuardar.setEnabled(true);
 		}
 		else{
 			pintarFlecha();
@@ -749,10 +794,12 @@ public class VPrincipal extends javax.swing.JFrame {
 			encerrado=true;
 			jTextArea1.setText("Encerrado!");	
 			jButton1.setVisible(false);
+			jMenuItemGuardar.setEnabled(true);
 		}
 		if(edi.salida()){					
 			jTextArea1.setText("¡¡He salido!!\n"+edi.muestraRecorrido());
 			jButton1.setVisible(false);
+			jMenuItemGuardar.setEnabled(true);
 		}
 		else{
 			pintarFlecha();
