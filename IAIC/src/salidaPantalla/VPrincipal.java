@@ -604,6 +604,7 @@ public class VPrincipal extends javax.swing.JFrame {
     private void jMenuItemJugarAleatorioActionPerformed(java.awt.event.ActionEvent evt) {
     	//Pedir un entero y actualizar dimension del cubo    	
     	manual=true;
+    	ComboBusquedas.setEnabled(true);
     	VentanaPedirDato ven=new VentanaPedirDato(this);
     	ven.setTitle("Introducción de datos");
     	ven.setVisible(true);     	

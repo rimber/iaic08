@@ -9,25 +9,25 @@ package salidaPantalla;
 public class VentanaPedirDato extends javax.swing.JFrame {
 
     /**
-	 * 
+	 * Indica la version de la GUI que vamos a usar
 	 */
 	private static final long serialVersionUID = 1L;
 	
 	/**
-	 * 
+	 * Referencia al formulario que ha abierto esta ventana
 	 */
 	private VPrincipal referencia;
 	
 	/**
-	 * 
+	 * Crea una nueva ventana
 	 */
     public VentanaPedirDato() {
         initComponents();
     }
     
     /**
-     * 
-     * @param r
+     * Crea una instancia nueva de Ventana a partir de una referencia a otra ventana
+     * @param r referencia al formulario que la llammó
      */
     public VentanaPedirDato(VPrincipal r) {
         referencia = r;
@@ -36,7 +36,7 @@ public class VentanaPedirDato extends javax.swing.JFrame {
     }
     
     /**
-     * 
+     * Informa de la elección del usuario al formulario que la llamó
      */   
     // <editor-fold defaultstate="collapsed" desc=" Código Generado ">//GEN-BEGIN:initComponents
     private void ponEleccion(){
@@ -53,7 +53,7 @@ public class VentanaPedirDato extends javax.swing.JFrame {
     }
     
     /**
-     * 
+     * Inicializa los componentes de la ventana
      */
     private void initComponents() {
         jDesktopPane1 = new javax.swing.JDesktopPane();
@@ -98,7 +98,7 @@ public class VentanaPedirDato extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * 
+     * Método que implementa las acciones que se realizan al pulsar el boton aceptar 
      * @param evt
      */
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
@@ -112,22 +112,22 @@ public class VentanaPedirDato extends javax.swing.JFrame {
     
     // Declaración de variables - no modificar//GEN-BEGIN:variables
     /**
-     * 
+     * Botón aceptar
      */
     private javax.swing.JButton jButton1;
     
     /**
-     * 
+     * Panel sobre el que se ponen todos los elementos
      */
     private javax.swing.JDesktopPane jDesktopPane1; 
     
     /**
-     * 
+     * Campo de texto sobre el que va a escribir el usuario
      */
     private javax.swing.JTextField jTextField;
     
     /**
-     * 
+     * Etiqueta informativa para el usuario
      */
     private javax.swing.JLabel jLabel;
     // Fin de declaración de variables//GEN-END:variables
