@@ -1,5 +1,5 @@
 /**
- * Contiene el conjunto de clases que implementan el micromundo dle edificio cúbico.
+ * Contiene el conjunto de clases que implementan el micromundo del edificio cúbico.
  */
 package Cubo;
 
