@@ -1,5 +1,5 @@
 /**
- * Contiene el conjunto de clases que implementan el interfaz del micromundo 
+ * Contiene el conjunto de clases que implementan el interface del micromundo 
  * del edificio cúbico.
  */
 package salidaPantalla;
@@ -121,7 +121,7 @@ public class VentanaPedirDato extends javax.swing.JFrame {
     /**
      * Método que implementa las acciones que se realizan al pulsar el boton aceptar,
      * informa de la elección al formulario principal, activa el empezar a jugar, y se cierra.
-     * @param evt Evento entrante.
+     * @param evt Evento asociado.
      */
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {
     	ponEleccion();

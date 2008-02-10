@@ -1,5 +1,6 @@
 /**
- * 
+ * Contiene el conjunto de clases que implementan el interface del micromundo 
+ * del edificio cúbico.
  */
 package salidaPantalla;
 
@@ -15,45 +16,42 @@ public class VentanaInfo extends javax.swing.JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	/**
-	 * Es una referencia a la ventana principal
+	 * Referencia a la ventana principal.
 	 */
 	private VPrincipal referencia;
 	
 	/**
-	 * Es el botón Aceptar.
+	 * Botón Aceptar.
 	 */
     private javax.swing.JButton jButton1;
     
     /**
-     * Contenedor que se usa para crear el interfaz
+     * Contenedor que se usa para crear el interfaz.
      */
     private javax.swing.JDesktopPane jDesktopPane1;
     
     /**
-     * Un panel con barras de desplazamiento
+     * Panel con barras de desplazamiento
 	 * para el área de texto.
      */
     private javax.swing.JScrollPane jScrollPane1;
     
     /**
-     * Es el área de texto que se utiliza para mostrar
-     * información. 
+     * Área de texto que se utiliza para mostrar información. 
      */
     private javax.swing.JTextArea jTextArea1;
 	
     /**
-     * Constructor por defecto
+     * Constructor por defecto.
      */
     public VentanaInfo() {
         initComponents();
     }
     
 	/**
-	 * 
-	 * @param r es el objeto de la clase VPrincipal 
-	 * que llama al objeto de la clase VentanaInfo.
-	 * @param mensaje es el texto que hay que mostrar
-	 * en el área de texto.
+	 * Constructor principal de la clase.
+	 * @param r Objeto de la clase VPrincipal que llama al objeto de la clase VentanaInfo.
+	 * @param mensaje Texto a mostrar en el área especifica.
 	 */
     public VentanaInfo(VPrincipal r,String mensaje) {
         referencia = r;
@@ -65,7 +63,7 @@ public class VentanaInfo extends javax.swing.JFrame {
     
     /**
      * Método que cambia el tamaño del objeto VentanaInfo
-     * a un tamaño predefinido por nosotros.
+     * a un tamaño predefinido.
      */
     public void cambiaTamanio(){
     	
@@ -121,13 +119,11 @@ public class VentanaInfo extends javax.swing.JFrame {
     }
 
     /**
-     * Método que elimina el objeto de la clase VentanaInfo
-     * y devuelve el control al objeto de la clase VPrincipal
-     * que le invocó. 
-     * @param evt Evento asociado a pulsar con el ratón 
-     * o bien al darle espacio sobre el botón Aceptar.
+     * Método que elimina el objeto de la clase VentanaInfo y devuelve el control 
+     * al objeto de la clase VPrincipal que le invocó. 
+     * @param evt Evento asociado.
      */
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {
     	referencia.setEnabled(true);
      	dispose();
     }

@@ -1,5 +1,6 @@
 /**
- * 
+ * Contiene el conjunto de clases que implementan el interface del micromundo 
+ * del edificio cúbico.
  */
 package salidaPantalla;
 
