@@ -98,7 +98,8 @@ public class VentanaPedirDato extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * Método que implementa las acciones que se realizan al pulsar el boton aceptar 
+     * Método que implementa las acciones que se realizan al pulsar el boton aceptar,
+     *  informa de la elección al formulario principal, activa el empezar a jugar, y se cierra 
      * @param evt
      */
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
