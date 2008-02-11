@@ -230,8 +230,7 @@ public class VPrincipal extends javax.swing.JFrame {
      * Lista en la que vamos almacenando el proceso seguido 
      * para tratar de salir del edificio.
      */
-    private ArrayList<String> procesoSeguido;
-    
+    private ArrayList<String> procesoSeguido;    
 
 	/**
 	 * Constructor principal.
@@ -726,7 +725,7 @@ public class VPrincipal extends javax.swing.JFrame {
     	for (int i=a.size()-1;i>=0;i--){
     		mostrar+=(String)a.get(i)+"\n";    		
     	}
-    	String mensaje = "Suguiente Paso\nProblema: "+jTextField1.getText()+"\n";
+    	String mensaje = "---> Siguiente Paso\n\nProblema: "+jTextField1.getText()+"\n";
 		mensaje += "Estrategia: "+ Problema.estrategiaAplicada(metodoElegido)+"\n";
 		mensaje += mostrar;
     	procesoSeguido.add(mensaje);
