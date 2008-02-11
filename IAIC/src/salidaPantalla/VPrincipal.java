@@ -5,7 +5,9 @@
 package salidaPantalla;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -498,24 +500,39 @@ public class VPrincipal extends javax.swing.JFrame {
      * @param evt Evento asociado.
      */
     private void jMenuItemGuardarActionPerformed(java.awt.event.ActionEvent evt) {
-    	/*TODO hacer un jfileChooser 
-    	 * para guardar en un fichero con la extension que toq 
+    	/*TODO guardar con la extension que toq
+    	 * que os parece .plm?
+    	 * por popi lewis y murillo??
+    	 * ya me direis!!
+    	 * Lo que no me mola sq los saltos de linea el
+    	 * hijo puta no los hace bien en el txt!! 
     	 */
-        String mensaje = new String();
-		for(int i = 0; i<procesoSeguido.size();i++){
-			mensaje += procesoSeguido.get(i)+"\n";
-			if(i == procesoSeguido.size()-1){
-				mensaje += "\nFinal del proceso de salida\n";
-			}
-		}
-		if(!encerrado){
-			mensaje += edi.muestraRecorrido();
-		}
-		else{
-			mensaje += "Encerrado!";
-		}
-		//Quitar este println y guardarlo en el fichero
-		System.out.println(mensaje);
+    	JFileChooser selFichero=new JFileChooser();
+    	selFichero.showSaveDialog(jMenuItemGuardar);
+    	if (selFichero.getSelectedFile()!=null){
+	    	File fichero = new File(selFichero.getSelectedFile().getPath()); 
+	    	FileWriter textOut;
+	    	try { 
+		    	textOut = new FileWriter(fichero);
+		    	String mensaje = new String();
+		 		for(int i = 0; i<procesoSeguido.size();i++){		 			
+		 			mensaje += procesoSeguido.get(i)+"\n";
+		 			if(i == procesoSeguido.size()-1){
+		 				mensaje += "\nFinal del proceso de salida\n";
+		 			}
+		 		}
+		 		if(!encerrado){
+		 			mensaje += edi.muestraRecorrido();
+		 		}
+		 		else{
+		 			mensaje += "Encerrado!";
+		 		}
+		    	textOut.write(mensaje);
+		    	textOut.close();
+	    	} catch (Exception e) { 
+	    		System.out.println("Problemas al guardar el fichero.");
+	    	}
+    	}
 		jMenuItemGuardar.setEnabled(false);
     }
     
@@ -547,8 +564,9 @@ public class VPrincipal extends javax.swing.JFrame {
     			fuente = new FileReader(ruta);
     			empiezaJugar();
     			}
-    		catch (Exception e)
-    		{System.out.println("Problemas con el fichero.");}    	    		    		
+    		catch (Exception e){
+    			System.out.println("Problemas con el fichero.");
+    		}    	    		    		
     	}  	
     }
 

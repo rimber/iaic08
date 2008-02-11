@@ -100,7 +100,6 @@ public class Edificio {
 			}
 			linea++;
 		}
-		System.out.println(devolver);
 		return devolver;
 	}
 
