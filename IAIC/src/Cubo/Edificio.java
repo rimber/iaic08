@@ -115,11 +115,18 @@ public class Edificio {
 		int x = rnd.nextInt(dimension);
 		int y = rnd.nextInt(dimension);
 		int z = rnd.nextInt(dimension);
-
-		habitaciones[x][y][z] = new Habitacion();
-		Coord3d coord = new Coord3d(x, y, z);
-		ponPuertas(coord);
-		recorrido.add(coord);
+		Coord3d coord=null;
+		if (enlace.esManual()){
+			habitaciones[x][y][z] = new Habitacion();
+			 coord = new Coord3d(x, y, z);
+			ponPuertas(coord);
+			recorrido.add(coord);}
+		else{
+			habitaciones[x][y][z] = new Habitacion();
+			coord = new Coord3d(x, y, z);
+			ponPuertas(coord);
+			recorrido.add(coord);
+			}				
 		return coord;
 	}
 
@@ -485,8 +492,8 @@ public class Edificio {
 		else {
 			comprobar = c.izquierda();
 			if (!existe(comprobar)) {
-				// Puerta cerrada.
-				p = new Puerta(0);
+				// Puerta cerrada.				
+				p = new Puerta(0);			
 			} 
 			else {
 				p = habitaciones[comprobar.getx()][comprobar.gety()][comprobar

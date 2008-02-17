@@ -13,7 +13,17 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 
+import problemas.Canibales;
+import problemas.Granjero;
+import problemas.Jarras;
+import problemas.Mono;
+import problemas.Palillos;
 import problemas.Problema;
+import problemas.Puente;
+import problemas.Puzzle8;
+import problemas.RioYFamilia;
+import problemas.Robot;
+import problemas.RojoAzul;
 
 import Cubo.Edificio;
 
@@ -38,6 +48,20 @@ public class VPrincipal extends javax.swing.JFrame {
 	 */
 	private boolean manual;
 	
+	/**
+	 * Contenedor para los problemas si se está cargando desde archivo
+	 * 
+	 */
+	
+	private ArrayList<Problema> contenedorProblemas;
+	
+	/**
+	 *Contenedor de métodos seleccionados para solucionar esos problemas 
+	 * 
+	 * 
+	 */
+	
+	private ArrayList<Integer> contenedorMetodos;
 	/**
 	 * Indica la dimension del edificio que estamos tratando en el problema.
 	 */
@@ -240,6 +264,8 @@ public class VPrincipal extends javax.swing.JFrame {
     public VPrincipal() {
      	initComponents();
         actualizaComponentes();
+        contenedorProblemas=new ArrayList<Problema>();
+        contenedorMetodos=new ArrayList<Integer>();
         procesoSeguido = new ArrayList<String>();
     }
     
@@ -543,7 +569,96 @@ public class VPrincipal extends javax.swing.JFrame {
     private void jMenuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {
         System.exit(0);
     }
+/**
+ * Método que almacena en los contenedores el contenido del archivo
+ * 
+ * */
+    
+    private void cargaArchivo(){
+    	try{
+			String s=new String(); 
+			char c=(char)fuente.read();
+			while (c!=';'){//mirar que sea un numero    				
+				s+=c;
+				c=(char)fuente.read();
+			}    			    		
+			//pasamos el String a entero
+			dimensionEdi=Integer.parseInt(s);
+			int metodo;
+			int problema;
+			int dato=0;
+			s="";		
+			
+			while (dato!=-1){
+				c='0';
+				while (c!=','){    				
+					s+=c;
+					c=(char)fuente.read();
+				}
+				metodo=Integer.parseInt(s);
+				s="";
+				c='0';
+				while (!((dato==-1)||(c==';'))){    				
+					s+=c;
+					dato=fuente.read();
+					c=(char)dato;
+				}
+				problema=Integer.parseInt(s);
+				s="";
+				contenedorMetodos.add(metodo);
+				insertaProblema(problema);			
+			}																
+		}
+		catch(Exception e){System.out.println("El fichero no tiene un formato correcto");}    								    	
+    }
+    
+    /**
+     * Inserta un problema que hemos pasado por archivo en el contenedor de problemas
+     * */
+    
+    
+    private void insertaProblema(int ele){
+    	
+    	Problema prob=null;
+    	switch (ele){
+    	    	
+		case 0:
+			prob = new Canibales();
+			break;
 
+		case 1:
+			prob = new Jarras();
+			break;
+
+		case 2:
+			prob = new Granjero();
+			break;
+		case 3:
+			prob = new Mono();
+			break;
+		case 4:
+			prob = new Palillos();
+			break;
+		case 5:
+			prob = new Puente();
+			break;
+		case 6:
+			prob = new Puzzle8();
+			break;
+		case 7:
+			prob = new RioYFamilia();
+			break;
+		case 8:
+			prob = new Robot();
+			break;
+		case 9:
+			prob = new RojoAzul();
+			break;
+		default:
+			prob = new Granjero();
+		}    
+    	contenedorProblemas.add(prob);
+    }
     /**
      * Método que pide un archivo e intenta cargar desde él los datos.
      * @param evt Evento asociado.
@@ -562,6 +677,7 @@ public class VPrincipal extends javax.swing.JFrame {
     			fuente=null;
         	try{
     			fuente = new FileReader(ruta);
+    			cargaArchivo();
     			empiezaJugar();
     			}
     		catch (Exception e){
@@ -597,7 +713,8 @@ public class VPrincipal extends javax.swing.JFrame {
     			if ((metodoElegido<0)||(metodoElegido>5))
     				metodoElegido=0;
     			
-    			
+    			//leemos la coma
+    			c=(char)fuente.read();
     			//tenemos el metodo
     			while (c!=','){//mirar que sea un numero    				
     				s+=c;
@@ -691,20 +808,7 @@ public class VPrincipal extends javax.swing.JFrame {
      */
     public void empiezaJugar(){ 
     	jTextArea2.setText("");
-    	if (!manual){
-    	   	
-    		try{
-    			String s=new String(); 
-    			char c=(char)fuente.read();
-    			while (c!=';'){//mirar que sea un numero    				
-    				s+=c;
-    				c=(char)fuente.read();
-    			}    			    		
-    			//pasamos el String a entero
-    			dimensionEdi=Integer.parseInt(s);
-    		}
-    		catch(Exception e){System.out.println("El fichero no tiene un formato correcto");}
-    	}
+
     	if(dimensionEdi>0){
         	comboBusquedas.setVisible(true);
             jButton1.setVisible(true);
@@ -715,11 +819,9 @@ public class VPrincipal extends javax.swing.JFrame {
             jLabel1.setVisible(true);
             jLabel2.setVisible(true);
             jLabel3.setVisible(true);
-            jLabel4.setVisible(true);
-                   
+            jLabel4.setVisible(true);                   
             jScrollPane1.setVisible(true);
-            jScrollPane2.setVisible(true);
-           
+            jScrollPane2.setVisible(true);           
             jTextArea1.setVisible(true);
             jTextArea2.setVisible(true);
            
@@ -732,6 +834,8 @@ public class VPrincipal extends javax.swing.JFrame {
     		jTextField1.setText(edi.muestraTituloSiguienteProblema(direccion));
     	}
     }
+    
+    
     
     /**
      * Actualiza el panel con la solución encontrada.
