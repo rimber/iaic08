@@ -34,7 +34,18 @@ Cliquear en el menú "Menú". Se despliegan tres opciones:
 	En el panel titulado "Dirección" aparece la dirección en la que se
 	encuentra la puerta que se quiere abrir.
 
-    c) "Salir".
+    c) "Guardar"
+	
+	Una vez que se ha completado una partida, este menú se activa por si 
+	el usuario desea guardar todo el proceso seguido para intentar salir 
+	del micromundocubico.
+	Aparece un selector de ficheros donde se puede elegir el nombre del
+	fichero asi como el lugar donde se desea guardar. Por defecto es la
+	carpeta Resultados que se encuentra dentro del proyecto IAIC.
+	La extensión elegida es '.plm' por lo que no es necesario añadirla
+	al nombre del fichero.
+  
+    d) "Salir".
 
 	Sale de la aplicación.
 
