@@ -564,41 +564,33 @@ public class Edificio {
 			habitaciones[c.getx()][c.gety()][c.getz()].setPuerta(p, 5);
 
 			// Bloqueamos puertas laterales. 	
-			if (c.getx() == 0) {
-				
-				
-				p = new Puerta(2,enlace.dameSigProblema(),enlace.dameSigMetodo());//AQUI
-				enlace.SigProblema();
+			if (c.getx() == 0) {											
+				p = new Puerta(2,habitaciones[c.getx()][c.gety()][c.getz()].damePuerta(5).dameProblema(),habitaciones[c.getx()][c.gety()][c.getz()].damePuerta(3).dameEstrategia());
 				habitaciones[c.getx()][c.gety()][c.getz()].setPuerta(p, 3);
 			}
 
-			if (c.getx() == dimension - 1) {
-				p = new Puerta(2,enlace.dameSigProblema(),enlace.dameSigMetodo());//AQUI
-				enlace.SigProblema();
+			if (c.getx() == dimension - 1) {				
+				p = new Puerta(2,habitaciones[c.getx()][c.gety()][c.getz()].damePuerta(5).dameProblema(),habitaciones[c.getx()][c.gety()][c.getz()].damePuerta(1).dameEstrategia());
 				habitaciones[c.getx()][c.gety()][c.getz()].setPuerta(p, 1);
 			}
 
-			if (c.gety() == 0) {
-				p = new Puerta(2,enlace.dameSigProblema(),enlace.dameSigMetodo());//AQUI
-				enlace.SigProblema();
+			if (c.gety() == 0) {				
+				p = new Puerta(2,habitaciones[c.getx()][c.gety()][c.getz()].damePuerta(5).dameProblema(),habitaciones[c.getx()][c.gety()][c.getz()].damePuerta(0).dameEstrategia());
 				habitaciones[c.getx()][c.gety()][c.getz()].setPuerta(p, 0);
 			}
 
-			if (c.gety() == dimension - 1) {
-				p = new Puerta(2,enlace.dameSigProblema(),enlace.dameSigMetodo());//AQUI
-				enlace.SigProblema();
+			if (c.gety() == dimension - 1) {				
+				p = new Puerta(2,habitaciones[c.getx()][c.gety()][c.getz()].damePuerta(5).dameProblema(),habitaciones[c.getx()][c.gety()][c.getz()].damePuerta(2).dameEstrategia());								
 				habitaciones[c.getx()][c.gety()][c.getz()].setPuerta(p, 2);
 			}
 
-			if (c.getz() == 0) {
-				p = new Puerta(2,enlace.dameSigProblema(),enlace.dameSigMetodo());//AQUI
-				enlace.SigProblema();
+			if (c.getz() == 0) {				
+				p = new Puerta(2,habitaciones[c.getx()][c.gety()][c.getz()].damePuerta(5).dameProblema(),habitaciones[c.getx()][c.gety()][c.getz()].damePuerta(4).dameEstrategia());				
 				habitaciones[c.getx()][c.gety()][c.getz()].setPuerta(p, 4);
 			}
 
 			if (c.getz() == dimension - 1) {
-				p = new Puerta(2,enlace.dameSigProblema(),enlace.dameSigMetodo());//AQUI
-				enlace.SigProblema();
+				p = new Puerta(2,habitaciones[c.getx()][c.gety()][c.getz()].damePuerta(5).dameProblema(),habitaciones[c.getx()][c.gety()][c.getz()].damePuerta(5).dameEstrategia());
 				habitaciones[c.getx()][c.gety()][c.getz()].setPuerta(p, 5);
 			}
 		}
@@ -620,7 +612,6 @@ public class Edificio {
 		if ((c.getz() > dimension - 1) || (c.getz() < 0)) {
 			return false;
 		}
-
 		return habitaciones[c.getx()][c.gety()][c.getz()] != null;
 	}
 

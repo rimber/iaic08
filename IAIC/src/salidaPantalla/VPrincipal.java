@@ -601,6 +601,7 @@ public class VPrincipal extends javax.swing.JFrame {
     
     private void cargaArchivo(){
     	try{
+    		numeroProblema=0;
 			String s=new String(); 
 			char c=(char)fuente.read();
 			while (c!=';'){//mirar que sea un numero    				
@@ -724,36 +725,13 @@ public class VPrincipal extends javax.swing.JFrame {
     			metodoElegido=comboBusquedas.getSelectedIndex();    			
     			resuelve();
     		}
-    	}else{
-    		int problema=0;
-    		try{
-    			String s=new String(); 
-    			char c=(char)fuente.read();
-    			while (c!=','){//mirar que sea un numero    				
-    				s+=c;
-    				c=(char)fuente.read();
-    			}    			    		
-    			//pasamos el String a entero
-    			metodoElegido=Integer.parseInt(s);
-    			if ((metodoElegido<0)||(metodoElegido>5))
-    				metodoElegido=0;
-    			
-    			//leemos la coma
-    			c=(char)fuente.read();
-    			//tenemos el metodo
-    			while (c!=','){//mirar que sea un numero    				
-    				s+=c;
-    				c=(char)fuente.read();
-    			}    			    		
-    			//pasamos el String a entero
-    			problema=Integer.parseInt(s);
-    		}
-    		catch(Exception e){
-    			System.out.println("El fichero no tiene un formato correcto");
-    		}
-    		String mensaje = "Problema: "+jTextField1.getText()+"\n";
-			mensaje += "Estrategia: "+ Problema.estrategiaAplicada(metodoElegido);
-    		resuelve(problema);
+    	}else{    		
+    	
+    		//pasamos el String a entero
+    		metodoElegido=contenedorMetodos.get(numeroProblema);
+    		if ((metodoElegido<0)||(metodoElegido>5))
+    			metodoElegido=0;    			    			    			    			    			    		    			    			    	    					
+    		resuelve();
     	}    	           
     }          
     

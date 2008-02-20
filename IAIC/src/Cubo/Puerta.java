@@ -25,10 +25,6 @@ public class Puerta {
 	 */
 	private int estado;
 
-	/**
-	 * Estrategia que se puede usar para resolver el problema en caso de que no se pase una por defecto.
-	 */
-	private int estrategia;
 
 	/**
 	 * Método que se va a usar para abrir la puerta, sólo se usa en caso de cargar de archivo
@@ -115,6 +111,16 @@ public class Puerta {
 		}
 	}
 
+	
+	public Problema dameProblema(){
+		return prob;		
+	}
+	
+	
+	public int dameEstrategia(){
+		
+		return metodo;
+	}
 	/**
 	 * Método que genera la nueva instancia del problema y lo coloca en la puerta.
 	 * @param problema Identificador del problema a elegir.
@@ -218,7 +224,7 @@ public class Puerta {
 
 		if (estado == 0) {
 			// Si está cerrada, trata de resolver.
-			if (prob.resolver(estrategia)) {
+			if (prob.resolver(metodo)) {
 				// Abre la puerta.
 				estado = 1;
 				return true;
