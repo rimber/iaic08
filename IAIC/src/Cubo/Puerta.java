@@ -110,12 +110,18 @@ public class Puerta {
 			prob = new Jarras();
 		}
 	}
-
+	/**
+	 * Método que devuelve el problema asociado a la puerta
+	 * @return Problema asociado a la puerta
+	 * */
 	
 	public Problema dameProblema(){
 		return prob;		
 	}
-	
+	/**
+	 * Método que devuelve la estrategia predefinida para resolver el problema asociado a la puerta, por defecto 0
+	 * @return Método de resolucion asociado a la puerta
+	 * */
 	
 	public int dameEstrategia(){
 		

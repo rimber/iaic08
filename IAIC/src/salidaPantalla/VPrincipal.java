@@ -890,7 +890,7 @@ public class VPrincipal extends javax.swing.JFrame {
 			jTextArea1.setText(edi.muestraDescripcionSiguienteProblema(direccion));
 			jTextField1.setText(edi.muestraTituloSiguienteProblema(direccion));
 			if(!manual){
-				comboBusquedas.setSelectedIndex(numeroProblema);	//AQUI			
+				comboBusquedas.setSelectedIndex(contenedorMetodos.get(numeroProblema));				
 			}
 		}
     }
