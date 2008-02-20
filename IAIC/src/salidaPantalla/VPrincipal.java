@@ -7,7 +7,7 @@ package salidaPantalla;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -554,20 +554,20 @@ public class VPrincipal extends javax.swing.JFrame {
      * @param evt Evento asociado.
      */
     private void jMenuItemGuardarActionPerformed(java.awt.event.ActionEvent evt) {
-    	/*TODO guardar con la extension que toq
-    	 * que os parece .plm?
-    	 * por popi lewis y murillo??
-    	 * ya me direis!!
-    	 * Lo que no me mola sq los saltos de linea el
-    	 * hijo puta no los hace bien en el txt!! 
-    	 */
     	JFileChooser selFichero=new JFileChooser();
-    	selFichero.showSaveDialog(jMenuItemGuardar);
+    	selFichero.setDialogTitle("Escriba un nombre para los resultados");
+		selFichero.setCurrentDirectory(new File("IAIC"));
+    	selFichero.showSaveDialog(jMenuItemGuardar);    	
     	if (selFichero.getSelectedFile()!=null){
-	    	File fichero = new File(selFichero.getSelectedFile().getPath()); 
-	    	FileWriter textOut;
-	    	try { 
-		    	textOut = new FileWriter(fichero);
+    		try { 
+    			String ruta = selFichero.getSelectedFile().getPath();
+    			PrintWriter fichero = null;
+    			if(!ruta.endsWith(".plm")){
+    				fichero= new PrintWriter(ruta+".plm");
+    			}
+    			else{
+    				fichero= new PrintWriter(ruta);
+    			}
 		    	String mensaje = new String();
 		 		for(int i = 0; i<procesoSeguido.size();i++){		 			
 		 			mensaje += procesoSeguido.get(i)+"\n";
@@ -581,8 +581,19 @@ public class VPrincipal extends javax.swing.JFrame {
 		 		else{
 		 			mensaje += "Encerrado!";
 		 		}
-		    	textOut.write(mensaje);
-		    	textOut.close();
+		 		String auxiliar ="";
+		 		char c;
+		 		for (int i = 0;i<mensaje.length();i++){
+		 			c= mensaje.charAt(i);
+		 			if(c =='\n'){
+		 				fichero.println(auxiliar);
+		 				auxiliar ="";
+		 			}
+		 			else{
+		 				auxiliar+=c;
+		 			}
+		 		}
+		 		fichero.close();
 	    	} catch (Exception e) { 
 	    		System.out.println("Problemas al guardar el fichero.");
 	    	}
