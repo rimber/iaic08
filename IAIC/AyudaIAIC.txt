@@ -11,7 +11,7 @@ Cliquear en el menú "Menú". Se despliegan tres opciones:
 	del problema que tiene la puerta por la que se quiere pasar.
 
 	Más abajo, aparece un menú desplegable con la búsqueda asociada en el
-	fichero a ese problema. A continuación pulsar el botón "Continuar".
+	fichero a ese problema. A continuación pulsar el botón "Resolver".
 	En el panel amarillo aparece el enunciado del problema.
 	En el panel aguamarina aparece los resultados que produce aplicar la
 	búsqueda seleccionada al problema dado.
@@ -27,7 +27,7 @@ Cliquear en el menú "Menú". Se despliegan tres opciones:
 	se quiere pasar.
 	Más abajo, aparece un menú desplegable con las búsquedas disponibles y
 	el usuario elige la que quiere usar. A continuación pulsar el botón
-	"Continuar".
+	"Resolver".
 	En el panel amarillo aparece el enunciado del problema.
 	En el panel aguamarina aparece los resultados que produce aplicar
 	la búsqueda seleccionada al problema dado.
