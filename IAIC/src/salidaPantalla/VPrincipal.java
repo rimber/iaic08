@@ -49,9 +49,18 @@ public class VPrincipal extends javax.swing.JFrame {
 	private boolean manual;
 	
 	/**
+	 * Numero del problema que vamos a resolver
+	 * 
+	 * */
+	private int numeroProblema;
+	
+	
+	/**
 	 * Contenedor para los problemas si se está cargando desde archivo
 	 * 
 	 */
+	
+	
 	
 	private ArrayList<Problema> contenedorProblemas;
 	
@@ -285,7 +294,23 @@ public class VPrincipal extends javax.swing.JFrame {
         cas[5]="A*";
         comboBusquedas.setModel(new javax.swing.DefaultComboBoxModel(cas));
     }
-
+    
+    public Problema dameSigProblema(){
+    	
+    	Problema p=contenedorProblemas.get(numeroProblema);
+ 
+    	return p;
+    	
+    }
+    
+    public int dameSigMetodo(){    	
+    	return contenedorMetodos.get(numeroProblema);    	
+    }
+    
+    public void SigProblema(){    	
+    	numeroProblema++;    	
+    }
+    
     /**
      * Método que inicializa todos los componentes que se muestran en el formulario.
      */
@@ -670,7 +695,7 @@ public class VPrincipal extends javax.swing.JFrame {
     	JFileChooser j=new JFileChooser();
      	j.setFileFilter(f);
     	j.setMultiSelectionEnabled(false);    	
-    	j.showOpenDialog(jMenuItemCargar);    	
+    	j.showOpenDialog(jMenuItemCargar);   
     	if (j.getSelectedFile()!=null){    		
     		String ruta=j.getSelectedFile().getPath();
     		//ahora hay que leer del archivo todo lo necesario
@@ -886,6 +911,9 @@ public class VPrincipal extends javax.swing.JFrame {
 			edi.muestraRecorrido();
 			jTextArea1.setText(edi.muestraDescripcionSiguienteProblema(direccion));
 			jTextField1.setText(edi.muestraTituloSiguienteProblema(direccion));
+			if(!manual){
+				comboBusquedas.setSelectedIndex(numeroProblema);	//AQUI			
+			}
 		}
     }
     

@@ -493,7 +493,9 @@ public class Edificio {
 			comprobar = c.izquierda();
 			if (!existe(comprobar)) {
 				// Puerta cerrada.				
-				p = new Puerta(0);			
+				p = new Puerta(0,enlace.dameSigProblema(),enlace.dameSigMetodo());
+				enlace.SigProblema();
+				
 			} 
 			else {
 				p = habitaciones[comprobar.getx()][comprobar.gety()][comprobar
@@ -504,7 +506,8 @@ public class Edificio {
 			comprobar = c.derecha();
 			if (!existe(comprobar)) {
 				// Puerta cerrada.
-				p = new Puerta(0);
+				p = new Puerta(0,enlace.dameSigProblema(),enlace.dameSigMetodo());
+				enlace.SigProblema();
 			} 
 			else {
 				p = habitaciones[comprobar.getx()][comprobar.gety()][comprobar
@@ -515,7 +518,8 @@ public class Edificio {
 			comprobar = c.arriba();
 			if (!existe(comprobar)) {
 				// Puerta cerrada.
-				p = new Puerta(0);
+				p = new Puerta(0,enlace.dameSigProblema(),enlace.dameSigMetodo());
+				enlace.SigProblema();
 			}
 			else {
 				p = habitaciones[comprobar.getx()][comprobar.gety()][comprobar
@@ -526,7 +530,8 @@ public class Edificio {
 			comprobar = c.abajo();
 			if (!existe(comprobar)) {
 				// Puerta cerrada.
-				p = new Puerta(0);
+				p = new Puerta(0,enlace.dameSigProblema(),enlace.dameSigMetodo());
+				enlace.SigProblema();
 			}
 			else {
 				p = habitaciones[comprobar.getx()][comprobar.gety()][comprobar
@@ -537,7 +542,8 @@ public class Edificio {
 			comprobar = c.delante();
 			if (!existe(comprobar)) {
 				// Puerta cerrada.
-				p = new Puerta(0);
+				p = new Puerta(0,enlace.dameSigProblema(),enlace.dameSigMetodo());
+				enlace.SigProblema();
 			}
 			else {
 				p = habitaciones[comprobar.getx()][comprobar.gety()][comprobar
@@ -548,7 +554,8 @@ public class Edificio {
 			comprobar = c.detras();
 			if (!existe(comprobar)) {
 				// Puerta cerrada.
-				p = new Puerta(0);
+				p = new Puerta(0,enlace.dameSigProblema(),enlace.dameSigMetodo());
+				enlace.SigProblema();
 			}
 			else {
 				p = habitaciones[comprobar.getx()][comprobar.gety()][comprobar
@@ -558,32 +565,40 @@ public class Edificio {
 
 			// Bloqueamos puertas laterales. 	
 			if (c.getx() == 0) {
-				p = new Puerta(2);
+				
+				
+				p = new Puerta(2,enlace.dameSigProblema(),enlace.dameSigMetodo());//AQUI
+				enlace.SigProblema();
 				habitaciones[c.getx()][c.gety()][c.getz()].setPuerta(p, 3);
 			}
 
 			if (c.getx() == dimension - 1) {
-				p = new Puerta(2);
+				p = new Puerta(2,enlace.dameSigProblema(),enlace.dameSigMetodo());//AQUI
+				enlace.SigProblema();
 				habitaciones[c.getx()][c.gety()][c.getz()].setPuerta(p, 1);
 			}
 
 			if (c.gety() == 0) {
-				p = new Puerta(2);
+				p = new Puerta(2,enlace.dameSigProblema(),enlace.dameSigMetodo());//AQUI
+				enlace.SigProblema();
 				habitaciones[c.getx()][c.gety()][c.getz()].setPuerta(p, 0);
 			}
 
 			if (c.gety() == dimension - 1) {
-				p = new Puerta(2);
+				p = new Puerta(2,enlace.dameSigProblema(),enlace.dameSigMetodo());//AQUI
+				enlace.SigProblema();
 				habitaciones[c.getx()][c.gety()][c.getz()].setPuerta(p, 2);
 			}
 
 			if (c.getz() == 0) {
-				p = new Puerta(2);
+				p = new Puerta(2,enlace.dameSigProblema(),enlace.dameSigMetodo());//AQUI
+				enlace.SigProblema();
 				habitaciones[c.getx()][c.gety()][c.getz()].setPuerta(p, 4);
 			}
 
 			if (c.getz() == dimension - 1) {
-				p = new Puerta(2);
+				p = new Puerta(2,enlace.dameSigProblema(),enlace.dameSigMetodo());//AQUI
+				enlace.SigProblema();
 				habitaciones[c.getx()][c.gety()][c.getz()].setPuerta(p, 5);
 			}
 		}

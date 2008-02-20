@@ -31,6 +31,14 @@ public class Puerta {
 	private int estrategia;
 
 	/**
+	 * Método que se va a usar para abrir la puerta, sólo se usa en caso de cargar de archivo
+	 * 
+	 * */
+	
+	private int metodo;
+	
+	
+	/**
 	 * Constructor principal de Puerta.
 	 */
 	public Puerta() {
@@ -41,10 +49,12 @@ public class Puerta {
 	 * Constructor por parámetros de Puerta.
 	 * @param e Estado en que comienza la puerta.
 	 * @param p Problema asociado a la puerta.
+	 * @param m Método con el que se va a abrir la puerta
 	 */
-	public Puerta(int e, Problema p) {
+	public Puerta(int e, Problema p,int m) {
 		estado = e;
 		prob = p;
+		metodo=m;
 	}
 
 	/**
@@ -223,7 +233,8 @@ public class Puerta {
 
 	/**
 	 * Método que intenta resolver el problema asociado a la puerta y abrirla.
-	 * @param est Estrategia con la que se quiere resolver el problema asociado.
+	 * @param est Estrategia con la que se quiere resolver el problema asociado, si el problema
+	 * ya tenia asociada una estrategia, se abrirá con la que el problema tenia asignado, no la que se ha pasado
 	 * @return Si se ha conseguido resolver el problema y abrir la puerta.
 	 */
 	public boolean abre(int est) { //mirar cuando se llama a esto
@@ -240,7 +251,17 @@ public class Puerta {
 
 		if (estado == 0) {
 			// Si está cerrada, trata de resolver.
+			if (metodo==0)
 			if (prob.resolver(est)) {
+				// Abre la puerta.
+				estado = 1;
+				return true;
+			} else {
+				// Bloquea la puerta.
+				estado = 2;
+				return false;
+			}
+			else if (prob.resolver(metodo)) {
 				// Abre la puerta.
 				estado = 1;
 				return true;
