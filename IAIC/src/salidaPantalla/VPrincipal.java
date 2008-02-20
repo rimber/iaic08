@@ -49,28 +49,20 @@ public class VPrincipal extends javax.swing.JFrame {
 	private boolean manual;
 	
 	/**
-	 * Numero del problema que vamos a resolver
-	 * 
-	 * */
+	 * Numero del problema que vamos a resolver.
+     */
 	private int numeroProblema;
 	
-	
 	/**
-	 * Contenedor para los problemas si se está cargando desde archivo
-	 * 
+	 * Contenedor para los problemas si se está cargando desde archivo.
 	 */
-	
-	
-	
 	private ArrayList<Problema> contenedorProblemas;
 	
 	/**
-	 *Contenedor de métodos seleccionados para solucionar esos problemas 
-	 * 
-	 * 
+	 * Contenedor de métodos seleccionados para solucionar esos problemas. 
 	 */
-	
 	private ArrayList<Integer> contenedorMetodos;
+	
 	/**
 	 * Indica la dimension del edificio que estamos tratando en el problema.
 	 */
@@ -295,6 +287,10 @@ public class VPrincipal extends javax.swing.JFrame {
         comboBusquedas.setModel(new javax.swing.DefaultComboBoxModel(cas));
     }
     
+    /**
+     * Método que devuelve el siguiente problema a ejecutar.
+     * @return Siguiente problema a ejecutar.
+     */
     public Problema dameSigProblema(){
     	
     	Problema p=contenedorProblemas.get(numeroProblema);
@@ -303,10 +299,17 @@ public class VPrincipal extends javax.swing.JFrame {
     	
     }
     
+    /**
+     * Método que devuelve el número del siguiente método a usar.
+     * @return Número del siguiente método a usar.
+     */
     public int dameSigMetodo(){    	
     	return contenedorMetodos.get(numeroProblema);    	
     }
     
+    /**
+     * Método que actualiza el número que controla el siguiente problema.
+     */
     public void SigProblema(){    	
     	numeroProblema++;    	
     }
@@ -639,10 +642,9 @@ public class VPrincipal extends javax.swing.JFrame {
     }
     
     /**
-     * Inserta un problema que hemos pasado por archivo en el contenedor de problemas
-     * */
-    
-    
+     * Inserta un problema que hemos pasado por archivo en el contenedor de problemas.
+     * @param ele Número de problema a insertar.
+     */
     private void insertaProblema(int ele){
     	
     	Problema prob=null;
@@ -837,8 +839,6 @@ public class VPrincipal extends javax.swing.JFrame {
     		jTextField1.setText(edi.muestraTituloSiguienteProblema(direccion));
     	}
     }
-    
-    
     
     /**
      * Actualiza el panel con la solución encontrada.
