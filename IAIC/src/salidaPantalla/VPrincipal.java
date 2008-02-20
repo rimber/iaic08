@@ -707,6 +707,7 @@ public class VPrincipal extends javax.swing.JFrame {
     	comboBusquedas.setEnabled(false);
     	Filtro f=new Filtro();
     	JFileChooser j=new JFileChooser();
+    	j.setCurrentDirectory(new File("pruebas"+File.separator));
      	j.setFileFilter(f);
     	j.setMultiSelectionEnabled(false);    	
     	j.showOpenDialog(jMenuItemCargar);   
