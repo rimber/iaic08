@@ -556,7 +556,7 @@ public class VPrincipal extends javax.swing.JFrame {
     private void jMenuItemGuardarActionPerformed(java.awt.event.ActionEvent evt) {
     	JFileChooser selFichero=new JFileChooser();
     	selFichero.setDialogTitle("Escriba un nombre para los resultados");
-		selFichero.setCurrentDirectory(new File("IAIC"));
+		selFichero.setCurrentDirectory(new File("Resultados"+File.separator));
     	selFichero.showSaveDialog(jMenuItemGuardar);    	
     	if (selFichero.getSelectedFile()!=null){
     		try { 
