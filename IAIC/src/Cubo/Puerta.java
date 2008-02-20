@@ -27,10 +27,8 @@ public class Puerta {
 
 
 	/**
-	 * Método que se va a usar para abrir la puerta, sólo se usa en caso de cargar de archivo
-	 * 
-	 * */
-	
+	 * Método que se va a usar para abrir la puerta, sólo se usa en caso de cargar de archivo.
+	 */
 	private int metodo;
 	
 	
@@ -45,7 +43,7 @@ public class Puerta {
 	 * Constructor por parámetros de Puerta.
 	 * @param e Estado en que comienza la puerta.
 	 * @param p Problema asociado a la puerta.
-	 * @param m Método con el que se va a abrir la puerta
+	 * @param m Método con el que se va a abrir la puerta.
 	 */
 	public Puerta(int e, Problema p,int m) {
 		estado = e;
@@ -113,20 +111,20 @@ public class Puerta {
 	/**
 	 * Método que devuelve el problema asociado a la puerta
 	 * @return Problema asociado a la puerta
-	 * */
-	
+	 */
 	public Problema dameProblema(){
 		return prob;		
 	}
-	/**
-	 * Método que devuelve la estrategia predefinida para resolver el problema asociado a la puerta, por defecto 0
-	 * @return Método de resolucion asociado a la puerta
-	 * */
 	
+	/**
+	 * Método que devuelve la estrategia predefinida para resolver el problema asociado a la puerta, por defecto 0.
+	 * @return Método de resolucion asociado a la puerta.
+	 */
 	public int dameEstrategia(){
 		
 		return metodo;
 	}
+	
 	/**
 	 * Método que genera la nueva instancia del problema y lo coloca en la puerta.
 	 * @param problema Identificador del problema a elegir.
@@ -179,7 +177,7 @@ public class Puerta {
 	/**
 	 * Método accesor a la posible solución encontrada para la instancia concreta del problema asociado a la puerta.
 	 * @return Descripción de la solución al problema asociado a la puerta.
-	 * */
+	 */
 	public ArrayList<String> dameSolucion() {
 		return prob.getCamino();
 	}
@@ -249,7 +247,7 @@ public class Puerta {
 	 * ya tenia asociada una estrategia, se abrirá con la que el problema tenia asignado, no la que se ha pasado
 	 * @return Si se ha conseguido resolver el problema y abrir la puerta.
 	 */
-	public boolean abre(int est) { //mirar cuando se llama a esto
+	public boolean abre(int est) {
 
 		if (estado == 2) {
 			// Si está bloqueada no se puede abrir.
