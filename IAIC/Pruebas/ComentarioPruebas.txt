@@ -7,7 +7,7 @@ Se plantea un edificio de tamaño 4, con problemas asociados del Granjero resuelt
 
 Prueba A*
 
-Se introducen diferentes problemas, todos ellos para resolver mediatne el método A*
+Se introducen diferentes problemas, todos ellos para resolver mediante el método A*
 
 
 Prueba 1, prueba2
