@@ -11,7 +11,7 @@ Primero se deberá poner la dimensión del edificio (al ser un cubo, es necesario 
 
 Dadas las dimensiones del edificio, se ha calculado que el número de puertas (cada tupla se asocia a una puerta) del edificio se puede calcular mediante la fórmula:
 
-
+			F(n)=n**2 * (n-1) + 2(n-1) + F(n-1)
 
 Donde n representa la dimensión del edificio. 
 En caso de no introducir suficientes datos no se garantiza que el programa acabe su ejecución debido a falta de datos para poder generar todas las puertas del edificio.
