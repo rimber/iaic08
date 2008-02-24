@@ -3,7 +3,7 @@
  */
 package Cubo;
 
-/**
+/** 
  * Clase que implementa coordenadas en 3 dimensiones (x,y,z).
  */
 public class Coord3d {
