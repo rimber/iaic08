@@ -65,8 +65,7 @@ public class VentanaInfo extends javax.swing.JFrame {
      * Método que cambia el tamaño del objeto VentanaInfo
      * a un tamaño predefinido.
      */
-    public void cambiaTamanio(){
-    	
+    public void cambiaTamanio(){    	
     	this.setBounds(100, 100, 600, 400);
     	jScrollPane1.setBounds(2, 2, 590, 300);
     	jButton1.setBounds(250, 330, 80, 20);

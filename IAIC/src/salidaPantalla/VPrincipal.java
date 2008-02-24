@@ -401,7 +401,7 @@ public class VPrincipal extends javax.swing.JFrame {
         jDesktopPane4.add(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         etiquetaImagenPuerta.setBounds(30, 130, 100, 200);
-        ImageIcon puerta=new ImageIcon("Fuentes"+File.separator+"door.JPG");
+        ImageIcon puerta=new ImageIcon("Recursos"+File.separator+"door.JPG");
         etiquetaImagenPuerta.setIcon(puerta);
         jDesktopPane4.add(etiquetaImagenPuerta, javax.swing.JLayeredPane.DEFAULT_LAYER);
         
@@ -782,31 +782,31 @@ public class VPrincipal extends javax.swing.JFrame {
     	switch (direccion){
     	
     	case 0:
-    		flecha=new ImageIcon("Fuentes"+File.separator+"flechaAbajo.png");
+    		flecha=new ImageIcon("Recursos"+File.separator+"flechaAbajo.png");
     		mensaje = "Abriendo puerta inferior";
     	    break;
     	case 1:
-    		flecha=new ImageIcon("Fuentes"+File.separator+"flechaDerecha.png");
+    		flecha=new ImageIcon("Recursos"+File.separator+"flechaDerecha.png");
     		mensaje = "Abriendo puerta derecha";
 		    break;
     	case 2:
-    		flecha=new ImageIcon("Fuentes"+File.separator+"flechaArriba.png");
+    		flecha=new ImageIcon("Recursos"+File.separator+"flechaArriba.png");
     		mensaje = "Abriendo puerta superior";
 		    break;
     	case 3:
-    		flecha=new ImageIcon("Fuentes"+File.separator+"flechaIzquierda.png");
+    		flecha=new ImageIcon("Recursos"+File.separator+"flechaIzquierda.png");
     		mensaje = "Abriendo puerta izquierda";
     		break;
     	case 4:
-    		flecha=new ImageIcon("Fuentes"+File.separator+"flechaDelante.png");
+    		flecha=new ImageIcon("Recursos"+File.separator+"flechaDelante.png");
     		mensaje = "Abriendo puerta frontal";
     		break;
     	case 5:
-    		flecha=new ImageIcon("Fuentes"+File.separator+"flechaDetras.png");
+    		flecha=new ImageIcon("Recursos"+File.separator+"flechaDetras.png");
     		mensaje = "Abriendo puerta trasera";
     		break;    	
     	default:
-    		flecha=new ImageIcon("Fuentes"+File.separator+"flechaAbajo.png");	  		    	        	
+    		flecha=new ImageIcon("Recursos"+File.separator+"flechaAbajo.png");	  		    	        	
     	}    	
     	
     	etiquetaImagenFlecha.setIcon(flecha);
@@ -974,7 +974,7 @@ public class VPrincipal extends javax.swing.JFrame {
     private void jMenuItemAyudaActionPerformed(java.awt.event.ActionEvent evt) {
   		String mensaje="";
 		try{
-            BufferedReader flujo = new BufferedReader(new FileReader("Fuentes"+File.separator+"AyudaIAIC.txt"));
+            BufferedReader flujo = new BufferedReader(new FileReader("Recursos"+File.separator+"AyudaIAIC.txt"));
             String frase = flujo.readLine();
 			while(frase != null){
                 mensaje = mensaje + frase + "\n";
@@ -989,7 +989,7 @@ public class VPrincipal extends javax.swing.JFrame {
 		  }
 		catch(Exception e){
 			mensaje = "Coloque el fichero de ayuda llamado <<AyudaIAIC.txt>>\n"+
-					  "En el directorio del proyecto IAIC --> Fuentes.";	
+					  "En el directorio del proyecto IAIC --> Recursos.";	
 			VentanaInfo ventana = new VentanaInfo(this,mensaje);
     		ventana.setTitle("Error");
     		ventana.setVisible(true);

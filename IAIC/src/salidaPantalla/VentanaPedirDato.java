@@ -10,7 +10,7 @@ package salidaPantalla;
 public class VentanaPedirDato extends javax.swing.JFrame {
 
     /**
-	 * Indica la version de GUI.
+	 * Indica la version del JFrame.
 	 */
 	private static final long serialVersionUID = 1L;
 	
