@@ -305,6 +305,11 @@ public class Mono extends Problema{
 
 	 	return successorVec.elements();
 	}
+	
+	/**
+	 * Devuele el título del problema.
+	 * @return El nombre del problema.
+	 */
 	public String dameTitulo(){
 		return "Mono";
 		

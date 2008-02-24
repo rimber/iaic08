@@ -227,6 +227,10 @@ public class Granjero extends Problema{
 	 	 return successor.elements();
 	}
    
+	/**
+	 * Devuele el título del problema.
+	 * @return El nombre del problema.
+	 */
 	public String dameTitulo(){
 		return "Granjero";		
 	}

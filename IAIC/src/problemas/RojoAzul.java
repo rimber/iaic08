@@ -407,6 +407,10 @@ public class RojoAzul extends Problema {
 		tablero[2][2] = azul;
     }
     
+	/**
+	 * Devuele el título del problema.
+	 * @return El nombre del problema.
+	 */
 	public String dameTitulo(){
 		return "RojoAzul";
 		

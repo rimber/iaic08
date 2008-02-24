@@ -399,6 +399,10 @@ public class Puzzle8 extends Problema{
 		coorY = 1;
     }
 
+	/**
+	 * Devuele el título del problema.
+	 * @return El nombre del problema.
+	 */
 	public String dameTitulo(){
 		return "Puzzle 8";
 		

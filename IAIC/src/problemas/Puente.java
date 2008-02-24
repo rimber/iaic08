@@ -78,8 +78,7 @@ public class Puente extends Problema {
 	 * @param c Posición de Carlos.
 	 * @param d Posición de David.
 	 * @param tiempoDisponible cuanto tiempo queda.
-	 */
-	
+	 */	
 	public Puente(int l,int a,int b,int c,int d,int tiempoDisponible){
 		enunciado = " Cuatro amigos deben cruzar un frágil puente de madera.\n"+
 					" Es de noche y es indispensable usar una linterna para\n"+
@@ -376,6 +375,10 @@ public class Puente extends Problema {
 	 	return successor.elements();
 	}
 	
+	/**
+	 * Devuele el título del problema.
+	 * @return El nombre del problema.
+	 */
 	public String dameTitulo(){
 		return "Puente";
 		

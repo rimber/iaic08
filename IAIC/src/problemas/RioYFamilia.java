@@ -560,7 +560,6 @@ public class RioYFamilia extends Problema {
 		int i = 1;
 		boolean resuelto= false;
 		while((i<=maxNivel)&&(!resuelto)){
-			System.out.println("Profundidad iterativa, nivel = "+i+"\n");
 			resuelto=listPath((new DepthBoundedSearch(this,i)).search());
 			i++;
 		}
@@ -569,6 +568,11 @@ public class RioYFamilia extends Problema {
 		}
 		return resuelto;
 	}
+	
+	/**
+	 * Devuele el título del problema.
+	 * @return El nombre del problema.
+	 */
 	public String dameTitulo(){
 		return "Rio y Familia";
 		

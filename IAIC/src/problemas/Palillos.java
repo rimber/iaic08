@@ -41,6 +41,7 @@ public class Palillos extends Problema {
 		repEstado = "Quedan "+ palillos +" palillos en el nivel "+nivel+".";
 		nombreOperador = "";
 	}
+	
 	/**
 	 * Constructora con parámetros del estado de los palillos correspondiente
 	 * @param p numero de palillos que hay en el juego
@@ -62,6 +63,7 @@ public class Palillos extends Problema {
 		repEstado = "Quedan "+ palillos + auxiliar+" en el nivel "+nivel+".";
 		nombreOperador = "";
 	}
+	
 	/**
 	 * heuristica del juego
 	 * @return la heuristica diseñada para este juego
@@ -71,6 +73,7 @@ public class Palillos extends Problema {
 	     return (6-palillos);
 	            
 	  }
+	
 	/**
 	 * Dice si un número de nivel es par
 	 * @param nivel número a evaluar 
@@ -80,7 +83,7 @@ public class Palillos extends Problema {
 		int mul=nivel;
 		return ((mul%2)==0);
 	}
-	//hacer éste metodo con modulo 2 yo creo q es =
+	
 	/**
 	 * indica si un estado es solucion del problema o no
 	 * @return true si ha llegado a solucion o false en caso contrario
@@ -90,6 +93,7 @@ public class Palillos extends Problema {
 	      return  ((palillos==1)&&(multiploDos(nivel)));
 	      
 	   }
+	
 	/**
 	 * dice si un estado es valido
 	 * @return true si es valido false en caso contrario
@@ -97,6 +101,7 @@ public class Palillos extends Problema {
 	protected boolean isValid(){
 		return (nodosExpandidos < maxNodos);
 	}
+	
 	/**
 	 * Genera todos los posibles estados sucesores del estado actual.
 	 * @return Conjunto de estados sucesores.	 
@@ -143,6 +148,10 @@ public class Palillos extends Problema {
 		return successor.elements();
 	}
 	
+	/**
+	 * Devuele el título del problema.
+	 * @return El nombre del problema.
+	 */
 	public String dameTitulo(){
 		return "Palillos";
 		
