@@ -1,0 +1,85 @@
+
+=====================
+ FICHEROS DE PRUEBA
+=====================
+
+INTRODUCCIÓN
+
+  Los archivos de prueba son archivos de texto, con la extensión .trk, admitiendo también .txt
+
+ESTRUCTURA
+
+  Su estructura consta se basa en una línea de caracteres donde la información debe seguir el 
+siguiente orden:
+
+  Primero se deberá poner la dimensión del edificio (al ser un cubo, es necesario que sea un 
+número natural), luego un punto y coma (;), y luego una lista de tuplas de 2 elementos separados
+por una coma (,). Cada una de estas tuplas, deberá contener 2 números naturales, indicando el
+número de Método, y el número de Problema (véanse tablas con las referencias a continuación).
+Si se ponen valores que no estén en las tablas, se utilizará un valor por defecto. Las tuplas,
+están separadas entre sí mediante puntos y coma (;). 
+
+  Dadas las dimensiones del edificio, se ha calculado que el número de puertas (cada tupla se 
+asocia a una puerta) del edificio se puede calcular mediante la fórmula:
+
+			F(n)=n**2 * (n-1) + 2(n-1) + F(n-1)
+
+- n representa la dimensión del edificio. 
+
+  En caso de no introducir suficientes datos no se garantiza que el programa acabe su ejecución
+debido a falta de datos para poder generar todas las puertas del edificio.
+
+  De ésta manera, el programa irá cogiendo datos de las puertas que necesite ir creando. Se crean
+las puertas de una habitación cada vez que se entra en ella (mirando que las puertas no coincidan
+con las de otras habitaciones). De manera que las 6 primeras puertas se construiran con la
+primera habitación. Es importante remarcar que el orden que se da en el archivo, no es el orden
+de las puertas que vamos a atravesar, son los datos que se necesitan para el problema.
+
+a) Códigos para referenciar métodos.
+
+Número	Método
+
+0	Primero en Profundidad
+1	Primero en anchura
+2	Coste uniforme
+3	Profundidad Iterativa
+4	Escalada
+5	A*
+
+b) Códigos para referenciar problemas.
+
+Número 		Problema
+
+0		Caníbales
+1		Jarras
+2		Granjero
+3		Mono
+4		Palillos
+5		Puente
+6		Puzzle8
+7		Rio y Familia
+8		Robot
+9		RojoAzul
+defecto		Granjero
+
+
+PRUEBAS INCLUIDAS
+
+ Se adjuntan, una seríe de pruebas básicas para probar el correcto funcionamiento de la 
+aplicación:
+
+a) pruebaGranjero:
+
+ Se plantea un edificio de tamaño 4, con problemas asociados del Granjero resuelto con
+diferentes métodos de resolución
+
+
+b) pruebaA
+
+ Se introducen diferentes problemas, todos ellos para resolver mediante el método A*.
+
+
+c) prueba 1, prueba2
+
+ Pruebas aleatorias con resultados varios para que se pueda apreciar la variedad de problemas
+ y métodos que tiene la práctica.
