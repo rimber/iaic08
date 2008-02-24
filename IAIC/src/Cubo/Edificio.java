@@ -1,7 +1,7 @@
 /**
  * Contiene el conjunto de clases que implementan el micromundo del edificio cúbico.
  */
-package Cubo;
+package Cubo; 
 
 import java.util.*;
 import salidaPantalla.VPrincipal;
