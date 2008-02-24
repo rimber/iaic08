@@ -291,12 +291,9 @@ public class VPrincipal extends javax.swing.JFrame {
      * Método que devuelve el siguiente problema a ejecutar.
      * @return Siguiente problema a ejecutar.
      */
-    public Problema dameSigProblema(){
-    	
-    	Problema p=contenedorProblemas.get(numeroProblema);
- 
-    	return p;
-    	
+    public Problema dameSigProblema(){    	
+    	Problema p=contenedorProblemas.get(numeroProblema); 
+    	return p;    	
     }
     
     /**
@@ -404,7 +401,7 @@ public class VPrincipal extends javax.swing.JFrame {
         jDesktopPane4.add(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         etiquetaImagenPuerta.setBounds(30, 130, 100, 200);
-        ImageIcon puerta=new ImageIcon("door.JPG");
+        ImageIcon puerta=new ImageIcon("Fuentes"+File.separator+"door.JPG");
         etiquetaImagenPuerta.setIcon(puerta);
         jDesktopPane4.add(etiquetaImagenPuerta, javax.swing.JLayeredPane.DEFAULT_LAYER);
         
@@ -595,7 +592,10 @@ public class VPrincipal extends javax.swing.JFrame {
 		 		}
 		 		fichero.close();
 	    	} catch (Exception e) { 
-	    		System.out.println("Problemas al guardar el fichero.");
+	    		String mensaje = "Problemas al guardar el fichero.";
+				VentanaInfo ventana = new VentanaInfo(this,mensaje);
+				ventana.setTitle("Error");
+				ventana.setVisible(true);    
 	    	}
     	}
 		jMenuItemGuardar.setEnabled(false);
@@ -649,7 +649,12 @@ public class VPrincipal extends javax.swing.JFrame {
 				insertaProblema(problema);			
 			}																
 		}
-		catch(Exception e){System.out.println("El fichero no tiene un formato correcto");}    								    	
+		catch(Exception e){
+			String mensaje = "El fichero no tiene un formato correcto.";
+			VentanaInfo ventana = new VentanaInfo(this,mensaje);
+			ventana.setTitle("Error");
+			ventana.setVisible(true);    
+		}
     }
     
     /**
@@ -660,41 +665,48 @@ public class VPrincipal extends javax.swing.JFrame {
     	
     	Problema prob=null;
     	switch (ele){
-    	    	
-		case 0:
-			prob = new Canibales();
-			break;
-
-		case 1:
-			prob = new Jarras();
-			break;
-
-		case 2:
-			prob = new Granjero();
-			break;
-		case 3:
-			prob = new Mono();
-			break;
-		case 4:
-			prob = new Palillos();
-			break;
-		case 5:
-			prob = new Puente();
-			break;
-		case 6:
-			prob = new Puzzle8();
-			break;
-		case 7:
-			prob = new RioYFamilia();
-			break;
-		case 8:
-			prob = new Robot();
-			break;
-		case 9:
-			prob = new RojoAzul();
-			break;
-		default:
-			prob = new Granjero();
+	    	    	
+			case 0:
+				prob = new Canibales();
+				break;
+	
+			case 1:
+				prob = new Jarras();
+				break;
+	
+			case 2:
+				prob = new Granjero();
+				break;
+				
+			case 3:
+				prob = new Mono();
+				break;
+				
+			case 4:
+				prob = new Palillos();
+				break;
+				
+			case 5:
+				prob = new Puente();
+				break;
+				
+			case 6:
+				prob = new Puzzle8();
+				break;
+				
+			case 7:
+				prob = new RioYFamilia();
+				break;
+			case 8:
+				prob = new Robot();
+				break;
+				
+			case 9:
+				prob = new RojoAzul();
+				break;
+				
+			default:
+				prob = new Granjero();
 		}    
     	contenedorProblemas.add(prob);
     }
@@ -721,7 +733,11 @@ public class VPrincipal extends javax.swing.JFrame {
     			empiezaJugar();
     			}
     		catch (Exception e){
-    			System.out.println("Problemas con el fichero.");
+    			String mensaje = "Problemas con el fichero de pruebas."+
+    							 "Asegurese de que es un fichero correcto.";    						
+				VentanaInfo ventana = new VentanaInfo(this,mensaje);
+				ventana.setTitle("Error");
+				ventana.setVisible(true);
     		}    	    		    		
     	}  	
     }
@@ -766,31 +782,31 @@ public class VPrincipal extends javax.swing.JFrame {
     	switch (direccion){
     	
     	case 0:
-    		flecha=new ImageIcon("flechaAbajo.png");
+    		flecha=new ImageIcon("Fuentes"+File.separator+"flechaAbajo.png");
     		mensaje = "Abriendo puerta inferior";
     	    break;
     	case 1:
-    		flecha=new ImageIcon("flechaDerecha.png");
+    		flecha=new ImageIcon("Fuentes"+File.separator+"flechaDerecha.png");
     		mensaje = "Abriendo puerta derecha";
 		    break;
     	case 2:
-    		flecha=new ImageIcon("flechaArriba.png");
+    		flecha=new ImageIcon("Fuentes"+File.separator+"flechaArriba.png");
     		mensaje = "Abriendo puerta superior";
 		    break;
     	case 3:
-    		flecha=new ImageIcon("flechaIzquierda.png");
+    		flecha=new ImageIcon("Fuentes"+File.separator+"flechaIzquierda.png");
     		mensaje = "Abriendo puerta izquierda";
     		break;
     	case 4:
-    		flecha=new ImageIcon("flechaDelante.png");
+    		flecha=new ImageIcon("Fuentes"+File.separator+"flechaDelante.png");
     		mensaje = "Abriendo puerta frontal";
     		break;
     	case 5:
-    		flecha=new ImageIcon("flechaDetras.png");
+    		flecha=new ImageIcon("Fuentes"+File.separator+"flechaDetras.png");
     		mensaje = "Abriendo puerta trasera";
     		break;    	
     	default:
-    		flecha=new ImageIcon("flechaAbajo.png");	  		    	        	
+    		flecha=new ImageIcon("Fuentes"+File.separator+"flechaAbajo.png");	  		    	        	
     	}    	
     	
     	etiquetaImagenFlecha.setIcon(flecha);
@@ -958,7 +974,7 @@ public class VPrincipal extends javax.swing.JFrame {
     private void jMenuItemAyudaActionPerformed(java.awt.event.ActionEvent evt) {
   		String mensaje="";
 		try{
-            BufferedReader flujo = new BufferedReader(new FileReader("AyudaIAIC.txt"));
+            BufferedReader flujo = new BufferedReader(new FileReader("Fuentes"+File.separator+"AyudaIAIC.txt"));
             String frase = flujo.readLine();
 			while(frase != null){
                 mensaje = mensaje + frase + "\n";
@@ -972,7 +988,11 @@ public class VPrincipal extends javax.swing.JFrame {
     		
 		  }
 		catch(Exception e){
-			System.out.println("SIN AYUDA");
+			mensaje = "Coloque el fichero de ayuda llamado <<AyudaIAIC.txt>>\n"+
+					  "En el directorio del proyecto IAIC --> Fuentes.";	
+			VentanaInfo ventana = new VentanaInfo(this,mensaje);
+    		ventana.setTitle("Error");
+    		ventana.setVisible(true);
         }
     }
 
