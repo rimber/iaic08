@@ -1,12 +1,17 @@
+/**
+ * 
+ */
 package IO;
 
 /**
  *
- * @author usuario_local
+ * @author
  */
 public class Cargador {
     
-    /** Creates a new instance of Cargador */
+    /**
+     * 
+     */
     public Cargador() {
     }
     
